@@ -67,7 +67,7 @@ compile &amp;apos;com.android.support:support-v4:22.2.1&amp;apos;
 在list_item布局文件中的根标签设置minheight">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RecyclerView笔记">
-<meta property="og:url" content="OrcishDev.github.io/2016/01/10/RecyclerView/index.html">
+<meta property="og:url" content="OrcishDev.github.io/2016/03/10/RecyclerView/index.html">
 <meta property="og:site_name" content="OrcishDev">
 <meta property="og:description" content="Gradle
 compile &amp;apos;com.android.support:recyclerview-v7:22.2.1&amp;apos;
@@ -77,7 +77,7 @@ compile &amp;apos;com.android.support:support-v4:22.2.1&amp;apos;
 
 设置Item的高度
 在list_item布局文件中的根标签设置minheight">
-<meta property="og:updated_time" content="2016-03-30T01:42:38.409Z">
+<meta property="og:updated_time" content="2016-03-30T03:01:25.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView笔记">
 <meta name="twitter:description" content="Gradle
@@ -247,8 +247,8 @@ compile &amp;apos;com.android.support:support-v4:22.2.1&amp;apos;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-10T10:55:11+08:00" content="2016-01-10">
-              2016-01-10
+            <time itemprop="dateCreated" datetime="2016-03-10T10:55:11+08:00" content="2016-03-10">
+              2016-03-10
             </time>
           </span>
 
@@ -258,8 +258,8 @@ compile &amp;apos;com.android.support:support-v4:22.2.1&amp;apos;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/10/RecyclerView/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/10/RecyclerView/" itemprop="commentsCount"></span>
+                <a href="/2016/03/10/RecyclerView/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/RecyclerView/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,10 +307,10 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 <h3 id="如何为RecyclerView添加点击事件"><a href="#如何为RecyclerView添加点击事件" class="headerlink" title="如何为RecyclerView添加点击事件"></a>如何为RecyclerView添加点击事件</h3><ul>
 <li><p>Adapter里定义接口</p>
 <pre><code>public interface OnItemClickListener{
-    void onItemClickListener(View view, int position);
+    void onItemClickListener(View view, String data);
 }
 </code></pre></li>
-<li><p>创建接口对象</p>
+<li><p>创建接口引用</p>
 <pre><code>private OnItemClickListener listener;
 </code></pre></li>
 <li><p>定义注册接口的方法</p>
@@ -319,6 +319,7 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 }
 </code></pre></li>
 </ul>
+<h3 id="利用RecyclerView实现图片上传"><a href="#利用RecyclerView实现图片上传" class="headerlink" title="利用RecyclerView实现图片上传"></a>利用RecyclerView实现图片上传</h3><p><a href="/2016/01/29/ImageUpload/">ImageUpload</a></p>
 
       
     </div>
@@ -342,16 +343,16 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/01/Animation/" rel="next" title="Animation总结">
-                <i class="fa fa-chevron-left"></i> Animation总结
+              <a href="/2016/02/02/Gradle/" rel="next" title="Gradle的学习">
+                <i class="fa fa-chevron-left"></i> Gradle的学习
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/13/LayoutInflater/" rel="prev" title="LayoutInflater的理解">
-                LayoutInflater的理解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/25/Markdown/" rel="prev" title="Markdown">
+                Markdown <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -378,8 +379,8 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/10/RecyclerView/"
-           data-title="RecyclerView笔记" data-url="OrcishDev.github.io/2016/01/10/RecyclerView/">
+      <div class="ds-thread" data-thread-key="2016/03/10/RecyclerView/"
+           data-title="RecyclerView笔记" data-url="OrcishDev.github.io/2016/03/10/RecyclerView/">
       </div>
     
   </div>
@@ -468,7 +469,7 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RecycleView"><span class="nav-number">1.</span> <span class="nav-text">RecycleView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何为RecyclerView添加点击事件"><span class="nav-number">2.</span> <span class="nav-text">如何为RecyclerView添加点击事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RecycleView"><span class="nav-number">1.</span> <span class="nav-text">RecycleView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何为RecyclerView添加点击事件"><span class="nav-number">2.</span> <span class="nav-text">如何为RecyclerView添加点击事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用RecyclerView实现图片上传"><span class="nav-number">3.</span> <span class="nav-text">利用RecyclerView实现图片上传</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

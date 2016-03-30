@@ -216,6 +216,108 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/23/Framework/" itemprop="url">
+                  常用的技术框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-23T15:59:10+08:00" content="2015-11-23">
+              2015-11-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/23/Framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/23/Framework/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>网站</li>
+</ul>
+<p><a href="http://www.tuicool.com/articles/jyA3MrU">tuicool</a>  </p>
+<p><a href="http://www.see-source.com/androidwidget/list.html?type=24">看源社区</a></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/23/Framework/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/19/Android-Broadcast/" itemprop="url">
                   四大组件之Broadcast
                 </a>
@@ -409,22 +511,25 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 <li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
 <li><p>回调函数分成3部分</p>
 <ul>
-<li>回调接口 —— 提供数据的人编写</li>
-<li><p>提供数据的人  </p>
+<li><p>回调接口 —— 数据提供者编写</p>
+</li>
+<li><p>数据提供者</p>
 <ul>
-<li>预留接口给他人实现(定义接口、创建接口引用)</li>
-<li>提供注册接口的方法(注册接口)</li>
-<li>在给数据的地方调用接口的方法(通过接口引用调用方法)</li>
+<li>预留接口给他人实现(定义接口) OnItemListener</li>
+<li>创建接口引用 onItemListener listener</li>
+<li>提供注册接口的方法(注册接口) setonlistener</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法) listener.giveMsg();</li>
+</ul>
+</li>
+<li><p>数据获取者</p>
+<ul>
+<li>（实现回调接口） implements Callback</li>
+<li>注册回调函数</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code>* 获取返回数据的人
-
-    - （实现回调接口） implements Callback
-    -  注册回调函数
-</code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/18/JAVASE/#more" rel="contents">
               阅读全文 &raquo;
@@ -1239,116 +1344,6 @@ manager.notify(0,notification); // 发送通知
 </ul>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/03/Notification/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/02/VersionUpdate/" itemprop="url">
-                  版本更新实际开发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-02T15:41:04+08:00" content="2015-10-02">
-              2015-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/02/VersionUpdate/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/02/VersionUpdate/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h4><p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
-<p>代码一：  </p>
-<pre><code>builder.setPositiveButton(&quot;确定&quot;,new OnClickListener(){.....});
-</code></pre><p>代码二：</p>
-<pre><code>builder.setPositiveButton(&quot;确定&quot;,null);
-.
-.
-.
-.
-AlertDialog dialog = builder.create();
-dialog.show();
-dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);      
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/02/VersionUpdate/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

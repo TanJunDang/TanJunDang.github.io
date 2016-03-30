@@ -61,20 +61,14 @@
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 提供数据的人编写
-提供数据的人  
+回调接口 —— 数据提供者编写
 
-预留接口给他人实现(定义接口、创建接口引用)
-提供注册接口的方法(注册接口)
-在给数据的地方调用接口的方法(通过接口引用调用方法)
+数据提供者
 
-
-
-
-
-* 获取返回数据的人
-
-    - （实现回调接口） implements Callb">
+预留接口给他人实现(定义接口) OnItemListener
+创建接口引用 onItemListener listener
+提供注册接口的方法(注册接口) setonlistener
+在给数据的地方调用接口的方法(通过接口引用调用方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVASE基础">
 <meta property="og:url" content="OrcishDev.github.io/2015/11/18/JAVASE/index.html">
@@ -83,42 +77,31 @@
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 提供数据的人编写
-提供数据的人  
+回调接口 —— 数据提供者编写
 
-预留接口给他人实现(定义接口、创建接口引用)
-提供注册接口的方法(注册接口)
-在给数据的地方调用接口的方法(通过接口引用调用方法)
+数据提供者
 
-
-
-
-
-* 获取返回数据的人
-
-    - （实现回调接口） implements Callb">
+预留接口给他人实现(定义接口) OnItemListener
+创建接口引用 onItemListener listener
+提供注册接口的方法(注册接口) setonlistener
+在给数据的地方调用接口的方法(通过接口引用调用方法">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-03-30T00:03:57.000Z">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBvNk5ORFJQUGFUclBoc2FqUVNzUk5xa2hiNXRvdW41OUN6QmY2S3ZGZ2FRPT0.jpg?imageView&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T03:02:43.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="回调函数Callback的理解
 一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
 回调函数分成3部分
 
-回调接口 —— 提供数据的人编写
-提供数据的人  
+回调接口 —— 数据提供者编写
 
-预留接口给他人实现(定义接口、创建接口引用)
-提供注册接口的方法(注册接口)
-在给数据的地方调用接口的方法(通过接口引用调用方法)
+数据提供者
 
-
-
-
-
-* 获取返回数据的人
-
-    - （实现回调接口） implements Callb">
+预留接口给他人实现(定义接口) OnItemListener
+创建接口引用 onItemListener listener
+提供注册接口的方法(注册接口) setonlistener
+在给数据的地方调用接口的方法(通过接口引用调用方法">
 <meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 
 
@@ -317,22 +300,26 @@
 <li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
 <li><p>回调函数分成3部分</p>
 <ul>
-<li>回调接口 —— 提供数据的人编写</li>
-<li><p>提供数据的人  </p>
+<li><p>回调接口 —— 数据提供者编写</p>
+</li>
+<li><p>数据提供者</p>
 <ul>
-<li>预留接口给他人实现(定义接口、创建接口引用)</li>
-<li>提供注册接口的方法(注册接口)</li>
-<li>在给数据的地方调用接口的方法(通过接口引用调用方法)</li>
+<li>预留接口给他人实现(定义接口) OnItemListener</li>
+<li>创建接口引用 onItemListener listener</li>
+<li>提供注册接口的方法(注册接口) setonlistener</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法) listener.giveMsg();</li>
+</ul>
+</li>
+<li><p>数据获取者</p>
+<ul>
+<li>（实现回调接口） implements Callback</li>
+<li>注册回调函数</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code>* 获取返回数据的人
-
-    - （实现回调接口） implements Callback
-    -  注册回调函数
-</code></pre><a id="more"></a>
+<a id="more"></a>
 <h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><p>[A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务] </p>
 <h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre><code>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据
 </code></pre><h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><pre><code>员工A 完成任务后 告知老板B
@@ -630,6 +617,12 @@ public int compareTo(Object another) {
 </li>
 </ul>
 <p>总结：使用不了compareTo方法需要将其属性强转。</p>
+<h3 id="业务审核模块源码分析"><a href="#业务审核模块源码分析" class="headerlink" title="业务审核模块源码分析"></a>业务审核模块源码分析</h3><p>分析:</p>
+<ol>
+<li>业务审核可以分为三种类型：开发票类型(一个数组，空白类型)、普通类型、退费更多类型(可以点击类型)  </li>
+<li>若是空白类型则Adapter返回一个9dp的Space，否则加载布局文件。 还有判断点击类型，如果可以点击，则为其设置监听器</li>
+</ol>
+<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBvNk5ORFJQUGFUclBoc2FqUVNzUk5xa2hiNXRvdW41OUN6QmY2S3ZGZ2FRPT0.jpg?imageView&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 
       
     </div>
@@ -781,7 +774,7 @@ public int compareTo(Object another) {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数Callback的理解"><span class="nav-number">1.</span> <span class="nav-text">回调函数Callback的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">2.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：-1"><span class="nav-number">4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-目录-操作File的理解"><span class="nav-number">5.</span> <span class="nav-text">文件(目录)操作File的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件流的理解"><span class="nav-number">6.</span> <span class="nav-text">文件流的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-——-写一个用文件保存数据的方法"><span class="nav-number">7.</span> <span class="nav-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-——-创建一个文件的过程"><span class="nav-number">8.</span> <span class="nav-text">总结 —— 创建一个文件的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的读写"><span class="nav-number">9.</span> <span class="nav-text">文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过文件保存、读取数据需要序列化"><span class="nav-number">10.</span> <span class="nav-text">通过文件保存、读取数据需要序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于String的subString方法"><span class="nav-number">10.1.</span> <span class="nav-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陷阱"><span class="nav-number"></span> <span class="nav-text">陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合删除元素"><span class="nav-number">1.</span> <span class="nav-text">集合删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="nav-number">2.</span> <span class="nav-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必须同时重写equal跟hashCode方法"><span class="nav-number">3.</span> <span class="nav-text">必须同时重写equal跟hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按某个属性-时间-排序"><span class="nav-number">4.</span> <span class="nav-text">集合按某个属性(时间)排序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数Callback的理解"><span class="nav-number">1.</span> <span class="nav-text">回调函数Callback的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">2.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：-1"><span class="nav-number">4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-目录-操作File的理解"><span class="nav-number">5.</span> <span class="nav-text">文件(目录)操作File的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件流的理解"><span class="nav-number">6.</span> <span class="nav-text">文件流的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-——-写一个用文件保存数据的方法"><span class="nav-number">7.</span> <span class="nav-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-——-创建一个文件的过程"><span class="nav-number">8.</span> <span class="nav-text">总结 —— 创建一个文件的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的读写"><span class="nav-number">9.</span> <span class="nav-text">文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过文件保存、读取数据需要序列化"><span class="nav-number">10.</span> <span class="nav-text">通过文件保存、读取数据需要序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于String的subString方法"><span class="nav-number">10.1.</span> <span class="nav-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陷阱"><span class="nav-number"></span> <span class="nav-text">陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合删除元素"><span class="nav-number">1.</span> <span class="nav-text">集合删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="nav-number">2.</span> <span class="nav-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必须同时重写equal跟hashCode方法"><span class="nav-number">3.</span> <span class="nav-text">必须同时重写equal跟hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按某个属性-时间-排序"><span class="nav-number">4.</span> <span class="nav-text">集合按某个属性(时间)排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务审核模块源码分析"><span class="nav-number">5.</span> <span class="nav-text">业务审核模块源码分析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

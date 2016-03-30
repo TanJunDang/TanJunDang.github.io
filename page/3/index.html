@@ -216,6 +216,116 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/02/VersionUpdate/" itemprop="url">
+                  版本更新实际开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-02T15:41:04+08:00" content="2015-10-02">
+              2015-10-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/02/VersionUpdate/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/02/VersionUpdate/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h4><p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
+<p>代码一：  </p>
+<pre><code>builder.setPositiveButton(&quot;确定&quot;,new OnClickListener(){.....});
+</code></pre><p>代码二：</p>
+<pre><code>builder.setPositiveButton(&quot;确定&quot;,null);
+.
+.
+.
+.
+AlertDialog dialog = builder.create();
+dialog.show();
+dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);      
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/02/VersionUpdate/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/01/Fragment/" itemprop="url">
                   Fragment
                 </a>
@@ -950,107 +1060,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 </code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/17/Error/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/13/BNJSummarize/" itemprop="url">
-                  BNJ项目学到的知识点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-13T00:00:00+08:00" content="2015-09-13">
-              2015-09-13
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/13/BNJSummarize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/13/BNJSummarize/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
-<li>定义一个全局变量isClick。</li>
-<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
-<li><p>重写Activity的onResume方法，设置isClick为true。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/13/BNJSummarize/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

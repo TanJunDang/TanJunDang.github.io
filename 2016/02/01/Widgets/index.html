@@ -57,21 +57,24 @@
 
 
 
-<meta name="description" content="ListViewListView">
+<meta name="description" content="ListViewListView
+RecyclerViewRecyclerView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Widgets学习">
 <meta property="og:url" content="OrcishDev.github.io/2016/02/01/Widgets/index.html">
 <meta property="og:site_name" content="OrcishDev">
-<meta property="og:description" content="ListViewListView">
+<meta property="og:description" content="ListViewListView
+RecyclerViewRecyclerView">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1iWWVRazkrdDczU3loWTJkMmlOc1RrK1N6SVlCTlVCU1htM0JTQzBZRklRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwekhXL2NIbXJ5NGpkWmlMOTVHN3RheDVtTDVMcTd4RCtBPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwNHJxNEZHbGtTOFQ0d1oyb2hNS0pZc0VIOTZOM0FxdEl3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxb2ZFNEZEOGpNVHJ6QXhQRmtxY09qWDZQeElwYzltWDFBPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-03-30T01:09:35.767Z">
+<meta property="og:updated_time" content="2016-03-30T02:02:22.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
-<meta name="twitter:description" content="ListViewListView">
+<meta name="twitter:description" content="ListViewListView
+RecyclerViewRecyclerView">
 <meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 
 
@@ -267,6 +270,7 @@
 
       
         <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
+<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
 <a id="more"></a>
 <h3 id="ExpandableListView"><a href="#ExpandableListView" class="headerlink" title="ExpandableListView"></a>ExpandableListView</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <ul>
@@ -324,7 +328,23 @@ android:singleLine=&quot;true&quot;
 <pre><code>Drawable drawable = getResources().getDrawable(R.drawable.course_manage_agency_icon);
   drawable.setBounds(0,0,100,100); //可以改变图标大小
   tvAgencyValue.setCompoundDrawables(drawable,null,null,null);//调用这个方法可以使setBounds有效
-</code></pre><h3 id="DatePickerDialog的总结"><a href="#DatePickerDialog的总结" class="headerlink" title="DatePickerDialog的总结"></a>DatePickerDialog的总结</h3><h4 id="Calendar跟onDateSet里面的月份比正常少1"><a href="#Calendar跟onDateSet里面的月份比正常少1" class="headerlink" title="Calendar跟onDateSet里面的月份比正常少1"></a>Calendar跟onDateSet里面的月份比正常少1</h4><h4 id="onDateSet之后求long型日期，月份需要加上1"><a href="#onDateSet之后求long型日期，月份需要加上1" class="headerlink" title="onDateSet之后求long型日期，月份需要加上1"></a>onDateSet之后求long型日期，月份需要加上1</h4><h4 id="Calendar-getTimeInMillis-得出的是正确的日期"><a href="#Calendar-getTimeInMillis-得出的是正确的日期" class="headerlink" title="Calendar.getTimeInMillis()得出的是正确的日期"></a>Calendar.getTimeInMillis()得出的是正确的日期</h4><hr>
+</code></pre><ul>
+<li><p>textColor属性可以设置selector</p>
+<ul>
+<li><p>textColor必须调用 “@color/red_selector” 而不是 “@drawable/red_selector”</p>
+<pre><code>android:textColor=&quot;@color/teach_kq_button_text_color_selector&quot;
+</code></pre></li>
+<li><p>selector里不能用drawable属性，否则会报错，直接用color即可。</p>
+<pre><code>&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+&lt;item android:state_selected=&quot;true&quot; android:color=&quot;@color/common_text_red&quot; /&gt;
+&lt;item android:state_checked=&quot;true&quot; android:color=&quot;@color/common_text_red&quot; /&gt;
+&lt;item android:color=&quot;@color/common_text_gray&quot; /&gt;
+&lt;/selector&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="DatePickerDialog的总结"><a href="#DatePickerDialog的总结" class="headerlink" title="DatePickerDialog的总结"></a>DatePickerDialog的总结</h3><h4 id="Calendar跟onDateSet里面的月份比正常少1"><a href="#Calendar跟onDateSet里面的月份比正常少1" class="headerlink" title="Calendar跟onDateSet里面的月份比正常少1"></a>Calendar跟onDateSet里面的月份比正常少1</h4><h4 id="onDateSet之后求long型日期，月份需要加上1"><a href="#onDateSet之后求long型日期，月份需要加上1" class="headerlink" title="onDateSet之后求long型日期，月份需要加上1"></a>onDateSet之后求long型日期，月份需要加上1</h4><h4 id="Calendar-getTimeInMillis-得出的是正确的日期"><a href="#Calendar-getTimeInMillis-得出的是正确的日期" class="headerlink" title="Calendar.getTimeInMillis()得出的是正确的日期"></a>Calendar.getTimeInMillis()得出的是正确的日期</h4><hr>
 <ul>
 <li><p>DatePicker显示成滑动模式</p>
 <pre><code>android:calendarViewShown=&quot;false&quot;
@@ -615,7 +635,7 @@ if(selectIten.keySet().contains(position)){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView"><span class="nav-number">1.</span> <span class="nav-text">ListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ExpandableListView"><span class="nav-number">2.</span> <span class="nav-text">ExpandableListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView使用总结"><span class="nav-number">3.</span> <span class="nav-text">WebView使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView的属性"><span class="nav-number">4.</span> <span class="nav-text">TextView的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePickerDialog的总结"><span class="nav-number">5.</span> <span class="nav-text">DatePickerDialog的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar跟onDateSet里面的月份比正常少1"><span class="nav-number">5.1.</span> <span class="nav-text">Calendar跟onDateSet里面的月份比正常少1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onDateSet之后求long型日期，月份需要加上1"><span class="nav-number">5.2.</span> <span class="nav-text">onDateSet之后求long型日期，月份需要加上1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar-getTimeInMillis-得出的是正确的日期"><span class="nav-number">5.3.</span> <span class="nav-text">Calendar.getTimeInMillis()得出的是正确的日期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求long时，dateSet传入的月份要-1"><span class="nav-number">6.</span> <span class="nav-text">(求long时，dateSet传入的月份要+1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkbox、RadioButton总结"><span class="nav-number">7.</span> <span class="nav-text">Checkbox、RadioButton总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton"><span class="nav-number">7.1.</span> <span class="nav-text">RadioButton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Checkbox（选中效果必须与HashMap、HashSet等结合使用）"><span class="nav-number">7.2.</span> <span class="nav-text">Checkbox（选中效果必须与HashMap、HashSet等结合使用）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView"><span class="nav-number">1.</span> <span class="nav-text">ListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ExpandableListView"><span class="nav-number">3.</span> <span class="nav-text">ExpandableListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView使用总结"><span class="nav-number">4.</span> <span class="nav-text">WebView使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView的属性"><span class="nav-number">5.</span> <span class="nav-text">TextView的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePickerDialog的总结"><span class="nav-number">6.</span> <span class="nav-text">DatePickerDialog的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar跟onDateSet里面的月份比正常少1"><span class="nav-number">6.1.</span> <span class="nav-text">Calendar跟onDateSet里面的月份比正常少1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onDateSet之后求long型日期，月份需要加上1"><span class="nav-number">6.2.</span> <span class="nav-text">onDateSet之后求long型日期，月份需要加上1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar-getTimeInMillis-得出的是正确的日期"><span class="nav-number">6.3.</span> <span class="nav-text">Calendar.getTimeInMillis()得出的是正确的日期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求long时，dateSet传入的月份要-1"><span class="nav-number">7.</span> <span class="nav-text">(求long时，dateSet传入的月份要+1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkbox、RadioButton总结"><span class="nav-number">8.</span> <span class="nav-text">Checkbox、RadioButton总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton"><span class="nav-number">8.1.</span> <span class="nav-text">RadioButton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Checkbox（选中效果必须与HashMap、HashSet等结合使用）"><span class="nav-number">8.2.</span> <span class="nav-text">Checkbox（选中效果必须与HashMap、HashSet等结合使用）</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -83,7 +83,7 @@ listView.setDivider(null);
 
 在XML布局文件取消  
 android:divider=&amp;quot;#FFCC00&amp;q">
-<meta property="og:updated_time" content="2016-03-30T01:45:27.034Z">
+<meta property="og:updated_time" content="2016-03-30T01:55:27.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ListView的理解">
 <meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
@@ -524,6 +524,29 @@ convertView.setTag(tag,info);
 <p>如何复用？ 代码如下：</p>
 <pre><code>if(convertView==null){
     加载布局
+}
+//然后获取布局里的的View设置相关的值  
+convertView.findViewById(R.id.text)).setText(DATA[position]);
+</code></pre><p>由于每次都要FindId，这样也会使性能下降。所以我们应该复用ConvertView，这时就用到ViewHolder跟settag跟gettag方法了。</p>
+<ul>
+<li>简单来说ViewHolder就是对一个布局里的控件FindId</li>
+</ul>
+<p>所以代码改成这样：  </p>
+<pre><code>ViewHolder holder;
+if(convertView==null){
+    加载布局
+holder =  new ViewHolder();  
+convertView.setTag(holder);
+}else{
+holder = (ViewHolder)convertView.getTag();
+}
+//然后获取布局里的的View设置相关的值  
+holder.tvName.setText(DATA[position]);
+.
+.
+.
+class ViewHolder{
+    private TextView tvName;
 }
 </code></pre>
       
