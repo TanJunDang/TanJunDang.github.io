@@ -1,0 +1,937 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="小技巧,MarkDown引用本地,selector,0.9," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="启动界面
+如何实现一个启动界面，例如微信、网易新闻。  
+
+1. 创建一个布局文件，里面放一张图。
+2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+        new Handler().postDelayed(new Runnable(){ 
+
+            @Override
+                public voi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="布局常用的技巧">
+<meta property="og:url" content="OrcishDev.github.io/2016/03/30/Skills/index.html">
+<meta property="og:site_name" content="OrcishDev">
+<meta property="og:description" content="启动界面
+如何实现一个启动界面，例如微信、网易新闻。  
+
+1. 创建一个布局文件，里面放一张图。
+2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+        new Handler().postDelayed(new Runnable(){ 
+
+            @Override
+                public voi">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T01:09:10.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="布局常用的技巧">
+<meta name="twitter:description" content="启动界面
+如何实现一个启动界面，例如微信、网易新闻。  
+
+1. 创建一个布局文件，里面放一张图。
+2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+        new Handler().postDelayed(new Runnable(){ 
+
+            @Override
+                public voi">
+<meta name="twitter:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 布局常用的技巧 | OrcishDev </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">OrcishDev</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                布局常用的技巧
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-30T09:08:39+08:00" content="2016-03-30">
+              2016-03-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/30/Skills/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/Skills/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h4><ul>
+<li>如何实现一个启动界面，例如微信、网易新闻。  </li>
+</ul>
+<pre><code>1. 创建一个布局文件，里面放一张图。
+2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+
+        new Handler().postDelayed(new Runnable(){ 
+
+            @Override
+                public void run(){
+                    Intent intent = new Intent (Appstart.this,Welcome.class);
+                    startActivity(intent);            
+                    Appstart.this.finish();
+                }
+
+        },1000);  
+</code></pre> <a id="more"></a>
+<h4 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h4><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
+<h4 id="EditText、TextView"><a href="#EditText、TextView" class="headerlink" title="EditText、TextView"></a>EditText、TextView</h4><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
+<pre><code>editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});  
+</code></pre><p>TextView设置行间距  </p>
+<pre><code>android:lineSpacingExtra=&quot;7dp&quot;  
+</code></pre><p>EditText 设置光标位置  </p>
+<pre><code>android：gravity=&quot;right&quot;  
+</code></pre><p>解决光标在两行字 中间的方法  </p>
+<pre><code>android:gravity=&quot;top&quot;
+</code></pre><p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>设置默认键盘不显示</p>
+<pre><code>android:windowSoftInputMode=&quot;adjustNothing|stateHidden&quot;
+</code></pre><p>光标移到最后</p>
+<pre><code>Editable ea = editText.getText();
+editText.setSelection(ea.length());
+</code></pre><h5 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h5><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
+<h3 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h3><p>DatePicker 必须 设置 显示样式  </p>
+<pre><code>android:datepickermode  
+</code></pre><p>设置日历不显示  </p>
+<pre><code>android:calendarViewShown=&quot;false&quot;  
+</code></pre><h4 id="markdown引用格式"><a href="#markdown引用格式" class="headerlink" title="markdown引用格式"></a>markdown引用格式</h4><p>markdown引用格式：日期+文件名+”/“</p>
+<pre><code>http://localhost:4000/2015/09/17/2015-09-17-ImageLoader/
+</code></pre><p><a href="/2015/09/17/ImageLoader/">ImageLoader</a></p>
+<p><a href="http://blog.csdn.net/lancees/article/details/25618237" target="_blank" rel="external">源码来自此人</a></p>
+<h4 id="退出整个程序的代码"><a href="#退出整个程序的代码" class="headerlink" title="退出整个程序的代码"></a>退出整个程序的代码</h4><pre><code>android.os.Process.killProcess(android.os.Process.myPid());
+</code></pre><h4 id="退出到桌面的代码"><a href="#退出到桌面的代码" class="headerlink" title="退出到桌面的代码"></a>退出到桌面的代码</h4><pre><code>Intent intent = new Intent();
+intent.setAction(Intent.ACTION_MAIN);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+intent.addCategory(Intent.CATEGORY_HOME);
+startActivity(intent);
+</code></pre><h4 id="如何判断是否第一进入本界面"><a href="#如何判断是否第一进入本界面" class="headerlink" title="如何判断是否第一进入本界面"></a>如何判断是否第一进入本界面</h4><pre><code>1. onCreate 获取一个SharedPreferences、同时创建一个xml文件。
+2. 创建一个boolean变量isFirst 通过sp对象来获取其值。
+3. 判断isFirst是否为true，是则做第一次的处理。
+4. 第一次处理之后，要把boolean值设置为false，并传给xml文件里。
+
+代码如下
+
+    private SharedPreferences sp;  
+    private boolean isFirst = true;  
+    public void onCreate(){  
+    sp = getSharedPreferences(&quot;Erintrus.xml&quot;,MODE_PRIVATE);
+    isFirst = sp.getBoolean(&quot;isFirst&quot;,true);  
+        if(isFirst){  
+        Editor editor = sp.edit();
+        //做第一次进入界面的处理  
+        editor.putBoolean(&quot;isFirst&quot;,false);        //改变xml文件里isFirst的值  
+        editor.commit();  
+
+        }
+
+    }
+</code></pre><h4 id="将常用的代码封装成一个类-IntentUtils类"><a href="#将常用的代码封装成一个类-IntentUtils类" class="headerlink" title="将常用的代码封装成一个类 IntentUtils类"></a>将常用的代码封装成一个类 IntentUtils类</h4><pre><code>public class IntentUtils{
+
+    public void statrActivity(Context context , Class&lt;?&gt; cls){
+        Intent intent = new Intent(context,cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+}
+</code></pre><h4 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h4><pre><code>默认图必须放在最后面
+
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;item android:drawable=&quot;@drawable/common_icon_gray_tab&quot; android:state_pressed=&quot;true&quot;&gt;&lt;/item&gt;
+    &lt;item android:drawable=&quot;@drawable/common_icon_red_tab&quot;&gt;&lt;/item&gt; //默认图必须放在最下面
+&lt;/selector&gt;
+</code></pre><h4 id="如何导入so文件"><a href="#如何导入so文件" class="headerlink" title="如何导入so文件"></a>如何导入so文件</h4><pre><code>在src/main 下面新建一个jniLibs文件夹 放入文件即可
+</code></pre><h4 id="缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><a href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。" class="headerlink" title="缓存集合的时候不能用“=”赋值，要用addAll或者For循环。"></a>缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</h4><h4 id="9-png"><a href="#9-png" class="headerlink" title=".9.png"></a>.9.png</h4><ul>
+<li>一句话总结：画黑点的地方无限延长</li>
+<li>tool文件夹先开启工具</li>
+</ul>
+<h4 id="自动弹出软键盘"><a href="#自动弹出软键盘" class="headerlink" title="自动弹出软键盘"></a>自动弹出软键盘</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
+<pre><code>android:windowSoftInputMode=&quot;stateAlwaysVisible&quot;
+</code></pre><p>【A】stateUnspecified：默认状态，系统将选择一个合适的状态或依赖于主题的设置</p>
+<p>【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
+<p>【C】stateHidden：用户选择activity时，软键盘总是被隐藏</p>
+<p>【D】stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的</p>
+<p>【E】stateVisible：软键盘通常是可见的</p>
+<p>【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
+<p>【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
+<p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间</p>
+<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分</p>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustPan
+adjustResize
+</code></pre><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>标题栏被顶走</p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustResize
+</code></pre><h3 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h3><pre><code>setKeyListener(null);
+</code></pre><h3 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h3><ul>
+<li><p>方法一</p>
+<pre><code>@Override
+public boolean dispatchKeyEvent(KeyEvent event) {
+    switch (event.getKeyCode()) {
+        case KeyEvent.KEYCODE_DPAD_CENTER:
+        case KeyEvent.KEYCODE_ENTER:
+            return true;
+    }
+    return super.dispatchKeyEvent(event);
+}
+</code></pre></li>
+</ul>
+<ul>
+<li>方法二</li>
+</ul>
+<pre><code>//在布局文件里声明singleLine属性
+android:singleLine=&quot;true&quot;
+</code></pre><h3 id="集合按key排序"><a href="#集合按key排序" class="headerlink" title="集合按key排序"></a>集合按key排序</h3><ul>
+<li><p>用TreeMap</p>
+<pre><code>Map&lt;Integer, ArrayList&lt;User&gt;&gt; map = new TreeMap&lt;&gt;();
+</code></pre></li>
+<li><p>示例</p>
+</li>
+</ul>
+<p>BNJ中联系人列表</p>
+<h3 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h3><ul>
+<li>设置null,空字符等数据</li>
+</ul>
+<h3 id="aligntop没效果"><a href="#aligntop没效果" class="headerlink" title="aligntop没效果"></a>aligntop没效果</h3><ul>
+<li>没有设置父布局的高度</li>
+</ul>
+<h3 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h3><p><a href="/2016/01/01/Animation/">Animation</a></p>
+<h3 id="minHeight的作用"><a href="#minHeight的作用" class="headerlink" title="minHeight的作用"></a>minHeight的作用</h3><ul>
+<li>设置warp_content可实现根据文本自动改变控件的高度</li>
+</ul>
+<h3 id="android-alpha属性"><a href="#android-alpha属性" class="headerlink" title="android:alpha属性"></a>android:alpha属性</h3><ul>
+<li>设置透明度 值是 0（透明） - 1（不透明）范围</li>
+</ul>
+<p>实战：</p>
+<p>BNJ实现%50黑的图片</p>
+<ol>
+<li>FramLayout 里面放一个ImageView</li>
+<li>Framlayout 设置背景为黑色</li>
+<li>ImageView设置alpha=0.5</li>
+</ol>
+<h3 id="String-Format"><a href="#String-Format" class="headerlink" title="String.Format"></a>String.Format</h3><ul>
+<li><p>设置浮点数显示一位小数</p>
+<pre><code>//score是浮点数,%.2f表示只显示两位小数
+String.format(&quot;%.2f&quot;,score);
+</code></pre></li>
+</ul>
+<h3 id="删除桌面上不存在的项目"><a href="#删除桌面上不存在的项目" class="headerlink" title="删除桌面上不存在的项目"></a>删除桌面上不存在的项目</h3><pre><code>DEL /F /A /Q \\?\%1 
+RD /S /Q \\?\%1 
+</code></pre><h3 id="mipmap尺寸"><a href="#mipmap尺寸" class="headerlink" title="mipmap尺寸"></a>mipmap尺寸</h3><p>mipmap - mdpi 48<br>mipmap - hdpi 72<br>mipmap - xhdpi 96<br>mipmap - xxhpi 144  </p>
+<h3 id="include包括的布局不能使用below等属性"><a href="#include包括的布局不能使用below等属性" class="headerlink" title="include包括的布局不能使用below等属性"></a>include包括的布局不能使用below等属性</h3><ul>
+<li><p>错误示例</p>
+<pre><code>&lt;include 
+    android:layout_below=&quot;@+id/llContainer&quot; //这里会报错
+    layout=&quot;@layout/activity_mani&quot;/&gt;  
+</code></pre></li>
+<li><p>总结：其他控件要相对该layout进行布局，必须使用layout里面的根布局的id来实现。</p>
+</li>
+</ul>
+<h3 id="高度布局-实现下列效果"><a href="#高度布局-实现下列效果" class="headerlink" title="高度布局(实现下列效果)"></a>高度布局(实现下列效果)</h3><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<ul>
+<li><p>布局技巧</p>
+<ul>
+<li>RelativeLayout为自适应、设置最小高度</li>
+<li>tvTitle为margin_top= 15</li>
+<li>tvValue 为margin_top = 15 、margin_bottom = 15</li>
+</ul>
+</li>
+<li><p>参考机构端事项内容</p>
+</li>
+</ul>
+<h3 id="ScrollView与Edittext冲突"><a href="#ScrollView与Edittext冲突" class="headerlink" title="ScrollView与Edittext冲突"></a>ScrollView与Edittext冲突</h3><ul>
+<li>Scrollview 里面加有edittext，由于Edittext会自动获取焦点，会导致界面向Edittext方向移动。（如下）</li>
+</ul>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
+<ul>
+<li><p>解决办法:Edittext的父布局加入下面代码</p>
+<pre><code>android:focusable=&quot;true&quot;  
+android:focusableInTouchMode=&quot;true&quot;
+</code></pre></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小技巧/" rel="tag">#小技巧</a>
+          
+            <a href="/tags/MarkDown引用本地/" rel="tag">#MarkDown引用本地</a>
+          
+            <a href="/tags/selector/" rel="tag">#selector</a>
+          
+            <a href="/tags/0-9/" rel="tag">#0.9</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/25/Markdown/" rel="next" title="Markdown">
+                <i class="fa fa-chevron-left"></i> Markdown
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/30/Skills/"
+           data-title="布局常用的技巧" data-url="OrcishDev.github.io/2016/03/30/Skills/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/favicon.ico"
+               alt="OrcishDev" />
+          <p class="site-author-name" itemprop="name">OrcishDev</p>
+          <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动界面"><span class="nav-number">1.</span> <span class="nav-text">启动界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ActionBar"><span class="nav-number">2.</span> <span class="nav-text">ActionBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EditText、TextView"><span class="nav-number">3.</span> <span class="nav-text">EditText、TextView</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重要的知识点"><span class="nav-number">3.1.</span> <span class="nav-text">重要的知识点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePicker"><span class="nav-number"></span> <span class="nav-text">DatePicker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#markdown引用格式"><span class="nav-number">1.</span> <span class="nav-text">markdown引用格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出整个程序的代码"><span class="nav-number">2.</span> <span class="nav-text">退出整个程序的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出到桌面的代码"><span class="nav-number">3.</span> <span class="nav-text">退出到桌面的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断是否第一进入本界面"><span class="nav-number">4.</span> <span class="nav-text">如何判断是否第一进入本界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将常用的代码封装成一个类-IntentUtils类"><span class="nav-number">5.</span> <span class="nav-text">将常用的代码封装成一个类 IntentUtils类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selector在Button里无效的原因"><span class="nav-number">6.</span> <span class="nav-text">Selector在Button里无效的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何导入so文件"><span class="nav-number">7.</span> <span class="nav-text">如何导入so文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><span class="nav-number">8.</span> <span class="nav-text">缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-png"><span class="nav-number">9.</span> <span class="nav-text">.9.png</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动弹出软键盘"><span class="nav-number">10.</span> <span class="nav-text">自动弹出软键盘</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText-只读内容滚动"><span class="nav-number"></span> <span class="nav-text">EditText 只读内容滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText禁止输入回车"><span class="nav-number"></span> <span class="nav-text">EditText禁止输入回车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按key排序"><span class="nav-number"></span> <span class="nav-text">集合按key排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试方法"><span class="nav-number"></span> <span class="nav-text">测试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aligntop没效果"><span class="nav-number"></span> <span class="nav-text">aligntop没效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation动画"><span class="nav-number"></span> <span class="nav-text">Animation动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minHeight的作用"><span class="nav-number"></span> <span class="nav-text">minHeight的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android-alpha属性"><span class="nav-number"></span> <span class="nav-text">android:alpha属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Format"><span class="nav-number"></span> <span class="nav-text">String.Format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除桌面上不存在的项目"><span class="nav-number"></span> <span class="nav-text">删除桌面上不存在的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mipmap尺寸"><span class="nav-number"></span> <span class="nav-text">mipmap尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include包括的布局不能使用below等属性"><span class="nav-number"></span> <span class="nav-text">include包括的布局不能使用below等属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高度布局-实现下列效果"><span class="nav-number"></span> <span class="nav-text">高度布局(实现下列效果)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ScrollView与Edittext冲突"><span class="nav-number"></span> <span class="nav-text">ScrollView与Edittext冲突</span></a></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+</div>
+
+<div class="powered-by">
+  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"OrcishDev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

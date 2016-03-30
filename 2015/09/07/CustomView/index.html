@@ -1,0 +1,1022 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CustomView," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+widt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CustomView">
+<meta property="og:url" content="OrcishDev.github.io/2015/09/07/CustomView/index.html">
+<meta property="og:site_name" content="OrcishDev">
+<meta property="og:description" content="自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+widt">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T00:03:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CustomView">
+<meta name="twitter:description" content="自定义View的基础知识
+getWidth()、getHeight()指的是xml文件中该View指定的width，height。
+onMeasure、onLayout、onDraw先后执行顺序。
+获取屏幕宽高
+WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+widt">
+<meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CustomView | OrcishDev </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">OrcishDev</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CustomView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-07T00:00:00+08:00" content="2015-09-07">
+              2015-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/07/CustomView/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/07/CustomView/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="自定义View的基础知识"><a href="#自定义View的基础知识" class="headerlink" title="自定义View的基础知识"></a>自定义View的基础知识</h3><ul>
+<li>getWidth()、getHeight()指的是xml文件中该View指定的width，height。</li>
+<li>onMeasure、onLayout、onDraw先后执行顺序。</li>
+<li><p>获取屏幕宽高</p>
+<pre><code>WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+width = wm.getDefaultDisplay().getWidth();
+height = wm.getDefaultDisplay().getHeight();
+</code></pre></li>
+</ul>
+<h3 id="实现自定义控件有3种方式："><a href="#实现自定义控件有3种方式：" class="headerlink" title="实现自定义控件有3种方式："></a>实现自定义控件有3种方式：</h3><ol>
+<li>继承一个控件 （继承已有控件）  </li>
+<li>继承一个布局（继承已有布局）  </li>
+<li>组合View （布局根标签应该设置成warp_content，保证各个控件的高宽属性正常。）</li>
+</ol>
+<a id="more"></a>
+<h3 id="组合View"><a href="#组合View" class="headerlink" title="组合View"></a>组合View</h3><p>基本思路：</p>
+<ol>
+<li>xml布局文件添加已有的控件，例如(ImageView跟Button)。</li>
+<li>创建java文件继承包含这些控件的布局，例如(RelativeLayout)。</li>
+<li>重写其构造方法(加载xml布局文件,利用通过LayoutInflate)。</li>
+<li>在其构造方法里获取自定义属性。(可选,在values文件夹创建一个attrs的xml文件) </li>
+</ol>
+<h5 id="为自定义View添加自定义属性"><a href="#为自定义View添加自定义属性" class="headerlink" title="为自定义View添加自定义属性"></a>为自定义View添加自定义属性</h5><ul>
+<li><p>在attrs文件中创建declare-styleable标签，其name属性是控件名字(不需要加包名)<br>在上述标签下 创建attr标签，name属性是属性名、format指明改属性的格式</p>
+<p>  <declare-styleable name="自定义控件名"></declare-styleable></p>
+<pre><code>&lt;attr name=&quot;src&quot;&gt;&lt;/attr&gt; // name默认不加前缀 则调用方法为app:src
+&lt;attr name=&quot;text&quot;&gt;&lt;/attr&gt;
+</code></pre><p>  </p>
+</li>
+</ul>
+<p>属性里的值可以通过enum标签来实现<br>reference   表示引用，参考某一资源ID<br>string   表示字符串<br>color   表示颜色值<br>dimension   表示尺寸值<br>boolean   表示布尔值<br>integer   表示整型值<br>float   表示浮点值<br>fraction   表示百分数<br>enum   表示枚举值<br>flag   表示位运算</p>
+<p>定义的属性需赋值给原控件的属性  </p>
+<ol>
+<li>利用TypedArray 获取所有属性  </li>
+</ol>
+<pre><code>//通过context的obtainStyledAttributes(attrs,R.styleable.控件名)方法得到一个TypedArray对象，参数分别为attrs、控件id
+TypedArray array=context.obtainStyledAttributes(attrs,R.styleable.自定义控件名);
+</code></pre><ol>
+<li><p>利用typedArray对象设置控件默认值（R.styleable.值）</p>
+<pre><code>CharSequence text=  array.getText(R.styleable.自定义控件名_android_text);
+Drawable drawable= array.getDrawable(R.styleable.自定义控件名n_android_src);
+</code></pre></li>
+<li><p>通过原有控件的方法设置这些属性即可。</p>
+<pre><code>editText.setHint(text);
+</code></pre></li>
+<li><p>TypedArray对象调用recycle方法 </p>
+<pre><code>array.recycle();
+</code></pre></li>
+<li><p>在使用该控件的布局文件里设置命名空间  </p>
+<pre><code>xmlns:eri=&quot;http://schemas.android.com/apk/res/包名&quot;  //包名指整个项目的包名
+</code></pre></li>
+</ol>
+<ol>
+<li><p>通过该命名空间调用属性 如 eri:属性名</p>
+<pre><code>eri:text=&quot;Erintrus&quot;
+</code></pre></li>
+</ol>
+<h3 id="实战开发帮你教项目中的意见反馈功能"><a href="#实战开发帮你教项目中的意见反馈功能" class="headerlink" title="实战开发帮你教项目中的意见反馈功能"></a>实战开发帮你教项目中的意见反馈功能</h3><p>1.写一个布局包括一个EditText  和TextView<br>2.写attrs文件，添加一个hint属性，用于设置提示<br>3.重写java 文件，获取到属性的值后，赋值给原控件<br>如下：</p>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>//获取自己定义的属性，然后赋值给原控件的属性。从而实现自定义属性的功能  </p>
+<pre><code>TypedArray array=context.obtainStyledAttributes(attrs,R.styleable.EtextWithTv);
+</code></pre><p>//得到自定义属性的值  </p>
+<pre><code>CharSequence text=  array.getText(R.styleable.EtextWithTv_hint);
+array.recycle();  
+</code></pre><p>//调用EditText原有属性  </p>
+<pre><code>editText.setHint(text);
+</code></pre><p>4.写一个getText方法，用于获取EditText的值（使用该控件时候，可以调用该方法）</p>
+<pre><code>public String getText()
+{
+return editText.getText().toString();
+}
+</code></pre><h4 id="完全自定义View-进阶"><a href="#完全自定义View-进阶" class="headerlink" title="完全自定义View(进阶)"></a>完全自定义View(进阶)</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+<p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
+<p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
+<p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
+<p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
+<h3 id="自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><a href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件" class="headerlink" title="自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"></a><font color="red">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</font></h3><h4 id="自定义View-—-重写onMeasure"><a href="#自定义View-—-重写onMeasure" class="headerlink" title="自定义View — 重写onMeasure"></a>自定义View — 重写onMeasure</h4><ul>
+<li>判断是否需要重写OnMeasure （下述需求判断是否重写）</li>
+</ul>
+<hr>
+<p>（下述无效，待更新）</p>
+<pre><code>- 不重写onMeasure： （弊端: view为warp、match时，都会填满父容器）
+
+1. 父容器为warp_content或match_parent时，view的宽高不是固定值，则view填满父容器。
+2. 父容器为warp_content或match_parent时，view的宽高是固定值，则view大小取决固定值。
+3. 父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。
+4. 父容器为固定值时（view的最大显示值），view的宽高不是固定值，则view填满父容器。
+
+
+    特点： view的宽高为warp_content时，view填满父容器。
+</code></pre><hr>
+<p>（当View为warp_content时，想要设置一个固定值，就应该重写）</p>
+<pre><code>- 重写onMeasure（可实现:view为warp时，显示默认值,而不是填满父容器）
+
+1. 可以给View设定默认值，当view宽高为warp_content时，显示默认值。
+2. 父容器为warp_content或match_parent时，view的宽高为warp_content，则view显示默认值。
+3. 父容器为warp_content或match_parent时，view的宽高为match_parent，则view填满控件。
+4. 父容器为固定值时（view的最大显示值），view的宽高必须小于等于其固定值。
+
+
+    特点： view的宽高为warp_content时，view大小为默认值。
+
+
+    - 重写onMeasure的代码
+
+            @Override
+            protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+                super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+                int width = getSize(DEFAULT_WIDTH,widthMeasureSpec);
+                int height = getSize(DEFAULT_HEIGHT,heightMeasureSpec);
+                setMeasuredDimension(width, height);
+            }
+
+
+            public int getSize(int defaultSize, int measureSpec) {
+                int result = defaultSize;
+                int specMode = MeasureSpec.getMode(measureSpec);
+                int specSize = MeasureSpec.getSize(measureSpec);//获取测量值，即使用时传入的值。
+                if (specMode == MeasureSpec.EXACTLY) {
+                    result = specSize;    //当设置其宽高为固定值或者match时，显示为固定值或者填满屏幕。
+                } else {
+                    result = Math.min(defaultSize, specSize); //当设置其宽高为warp时,显示默认值。
+                }
+                return result;
+            }
+</code></pre><p><a href="http://www.linuxidc.com/Linux/2014-12/110164.htm" target="_blank" rel="external">参考</a></p>
+<p>1.ViewGroup(View的父容器)提供两个参数给View进行设置测量，并且根据测量值跟自己提供的尺寸大小来确定View的大小。</p>
+<p>2.View的大小由Size和Mode决定，相关类是MeasureSpec。Size、Mode封装在resolveSizeAndState方法里面。</p>
+<p>3.resolveSizeAndState方法的参数（View的宽或高、父容器提供的尺寸值、掩码默认0）</p>
+<p>4.如何重写OnMeasure</p>
+<pre><code>//获取View的宽度
+int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+//讲View的宽度跟ViewGroup给的值进行测量，得出一个整型.
+int w = resolveSizeAndState(minw, widthMeasureSpec, 1);
+
+//同理View的高度
+int minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
+int h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,0);
+</code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
+<h2 id="2015-10-05-10-02-11"><a href="#2015-10-05-10-02-11" class="headerlink" title="2015-10-05 10:02:11"></a>2015-10-05 10:02:11</h2><h4 id="自定义监听器"><a href="#自定义监听器" class="headerlink" title="自定义监听器"></a>自定义监听器</h4><p>1.写一个接口，并且添加抽象方法  </p>
+<pre><code>public interface onStateChangedListener {
+public void stateOn();
+
+    public void stateOff();
+}
+</code></pre><p>2.在自定义控件中创建接口引用，并且生成set方法，用于外面调用  </p>
+<pre><code>public class SwtBtnWithTv extends LinearLayout {
+
+private onStateChangedListener listener;
+    public void setListener(onStateChangedListener listener) {
+this.listener = listener;
+}
+</code></pre><p>3.自定义控件实现原有的接口，在这里通过引用调用抽象方法  </p>
+<pre><code>switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+@Override
+public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+if (isChecked) {
+
+listener.stateOn();
+} else {
+listener.stateOff();
+}
+
+    }
+});
+</code></pre><p>4.在Main中调用set方法来实现该功能</p>
+<pre><code>swtBtnWithTv.setListener(new onStateChangedListener() {
+@Override
+public void stateOn() {
+        Toast.makeText(getActivity(), &quot;成功&quot;, 0).show();
+}
+
+@Override
+public void stateOff() {
+        Toast.makeText(getActivity(), &quot;失败&quot;, 0).show();
+}
+});
+</code></pre><p>总结：<br>Main外面写方法的实现 第5<br>自定义控件内部写在哪里调用 第3.4</p>
+<h3 id="实际开发-—-分割线"><a href="#实际开发-—-分割线" class="headerlink" title="实际开发 — 分割线"></a>实际开发 — 分割线</h3><p>思路：</p>
+<ol>
+<li>继承View。</li>
+<li>在attrs.xml文件添加两个属性分别是方向、颜色。</li>
+<li>构造方法获取属性、获取屏幕宽高、初始化默认宽高值。</li>
+<li>重写onMeasure、设置默认值。（参考上述）</li>
+<li>重写onDraw。</li>
+</ol>
+<pre><code>* Created by Erintrus on 2015/10/9.
+* Email: Erintrus@126.com
+* 两点确定一条线
+* 获取屏幕高、宽
+* 当要改变wrap_content时,需要设置默认值
+
+
+       public class CustomDivider extends View {
+
+       private int orientation = 0;
+       private static final int HORIZONTAL = LinearLayout.HORIZONTAL;
+       private static final int VERTICAL = LinearLayout.VERTICAL;
+
+       private static final int DEFAULT_COLOR = R.color.common_divider_gray; //默认红色的线
+       private Paint paint;
+       private static final int DEFAULT_LENGTH = 3;
+       private int length;
+       private int color;
+       private int width;
+       private int height;
+
+
+       public CustomDivider(Context context) {
+           this(context, null);
+       }
+
+       public CustomDivider(Context context, AttributeSet attrs) {
+           this(context, attrs, 0);
+       }
+
+       public CustomDivider(Context context, AttributeSet attrs, int defStyleAttr) {
+           super(context, attrs, defStyleAttr);
+           WindowManager wm = (WindowManager) getContext()
+                   .getSystemService(Context.WINDOW_SERVICE);
+           width = wm.getDefaultDisplay().getWidth();
+           height = wm.getDefaultDisplay().getHeight();
+           TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomDivider);
+           orientation = array.getInteger(R.styleable.CustomDivider_dividerOrientation, HORIZONTAL);
+           color = array.getColor(R.styleable.CustomDivider_dividerColor, getResources().getColor(DEFAULT_COLOR));
+           if (orientation == HORIZONTAL) {
+               length = width;
+           } else {
+               length = height;
+           }
+           array.recycle();
+           paint = new Paint();
+           paint.setAntiAlias(true);
+           paint.setColor(color);
+           paint.setStrokeWidth(5);
+           paint.setStyle(Paint.Style.FILL_AND_STROKE);
+       }
+
+       @Override
+       protected void onDraw(Canvas canvas) {
+           super.onDraw(canvas);
+
+           if (orientation == HORIZONTAL) {
+               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, length, DEFAULT_LENGTH, paint);
+           } else {
+               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, DEFAULT_LENGTH, length, paint);
+           }
+       }
+
+       //必须要重写这段代码，使其warp_content可以为某个值
+       @Override
+       protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+           super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+           int w;
+           int h;
+           if (orientation == HORIZONTAL) {
+               w = getSize(width, widthMeasureSpec);
+               h = DEFAULT_LENGTH;
+           } else {
+               w = DEFAULT_LENGTH;
+               h = getSize(height, heightMeasureSpec);
+           }
+           setMeasuredDimension(w, h);
+       }
+
+       public int getSize(int defaultSize, int measureSpec) {
+           int result = defaultSize;
+           int specSize = MeasureSpec.getSize(measureSpec);
+           int specMode = MeasureSpec.getMode(measureSpec);
+           if (specMode == MeasureSpec.EXACTLY) {
+               result = specSize;
+           } else {
+               result = Math.min(defaultSize, specSize);
+           }
+           return result;
+       }
+
+
+   }
+</code></pre><h3 id="为RecycleView重写SwipeRefreshLayout"><a href="#为RecycleView重写SwipeRefreshLayout" class="headerlink" title="为RecycleView重写SwipeRefreshLayout"></a>为RecycleView重写SwipeRefreshLayout</h3><p><a href="https://github.com/Demievil/SwipeRefreshLayout" target="_blank" rel="external">SwipeRefreshLayout</a></p>
+<h3 id="实现请求View-RequestView"><a href="#实现请求View-RequestView" class="headerlink" title="实现请求View RequestView"></a>实现请求View RequestView</h3><p>作用：</p>
+<ol>
+<li>请求的时候显示进度条加载。</li>
+<li>请求失败时显示失败页面，点击页面可以重新请求。(显示失败的时候才可以点击)</li>
+</ol>
+<p>实现：</p>
+<ol>
+<li><p>继承RelativeLayout</p>
+</li>
+<li><p>布局中使用谷歌的ProgressBar、ImageView、TextView等控件。</p>
+</li>
+<li><p>自定义pgbType属性,用于决定ProgressBar的显示类型，并在构造函数中获取。</p>
+</li>
+<li><p>由于请求时，不能点击下层的按钮。所以需要设置布局文件clickable为false</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CustomView/" rel="tag">#CustomView</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/06/OnTouchEvent/" rel="next" title="OnTouchEvent事件分发机制">
+                <i class="fa fa-chevron-left"></i> OnTouchEvent事件分发机制
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/08/Git/" rel="prev" title="Git的学习">
+                Git的学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/07/CustomView/"
+           data-title="CustomView" data-url="OrcishDev.github.io/2015/09/07/CustomView/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/favicon.ico"
+               alt="OrcishDev" />
+          <p class="site-author-name" itemprop="name">OrcishDev</p>
+          <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的基础知识"><span class="nav-number">1.</span> <span class="nav-text">自定义View的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自定义控件有3种方式："><span class="nav-number">2.</span> <span class="nav-text">实现自定义控件有3种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合View"><span class="nav-number">3.</span> <span class="nav-text">组合View</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为自定义View添加自定义属性"><span class="nav-number">3.0.1.</span> <span class="nav-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="nav-number">4.</span> <span class="nav-text">实战开发帮你教项目中的意见反馈功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完全自定义View-进阶"><span class="nav-number">4.1.</span> <span class="nav-text">完全自定义View(进阶)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><span class="nav-number">5.</span> <span class="nav-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义View-—-重写onMeasure"><span class="nav-number">5.1.</span> <span class="nav-text">自定义View — 重写onMeasure</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-10-05-10-02-11"><span class="nav-number"></span> <span class="nav-text">2015-10-05 10:02:11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义监听器"><span class="nav-number">0.1.</span> <span class="nav-text">自定义监听器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-—-分割线"><span class="nav-number">1.</span> <span class="nav-text">实际开发 — 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="nav-number">2.</span> <span class="nav-text">为RecycleView重写SwipeRefreshLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现请求View-RequestView"><span class="nav-number">3.</span> <span class="nav-text">实现请求View RequestView</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+</div>
+
+<div class="powered-by">
+  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"OrcishDev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

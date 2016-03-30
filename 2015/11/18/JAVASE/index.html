@@ -1,0 +1,1080 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Callback接口,JAVASE," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接口） implements Callb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVASE基础">
+<meta property="og:url" content="OrcishDev.github.io/2015/11/18/JAVASE/index.html">
+<meta property="og:site_name" content="OrcishDev">
+<meta property="og:description" content="回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接口） implements Callb">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T00:03:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVASE基础">
+<meta name="twitter:description" content="回调函数Callback的理解
+一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
+回调函数分成3部分
+
+回调接口 —— 提供数据的人编写
+提供数据的人  
+
+预留接口给他人实现(定义接口、创建接口引用)
+提供注册接口的方法(注册接口)
+在给数据的地方调用接口的方法(通过接口引用调用方法)
+
+
+
+
+
+* 获取返回数据的人
+
+    - （实现回调接口） implements Callb">
+<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JAVASE基础 | OrcishDev </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">OrcishDev</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JAVASE基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-18T15:03:37+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/JAVASE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/JAVASE/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h3><ol>
+<li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
+<li><p>回调函数分成3部分</p>
+<ul>
+<li>回调接口 —— 提供数据的人编写</li>
+<li><p>提供数据的人  </p>
+<ul>
+<li>预留接口给他人实现(定义接口、创建接口引用)</li>
+<li>提供注册接口的方法(注册接口)</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>* 获取返回数据的人
+
+    - （实现回调接口） implements Callback
+    -  注册回调函数
+</code></pre><a id="more"></a>
+<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><p>[A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务] </p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre><code>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据
+</code></pre><h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><pre><code>员工A 完成任务后 告知老板B
+</code></pre><ul>
+<li><p>回调接口  </p>
+<pre><code>interface Callback{ //接口返回something time等参数
+    void execute(String something ，long time);
+}
+</code></pre></li>
+<li><p>(员工)</p>
+<pre><code>class A{
+private Callback callback; //预留回调接口,方便他人调用
+private doSomething(){
+
+        .
+        .    //工作数小时
+        .
+
+        callback.execute(work,144000055); //告知老板
+
+    }
+private setUser(Callback callback){//提供注册回调函数的方法、还可以考虑通过构造函数注册
+        this.callback = callback;    
+    }
+
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>(老板)</p>
+<pre><code>class B implements Callback{  //实现回调接口
+@Override
+public void execute(String something ，long time){
+    System.out.println(&quot;员工在&quot;+time+&quot;做了&quot;+something);
+    }
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>测试</p>
+<pre><code>class Test{
+
+    public static void main (String args[]){
+
+    A a = new A();
+    a.setUser(new B());//注册接口
+    a.doSomething();
+
+    }
+
+}
+</code></pre></li>
+</ul>
+<h3 id="文件-目录-操作File的理解"><a href="#文件-目录-操作File的理解" class="headerlink" title="文件(目录)操作File的理解"></a><font color="#5566ff">文件(目录)操作File的理解</font></h3><ul>
+<li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
+</ul>
+<ul>
+<li><p>创建文件</p>
+<pre><code>File file = new File(路径,文件名);
+</code></pre></li>
+<li><p>创建文件夹</p>
+<pre><code>File file = new File(路径,文件名);
+file.mkdirs();
+</code></pre></li>
+<li><p>删除文件</p>
+<pre><code>file.delete();
+</code></pre></li>
+</ul>
+<h3 id="文件流的理解"><a href="#文件流的理解" class="headerlink" title="文件流的理解"></a><font color="#5566ff">文件流的理解</font></h3><ul>
+<li><p>理解 —— 在程序中要操作文件(读写),必须先将文件转换成流，然后从流中读取(写入)数据。</p>
+<ul>
+<li><p>字符流(Reader、Writer) —— 读取(写入)相关的字符(String)，不需要缓冲区。  </p>
+</li>
+<li><p>字节流(InputStream、OutputStream) —— 读取(写入)相关的字节,需要先将数据读入(写入)缓冲区，然后再将缓冲区读入(写入)流中。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>下面通过一个示例来讲述字符流跟字节流的区别。</p>
+<ul>
+<li><p>示例： 对一个md文件写入Hello World语句</p>
+<pre><code>File file = new File(&quot;B:/Erintrus.md&quot;);
+if(file.exists()){
+    println(&quot;This file already exists&quot;);
+}else{
+    file.createNewFile();
+}
+//上述代码创建一个md文件
+
+-------------------------------------------
+
+**********字符流*************
+FileWriter fw = new FileWriter(file);
+String msg = &quot;Hello World&quot;;//需要写入的信息
+fw.write(msg);//直接将数据写入字符流
+
+**********字节流*************
+FileOutputStream fos = new FileOutputStream(file);
+String msg = &quot;Hello World&quot;;
+byte[] bytes = msg.getBytes();//将数据写入缓冲区
+fos.write(bytes); //将缓冲区写入字节流
+
+***********进阶 —— 高级流************
+BufferReader、BufferWriter
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<pre><code>* InputStream示例
+
+        ************InputStream的缺陷，需要提前设置缓存区大小***************
+        File file = new File(&quot;B:/Erintrus.md&quot;);
+        FileInputStream fis = new FileInputStream(file);
+        byte[] bytes = new byte[10240]; //文件过大，还是无法读取到完整的数据    
+        fis.read(bytes);
+
+* &lt;font color =&quot;red&quot;&gt;推荐示例 —— BufferReader(必须加\n)&lt;/font&gt;
+
+         ***********FileReader跟BufferReader的结合使用********
+        FileReader r = new FileReader(file);
+        BufferedReader br = new BufferedReader(r);
+
+        StringBuffer msg = new StringBuffer();
+        String s;
+        while ((s = br.readLine()) != null) {
+            msg = msg.append(s+“\n”); //必须要加\n 否则全部数据变成一行
+        }
+
+* &lt;font color=&quot;red&quot;&gt;推荐示例 —— BufferWriter(必须要关闭流)&lt;/font&gt;
+
+        *********FileWriter跟BufferWriter的结合使用
+        FileWriter fw = new FileWriter(decFile);
+        BufferedWriter bw = new BufferedWriter(fw); //可以不用BufferWriter
+
+        bw.write(msg.toString());
+        bw.close();//必须要关闭，不然写不了数据
+        fw.close();必须要关闭，不然写不了数据
+
+* &lt;font color = &quot;red&quot;&gt;推荐示例 —— FileChanel与FileInputStream、FileOutputStream结合&lt;/font&gt;
+
+        FileInputStream fis = new FileInputStream(file);
+        FileOutputStream fos = new FileOutputStream(desFile);
+        FileChanel fcIn = new FileChanel(fis); //将输入流放到输入管道中
+        FileChanel fcOut = new FileChanel(fos);//将输出流放到输出管道中
+
+        ******************输入管道调用transferTo()方法传输数据************
+        fcIn.transferTo(0,fcIn.size(),fcOut);
+        .
+        .
+        .
+        关闭流
+</code></pre><ul>
+<li><p>总结：</p>
+<ol>
+<li>字符流比字节流简便。</li>
+<li>不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
+<h3 id="示例-——-写一个用文件保存数据的方法"><a href="#示例-——-写一个用文件保存数据的方法" class="headerlink" title="示例 —— 写一个用文件保存数据的方法"></a>示例 —— 写一个用文件保存数据的方法</h3><pre><code>//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)
+public void saveData(Context context , Object data , String name , String folder){
+    if(context ==null) return ;
+    File file;
+    if(folder.isEmpty){ //如果没有折叠器，则在当前目录创建文件
+        file = new File(context.getFilesDir(),name);
+    }else{ //否则，创建一个文件夹
+        File filesDir = new File(context.getFilesDir(),folder);
+        if(!filesDir.exists()||!filesDir.isDirectory()){//如果文件夹不存在,则创建该文件夹
+        {
+            fileDir.mkdir();
+        }
+        file = new File(filesDir,name);//在该目录下创建文件            
+    }
+
+
+    if (file.exists()) {
+        file.delete();
+    }
+
+*************************保存数据
+
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+oos.writeObject(data);
+oos.close();
+}
+</code></pre><h3 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h3><ul>
+<li><p>判断是否需要创建折叠器(文件夹)</p>
+<ul>
+<li>不要 ——&gt; 直接创建文件</li>
+<li>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</li>
+</ul>
+</li>
+<li><p>判断文件是否存在</p>
+<ul>
+<li>存在 —— &gt;删除</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h3><ul>
+<li><p>getCacheDir()方法用于获取/data/data//cache目录</p>
+</li>
+<li><p>getFilesDir()方法用于获取/data/data//files目录</p>
+</li>
+<li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
+<pre><code>ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+oos.writeObject(data);
+oos.close();
+</code></pre></li>
+<li><p>读取内容(readObject、ObjectInputStream方法)</p>
+<pre><code>ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+ois.readObject();
+ois.close();
+</code></pre></li>
+</ul>
+<h3 id="通过文件保存、读取数据需要序列化"><a href="#通过文件保存、读取数据需要序列化" class="headerlink" title="通过文件保存、读取数据需要序列化"></a>通过文件保存、读取数据需要序列化</h3><h4 id="关于String的subString方法"><a href="#关于String的subString方法" class="headerlink" title="关于String的subString方法"></a>关于String的subString方法</h4><ul>
+<li>subString(int start,int end)中的start、end指的是第几位（从start开始,不算strat到end的字符）</li>
+</ul>
+<pre><code>String date =20151106
+year = date.subString(0,4);
+month = date.subString(4,6);
+day = date.subString(6,8);
+</code></pre><hr>
+<h1 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a><font color="red">陷阱</font></h1><h3 id="集合删除元素"><a href="#集合删除元素" class="headerlink" title="集合删除元素"></a>集合删除元素</h3><ul>
+<li>比较两段代码的不同</li>
+</ul>
+<p>示例一：Iterator删除</p>
+<pre><code>Iterator&lt;ShowInfo&gt; iterator = showList.iterator();
+if (iterator.hasNext()) {
+   ShowInfo delShow = iterator.next();
+    if (delShow.isCheck() == true) {
+                iterator.remove();
+    }
+}
+</code></pre><p>示例二: for循环删除</p>
+<pre><code>for(int i =0;i&lt;list.size();i++){
+    list.remove(i);
+    i--;
+}
+</code></pre><h3 id="静态成员只初始化一次-创建第一个对象时"><a href="#静态成员只初始化一次-创建第一个对象时" class="headerlink" title="静态成员只初始化一次(创建第一个对象时)"></a>静态成员只初始化一次(创建第一个对象时)</h3><h3 id="必须同时重写equal跟hashCode方法"><a href="#必须同时重写equal跟hashCode方法" class="headerlink" title="必须同时重写equal跟hashCode方法"></a>必须同时重写equal跟hashCode方法</h3><ul>
+<li><p>如何重写equal方法？</p>
+<pre><code>1. 判断两个对象是否相等 if(this==obj)
+2. 判断是否本类实例化的对象 if(obj instanceof Test)
+3. 判断各种属性(将obj强转成本类)
+</code></pre></li>
+</ul>
+<pre><code>public class Test{
+
+    private String name;
+
+    @Override
+    public boolean equals(Object obj) { //此处必须是Object对象
+
+        if(this == obj){return true;}
+        if(!obj instanceof Test){return false} //obj不是Test实例化的对象
+        Test test = (Test)obj;
+        //判断各种属性
+        if(name.equal(obj.getName())){return true;}
+    }
+
+}
+</code></pre><ul>
+<li><p>如何重写hashCode方法</p>
+<pre><code>1. 定义常量基数prime = 31
+2. 定义存放散列值的变量 result = 1
+3. 散码值通过属性判断，属性为空，则为0，否则调用hashCode方法获取散列值
+4. 结果= 基数 * 散列码变量 +散列值
+</code></pre></li>
+</ul>
+<pre><code>@Override
+public int hashCode() {    
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (name==?0:name.hashCode());
+    return result;
+}
+</code></pre><h3 id="集合按某个属性-时间-排序"><a href="#集合按某个属性-时间-排序" class="headerlink" title="集合按某个属性(时间)排序"></a><font color="red">集合按某个属性(时间)排序</font></h3><ul>
+<li>使用Collections的排序方法sort()</li>
+<li><p>对象需要实现Comparable接口、重写compareTo方法</p>
+<ul>
+<li><p>下面是重写compareTo方法的过程</p>
+<pre><code>@Override
+public int compareTo(Object another) {
+    if (another instanceof User) {
+        return ((Long) ((User) another).getLastContentTime()).compareTo((Long) this.getLastContentTime());
+    } else {
+        return 0;
+    }
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>总结：使用不了compareTo方法需要将其属性强转。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Callback接口/" rel="tag">#Callback接口</a>
+          
+            <a href="/tags/JAVASE/" rel="tag">#JAVASE</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/18/SystemService/" rel="next" title="系统服务使用记录">
+                <i class="fa fa-chevron-left"></i> 系统服务使用记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/19/Android-Broadcast/" rel="prev" title="四大组件之Broadcast">
+                四大组件之Broadcast <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/18/JAVASE/"
+           data-title="JAVASE基础" data-url="OrcishDev.github.io/2015/11/18/JAVASE/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/favicon.ico"
+               alt="OrcishDev" />
+          <p class="site-author-name" itemprop="name">OrcishDev</p>
+          <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数Callback的理解"><span class="nav-number">1.</span> <span class="nav-text">回调函数Callback的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">2.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：-1"><span class="nav-number">4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-目录-操作File的理解"><span class="nav-number">5.</span> <span class="nav-text">文件(目录)操作File的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件流的理解"><span class="nav-number">6.</span> <span class="nav-text">文件流的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-——-写一个用文件保存数据的方法"><span class="nav-number">7.</span> <span class="nav-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-——-创建一个文件的过程"><span class="nav-number">8.</span> <span class="nav-text">总结 —— 创建一个文件的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的读写"><span class="nav-number">9.</span> <span class="nav-text">文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过文件保存、读取数据需要序列化"><span class="nav-number">10.</span> <span class="nav-text">通过文件保存、读取数据需要序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于String的subString方法"><span class="nav-number">10.1.</span> <span class="nav-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陷阱"><span class="nav-number"></span> <span class="nav-text">陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合删除元素"><span class="nav-number">1.</span> <span class="nav-text">集合删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="nav-number">2.</span> <span class="nav-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必须同时重写equal跟hashCode方法"><span class="nav-number">3.</span> <span class="nav-text">必须同时重写equal跟hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按某个属性-时间-排序"><span class="nav-number">4.</span> <span class="nav-text">集合按某个属性(时间)排序</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+</div>
+
+<div class="powered-by">
+  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"OrcishDev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

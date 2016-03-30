@@ -1,0 +1,1019 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ViewPager_One," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="主界面的知识点分析  
+根据上图分析可得有下列知识点  
+
+底部tab的实现  
+Viewpager的实现  
+PopupWindow的实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Viewpager (一)">
+<meta property="og:url" content="OrcishDev.github.io/2015/09/12/ViewPager_One/index.html">
+<meta property="og:site_name" content="OrcishDev">
+<meta property="og:description" content="主界面的知识点分析  
+根据上图分析可得有下列知识点  
+
+底部tab的实现  
+Viewpager的实现  
+PopupWindow的实现">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MM2ovTXU1dmlIM0dFZlQ0TTJMVnNoSWdXT1hKQUo0dkV3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T00:04:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Viewpager (一)">
+<meta name="twitter:description" content="主界面的知识点分析  
+根据上图分析可得有下列知识点  
+
+底部tab的实现  
+Viewpager的实现  
+PopupWindow的实现">
+<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MM2ovTXU1dmlIM0dFZlQ0TTJMVnNoSWdXT1hKQUo0dkV3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Viewpager (一) | OrcishDev </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">OrcishDev</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Viewpager (一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-12T00:00:00+08:00" content="2015-09-12">
+              2015-09-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/12/ViewPager_One/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/12/ViewPager_One/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="主界面的知识点分析"><a href="#主界面的知识点分析" class="headerlink" title="主界面的知识点分析"></a>主界面的知识点分析</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MM2ovTXU1dmlIM0dFZlQ0TTJMVnNoSWdXT1hKQUo0dkV3PT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
+<p>根据上图分析可得有下列知识点  </p>
+<ol>
+<li>底部tab的实现  </li>
+<li>Viewpager的实现  </li>
+<li>PopupWindow的实现  </li>
+</ol>
+<a id="more"></a>
+<ul>
+<li><p>底部tab的布局实现</p>
+<pre><code>分析可得：底部tag由一个LinearLayout主Layout组成、主Layout又由4个水平子LinearLayout子Layout组成，每个子layout包括一个ImageView、TextVie在主Layout下面还有一个移动标签，这是一个ImageView。最终外面是一个RelativeLayout囊括着主Layout跟移动标签ImageView。
+</code></pre><p>  布局代码如下</p>
+<pre><code>&lt;RelativeLayout
+android:id=&quot;@+id/main_bottom&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;55dp&quot;
+android:layout_alignParentBottom=&quot;true&quot;
+android:background=&quot;@drawable/bottom_bar&quot;
+android:orientation=&quot;vertical&quot;&gt;
+
+    //这是一个移动标签、用于表示当前选中的tag
+    &lt;ImageView
+        android:id=&quot;@+id/img_tab_now&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentBottom=&quot;true&quot;
+        android:layout_gravity=&quot;bottom&quot;
+        android:scaleType=&quot;matrix&quot;
+        android:src=&quot;@drawable/tab_bg&quot; /&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentBottom=&quot;true&quot;
+        android:paddingBottom=&quot;2dp&quot;&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:gravity=&quot;center_horizontal&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;ImageView
+                android:id=&quot;@+id/img_weixin&quot;
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:clickable=&quot;true&quot;
+                android:scaleType=&quot;matrix&quot;
+                android:src=&quot;@drawable/tab_weixin_pressed&quot; /&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;微信&quot;
+                android:textColor=&quot;#fff&quot;
+                android:textSize=&quot;12sp&quot; /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:gravity=&quot;center_horizontal&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;ImageView
+                android:id=&quot;@+id/img_address&quot;
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:clickable=&quot;true&quot;
+                android:scaleType=&quot;matrix&quot;
+                android:src=&quot;@drawable/tab_address_normal&quot; /&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;通讯录&quot;
+                android:textColor=&quot;#fff&quot;
+                android:textSize=&quot;12sp&quot; /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:gravity=&quot;center_horizontal&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;ImageView
+                android:id=&quot;@+id/img_friends&quot;
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:clickable=&quot;true&quot;
+                android:scaleType=&quot;matrix&quot;
+                android:src=&quot;@drawable/tab_find_frd_normal&quot; /&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;朋友们&quot;
+                android:textColor=&quot;#fff&quot;
+                android:textSize=&quot;12sp&quot; /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;LinearLayout
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:gravity=&quot;center_horizontal&quot;
+            android:orientation=&quot;vertical&quot;&gt;
+
+            &lt;ImageView
+                android:id=&quot;@+id/img_settings&quot;
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:clickable=&quot;true&quot;
+                android:scaleType=&quot;matrix&quot;
+                android:src=&quot;@drawable/tab_settings_normal&quot;&gt;
+
+            &lt;TextView
+                android:layout_width=&quot;wrap_content&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:text=&quot;设置&quot;
+                android:textColor=&quot;#fff&quot;
+                android:textSize=&quot;12sp&quot; /&gt;
+
+        &lt;/LinearLayout&gt;
+
+    &lt;/LinearLayout&gt;
+</code></pre><p>  </p>
+</li>
+</ul>
+<ul>
+<li><p>ViewPager的布局实现</p>
+<p>  导入v4包，使用原生的ViewPager，使其布局在底部tag上方</p>
+<pre><code> &lt;LinearLayout
+android:layout_width=&quot;fill_parent&quot;
+android:layout_height=&quot;wrap_content&quot;
+android:layout_above=&quot;@id/main_bottom&quot;
+android:layout_alignParentTop=&quot;true&quot;
+android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;android.support.v4.view.ViewPager
+        android:id=&quot;@+id/tabpager&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;center&quot;&gt;&lt;/android.support.v4.view.ViewPager&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre></li>
+</ul>
+<pre><code>这样选项卡切换的布局就做好了。
+
+
+接下来，我们要做的就是将tab跟Viewpager 联系起来。首先我们先实现ViewPager自身的滑动切换，然后再实现点击切换。
+</code></pre><ul>
+<li><p>ViewPager切换的实现</p>
+<p>  ViewPager显示的是不同的布局文件,所以我们可以通过将这些布局文件转换成View对象,然后传递给ViewPager的Adapter。这样就可以实现切换了。</p>
+<p>  4个布局文件分别是Wechat、Contact、Friends、Setting，我们可以通过LayoutInflater方法来将其转成View对象。</p>
+<p>  代码如下：</p>
+<pre><code>LayoutInflater inflate = getLayoutInflater();
+View wechat = inflate.inflate(R.layout.activity_wechat,null);
+View contact = inflate.inflate(R.layout.activity_contact,null);
+View friends = inflate.inflate(R.layout.activity_friends,null);
+View setting = inflate.inflate(R.layout.activity_setting,null);
+
+//创建一个List 用于储存上面的View对象
+ArrayList&lt;View&gt; views = new ArrayList&lt;View&gt;();
+views.add(wechat);
+views.add(contact);
+views.add(friends);
+view.add(setting);
+
+//创建ViewPager的Adapter，重写其四大方法
+
+        PagerAdapter pagerAdapter = new PagerAdapter() {  
+
+            @Override  
+            public boolean isViewFromObject(View arg0, Object arg1) {  
+                // TODO Auto-generated method stub  
+                return arg0 == arg1;  
+            }  
+
+            @Override  
+            public int getCount() {  
+                //返回要滑动的VIew的个数 即上述集合views的长度
+                return viewList.size();  
+            }  
+
+            @Override  
+            public void destroyItem(ViewGroup container, int position,  
+                    Object object) {  
+                //  从当前container中删除指定位置（position）的View;
+                container.removeView(viewList.get(position));  
+            }  
+
+            @Override  
+            public Object instantiateItem(ViewGroup container, int position) {  
+                //  将当前视图添加到container中， 返回当前View
+                container.addView(viewList.get(position));  
+                return viewList.get(position);  
+            }  
+        };  
+
+        viewPager.setAdapter(pagerAdapter);  
+
+    }  
+</code></pre></li>
+</ul>
+<pre><code>  上述重写的代码中，我们将四大方法里的View参数改成了ViewGroup,否则我们需要进行强转。默认View是没有addView()这个方法的。所以我们需要通过ViewGroup来添加View。    
+
+
+
+接下来，我们要实现的是
+    1. 滑动改变底部tag图标的颜色。
+    2. 点击底部图标跳到相应的tag。
+    3. 下划线指示当前tag(imageview跟随着tag移动)。
+
+
+- 通过viewpager的onPageChangeListener监听器 的onPageSelected()方法根据当前选项卡的坐标,可以设定相应的图片。**（最后要保存当前的坐标）**
+
+            public class MyOnPageChangeListener implements OnPageChangeListener {
+                    @Override
+                    public void onPageSelected(int arg0) {
+                    Animation animation = null;
+                    switch (arg0) {
+                    case 0:
+                    mTab1.setImageDrawable(getResources().getDrawable(R.drawable.tab_weixin_pressed));
+                    if (currIndex == 1) {
+                        animation = new TranslateAnimation(one, 0, 0, 0);
+                        mTab2.setImageDrawable(getResources().getDrawable(R.drawable.tab_address_normal));
+                    } else if (currIndex == 2) {
+                        animation = new TranslateAnimation(two, 0, 0, 0);
+                        mTab3.setImageDrawable(getResources().getDrawable(R.drawable.tab_find_frd_normal));
+                    }
+                    else if (currIndex == 3) {
+                        animation = new TranslateAnimation(three, 0, 0, 0);
+                        mTab4.setImageDrawable(getResources().getDrawable(R.drawable.tab_settings_normal));
+                    }
+                    break;
+                case 1:
+                     //同理上述
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                }  
+                //记录当前的坐标
+                currIndex = arg0;
+                animation.setFillAfter(true);// True:图片停在动画结束位置
+                animation.setDuration(150); // 设置动画时间
+                mTabImg.startAnimation(animation);
+            }
+
+
+- 为四个图标设定相应的点击事件,并且传入左边给其构造函数，然后通过viewpager的setCurrentItem方法来跳到相应的tag。  
+代码如下：
+
+            //mTab1 是一个imageView
+            mTab1.setOnClickListener(new ErinListener(0));
+               mTab2.setOnClickListener(new ErinListener(1));
+               mTab3.setOnClickListener(new ErinListener(2));
+            mTab4.setOnClickListener(new ErinListener(3));
+
+            public class ErinListener implements View.OnClickListener {
+
+            private int index = 0;
+
+                public ErinListener(int i) {
+                index = i;
+                }
+                @Override
+                public void onClick(View v) {
+                    viewPager.setCurrentItem(index);
+                }
+            };
+
+- 下划线移动需要通过动画来实现，重写onPageChanged方法
+分析：
+我们需要获取屏幕的宽度,然后得到平均宽度。 (借助Display类) 通过动画在屏幕的4个部分中切换。
+
+            Display display = getWindowManager().getDefaultDisplay();
+            int width = display/4;
+            int zero = 0;
+            int one = width;
+            int two = width*2;
+            int three = width*3;
+
+            其余代码重写如上述
+            利用平移动画TranslateAnimation
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ViewPager-One/" rel="tag">#ViewPager_One</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/11/DrawerLayout/" rel="next" title="DrawerLayout抽屉">
+                <i class="fa fa-chevron-left"></i> DrawerLayout抽屉
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/13/BNJSummarize/" rel="prev" title="BNJ项目学到的知识点">
+                BNJ项目学到的知识点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/12/ViewPager_One/"
+           data-title="Viewpager (一)" data-url="OrcishDev.github.io/2015/09/12/ViewPager_One/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/favicon.ico"
+               alt="OrcishDev" />
+          <p class="site-author-name" itemprop="name">OrcishDev</p>
+          <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主界面的知识点分析"><span class="nav-number">1.</span> <span class="nav-text">主界面的知识点分析</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+</div>
+
+<div class="powered-by">
+  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"OrcishDev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

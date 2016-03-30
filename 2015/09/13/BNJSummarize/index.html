@@ -1,0 +1,1027 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BNJ,Check,时间戳,屏幕宽高,Notification,ScanCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="如何解决多个按钮同时点击的bug
+定义一个全局变量isClick。
+在switch的每个case里判断isClick，执行完 设置isClick为false。
+重写Activity的onResume方法，设置isClick为true。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BNJ项目学到的知识点">
+<meta property="og:url" content="OrcishDev.github.io/2015/09/13/BNJSummarize/index.html">
+<meta property="og:site_name" content="OrcishDev">
+<meta property="og:description" content="如何解决多个按钮同时点击的bug
+定义一个全局变量isClick。
+在switch的每个case里判断isClick，执行完 设置isClick为false。
+重写Activity的onResume方法，设置isClick为true。">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMmZvamh0KytJK3NJSXhMKzFtVkhldWNNVDFDSGlURThnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPRTBhV1d2cjJKU1VpYnZPaFNpRGdyR09ySzI0SzhnVFd3PT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPT2FaSzRZMEpsMXFwSkRuVzd5WGh5ZzNUeU4rV0tNY21RPT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-03-30T01:12:25.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BNJ项目学到的知识点">
+<meta name="twitter:description" content="如何解决多个按钮同时点击的bug
+定义一个全局变量isClick。
+在switch的每个case里判断isClick，执行完 设置isClick为false。
+重写Activity的onResume方法，设置isClick为true。">
+<meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMmZvamh0KytJK3NJSXhMKzFtVkhldWNNVDFDSGlURThnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> BNJ项目学到的知识点 | OrcishDev </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">OrcishDev</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                BNJ项目学到的知识点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-13T00:00:00+08:00" content="2015-09-13">
+              2015-09-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/13/BNJSummarize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/13/BNJSummarize/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
+<li>定义一个全局变量isClick。</li>
+<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
+<li><p>重写Activity的onResume方法，设置isClick为true。</p>
+<a id="more"></a>
+</li>
+</ol>
+<h3 id="将程序设置成无标题栏，自己定义Actionbar"><a href="#将程序设置成无标题栏，自己定义Actionbar" class="headerlink" title="将程序设置成无标题栏，自己定义Actionbar"></a>将程序设置成无标题栏，自己定义Actionbar</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMmZvamh0KytJK3NJSXhMKzFtVkhldWNNVDFDSGlURThnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
+<ol>
+<li>创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置背景。</li>
+<li>每个布局文件都加入上面那个布局文件，代码如下。  </li>
+</ol>
+<pre><code>&lt;include
+android:id=&quot;@+id/action_bar&quot;
+layout=&quot;@layout/common_view_actionbar_right_text&quot; /&gt;
+</code></pre><ol>
+<li>跳转页面时来通过putExtra设置相应的的标题即可</li>
+</ol>
+<h3 id="设置EditText默认不弹出小键盘"><a href="#设置EditText默认不弹出小键盘" class="headerlink" title="设置EditText默认不弹出小键盘"></a>设置EditText默认不弹出小键盘</h3><ul>
+<li><p>Activity里配置下列代码</p>
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);   
+</code></pre></li>
+</ul>
+<p>–    </p>
+<ul>
+<li><p>配置文件中配置下列代码  </p>
+<pre><code>android:windowSoftInputMode=&quot;adjustUnspecified|stateHidden&quot; 
+</code></pre></li>
+</ul>
+<h3 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h3><h3 id="如何将Activity的数据传到Fragment-解决Activity传值到Viewpager的Fragment里面"><a href="#如何将Activity的数据传到Fragment-解决Activity传值到Viewpager的Fragment里面" class="headerlink" title="如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)"></a>如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</h3><ol>
+<li>在Fragment里创建一个静态方法，用于创建Fragment，参数为Activity所要传的参数。</li>
+<li>在上述方法中，fragment对象调用setArguments方法设置值。</li>
+<li><p>在onCreate方法中 通过get方法获取该值。</p>
+<p> 代码如下：</p>
+<pre><code>private int schoolId;
+public static TeacherFragment newInstance(int schoolId) {
+    Bundle args = new Bundle();
+    args.putInt(&quot;schoolid&quot;, schoolId);
+    TeacherFragment fragment = new TeacherFragment();
+    fragment.setArguments(args);
+    return fragment;
+}
+
+ @Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Bundle args = getArguments();
+    schoolId = args.getInt(&quot;schoolid&quot;);
+}
+</code></pre></li>
+</ol>
+<h4 id="一般修改完信息之后，需要回调设置数据-在onActivityResult中设置显示"><a href="#一般修改完信息之后，需要回调设置数据-在onActivityResult中设置显示" class="headerlink" title="一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)"></a>一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</h4><h4 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h4><ul>
+<li>时间戳转date</li>
+</ul>
+<pre><code>long = 1442985320;
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+Long time = new Long(long);
+Date date = new Date(time);
+tvMybirth.setText(sdf.format(date));
+//合起来写
+String date = sdf.format(new Date(long));
+</code></pre><ul>
+<li>date转时间戳</li>
+</ul>
+<pre><code>String strDate = dpBirth.getYear() + &quot;-&quot; + (dpBirth.getMonth() + 1) + &quot;-&quot; + dpBirth.getDayOfMonth() + &quot;&quot;;
+        SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+        Date date = null;
+        try {
+            date = sdf.parse(strDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //获取时间戳
+        birthday = date.getTime();
+</code></pre><ul>
+<li><p>年月日转时间戳</p>
+<pre><code>   public static long getTimestampByDate(int year, int month, int day) {
+    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+    String strDate = year + &quot;-&quot; + month + &quot;-&quot; + day;
+    Date date = null;
+    try {
+        date = sdf.parse(strDate);
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    return date.getTime();
+}
+</code></pre></li>
+</ul>
+<p>实际开发：</p>
+<ul>
+<li>服务器下发一串String的日期 例如 20151106 ，要显示成2015年11月06日</li>
+</ul>
+<p>思路：将String转成Date，再用date转成其他</p>
+<ol>
+<li><p>将String转Date </p>
+<pre><code>Date date = new SimpleDateFormate(&quot;yyyyMMdd&quot;).parse(&quot;20151106&quot;);  
+</code></pre></li>
+<li><p>再用Date转成自己想要的格式</p>
+<pre><code>String msg = new SimpleDateFormate(&quot;yyyy年MM月dd日&quot;).format(date.getTime());
+</code></pre></li>
+</ol>
+<h4 id="DatePicker-初始化日期"><a href="#DatePicker-初始化日期" class="headerlink" title="DatePicker 初始化日期"></a>DatePicker 初始化日期</h4><pre><code>dp.init(2015,09,11,null);
+</code></pre><h4 id="TextView显示字数限制必须小于服务端的字数限制"><a href="#TextView显示字数限制必须小于服务端的字数限制" class="headerlink" title="TextView显示字数限制必须小于服务端的字数限制"></a>TextView显示字数限制必须小于服务端的字数限制</h4><h4 id="获取屏幕分辨率的宽高"><a href="#获取屏幕分辨率的宽高" class="headerlink" title="获取屏幕分辨率的宽高"></a>获取屏幕分辨率的宽高</h4><pre><code>int height = getResources().getDisplayMetrics().heightPixels;
+int width = getResources().getDisplayMetrics().widthPixels;
+</code></pre><h4 id="震动和声音"><a href="#震动和声音" class="headerlink" title="震动和声音"></a>震动和声音</h4><p>震动：</p>
+<pre><code>Vibrator vib = (Vibrator) context.getSystemService(Service.VIBRATOR_SERVICE);
+vib.vibrate(500);
+</code></pre><p>声音：</p>
+<pre><code>Uri alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+   MediaPlayer player = new MediaPlayer();
+   player.setDataSource(context, alert);
+   final AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+   if (audioManager.getStreamVolume(AudioManager.STREAM_NOTIFICATION) != 0) {
+       player.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
+       player.setLooping(false);
+       player.prepare();
+       player.start();
+   }
+</code></pre><h4 id="版本更新实际开发"><a href="#版本更新实际开发" class="headerlink" title="版本更新实际开发"></a>版本更新实际开发</h4><p><a href="/2015/10/02/VersionUpdate/">版本更新</a></p>
+<h2 id="2015-10-03-10-33-48"><a href="#2015-10-03-10-33-48" class="headerlink" title="2015-10-03 10:33:48"></a>2015-10-03 10:33:48</h2><h4 id="setEnable、setClickable的区别"><a href="#setEnable、setClickable的区别" class="headerlink" title="setEnable、setClickable的区别"></a>setEnable、setClickable的区别</h4><p>setEnable 可以实现取按钮不能点击<br>setClickable 由于setOnClickListener会改变其属性，所以设置无效。不建议使用。</p>
+<h4 id="Application的理解"><a href="#Application的理解" class="headerlink" title="Application的理解"></a>Application的理解</h4><pre><code>Application 用于保存整个应用程序的全局变量。可以初始化一些配置。例如网络配置、工具配置等。
+
+BNJ中的用处：
+初始化用户的信息、机构的信息、网络配置 以及创建Global
+</code></pre><p><a href="http://www.cnblogs.com/renqingping/archive/2012/10/24/Application.html" target="_blank" rel="external">Application参考一</a>  </p>
+<p><a href="http://www.cnblogs.com/freeliver54/p/3633962.html" target="_blank" rel="external">Application参考二</a></p>
+<h4 id="请求不同类别的同一数据-数据下拉加载后，必须要将请求页置1"><a href="#请求不同类别的同一数据-数据下拉加载后，必须要将请求页置1" class="headerlink" title="请求不同类别的同一数据,数据下拉加载后，必须要将请求页置1"></a>请求不同类别的同一数据,数据下拉加载后，必须要将请求页置1</h4><pre><code>BNJ项目中复现步骤：
+我的机构-&gt;切换机构A（数据超过10条）-&gt;下拉刷新-&gt;切换机构B(数据只有5条)-&gt;报数据为空的错误。
+
+原因：机构B只有5条数据，而你请求了第二页的数据。
+
+解决办法：切换页面时，请求页置1
+</code></pre><h4 id="二维码扫描功能开发"><a href="#二维码扫描功能开发" class="headerlink" title="二维码扫描功能开发"></a>二维码扫描功能开发</h4><p>下载库</p>
+<pre><code>compile &apos;com.journeyapps:zxing-android-embedded:3.0.3@aar&apos;
+compile &apos;com.google.zxing:core:3.2.0&apos;
+</code></pre><p>github地址</p>
+<p><a href="https://github.com/journeyapps/zxing-android-embedded" target="_blank" rel="external">zxing-android-embedded</a></p>
+<ol>
+<li>创建一个Activity继承CaptureActivity（示例ScanActivity）。</li>
+<li><p>MainFest注册该Activity</p>
+<pre><code>&lt;activity
+android:name=&quot;.find.ScanActivity&quot;  
+android:screenOrientation=&quot;fullSensor&quot;  //控制显示竖屏还是横屏，默认取决手机放置方式
+android:stateNotNeeded=&quot;true&quot;  
+android:theme=&quot;@style/zxing_CaptureTheme&quot;  
+android:windowSoftInputMode=&quot;stateAlwaysHidden&quot;&gt;&lt;/activity&gt;  
+</code></pre></li>
+<li><p>确定点击跳转的Button所处的页面是Activity还是Fragment</p>
+<ul>
+<li><p>Activity </p>
+<pre><code>IntentIntegrator integrator = new IntentIntegrator(this);
+</code></pre></li>
+<li><p>Fragment</p>
+<pre><code>IntentIntegrator integrator = IntentIntegrator.forFragment(CurrentFragment.this)；
+IntentIntegrator integrator = IntentIntegrator.forSupportFragment(CurrentFragment.this)；
+</code></pre></li>
+</ul>
+</li>
+<li><p>配置参数并且跳转Activity</p>
+<pre><code>integrator.setCaptureActivity(ScanActivity.class);//不调用此方法，无法改变扫描为竖屏，设置创建的Activity
+integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);  设置识别码的类型（见最下方）
+integrator.setOrientationLocked(false);//设置扫描框是否跟随手机放置而变化 false 为横竖屏，true竖屏
+integrator.setCameraId(0);  // Use a specific camera of the device  
+integrator.setPrompt(&quot;what the fuck&quot;); //设置扫描识别码时，显示的文字提示。
+integrator.setBeepEnabled(false);  //设置无声音
+integrator.setBarcodeImageEnabled(true); //讲扫描的识别码传入到intent中
+integrator.initiateScan();  //启动跳转
+</code></pre></li>
+</ol>
+<ol>
+<li>重写onActivityResult方法</li>
+</ol>
+<pre><code>    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);//获取识别内容
+    if (result != null) {
+        if (result.getContents() == null) {
+            //扫描取消的处理
+        } else {
+            //对扫描结果的处理
+            Functions.toast(getActivity(), &quot;扫描结果:&quot; + result.getContents());
+        }
+    } else {
+        Log.d(&quot;MainActivity&quot;, &quot;Weird&quot;);
+        // This is important, otherwise the result will not be passed to the fragment
+        super.onActivityResult(requestCode,resultCode,data);
+    }
+}
+
+
+
+
+
+-  识别码类型
+
+    * ONE_D_CODE_TYPES  条形码
+    * QR_CODE_TYPES 二维码
+    * ALL_CODE_TYPES 扫描各种码
+    * PRODUCT_CODE_TYPES 产品码
+</code></pre><p>####图一<br><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPRTBhV1d2cjJKU1VpYnZPaFNpRGdyR09ySzI0SzhnVFd3PT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>####图二<br><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPT2FaSzRZMEpsMXFwSkRuVzd5WGh5ZzNUeU4rV0tNY21RPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h3 id="getParentFragment-不是获取当前Fragment，获取当前Fragment直接用-Fragment-this"><a href="#getParentFragment-不是获取当前Fragment，获取当前Fragment直接用-Fragment-this" class="headerlink" title="getParentFragment()不是获取当前Fragment，获取当前Fragment直接用 Fragment.this"></a>getParentFragment()不是获取当前Fragment，获取当前Fragment直接用 Fragment.this</h3><p>例子：</p>
+<pre><code>btn_test_one.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+      IntentIntegrator integrator = IntentIntegrator.forSupportFragment(MineFragment.this);
+     }
+    });
+</code></pre><h3 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h3><pre><code>setKeyListener(null);
+</code></pre><h3 id="底部tags-check效果设置"><a href="#底部tags-check效果设置" class="headerlink" title="底部tags check效果设置"></a>底部tags check效果设置</h3><p>选中的设置 checked、selected属性<br>默认的 不用设置属性，一定要放到最后面！</p>
+<pre><code>&lt;item android:state_selected=&quot;true&quot; android:drawable=&quot;@drawable/teach_kq_selected_large&quot; /&gt;
+&lt;item android:state_checked=&quot;true&quot; android:drawable=&quot;@drawable/teach_kq_selected_large&quot; /&gt;
+&lt;item android:drawable=&quot;@drawable/teach_kq_button_disable_bg_shape&quot; /&gt;
+</code></pre><p>还需要设置默认第一个tag为红色。<br>在Activity中通过setSelected()方法设置为红色。<br>在点击事件里，设置其他button为灰色<br>代码如下：</p>
+<pre><code>@Override
+public void onClick(View v) {
+
+    if(index == 0){
+        btn1.setSelected(true);
+        btn2.setSelected(false);
+            .
+            .
+        btn10.setSelected(false);
+    }
+}  
+</code></pre><h3 id="Checkbox实际开发"><a href="#Checkbox实际开发" class="headerlink" title="Checkbox实际开发"></a>Checkbox实际开发</h3><ul>
+<li><p>ListView里面有Checkbox,item点击事件会失效</p>
+</li>
+<li><p>解决办法 —— Checkbox加入下面属性</p>
+<pre><code>android:clickable=&quot;false&quot;
+android:focusable=&quot;false&quot;
+   android:focusableInTouchMode=&quot;false&quot;
+</code></pre></li>
+</ul>
+<hr>
+<ol>
+<li>准备两张图,分别是选中和未选中的图。</li>
+<li>通过上述两张图制作一个selector。(看上面)</li>
+<li><p>创建一个HashSet<xxxinfo> 集合checkSet，用于保存已选中的item。</xxxinfo></p>
+<pre><code>private HashSet&lt;CouponInfo&gt; checkedSet = new HashSet&lt;&gt;();//记录选中的图片信息
+</code></pre></li>
+<li><p>在AdapterItem点击事件里通过判断该集合checkSet是否含有某个info来设置选中/取消选中。</p>
+<pre><code>if (checkedSet.contains(info)) {
+    checkedSet.remove(info);
+    holder.cbCoupon.setChecked(false);
+    Functions.toast(CouponActivity.this,&quot;取消选择&quot;+i);
+} else {
+    checkedSet.add(info);
+    holder.cbCoupon.setChecked(true);
+    Functions.toast(CouponActivity.this,&quot;选中&quot;+i);
+}
+</code></pre></li>
+<li><p>处理Adapter里的Checkbox,将checkSet集合里的item设置为true，用于初始化一开始的数据</p>
+<pre><code>if (checkedSet.contains(info)) {
+    holder.cbCoupon.setChecked(true);
+} else {
+    holder.cbCoupon.setChecked(false);
+}
+</code></pre></li>
+</ol>
+<h3 id="去除字符串最后一个字符"><a href="#去除字符串最后一个字符" class="headerlink" title="去除字符串最后一个字符"></a>去除字符串最后一个字符</h3><pre><code>str.substring(0,str.length()-1));    
+</code></pre><h3 id="Gson实体不能有重复的字段出现"><a href="#Gson实体不能有重复的字段出现" class="headerlink" title="Gson实体不能有重复的字段出现"></a>Gson实体不能有重复的字段出现</h3><ul>
+<li><p>示例</p>
+<pre><code>父类有status，子类又声明了status
+</code></pre></li>
+</ul>
+<h3 id="多次请求导致后面请求无效的bug"><a href="#多次请求导致后面请求无效的bug" class="headerlink" title="多次请求导致后面请求无效的bug"></a>多次请求导致后面请求无效的bug</h3><pre><code>为请求设定请求flag,请求后修改flag，请求成功后修改flag
+</code></pre><ul>
+<li><p>示例 - 修改密码</p>
+<pre><code>if (REQ_FLAG ==  CommonString.REQ_STATUS_YES) {
+reqModifyPSW = ApiBizProtocol.onUpdatePassword(ModifyPSWActivity.this, oldPSW, newPSW_confirm, ModifyPSWActivity.this);
+REQ_FLAG =  CommonString.REQ_STATUS_NO;//请求后修改flag
+}
+</code></pre></li>
+</ul>
+<pre><code>@Override
+public void onGeneralSuccess(String result, long flag) {
+REQ_FLAG =  CommonString.REQ_STATUS_YES; //请求成功后修改flag
+}
+</code></pre><h3 id="写完点击事件还不能点击的bug"><a href="#写完点击事件还不能点击的bug" class="headerlink" title="写完点击事件还不能点击的bug"></a>写完点击事件还不能点击的bug</h3><ul>
+<li><p>原因    </p>
+<pre><code>View没被初始化
+</code></pre></li>
+</ul>
+<h3 id="进入页面处理完后回调的方法"><a href="#进入页面处理完后回调的方法" class="headerlink" title="进入页面处理完后回调的方法"></a>进入页面处理完后回调的方法</h3><ul>
+<li><p>重新请求(大量数据)</p>
+<pre><code>* 适用于大量数据变化
+* ListView有时间顺序(例如个人经历、成果分享)
+</code></pre></li>
+<li><p>onActivityResult(个别数据)</p>
+<pre><code>回调删除某一项,
+</code></pre></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BNJ/" rel="tag">#BNJ</a>
+          
+            <a href="/tags/Check/" rel="tag">#Check</a>
+          
+            <a href="/tags/时间戳/" rel="tag">#时间戳</a>
+          
+            <a href="/tags/屏幕宽高/" rel="tag">#屏幕宽高</a>
+          
+            <a href="/tags/Notification/" rel="tag">#Notification</a>
+          
+            <a href="/tags/ScanCode/" rel="tag">#ScanCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/12/ViewPager_One/" rel="next" title="Viewpager (一)">
+                <i class="fa fa-chevron-left"></i> Viewpager (一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/17/ImageLoader/" rel="prev" title="ImageLoader的理解">
+                ImageLoader的理解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/13/BNJSummarize/"
+           data-title="BNJ项目学到的知识点" data-url="OrcishDev.github.io/2015/09/13/BNJSummarize/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/favicon.ico"
+               alt="OrcishDev" />
+          <p class="site-author-name" itemprop="name">OrcishDev</p>
+          <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决多个按钮同时点击的bug"><span class="nav-number">1.</span> <span class="nav-text">如何解决多个按钮同时点击的bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将程序设置成无标题栏，自己定义Actionbar"><span class="nav-number">2.</span> <span class="nav-text">将程序设置成无标题栏，自己定义Actionbar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置EditText默认不弹出小键盘"><span class="nav-number">3.</span> <span class="nav-text">设置EditText默认不弹出小键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="nav-number">4.</span> <span class="nav-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何将Activity的数据传到Fragment-解决Activity传值到Viewpager的Fragment里面"><span class="nav-number">5.</span> <span class="nav-text">如何将Activity的数据传到Fragment(解决Activity传值到Viewpager的Fragment里面)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般修改完信息之后，需要回调设置数据-在onActivityResult中设置显示"><span class="nav-number">5.1.</span> <span class="nav-text">一般修改完信息之后，需要回调设置数据(在onActivityResult中设置显示)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳"><span class="nav-number">5.2.</span> <span class="nav-text">时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DatePicker-初始化日期"><span class="nav-number">5.3.</span> <span class="nav-text">DatePicker 初始化日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TextView显示字数限制必须小于服务端的字数限制"><span class="nav-number">5.4.</span> <span class="nav-text">TextView显示字数限制必须小于服务端的字数限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取屏幕分辨率的宽高"><span class="nav-number">5.5.</span> <span class="nav-text">获取屏幕分辨率的宽高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#震动和声音"><span class="nav-number">5.6.</span> <span class="nav-text">震动和声音</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本更新实际开发"><span class="nav-number">5.7.</span> <span class="nav-text">版本更新实际开发</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-10-03-10-33-48"><span class="nav-number"></span> <span class="nav-text">2015-10-03 10:33:48</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setEnable、setClickable的区别"><span class="nav-number">0.1.</span> <span class="nav-text">setEnable、setClickable的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application的理解"><span class="nav-number">0.2.</span> <span class="nav-text">Application的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求不同类别的同一数据-数据下拉加载后，必须要将请求页置1"><span class="nav-number">0.3.</span> <span class="nav-text">请求不同类别的同一数据,数据下拉加载后，必须要将请求页置1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维码扫描功能开发"><span class="nav-number">0.4.</span> <span class="nav-text">二维码扫描功能开发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getParentFragment-不是获取当前Fragment，获取当前Fragment直接用-Fragment-this"><span class="nav-number">1.</span> <span class="nav-text">getParentFragment()不是获取当前Fragment，获取当前Fragment直接用 Fragment.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText-只读内容滚动"><span class="nav-number">2.</span> <span class="nav-text">EditText 只读内容滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底部tags-check效果设置"><span class="nav-number">3.</span> <span class="nav-text">底部tags check效果设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkbox实际开发"><span class="nav-number">4.</span> <span class="nav-text">Checkbox实际开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除字符串最后一个字符"><span class="nav-number">5.</span> <span class="nav-text">去除字符串最后一个字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gson实体不能有重复的字段出现"><span class="nav-number">6.</span> <span class="nav-text">Gson实体不能有重复的字段出现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多次请求导致后面请求无效的bug"><span class="nav-number">7.</span> <span class="nav-text">多次请求导致后面请求无效的bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写完点击事件还不能点击的bug"><span class="nav-number">8.</span> <span class="nav-text">写完点击事件还不能点击的bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入页面处理完后回调的方法"><span class="nav-number">9.</span> <span class="nav-text">进入页面处理完后回调的方法</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+</div>
+
+<div class="powered-by">
+  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"OrcishDev"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
