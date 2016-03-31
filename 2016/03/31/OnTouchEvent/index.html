@@ -73,7 +73,7 @@ public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
 public boolean nTouchEvent(MotionEven">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-03-31T10:03:36.885Z">
+<meta property="og:updated_time" content="2016-03-31T10:32:44.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件分发机制">
 <meta name="twitter:description" content="分发事件基本认识
@@ -328,12 +328,13 @@ return false; //当控件不可点击时 直接返回false
 </li>
 </ul>
 <ul>
-<li>用法：</li>
-</ul>
+<li><p>用法：</p>
 <pre><code>onTouchEvent()    用来处理事件。
 返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
 返回false表示不能处理，则把事件传递给其父View的onTouchEvent()方法来处理
-</code></pre><ul>
+</code></pre></li>
+</ul>
+<ul>
 <li><p>事件分发</p>
 <p>  <img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
 </li>
@@ -364,7 +365,10 @@ return false; //当控件不可点击时 直接返回false
 <li>当View的dispatchTouchEvent返回false时，执行onToucEvent里面的onClick。</li>
 <li>所以View的onTouch返回值只用来决定该View是否还执行onClick。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<ul>
+<li><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+</ul>
+<ul>
 <li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
 <li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
 </ul>
