@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Markdown," />
+  <meta name="keywords" content="onTouchEvent," />
 
 
 
@@ -57,27 +57,34 @@
 
 
 
-<meta name="description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="description" content="分发事件基本认识
+跟Touch相关的三个方法：
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean nTouchEvent(MotionEvent ev);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="OrcishDev.github.io/2016/03/25/Markdown/index.html">
+<meta property="og:title" content="OnTouchEvent事件分发机制">
+<meta property="og:url" content="OrcishDev.github.io/2016/03/31/OnTouchEvent/index.html">
 <meta property="og:site_name" content="OrcishDev">
-<meta property="og:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta property="og:description" content="分发事件基本认识
+跟Touch相关的三个方法：
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta property="og:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
-<meta property="og:updated_time" content="2016-03-30T00:03:58.000Z">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean nTouchEvent(MotionEvent ev);">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2016-03-31T03:17:12.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown">
-<meta name="twitter:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="twitter:title" content="OnTouchEvent事件分发机制">
+<meta name="twitter:description" content="分发事件基本认识
+跟Touch相关的三个方法：
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta name="twitter:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
+public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean nTouchEvent(MotionEvent ev);">
+<meta name="twitter:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 
 
 
@@ -95,7 +102,7 @@
   };
 </script>
 
-  <title> Markdown | OrcishDev </title>
+  <title> OnTouchEvent事件分发机制 | OrcishDev </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +232,7 @@
             
             
               
-                Markdown
+                OnTouchEvent事件分发机制
               
             
           </h1>
@@ -237,8 +244,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T12:45:20+08:00" content="2016-03-25">
-              2016-03-25
+            <time itemprop="dateCreated" datetime="2016-03-31T10:44:19+08:00" content="2016-03-31">
+              2016-03-31
             </time>
           </span>
 
@@ -248,8 +255,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/25/Markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/Markdown/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/OnTouchEvent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/OnTouchEvent/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -269,66 +276,88 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimfpkph3000uecqvwc1kbv21"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p><strong>马克飞象</strong>是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：</p>
-<ul>
-<li><strong>功能丰富</strong> ：支持高亮代码块、<em>LaTeX</em> 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；</li>
-<li><strong>得心应手</strong> ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持移动端 Web；</li>
-<li><strong>深度整合</strong> ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。</li>
+        <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
+<li>跟Touch相关的三个方法：</li>
 </ul>
-<hr>
-<a id="more"></a>
-<h2 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="external">维基百科</a></p>
-</blockquote>
-<p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.example.com" target="_blank" rel="external">链接</a>或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按<code>Ctrl + /</code>查看帮助。 </p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span><br><span class="line"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:right">Value</th>
-<th style="text-align:center">Qty</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 USD</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 USD</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 USD</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">e=&gt;end</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<p>以及时序图:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
+public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
+</code></pre> <a id="more"></a>
+<h3 id="OnTouchEvent的分析"><a href="#OnTouchEvent的分析" class="headerlink" title="OnTouchEvent的分析"></a>OnTouchEvent的分析</h3><ul>
+<li>只要点击了一个控件，一定会执行该控件的dispatchTouchEvent方法。</li>
+<li>onTouch方法优先于onClick方法。</li>
+<li>当onTouch返回true的时候，则dispatchTouchEvent方法中不会再执行onTouchEvent方法。</li>
+<li>不执行onTouchEvent方法的三个条件（监听器、控件激活、onTouch返回True），即被当前控件消费了事件。</li>
+<li>onTouchEvent方法内部还有一个判断，当控件是可以点击的时候，才可以执行ACTION_DOWN、ACTION_UP等行为。执行完之后返回True。</li>
+</ul>
+<ul>
+<li><p>dispatchTouchEvent代码</p>
+<pre><code>public boolean dispatchTouchEvent(MotionEvent event) {  
+    if (mOnTouchListener != null &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp;  
+            mOnTouchListener.onTouch(this, event)) {  
+        return true;  
+    }  
+    return onTouchEvent(event);  
+}  
+</code></pre></li>
+<li><p>onTouchEvent内部的判断是否可点击的代码</p>
+<pre><code>if (((viewFlags &amp; CLICKABLE) == CLICKABLE || (viewFlags &amp; LONG_CLICKABLE) == LONG_CLICKABLE)) {  
+    //当控件可点击的时候，才会执行一系列Action
+    switch(event.getAction()){
+        case MotionEvent.ACTION_UP:
+        case MotionEvent.ACTION_DOWN:
+        ......
+        break;
+        return true
+    }
+}
+return false; //当控件不可点击时 直接返回false
+</code></pre></li>
+</ul>
+<ul>
+<li><p>点击按钮的过程</p>
+<p>  <img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>用法：</p>
+<pre><code>dispatchTouchEvent() 用来分派事件。
+其中调用了onInterceptTouchEvent()和onTouchEvent()，一般不重写该方法
+</code></pre><p>.</p>
+<pre><code>onInterceptTouchEvent()    用来拦截事件。
+ViewGroup类中的源码实现就是{return false;}表示不拦截该事件，
+事件将向下传递（传递给其子View）；
+若手动重写该方法，使其返回true则表示拦截，事件将终止向下传递，
+事件由当前ViewGroup类来处理，就是调用该类的onTouchEvent()方法
+</code></pre><p>.</p>
+<pre><code>onTouchEvent()    用来处理事件。
+返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
+返回false表示不能处理，则把事件传递给其父View的onTouchEvent()方法来处理
+</code></pre></li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>简单使用：</p>
+<p>例如一个Activity里有一个LinearLayout、一个TextView<br>在Activity里重写OnTouchEvent 方法，TextView绑定onTouchLister<br>这样如果TextView重写的onTouch方法里返回了true，Activity里的OnTouchEvent<br>方法就不再执行。</p>
+<pre><code>tvTest.setOnTouchListener(new View.OnTouchListener() {
+          @Override
+          public boolean onTouch(View view, MotionEvent motionEvent) {
+              Functions.toast(SettingActivity.this, &quot;BTN-------Event&quot;);
+              Logger.log(&quot;Erin&quot;,&quot;btn------event&quot;+motionEvent.getAction());
+              return true;
+          }
+      });
+</code></pre><p>此处可能会调用多次ontouch方法，因为Action可能是按下、松开、移动三种情况。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。</li>
+<li>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </li>
+</ul>
+<ul>
+<li><p>详细参考 </p>
+<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/loongggdroid/article/details/19118475" target="_blank" rel="external">OnTouch参考二</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -343,7 +372,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag">#Markdown</a>
+            <a href="/tags/onTouchEvent/" rel="tag">#onTouchEvent</a>
           
         </div>
       
@@ -352,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/10/RecyclerView/" rel="next" title="RecyclerView笔记">
-                <i class="fa fa-chevron-left"></i> RecyclerView笔记
+              <a href="/2016/03/30/BNJSummarize/" rel="next" title="BNJ项目学到的知识点">
+                <i class="fa fa-chevron-left"></i> BNJ项目学到的知识点
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/30/Skills/" rel="prev" title="布局常用的技巧">
-                布局常用的技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,8 +413,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/25/Markdown/"
-           data-title="Markdown" data-url="OrcishDev.github.io/2016/03/25/Markdown/">
+      <div class="ds-thread" data-thread-key="2016/03/31/OnTouchEvent/"
+           data-title="OnTouchEvent事件分发机制" data-url="OrcishDev.github.io/2016/03/31/OnTouchEvent/">
       </div>
     
   </div>
@@ -478,7 +503,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown简介"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.1.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">1.1.2.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">1.1.3.</span> <span class="nav-text">流程图</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发事件基本认识"><span class="nav-number">1.</span> <span class="nav-text">分发事件基本认识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnTouchEvent的分析"><span class="nav-number">2.</span> <span class="nav-text">OnTouchEvent的分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

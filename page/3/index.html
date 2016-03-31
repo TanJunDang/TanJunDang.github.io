@@ -216,6 +216,119 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/03/Notification/" itemprop="url">
+                  Notification实际开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-03T17:34:10+08:00" content="2015-10-03">
+              2015-10-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/03/Notification/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/Notification/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h4><ul>
+<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
+<li><p>通常Notification的用法如下：</p>
+<pre><code>NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+Notification notification = new Notification.Builder(SettingActivity.this)
+        .setContentTitle(&quot;版本更新&quot;)//设置标题
+        .setSmallIcon(R.mipmap.ic_launcher)//图标
+        .setContentInfo(&quot;GDPC&quot;)//设置右边的小提示
+        .setAutoCancel(false) // 设置点击取消（貌似无效）
+        .setTicker(&quot;有新版本了&quot;) //状态栏显示收到的消息
+        .setDefaults(Notification.DEFAULT_VIBRATE)//设置震动
+        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) //设置声音
+        .build();
+manager.notify(0,notification); // 发送通知
+</code></pre></li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/03/Notification/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/02/VersionUpdate/" itemprop="url">
                   版本更新实际开发
                 </a>
@@ -904,6 +1017,105 @@ tv.setText(schoolBasicInfo.getIntroduct());
             
               
                 
+                <a class="post-title-link" href="/2015/09/17/Error/" itemprop="url">
+                  常见的错误
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-17T00:00:00+08:00" content="2015-09-17">
+              2015-09-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/17/Error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/Error/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h4><pre><code>android.content.res.Resources$NotFoundException: String resource ID #0x1
+</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/17/Error/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/09/17/ImageLoader/" itemprop="url">
                   ImageLoader的理解
                 </a>
@@ -961,105 +1173,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 </ol>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/17/ImageLoader/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/17/Error/" itemprop="url">
-                  常见的错误
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-17T00:00:00+08:00" content="2015-09-17">
-              2015-09-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/17/Error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/Error/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h4><pre><code>android.content.res.Resources$NotFoundException: String resource ID #0x1
-</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/17/Error/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1164,108 +1277,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 </ol>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/12/ViewPager_One/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/11/DrawerLayout/" itemprop="url">
-                  DrawerLayout抽屉
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-11T00:00:00+08:00" content="2015-09-11">
-              2015-09-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/11/DrawerLayout/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/11/DrawerLayout/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="DrawerLayout的简单使用"><a href="#DrawerLayout的简单使用" class="headerlink" title="DrawerLayout的简单使用"></a>DrawerLayout的简单使用</h3><p>实现效果如下：</p>
-<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
-<p>上述分别是左抽屉跟右抽屉。 </p>
-<p>1.创建布局文件</p>
-<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/11/DrawerLayout/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

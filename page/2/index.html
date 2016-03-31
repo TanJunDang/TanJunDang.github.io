@@ -216,6 +216,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/01/Animation/" itemprop="url">
+                  Animation总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-01T20:20:39+08:00" content="2016-01-01">
+              2016-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/01/Animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/01/Animation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><ul>
+<li>在res目录创建anim目录</li>
+<li>创建标签为set的xml文件</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/01/Animation/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/23/Framework/" itemprop="url">
                   常用的技术框架
                 </a>
@@ -1231,119 +1332,6 @@ startActivity(it);
 </ul>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/03/InterView/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/03/Notification/" itemprop="url">
-                  Notification实际开发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-03T17:34:10+08:00" content="2015-10-03">
-              2015-10-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/03/Notification/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/Notification/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h4><ul>
-<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
-<li><p>通常Notification的用法如下：</p>
-<pre><code>NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-Notification notification = new Notification.Builder(SettingActivity.this)
-        .setContentTitle(&quot;版本更新&quot;)//设置标题
-        .setSmallIcon(R.mipmap.ic_launcher)//图标
-        .setContentInfo(&quot;GDPC&quot;)//设置右边的小提示
-        .setAutoCancel(false) // 设置点击取消（貌似无效）
-        .setTicker(&quot;有新版本了&quot;) //状态栏显示收到的消息
-        .setDefaults(Notification.DEFAULT_VIBRATE)//设置震动
-        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) //设置声音
-        .build();
-manager.notify(0,notification); // 发送通知
-</code></pre></li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/03/Notification/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

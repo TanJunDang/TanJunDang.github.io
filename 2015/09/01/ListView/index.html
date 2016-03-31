@@ -83,7 +83,7 @@ listView.setDivider(null);
 
 在XML布局文件取消  
 android:divider=&amp;quot;#FFCC00&amp;q">
-<meta property="og:updated_time" content="2016-03-30T01:55:27.209Z">
+<meta property="og:updated_time" content="2016-03-30T09:51:34.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ListView的理解">
 <meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
@@ -308,6 +308,38 @@ android:divider=&quot;@null&quot;
 </code></pre></li>
 </ul>
 <h3 id="设置listview无点击背景效果"><a href="#设置listview无点击背景效果" class="headerlink" title="设置listview无点击背景效果"></a>设置listview无点击背景效果</h3><pre><code>android:listSelector=&quot;@android:color/transparent&quot;  
+</code></pre><h3 id="ConvertView的理解"><a href="#ConvertView的理解" class="headerlink" title="ConvertView的理解"></a>ConvertView的理解</h3><ul>
+<li>每一个条目（Item）的显示，都是ListView加载布局来实现的。</li>
+<li>convertview就是滑出屏幕后被Android回收的条目。</li>
+</ul>
+<p>原因：由于每次加载布局会使性能下降，所以应该复用convertview。  </p>
+<p>如何复用？ 代码如下：</p>
+<pre><code>if(convertView==null){
+    加载布局
+}
+//然后获取布局里的的View设置相关的值  
+convertView.findViewById(R.id.text)).setText(DATA[position]);
+</code></pre><p>由于每次都要FindId，这样也会使性能下降。所以我们应该复用ConvertView，这时就用到ViewHolder跟settag跟gettag方法了。</p>
+<ul>
+<li>简单来说ViewHolder就是对一个布局里的控件FindId</li>
+</ul>
+<p>所以代码改成这样：  </p>
+<pre><code>ViewHolder holder;
+if(convertView==null){
+    加载布局
+holder =  new ViewHolder();  
+convertView.setTag(holder);
+}else{
+holder = (ViewHolder)convertView.getTag();
+}
+//然后获取布局里的的View设置相关的值  
+holder.tvName.setText(DATA[position]);
+.
+.
+.
+class ViewHolder{
+    private TextView tvName;
+}
 </code></pre><h4 id="ListView的下拉刷新，上拉加载数据"><a href="#ListView的下拉刷新，上拉加载数据" class="headerlink" title="ListView的下拉刷新，上拉加载数据"></a>ListView的下拉刷新，上拉加载数据</h4><p>在跟服务器交互时  </p>
 <ul>
 <li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
@@ -516,39 +548,7 @@ convertView.setTag(tag,info);
 <li>重写getItem方法、getView设置tag</li>
 <li>通过setTag设置对象、通过getTag获取对象</li>
 </ul>
-<h3 id="ConvertView的理解"><a href="#ConvertView的理解" class="headerlink" title="ConvertView的理解"></a>ConvertView的理解</h3><ul>
-<li>每一个条目（Item）的显示，都是ListView加载布局来实现的。</li>
-<li>convertview就是滑出屏幕后被Android回收的条目。</li>
-</ul>
-<p>原因：由于每次加载布局会使性能下降，所以应该复用convertview。  </p>
-<p>如何复用？ 代码如下：</p>
-<pre><code>if(convertView==null){
-    加载布局
-}
-//然后获取布局里的的View设置相关的值  
-convertView.findViewById(R.id.text)).setText(DATA[position]);
-</code></pre><p>由于每次都要FindId，这样也会使性能下降。所以我们应该复用ConvertView，这时就用到ViewHolder跟settag跟gettag方法了。</p>
-<ul>
-<li>简单来说ViewHolder就是对一个布局里的控件FindId</li>
-</ul>
-<p>所以代码改成这样：  </p>
-<pre><code>ViewHolder holder;
-if(convertView==null){
-    加载布局
-holder =  new ViewHolder();  
-convertView.setTag(holder);
-}else{
-holder = (ViewHolder)convertView.getTag();
-}
-//然后获取布局里的的View设置相关的值  
-holder.tvName.setText(DATA[position]);
-.
-.
-.
-class ViewHolder{
-    private TextView tvName;
-}
-</code></pre>
+
       
     </div>
 
@@ -579,8 +579,8 @@ class ViewHolder{
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/06/OnTouchEvent/" rel="prev" title="OnTouchEvent事件分发机制">
-                OnTouchEvent事件分发机制 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/07/CustomView/" rel="prev" title="CustomView">
+                CustomView <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,7 +697,7 @@ class ViewHolder{
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-分割线"><span class="nav-number">1.</span> <span class="nav-text">ListView 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置listview无点击背景效果"><span class="nav-number">2.</span> <span class="nav-text">设置listview无点击背景效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListView的下拉刷新，上拉加载数据"><span class="nav-number">2.1.</span> <span class="nav-text">ListView的下拉刷新，上拉加载数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-11-3-17-20-58"><span class="nav-number"></span> <span class="nav-text">2015/11/3 17:20:58</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用不同布局的Listview"><span class="nav-number">0.1.</span> <span class="nav-text">使用不同布局的Listview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变"><span class="nav-number">0.2.</span> <span class="nav-text">notifyDataSetChanged方法正常使用的前提是数据源ID没变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于getItemViewType报数组越界的问题"><span class="nav-number">0.3.</span> <span class="nav-text">关于getItemViewType报数组越界的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载更多的逻辑判断"><span class="nav-number">0.4.</span> <span class="nav-text">加载更多的逻辑判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下发后的json，转成对象后，集合一定要判断是否为空。"><span class="nav-number">0.5.</span> <span class="nav-text">下发后的json，转成对象后，集合一定要判断是否为空。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listview点击item选中的实现"><span class="nav-number">0.6.</span> <span class="nav-text">listview点击item选中的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView的Item点击传递对象"><span class="nav-number">1.</span> <span class="nav-text">ListView的Item点击传递对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConvertView的理解"><span class="nav-number">2.</span> <span class="nav-text">ConvertView的理解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-分割线"><span class="nav-number">1.</span> <span class="nav-text">ListView 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置listview无点击背景效果"><span class="nav-number">2.</span> <span class="nav-text">设置listview无点击背景效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConvertView的理解"><span class="nav-number">3.</span> <span class="nav-text">ConvertView的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListView的下拉刷新，上拉加载数据"><span class="nav-number">3.1.</span> <span class="nav-text">ListView的下拉刷新，上拉加载数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-11-3-17-20-58"><span class="nav-number"></span> <span class="nav-text">2015/11/3 17:20:58</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用不同布局的Listview"><span class="nav-number">0.1.</span> <span class="nav-text">使用不同布局的Listview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变"><span class="nav-number">0.2.</span> <span class="nav-text">notifyDataSetChanged方法正常使用的前提是数据源ID没变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于getItemViewType报数组越界的问题"><span class="nav-number">0.3.</span> <span class="nav-text">关于getItemViewType报数组越界的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载更多的逻辑判断"><span class="nav-number">0.4.</span> <span class="nav-text">加载更多的逻辑判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下发后的json，转成对象后，集合一定要判断是否为空。"><span class="nav-number">0.5.</span> <span class="nav-text">下发后的json，转成对象后，集合一定要判断是否为空。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listview点击item选中的实现"><span class="nav-number">0.6.</span> <span class="nav-text">listview点击item选中的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView的Item点击传递对象"><span class="nav-number">1.</span> <span class="nav-text">ListView的Item点击传递对象</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
