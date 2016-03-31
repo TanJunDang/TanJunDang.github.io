@@ -217,7 +217,7 @@
               
                 
                 <a class="post-title-link" href="/2016/03/31/OnTouchEvent/" itemprop="url">
-                  OnTouchEvent事件分发机制
+                  事件分发机制
                 </a>
               
             
@@ -266,9 +266,8 @@
       
         
           <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
-<li>跟Touch相关的三个方法：</li>
-</ul>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event
+<li><p>跟Touch相关的三个方法：</p>
+<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
 public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
 public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
 </code></pre>
@@ -586,7 +585,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimfpkph3000uecqvwc1kbv21"
+                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimfprpp6000v7kqvgtr29ql7"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
               </a>
