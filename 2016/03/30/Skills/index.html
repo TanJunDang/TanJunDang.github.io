@@ -86,7 +86,7 @@
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-03-30T01:46:21.513Z">
+<meta property="og:updated_time" content="2016-04-01T06:55:21.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="启动界面
@@ -293,7 +293,7 @@
       
 
       
-        <h4 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h4><ul>
+        <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
 <li>如何实现一个启动界面，例如微信、网易新闻。  </li>
 </ul>
 <pre><code>1. 创建一个布局文件，里面放一张图。
@@ -310,8 +310,8 @@
 
         },1000);  
 </code></pre> <a id="more"></a>
-<h4 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h4><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
-<h4 id="EditText、TextView"><a href="#EditText、TextView" class="headerlink" title="EditText、TextView"></a>EditText、TextView</h4><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
+<h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
+<h3 id="EditText、TextView"><a href="#EditText、TextView" class="headerlink" title="EditText、TextView"></a>EditText、TextView</h3><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
 <pre><code>editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});  
 </code></pre><p>TextView设置行间距  </p>
 <pre><code>android:lineSpacingExtra=&quot;7dp&quot;  
@@ -325,22 +325,22 @@
 </code></pre><p>光标移到最后</p>
 <pre><code>Editable ea = editText.getText();
 editText.setSelection(ea.length());
-</code></pre><h5 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h5><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
+</code></pre><h3 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h3><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
 <h3 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h3><p>DatePicker 必须 设置 显示样式  </p>
 <pre><code>android:datepickermode  
 </code></pre><p>设置日历不显示  </p>
 <pre><code>android:calendarViewShown=&quot;false&quot;  
-</code></pre><h4 id="markdown引用格式"><a href="#markdown引用格式" class="headerlink" title="markdown引用格式"></a>markdown引用格式</h4><p>markdown引用格式：日期+文件名+”/“</p>
+</code></pre><h3 id="markdown引用格式"><a href="#markdown引用格式" class="headerlink" title="markdown引用格式"></a>markdown引用格式</h3><p>markdown引用格式：日期+文件名+”/“</p>
 <pre><code>/2015/09/17/ImageLoader/
 </code></pre><p><a href="/2015/09/17/ImageLoader/">ImageLoader</a></p>
 <p><a href="http://blog.csdn.net/lancees/article/details/25618237" target="_blank" rel="external">源码来自此人</a></p>
-<h4 id="退出整个程序的代码"><a href="#退出整个程序的代码" class="headerlink" title="退出整个程序的代码"></a>退出整个程序的代码</h4><pre><code>android.os.Process.killProcess(android.os.Process.myPid());
-</code></pre><h4 id="退出到桌面的代码"><a href="#退出到桌面的代码" class="headerlink" title="退出到桌面的代码"></a>退出到桌面的代码</h4><pre><code>Intent intent = new Intent();
+<h3 id="退出整个程序的代码"><a href="#退出整个程序的代码" class="headerlink" title="退出整个程序的代码"></a>退出整个程序的代码</h3><pre><code>android.os.Process.killProcess(android.os.Process.myPid());
+</code></pre><h3 id="退出到桌面的代码"><a href="#退出到桌面的代码" class="headerlink" title="退出到桌面的代码"></a>退出到桌面的代码</h3><pre><code>Intent intent = new Intent();
 intent.setAction(Intent.ACTION_MAIN);
 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 intent.addCategory(Intent.CATEGORY_HOME);
 startActivity(intent);
-</code></pre><h4 id="如何判断是否第一进入本界面"><a href="#如何判断是否第一进入本界面" class="headerlink" title="如何判断是否第一进入本界面"></a>如何判断是否第一进入本界面</h4><pre><code>1. onCreate 获取一个SharedPreferences、同时创建一个xml文件。
+</code></pre><h3 id="如何判断是否第一进入本界面"><a href="#如何判断是否第一进入本界面" class="headerlink" title="如何判断是否第一进入本界面"></a>如何判断是否第一进入本界面</h3><pre><code>1. onCreate 获取一个SharedPreferences、同时创建一个xml文件。
 2. 创建一个boolean变量isFirst 通过sp对象来获取其值。
 3. 判断isFirst是否为true，是则做第一次的处理。
 4. 第一次处理之后，要把boolean值设置为false，并传给xml文件里。
@@ -361,7 +361,7 @@ startActivity(intent);
         }
 
     }
-</code></pre><h4 id="将常用的代码封装成一个类-IntentUtils类"><a href="#将常用的代码封装成一个类-IntentUtils类" class="headerlink" title="将常用的代码封装成一个类 IntentUtils类"></a>将常用的代码封装成一个类 IntentUtils类</h4><pre><code>public class IntentUtils{
+</code></pre><h3 id="将常用的代码封装成一个类-IntentUtils类"><a href="#将常用的代码封装成一个类-IntentUtils类" class="headerlink" title="将常用的代码封装成一个类 IntentUtils类"></a>将常用的代码封装成一个类 IntentUtils类</h3><pre><code>public class IntentUtils{
 
     public void statrActivity(Context context , Class&lt;?&gt; cls){
         Intent intent = new Intent(context,cls);
@@ -370,18 +370,18 @@ startActivity(intent);
     }
 
 }
-</code></pre><h4 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h4><pre><code>默认图必须放在最后面
+</code></pre><h3 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h3><pre><code>默认图必须放在最后面
 
 &lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
     &lt;item android:drawable=&quot;@drawable/common_icon_gray_tab&quot; android:state_pressed=&quot;true&quot;&gt;&lt;/item&gt;
     &lt;item android:drawable=&quot;@drawable/common_icon_red_tab&quot;&gt;&lt;/item&gt; //默认图必须放在最下面
 &lt;/selector&gt;
-</code></pre><h4 id="如何导入so文件"><a href="#如何导入so文件" class="headerlink" title="如何导入so文件"></a>如何导入so文件</h4><pre><code>在src/main 下面新建一个jniLibs文件夹 放入文件即可
-</code></pre><h4 id="缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><a href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。" class="headerlink" title="缓存集合的时候不能用“=”赋值，要用addAll或者For循环。"></a>缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</h4><h4 id="9-png"><a href="#9-png" class="headerlink" title=".9.png"></a>.9.png</h4><ul>
+</code></pre><h3 id="如何导入so文件"><a href="#如何导入so文件" class="headerlink" title="如何导入so文件"></a>如何导入so文件</h3><pre><code>在src/main 下面新建一个jniLibs文件夹 放入文件即可
+</code></pre><h3 id="缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><a href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。" class="headerlink" title="缓存集合的时候不能用“=”赋值，要用addAll或者For循环。"></a>缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</h3><h3 id="9-png"><a href="#9-png" class="headerlink" title=".9.png"></a>.9.png</h3><ul>
 <li>一句话总结：画黑点的地方无限延长</li>
 <li>tool文件夹先开启工具</li>
 </ul>
-<h4 id="自动弹出软键盘"><a href="#自动弹出软键盘" class="headerlink" title="自动弹出软键盘"></a>自动弹出软键盘</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
+<h3 id="自动弹出软键盘"><a href="#自动弹出软键盘" class="headerlink" title="自动弹出软键盘"></a>自动弹出软键盘</h3><p>Mainfest中设置   windowSoftInputMode属性</p>
 <pre><code>android:windowSoftInputMode=&quot;stateAlwaysVisible&quot;
 </code></pre><p>【A】stateUnspecified：默认状态，系统将选择一个合适的状态或依赖于主题的设置</p>
 <p>【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
@@ -469,9 +469,12 @@ RD /S /Q \\?\%1
 <ul>
 <li><p>布局技巧</p>
 <ul>
-<li>RelativeLayout为自适应、设置最小高度</li>
-<li>tvTitle为margin_top= 15</li>
-<li>tvValue 为margin_top = 15 、margin_bottom = 15</li>
+<li><p>RelativeLayout为自适应、设置最小高度</p>
+</li>
+<li><p>tvTitle为margin_top= 15</p>
+</li>
+<li><p>tvValue 为margin_top = 15 、margin_bottom = 15</p>
+</li>
 </ul>
 </li>
 <li><p>参考机构端事项内容</p>
@@ -487,7 +490,9 @@ RD /S /Q \\?\%1
 android:focusableInTouchMode=&quot;true&quot;
 </code></pre></li>
 </ul>
-
+<h3 id="如何直接使用某个类的静态方法而不用类名调用"><a href="#如何直接使用某个类的静态方法而不用类名调用" class="headerlink" title="如何直接使用某个类的静态方法而不用类名调用"></a>如何直接使用某个类的静态方法而不用类名调用</h3><pre><code>//在导包的时候,加入static 关键字即可在代码中直接调用initItemView方法
+import static io.github.movie.initItemView;
+</code></pre>
       
     </div>
 
@@ -642,7 +647,7 @@ android:focusableInTouchMode=&quot;true&quot;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动界面"><span class="nav-number">1.</span> <span class="nav-text">启动界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ActionBar"><span class="nav-number">2.</span> <span class="nav-text">ActionBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EditText、TextView"><span class="nav-number">3.</span> <span class="nav-text">EditText、TextView</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重要的知识点"><span class="nav-number">3.1.</span> <span class="nav-text">重要的知识点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePicker"><span class="nav-number"></span> <span class="nav-text">DatePicker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#markdown引用格式"><span class="nav-number">1.</span> <span class="nav-text">markdown引用格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出整个程序的代码"><span class="nav-number">2.</span> <span class="nav-text">退出整个程序的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出到桌面的代码"><span class="nav-number">3.</span> <span class="nav-text">退出到桌面的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断是否第一进入本界面"><span class="nav-number">4.</span> <span class="nav-text">如何判断是否第一进入本界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将常用的代码封装成一个类-IntentUtils类"><span class="nav-number">5.</span> <span class="nav-text">将常用的代码封装成一个类 IntentUtils类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selector在Button里无效的原因"><span class="nav-number">6.</span> <span class="nav-text">Selector在Button里无效的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何导入so文件"><span class="nav-number">7.</span> <span class="nav-text">如何导入so文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><span class="nav-number">8.</span> <span class="nav-text">缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-png"><span class="nav-number">9.</span> <span class="nav-text">.9.png</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动弹出软键盘"><span class="nav-number">10.</span> <span class="nav-text">自动弹出软键盘</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText-只读内容滚动"><span class="nav-number"></span> <span class="nav-text">EditText 只读内容滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText禁止输入回车"><span class="nav-number"></span> <span class="nav-text">EditText禁止输入回车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按key排序"><span class="nav-number"></span> <span class="nav-text">集合按key排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试方法"><span class="nav-number"></span> <span class="nav-text">测试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aligntop没效果"><span class="nav-number"></span> <span class="nav-text">aligntop没效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation动画"><span class="nav-number"></span> <span class="nav-text">Animation动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minHeight的作用"><span class="nav-number"></span> <span class="nav-text">minHeight的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android-alpha属性"><span class="nav-number"></span> <span class="nav-text">android:alpha属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Format"><span class="nav-number"></span> <span class="nav-text">String.Format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除桌面上不存在的项目"><span class="nav-number"></span> <span class="nav-text">删除桌面上不存在的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mipmap尺寸"><span class="nav-number"></span> <span class="nav-text">mipmap尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include包括的布局不能使用below等属性"><span class="nav-number"></span> <span class="nav-text">include包括的布局不能使用below等属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高度布局-实现下列效果"><span class="nav-number"></span> <span class="nav-text">高度布局(实现下列效果)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ScrollView与Edittext冲突"><span class="nav-number"></span> <span class="nav-text">ScrollView与Edittext冲突</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动界面"><span class="nav-number">1.</span> <span class="nav-text">启动界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActionBar"><span class="nav-number">2.</span> <span class="nav-text">ActionBar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText、TextView"><span class="nav-number">3.</span> <span class="nav-text">EditText、TextView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的知识点"><span class="nav-number">4.</span> <span class="nav-text">重要的知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePicker"><span class="nav-number">5.</span> <span class="nav-text">DatePicker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown引用格式"><span class="nav-number">6.</span> <span class="nav-text">markdown引用格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出整个程序的代码"><span class="nav-number">7.</span> <span class="nav-text">退出整个程序的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出到桌面的代码"><span class="nav-number">8.</span> <span class="nav-text">退出到桌面的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断是否第一进入本界面"><span class="nav-number">9.</span> <span class="nav-text">如何判断是否第一进入本界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将常用的代码封装成一个类-IntentUtils类"><span class="nav-number">10.</span> <span class="nav-text">将常用的代码封装成一个类 IntentUtils类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selector在Button里无效的原因"><span class="nav-number">11.</span> <span class="nav-text">Selector在Button里无效的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何导入so文件"><span class="nav-number">12.</span> <span class="nav-text">如何导入so文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><span class="nav-number">13.</span> <span class="nav-text">缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-png"><span class="nav-number">14.</span> <span class="nav-text">.9.png</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动弹出软键盘"><span class="nav-number">15.</span> <span class="nav-text">自动弹出软键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText-只读内容滚动"><span class="nav-number">16.</span> <span class="nav-text">EditText 只读内容滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText禁止输入回车"><span class="nav-number">17.</span> <span class="nav-text">EditText禁止输入回车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按key排序"><span class="nav-number">18.</span> <span class="nav-text">集合按key排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试方法"><span class="nav-number">19.</span> <span class="nav-text">测试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aligntop没效果"><span class="nav-number">20.</span> <span class="nav-text">aligntop没效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation动画"><span class="nav-number">21.</span> <span class="nav-text">Animation动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minHeight的作用"><span class="nav-number">22.</span> <span class="nav-text">minHeight的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android-alpha属性"><span class="nav-number">23.</span> <span class="nav-text">android:alpha属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-Format"><span class="nav-number">24.</span> <span class="nav-text">String.Format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除桌面上不存在的项目"><span class="nav-number">25.</span> <span class="nav-text">删除桌面上不存在的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mipmap尺寸"><span class="nav-number">26.</span> <span class="nav-text">mipmap尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include包括的布局不能使用below等属性"><span class="nav-number">27.</span> <span class="nav-text">include包括的布局不能使用below等属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高度布局-实现下列效果"><span class="nav-number">28.</span> <span class="nav-text">高度布局(实现下列效果)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ScrollView与Edittext冲突"><span class="nav-number">29.</span> <span class="nav-text">ScrollView与Edittext冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何直接使用某个类的静态方法而不用类名调用"><span class="nav-number">30.</span> <span class="nav-text">如何直接使用某个类的静态方法而不用类名调用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
