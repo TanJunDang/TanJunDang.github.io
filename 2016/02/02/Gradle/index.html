@@ -65,7 +65,7 @@ build.gradle(Module) （ 配置模块的参数 ）">
 <meta property="og:site_name" content="OrcishDev">
 <meta property="og:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
 build.gradle(Module) （ 配置模块的参数 ）">
-<meta property="og:updated_time" content="2016-03-30T07:09:18.767Z">
+<meta property="og:updated_time" content="2016-04-01T09:58:28.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle的学习">
 <meta name="twitter:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
@@ -405,11 +405,48 @@ Jni接口
 <li><p>示例：</p>
 <pre><code>sharesdk混淆注意
 
--keep class android.net.http.SslError
--keep class android.webkit.**{*;}
--keep class cn.sharesdk.**{*;}
--keep class com.sina.**{*;}
--keep class m.framework.**{*;}
+-optimizationpasses 5          # 指定代码的压缩级别
+-dontusemixedcaseclassnames   # 是否使用大小写混合
+-dontpreverify           # 混淆时是否做预校验
+-verbose                # 混淆时是否记录日志
+
+-dontwarn com.umeng.**
+#保持com.umeng.**这个包里面的所有类和所有方法不被混淆。(没有友盟的集成时删除此句)
+
+# 混淆时所采用的算法
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+ # 保持哪些类不被混淆
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+ # 保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+    native &lt;methods&gt;;
+}
+
+ # 保持自定义控件类不被混淆
+-keepclasseswithmembers class * {
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers class * {# 保持自定义控件类不被混淆
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclassmembers class * extends android.app.Activity {  # 保持自定义控件类不被混淆
+    public void *(android.view.View);
+}
+-keepclassmembers enum * {     # 保持枚举 enum 类不被混淆
+ public static **[] values();
+ public static ** valueOf(java.lang.String);
+}
+-keep class * implements android.os.Parcelable { # 保持 Parcelable 不被混淆
+ public static final android.os.Parcelable$Creator *;
+}
 </code></pre></li>
 </ul>
 <ul>
