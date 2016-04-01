@@ -216,6 +216,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/01/CodeOptimize/" itemprop="url">
+                  代码优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-01T11:13:56+08:00" content="2016-04-01">
+              2016-04-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/01/CodeOptimize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/CodeOptimize/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
+<li>利用selector代替setBackground,在XM文件中通过@color/selector的方法来优化。</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/01/CodeOptimize/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/31/OnTouchEvent/" itemprop="url">
                   事件分发机制
                 </a>
@@ -585,7 +685,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimg57wul000u6oqv6zkwudes"
+                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimhbxe1o00104gqvr2c74oou"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
               </a>
@@ -1150,126 +1250,6 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/13/LayoutInflater/" itemprop="url">
-                  LayoutInflater的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-13T16:19:33+08:00" content="2016-01-13">
-              2016-01-13
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/13/LayoutInflater/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/13/LayoutInflater/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_layout,true);
-//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
-
-View view = inflater.inflate(R.layout.button_layout, main_layout,false);
-//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
-
-View view = inflater.inflate(R.layout.button_layout, null,true);
-父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
-
-//父布局为null,后面的参数无效
-</code></pre><p>自定义View</p>
-<p>分析Adatper里的一句代码</p>
-<pre><code>@Override
-public View getView(int i , View view , ViewGroup parent)
-{
-    view = inflater.inflate(R.layout.list_item, parent);
-}
-</code></pre><ul>
-<li>view 是指list_item里面的根标签</li>
-<li>parent 是指外部使用该Item的控件，即ListView</li>
-<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1315,7 +1295,7 @@ public View getView(int i , View view , ViewGroup parent)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1325,7 +1305,7 @@ public View getView(int i , View view , ViewGroup parent)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CodeOptimize," />
 
 
 
@@ -57,60 +57,19 @@
 
 
 
-<meta name="description" content="Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-示例
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action 
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroadcastManag">
+<meta name="description" content="TextView textColor优化
+利用selector代替setBackground,在XM文件中通过@color/selector的方法来优化。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="OrcishDev.github.io/2015/11/19/Android-Broadcast/index.html">
+<meta property="og:title" content="代码优化">
+<meta property="og:url" content="OrcishDev.github.io/2016/04/01/CodeOptimize/index.html">
 <meta property="og:site_name" content="OrcishDev">
-<meta property="og:description" content="Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-示例
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action 
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroadcastManag">
-<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-03-30T00:03:53.000Z">
+<meta property="og:description" content="TextView textColor优化
+利用selector代替setBackground,在XM文件中通过@color/selector的方法来优化。">
+<meta property="og:updated_time" content="2016-04-01T03:44:24.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
-<meta name="twitter:description" content="Broadcast的理解
-系统广播接收器
-利用intent-filter过滤action
-可用作整个应用监听某状态的变化
-
-示例
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action 
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroadcastManag">
-<meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="代码优化">
+<meta name="twitter:description" content="TextView textColor优化
+利用selector代替setBackground,在XM文件中通过@color/selector的方法来优化。">
 
 
 
@@ -128,7 +87,7 @@
   };
 </script>
 
-  <title> 四大组件之Broadcast | OrcishDev </title>
+  <title> 代码优化 | OrcishDev </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +217,7 @@
             
             
               
-                四大组件之Broadcast
+                代码优化
               
             
           </h1>
@@ -270,8 +229,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-19T15:43:42+08:00" content="2015-11-19">
-              2015-11-19
+            <time itemprop="dateCreated" datetime="2016-04-01T11:13:56+08:00" content="2016-04-01">
+              2016-04-01
             </time>
           </span>
 
@@ -281,8 +240,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/19/Android-Broadcast/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/19/Android-Broadcast/" itemprop="commentsCount"></span>
+                <a href="/2016/04/01/CodeOptimize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/CodeOptimize/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,50 +263,51 @@
       
 
       
-        <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
-<li>系统广播接收器</li>
-<li>利用intent-filter过滤action</li>
-<li>可用作整个应用监听某状态的变化</li>
+        <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
+<li>利用selector代替setBackground,在XM文件中通过@color/selector的方法来优化。</li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
-<li>服务器下发新消息时，通知MainActivity更改UI</li>
-</ul>
-<ol>
-<li>继承BroadcastReceiver</li>
-<li>定义过滤的Action </li>
-<li>添加回调接口</li>
-<li>构造函数初始化接口</li>
-<li>重写onReceive方法(调用接口的方法)</li>
-<li>实现接口、动态注册接口(LocalBroadcastManager类)</li>
-<li>在获取到服务器数据的地方发送广播 </li>
-<li>在ondestory里取消广播</li>
-</ol>
-<pre><code>Intent intent = new Intent();
-intent.putExtra(....);
-intent.setAction(Receiver定义的Action);
-sendBroadcast(intent);
-</code></pre><hr>
+<a id="more"></a>
+<h3 id="ListView-选中优化"><a href="#ListView-选中优化" class="headerlink" title="ListView 选中优化"></a>ListView 选中优化</h3><ul>
+<li><p>单选优化</p>
 <ul>
-<li>注册(在MainFest注册一下即可)</li>
-</ul>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<ul>
-<li><p>使用</p>
-<pre><code>private MsgUpdateReceiver msgReceiver
-@Override
-public void onCreate(Bundle savedInstanceState) {
-msgReceiver = new MsgUpdateReceiver(this); //实例化
-IntentFilter filter = new IntentFilter(MsgUpdateReceiver.MSG_UPDATE);//设置过滤器
-//利用LocalBroadcastManager调用其注册方法
-LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);
+<li><p>原代码：</p>
+<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+            User user = (User) v.getTag(dataTag);
+            selectedUser = user;
+            selectItem.clear();
+            selectItem.add(selectedUser); //保存到集合中
+            notifyDataSetChanged();
+        }
+});
 
+.....
+
+if (selectItem.contains(user)) { //通过集合判断是否包含该选项从而做相应的处理
+    holder.ivCheck.setVisibility(View.VISIBLE);
+} else {
+    holder.ivCheck.setVisibility(View.GONE);
 }
 </code></pre></li>
-<li></li>
+<li><p>优化后：</p>
+<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+            User user = (User) v.getTag(dataTag);
+            selectedUser = user; //直接用实体保存
+            notifyDataSetChanged();
+        }
+});
+
+......
+
+holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);
+</code></pre></li>
 </ul>
-<h3 id="Fragment里注册广播"><a href="#Fragment里注册广播" class="headerlink" title="Fragment里注册广播"></a>Fragment里注册广播</h3><ul>
-<li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
-<li>记得在ondestory方法里注销广播</li>
+</li>
+<li><p>总结：集合方式比较适用于多选模式或者混合模式，实体模式适用于单选模式。</p>
+</li>
 </ul>
 
       
@@ -361,22 +321,24 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CodeOptimize/" rel="tag">#CodeOptimize</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/18/JAVASE/" rel="next" title="JAVASE基础">
-                <i class="fa fa-chevron-left"></i> JAVASE基础
+              <a href="/2016/03/31/OnTouchEvent/" rel="next" title="事件分发机制">
+                <i class="fa fa-chevron-left"></i> 事件分发机制
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/23/Framework/" rel="prev" title="常用的技术框架">
-                常用的技术框架 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -402,8 +364,8 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/19/Android-Broadcast/"
-           data-title="四大组件之Broadcast" data-url="OrcishDev.github.io/2015/11/19/Android-Broadcast/">
+      <div class="ds-thread" data-thread-key="2016/04/01/CodeOptimize/"
+           data-title="代码优化" data-url="OrcishDev.github.io/2016/04/01/CodeOptimize/">
       </div>
     
   </div>
@@ -492,7 +454,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Broadcast的理解"><span class="nav-number">1.</span> <span class="nav-text">Broadcast的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment里注册广播"><span class="nav-number">3.</span> <span class="nav-text">Fragment里注册广播</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView-textColor优化"><span class="nav-number">1.</span> <span class="nav-text">TextView textColor优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-选中优化"><span class="nav-number">2.</span> <span class="nav-text">ListView 选中优化</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
