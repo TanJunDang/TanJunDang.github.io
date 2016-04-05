@@ -216,6 +216,119 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/29/Volley/" itemprop="url">
+                  Volley跟Async-http的封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-29T15:29:10+08:00" content="2015-10-29">
+              2015-10-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/29/Volley/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/29/Volley/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+</code></pre><ol>
+<li>Volley有get 、post等方式请求数据。</li>
+<li>Volley可以建立、取消请求队列。</li>
+<li>把请求加入请求队列即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求类，使请求代码量减少。</li>
+<li>大大提高性能（反正很厉害就对了）。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
+2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
+3. queue.add(jr);//加入到队列
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/29/Volley/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/03/InterView/" itemprop="url">
                   天工面试
                 </a>
@@ -1205,109 +1318,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/17/ImageLoader/" itemprop="url">
-                  ImageLoader的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-17T00:00:00+08:00" content="2015-09-17">
-              2015-09-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/17/ImageLoader/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/ImageLoader/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
-<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
-<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
-<li>支持图片下载过程的监听</li>
-<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/17/ImageLoader/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1353,7 +1363,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1363,7 +1373,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
