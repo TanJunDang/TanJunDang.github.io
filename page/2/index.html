@@ -613,10 +613,9 @@ intent.setAction(Receiver定义的Action);
 sendBroadcast(intent);
 </code></pre><hr>
 <ul>
-<li>注册(在MainFest注册一下即可)</li>
-</ul>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<ul>
+<li><p>注册(在MainFest注册一下即可)</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
 <li><p>使用</p>
 <pre><code>private MsgUpdateReceiver msgReceiver
 @Override
@@ -625,10 +624,8 @@ msgReceiver = new MsgUpdateReceiver(this); //实例化
 IntentFilter filter = new IntentFilter(MsgUpdateReceiver.MSG_UPDATE);//设置过滤器
 //利用LocalBroadcastManager调用其注册方法
 LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);
-
 }
 </code></pre></li>
-<li></li>
 </ul>
 <h3 id="Fragment里注册广播"><a href="#Fragment里注册广播" class="headerlink" title="Fragment里注册广播"></a>Fragment里注册广播</h3><ul>
 <li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
@@ -1422,7 +1419,7 @@ startActivity(it);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
