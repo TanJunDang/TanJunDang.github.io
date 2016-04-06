@@ -63,8 +63,13 @@ EventBus自定义消息类型。（创建Event）。
 EventBus一般不创建对象，直接调用default方法即可。
 发送者直接调用post方法即可。
 接收者需要在当前Activity注册并且反注册，并且重写接收方法。
+  
 
-![](http://imglf0.nosdn.127.net/img/U05xRll">
+
+EventBus使用
+自定义Event事件(待传递的消息)。
+发送消息
+Eve">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventBus基本使用">
 <meta property="og:url" content="OrcishDev.github.io/2016/04/05/EventBus/index.html">
@@ -75,9 +80,15 @@ EventBus自定义消息类型。（创建Event）。
 EventBus一般不创建对象，直接调用default方法即可。
 发送者直接调用post方法即可。
 接收者需要在当前Activity注册并且反注册，并且重写接收方法。
+  
 
-![](http://imglf0.nosdn.127.net/img/U05xRll">
-<meta property="og:updated_time" content="2016-04-05T03:17:35.276Z">
+
+EventBus使用
+自定义Event事件(待传递的消息)。
+发送消息
+Eve">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-04-06T09:42:37.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus基本使用">
 <meta name="twitter:description" content="EventBus的理解
@@ -86,8 +97,14 @@ EventBus自定义消息类型。（创建Event）。
 EventBus一般不创建对象，直接调用default方法即可。
 发送者直接调用post方法即可。
 接收者需要在当前Activity注册并且反注册，并且重写接收方法。
+  
 
-![](http://imglf0.nosdn.127.net/img/U05xRll">
+
+EventBus使用
+自定义Event事件(待传递的消息)。
+发送消息
+Eve">
+<meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 
 
 
@@ -286,10 +303,19 @@ EventBus一般不创建对象，直接调用default方法即可。
 <li>EventBus自定义消息类型。（创建Event）。</li>
 <li>EventBus一般不创建对象，直接调用default方法即可。</li>
 <li>发送者直接调用post方法即可。</li>
-<li>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
 </ul>
-<pre><code>![](http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg)
-</code></pre>
+<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
+<li>自定义Event事件(待传递的消息)。</li>
+<li><p>发送消息</p>
+<pre><code>EventBus.getDefault().post(new MyEvent(&quot;msg&quot;));
+</code></pre></li>
+<li><p>接收消息（注册/反注册EventBus）</p>
+</li>
+</ol>
+
       
     </div>
 
@@ -312,13 +338,17 @@ EventBus一般不创建对象，直接调用default方法即可。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/01/CodeOptimize/" rel="next" title="代码优化">
-                <i class="fa fa-chevron-left"></i> 代码优化
+              <a href="/2016/04/05/RxAndroid/" rel="next" title="RxAndroid的理解">
+                <i class="fa fa-chevron-left"></i> RxAndroid的理解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/06/CodeOptimize/" rel="prev" title="代码优化">
+                代码优化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -390,7 +420,7 @@ EventBus一般不创建对象，直接调用default方法即可。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -400,7 +430,7 @@ EventBus一般不创建对象，直接调用default方法即可。
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -434,7 +464,7 @@ EventBus一般不创建对象，直接调用default方法即可。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#EventBus的理解"><span class="nav-number">1.</span> <span class="nav-text">EventBus的理解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#EventBus的理解"><span class="nav-number">1.</span> <span class="nav-text">EventBus的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventBus使用"><span class="nav-number">2.</span> <span class="nav-text">EventBus使用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

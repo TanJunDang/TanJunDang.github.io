@@ -216,6 +216,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/06/CodeOptimize/" itemprop="url">
+                  代码优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-06T18:13:44+08:00" content="2016-04-06">
+              2016-04-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/06/CodeOptimize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/CodeOptimize/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
+<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/06/CodeOptimize/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
                   EventBus基本使用
                 </a>
@@ -271,10 +371,19 @@
 <li>EventBus自定义消息类型。（创建Event）。</li>
 <li>EventBus一般不创建对象，直接调用default方法即可。</li>
 <li>发送者直接调用post方法即可。</li>
-<li>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
 </ul>
-<pre><code>![](http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg)
-</code></pre>
+<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
+<li>自定义Event事件(待传递的消息)。</li>
+<li><p>发送消息</p>
+<pre><code>EventBus.getDefault().post(new MyEvent(&quot;msg&quot;));
+</code></pre></li>
+<li><p>接收消息（注册/反注册EventBus）</p>
+</li>
+</ol>
+
           
         
       
@@ -319,8 +428,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/01/CodeOptimize/" itemprop="url">
-                  代码优化
+                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
+                  RxAndroid的理解
                 </a>
               
             
@@ -333,8 +442,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T11:13:56+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
             </time>
           </span>
 
@@ -344,8 +453,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/01/CodeOptimize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/CodeOptimize/" itemprop="commentsCount"></span>
+                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -368,14 +477,240 @@
 
       
         
-          <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
-<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
+          
+            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
+<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
+<li>RxAndroid代码简洁、逻辑清晰。</li>
+<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
+<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
+<ul>
+<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
+<li>unsubscribe用于释放内存。</li>
 </ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/01/CodeOptimize/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>观察者Observer/订阅者Subscriber</li>
+<li></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/04/ProGuard/" itemprop="url">
+                  ProGuard混淆
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-04T09:33:30+08:00" content="2016-04-04">
+              2016-04-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/04/ProGuard/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/04/ProGuard/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ProGuard配置"><a href="#ProGuard配置" class="headerlink" title="ProGuard配置"></a>ProGuard配置</h3><ul>
+<li><pre><code>生成mapping文件
+不能混淆的代码
+系统接口
+Jni接口
+其他如四大组件、View等
+第三方类库如android-support
+
+保留选项（配置不进行处理的内容）
+
+-keep {Modifier} {class_specification} 保护指定的类文件和类的成员 
+-keepclassmembers {modifier} {class_specification} 保护指定类的成员，如果此类受到保护他们会保护的更好 
+-keepclasseswithmembers {class_specification} 保护指定的类和类的成员，但条件是所有指定的类和类成员是要存在。 
+-keepnames {class_specification} 保护指定的类和类的成员的名称（如果他们不会压缩步骤中删除） 
+-keepclassmembernames {class_specification} 保护指定的类的成员的名称（如果他们不会压缩步骤中删除） 
+-keepclasseswithmembernames {class_specification} 保护指定的类和类的成员的名称，如果所有指定的类成员出席（在压缩步骤之后） 
+-printseeds {filename} 列出类和类的成员-keep选项的清单，标准输出到给定的文件
+
+压缩
+
+-dontshrink 不压缩输入的类文件 
+-printusage {filename} 
+-whyareyoukeeping {class_specification}
+
+优化
+
+-dontoptimize 不优化输入的类文件 
+-assumenosideeffects {class_specification} 优化时假设指定的方法，没有任何副作用 
+-allowaccessmodification 优化时允许访问并修改有修饰符的类和类的成员
+
+混淆
+
+-dontobfuscate 不混淆输入的类文件 
+-obfuscationdictionary {filename} 使用给定文件中的关键字作为要混淆方法的名称 
+-overloadaggressively 混淆时应用侵入式重载 
+-useuniqueclassmembernames 确定统一的混淆类的成员名称来增加混淆 
+-flattenpackagehierarchy {package_name} 重新包装所有重命名的包并放在给定的单一包中 
+-repackageclass {package_name} 重新包装所有重命名的类文件中放在给定的单一包中 
+-dontusemixedcaseclassnames 混淆时不会产生形形色色的类名 
+-keepattributes {attribute_name,…} 保护给定的可选属性，例如LineNumberTable, LocalVariableTable,SourceFile, Deprecated, Synthetic, Signature, and InnerClasses. 
+-renamesourcefileattribute {string} 设置源文件中给定的字符串常量
+
+后面的文件名，类名，或者包名等可以使用占位符代替 
+？表示一个字符
+
+可以匹配多个字符，但是如果是一个类，不会匹配其前面的包名 
+可以匹配多个字符，会匹配前面的包名。  
+在android中在android Manifest文件中的activity，service，provider， receviter，等都不能进行混淆。一些在xml中配置的view也不能进行混淆，android提供的默认配置中都有
+</code></pre></li>
+</ul>
+<hr>
+<ul>
+<li><p>示例</p>
+<pre><code>sharesdk混淆注意
+
+-optimizationpasses 5          # 指定代码的压缩级别
+-dontusemixedcaseclassnames   # 是否使用大小写混合
+-dontpreverify           # 混淆时是否做预校验
+-verbose                # 混淆时是否记录日志
+
+-dontwarn com.umeng.**
+#保持com.umeng.**这个包里面的所有类和所有方法不被混淆。(没有友盟的集成时删除此句)
+
+# 混淆时所采用的算法
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+ # 保持哪些类不被混淆
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+ # 保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+    native &lt;methods&gt;;
+}
+
+ # 保持自定义控件类不被混淆
+-keepclasseswithmembers class * {
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers class * {# 保持自定义控件类不被混淆
+    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclassmembers class * extends android.app.Activity {  # 保持自定义控件类不被混淆
+    public void *(android.view.View);
+}
+-keepclassmembers enum * {     # 保持枚举 enum 类不被混淆
+ public static **[] values();
+ public static ** valueOf(java.lang.String);
+}
+-keep class * implements android.os.Parcelable { # 保持 Parcelable 不被混淆
+ public static final android.os.Parcelable$Creator *;
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>总结：</p>
+</li>
+<li><p>报错</p>
+<pre><code>Unable to compute hash of /../AndroidStudioProjects/../classes.jar错误
+说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。
+
+解决办法：
+加上-dontskipnonpubliclibraryclasses #不混淆第三方库
+</code></pre></li>
+<li><p>没生成mapping</p>
+<pre><code>minifyEnable true 开启混淆模式
+配置-ignorewarnings #生成mapping文件
+</code></pre></li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">混淆参考文章</a></p>
+</li>
+<li><p><a href="http://www.bkjia.com/Androidjc/995232.html" target="_blank" rel="external">混淆参考文章</a></p>
+</li>
+</ul>
+
+          
         
       
     </div>
@@ -788,7 +1123,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimmtlkj9000wf4qvgxhv4prj"
+                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimoo27900011rwqvupcunple"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
               </a>
@@ -1045,216 +1380,6 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/01/Widgets/" itemprop="url">
-                  Widgets学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-01T22:05:41+08:00" content="2016-02-01">
-              2016-02-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/01/Widgets/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/01/Widgets/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
-<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/01/Widgets/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/29/Timestamp/" itemprop="url">
-                  时间戳
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-29T11:42:10+08:00" content="2016-01-29">
-              2016-01-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/29/Timestamp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/29/Timestamp/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
-<li><p>时间戳的理解</p>
-<ul>
-<li>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>格式</p>
-<ul>
-<li>EEEE表示星期几、E表示周几</li>
-<li>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1300,7 +1425,7 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1310,7 +1435,7 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

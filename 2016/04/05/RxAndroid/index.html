@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CodeOptimize," />
+  <meta name="keywords" content="RxAndroid," />
 
 
 
@@ -57,19 +57,37 @@
 
 
 
-<meta name="description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
+<meta name="description" content="RxAndroid的理解
+使用观察者与被观察者模式，主要用于实现异步操作。
+RxAndroid代码简洁、逻辑清晰。
+观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。
+观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。
+
+onStart用于做一些事件发送前的工作。例如数据的清零或重置。
+unsubscr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码优化">
-<meta property="og:url" content="OrcishDev.github.io/2016/04/01/CodeOptimize/index.html">
+<meta property="og:title" content="RxAndroid的理解">
+<meta property="og:url" content="OrcishDev.github.io/2016/04/05/RxAndroid/index.html">
 <meta property="og:site_name" content="OrcishDev">
-<meta property="og:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
-<meta property="og:updated_time" content="2016-04-01T08:07:16.923Z">
+<meta property="og:description" content="RxAndroid的理解
+使用观察者与被观察者模式，主要用于实现异步操作。
+RxAndroid代码简洁、逻辑清晰。
+观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。
+观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。
+
+onStart用于做一些事件发送前的工作。例如数据的清零或重置。
+unsubscr">
+<meta property="og:updated_time" content="2016-04-05T09:05:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代码优化">
-<meta name="twitter:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
+<meta name="twitter:title" content="RxAndroid的理解">
+<meta name="twitter:description" content="RxAndroid的理解
+使用观察者与被观察者模式，主要用于实现异步操作。
+RxAndroid代码简洁、逻辑清晰。
+观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。
+观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。
+
+onStart用于做一些事件发送前的工作。例如数据的清零或重置。
+unsubscr">
 
 
 
@@ -87,7 +105,7 @@
   };
 </script>
 
-  <title> 代码优化 | OrcishDev </title>
+  <title> RxAndroid的理解 | OrcishDev </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +235,7 @@
             
             
               
-                代码优化
+                RxAndroid的理解
               
             
           </h1>
@@ -229,8 +247,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-01T11:13:56+08:00" content="2016-04-01">
-              2016-04-01
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
             </time>
           </span>
 
@@ -240,8 +258,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/01/CodeOptimize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/CodeOptimize/" itemprop="commentsCount"></span>
+                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -263,51 +281,20 @@
       
 
       
-        <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
-<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
-</ul>
-<a id="more"></a>
-<h3 id="ListView-选中优化"><a href="#ListView-选中优化" class="headerlink" title="ListView 选中优化"></a>ListView 选中优化</h3><ul>
-<li><p>点击选中代码优化</p>
+        <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
+<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
+<li>RxAndroid代码简洁、逻辑清晰。</li>
+<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
+<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
 <ul>
-<li><p>原代码：</p>
-<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-            User user = (User) v.getTag(dataTag);
-            selectedUser = user;
-            selectItem.clear();
-            selectItem.add(selectedUser); //保存到集合中
-            notifyDataSetChanged();
-        }
-});
-
-.....
-
-if (selectItem.contains(user)) { //通过集合判断是否包含该选项从而做相应的处理
-    holder.ivCheck.setVisibility(View.VISIBLE);
-} else {
-    holder.ivCheck.setVisibility(View.GONE);
-}
-</code></pre></li>
-<li><p>优化后：</p>
-<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-            User user = (User) v.getTag(dataTag);
-            selectedUser = user; //直接用实体保存
-            notifyDataSetChanged();
-        }
-});
-
-......
-
-holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);
-</code></pre></li>
+<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
+<li>unsubscribe用于释放内存。</li>
 </ul>
 </li>
-<li><p>总结：集合方式比较适用于多选模式或者混合模式，实体模式适用于单选模式。</p>
-</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>观察者Observer/订阅者Subscriber</li>
+<li></li>
 </ul>
 
       
@@ -323,7 +310,7 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
       
         <div class="post-tags">
           
-            <a href="/tags/CodeOptimize/" rel="tag">#CodeOptimize</a>
+            <a href="/tags/RxAndroid/" rel="tag">#RxAndroid</a>
           
         </div>
       
@@ -332,8 +319,8 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/31/OnTouchEvent/" rel="next" title="事件分发机制">
-                <i class="fa fa-chevron-left"></i> 事件分发机制
+              <a href="/2016/04/04/ProGuard/" rel="next" title="ProGuard混淆">
+                <i class="fa fa-chevron-left"></i> ProGuard混淆
               </a>
             
           </div>
@@ -368,8 +355,8 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/01/CodeOptimize/"
-           data-title="代码优化" data-url="OrcishDev.github.io/2016/04/01/CodeOptimize/">
+      <div class="ds-thread" data-thread-key="2016/04/05/RxAndroid/"
+           data-title="RxAndroid的理解" data-url="OrcishDev.github.io/2016/04/05/RxAndroid/">
       </div>
     
   </div>
@@ -414,7 +401,7 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -424,7 +411,7 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -458,7 +445,7 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView-textColor优化"><span class="nav-number">1.</span> <span class="nav-text">TextView textColor优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-选中优化"><span class="nav-number">2.</span> <span class="nav-text">ListView 选中优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RxAndroid的理解"><span class="nav-number">1.</span> <span class="nav-text">RxAndroid的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
