@@ -66,7 +66,7 @@
 <meta property="og:description" content="TextView textColor优化
 利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
 <meta property="og:image" content="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-06T10:13:44.898Z">
+<meta property="og:updated_time" content="2016-04-06T10:30:51.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码优化">
 <meta name="twitter:description" content="TextView textColor优化
@@ -273,38 +273,38 @@
 <li><p>点击选中代码优化</p>
 <ul>
 <li><p>原代码：</p>
-<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-            User user = (User) v.getTag(dataTag);
-            selectedUser = user;
-            selectItem.clear();
-            selectItem.add(selectedUser); //保存到集合中
-            notifyDataSetChanged();
-        }
-});
+<pre><code>  convertView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+              User user = (User) v.getTag(dataTag);
+              selectedUser = user;
+              selectItem.clear();
+              selectItem.add(selectedUser); //保存到集合中
+              notifyDataSetChanged();
+          }
+  });
 
-.....
+  .....
 
-if (selectItem.contains(user)) { //通过集合判断是否包含该选项从而做相应的处理
-    holder.ivCheck.setVisibility(View.VISIBLE);
-} else {
-    holder.ivCheck.setVisibility(View.GONE);
-}
+  if (selectItem.contains(user)) { //通过集合判断是否包含该选项从而做相应的处理
+      holder.ivCheck.setVisibility(View.VISIBLE);
+  } else {
+      holder.ivCheck.setVisibility(View.GONE);
+  }
 </code></pre></li>
 <li><p>优化后：</p>
-<pre><code>convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-            User user = (User) v.getTag(dataTag);
-            selectedUser = user; //直接用实体保存
-            notifyDataSetChanged();
-        }
-});
+<pre><code>  convertView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+              User user = (User) v.getTag(dataTag);
+              selectedUser = user; //直接用实体保存
+              notifyDataSetChanged();
+          }
+  });
 
-......
+  ......
 
-holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);
+  holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);
 </code></pre></li>
 </ul>
 </li>
@@ -327,61 +327,61 @@ holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GON
 <li><p>布局文件都是通过inclucde的方式加载同一布局,这里就不贴出布局代码了。</p>
 </li>
 <li><p>Bean类</p>
-<pre><code>public class MsgItemBean {
+<pre><code>  public class MsgItemBean {
 
-    public static int ARROW_DISABLE = 0; //不显示箭头
-    public static int ARROW_ENABLE = R.drawable.common_right_light_gray_arrow; //默认箭头
-    private int titleResId; //标题的资源id
-    private String value;//值
-    private int arrowResId; //箭头
-    private int hintResId; //值空的时候的提示
+      public static int ARROW_DISABLE = 0; //不显示箭头
+      public static int ARROW_ENABLE = R.drawable.common_right_light_gray_arrow; //默认箭头
+      private int titleResId; //标题的资源id
+      private String value;//值
+      private int arrowResId; //箭头
+      private int hintResId; //值空的时候的提示
 
-    public MsgItemBean(int titleResId, int hintResId, String value) {
-        this(titleResId, hintResId, value, ARROW_ENABLE);
-    }
+      public MsgItemBean(int titleResId, int hintResId, String value) {
+          this(titleResId, hintResId, value, ARROW_ENABLE);
+      }
 
-    public MsgItemBean(int titleResId, int hintResId, String value, int arrowResId) {
-        this.titleResId = titleResId;
-        this.hintResId = hintResId;
-        this.value = value;
-        this.arrowResId = arrowResId;
-    }
-}
-........//get、set方法
+      public MsgItemBean(int titleResId, int hintResId, String value, int arrowResId) {
+          this.titleResId = titleResId;
+          this.hintResId = hintResId;
+          this.value = value;
+          this.arrowResId = arrowResId;
+      }
+  }
+  ........//get、set方法
 </code></pre></li>
 <li><p>Holder类</p>
-<pre><code>public class MsgHolder extends RecyclerView.ViewHolder {
-    public View rootview;
-    public TextView tvTitle;
-    public TextView tvValue;
-    public ImageView ivArrow;
+<pre><code>  public class MsgHolder extends RecyclerView.ViewHolder {
+      public View rootview;
+      public TextView tvTitle;
+      public TextView tvValue;
+      public ImageView ivArrow;
 
-    public MsgHolder(View itemView) {
-        super(itemView);
-        rootview = itemView;
-        tvTitle = (TextView) rootview.findViewById(R.id.tvTitle);
-        tvValue = (TextView) rootview.findViewById(R.id.tvValue);
-        ivArrow = (ImageView) rootview.findViewById(R.id.ivArrow);
-    }
-}
+      public MsgHolder(View itemView) {
+          super(itemView);
+          rootview = itemView;
+          tvTitle = (TextView) rootview.findViewById(R.id.tvTitle);
+          tvValue = (TextView) rootview.findViewById(R.id.tvValue);
+          ivArrow = (ImageView) rootview.findViewById(R.id.ivArrow);
+      }
+  }
 </code></pre></li>
 <li><p>创建共用初始化方法</p>
-<pre><code>//传入一个layout跟数据即可显示View
-public void initItemView(ViewGroup layout, MsgItemBean data) {
-    MsgHolder holder = new ProfileHolder(layout);
-    holder.tvTitle.setText(data.getTitleResId());
-    holder.tvValue.setHint(data.getHintResId());
-    holder.tvValue.setText(data.getValue());
-    if (data.getArrowResId() != 0) {
-        holder.ivArrow.setVisibility(View.VISIBLE);
-        holder.ivArrow.setImageResource(R.drawable.common_right_light_gray_arrow);
-    } else {
-        holder.ivArrow.setVisibility(View.GONE);
-    }
-}
+<pre><code>  //传入一个layout跟数据即可显示View
+  public void initItemView(ViewGroup layout, MsgItemBean data) {
+      MsgHolder holder = new ProfileHolder(layout);
+      holder.tvTitle.setText(data.getTitleResId());
+      holder.tvValue.setHint(data.getHintResId());
+      holder.tvValue.setText(data.getValue());
+      if (data.getArrowResId() != 0) {
+          holder.ivArrow.setVisibility(View.VISIBLE);
+          holder.ivArrow.setImageResource(R.drawable.common_right_light_gray_arrow);
+      } else {
+          holder.ivArrow.setVisibility(View.GONE);
+      }
+  }
 </code></pre></li>
 <li><p>实际使用</p>
-<pre><code>initItemView(rlPhone, new ProfileItemBean(R.string.common_text_phone, R.string.common_text_phone, me.getBindphone(), ProfileItemBean.ARROW_DISABLE));
+<pre><code>    initItemView(rlPhone, new ProfileItemBean(R.string.common_text_phone, R.string.common_text_phone, “13631450006”, ProfileItemBean.ARROW_DISABLE));
 </code></pre></li>
 </ul>
 
@@ -407,8 +407,8 @@ public void initItemView(ViewGroup layout, MsgItemBean data) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/05/EventBus/" rel="next" title="EventBus基本使用">
-                <i class="fa fa-chevron-left"></i> EventBus基本使用
+              <a href="/2016/04/05/RxAndroid/" rel="next" title="RxAndroid的理解">
+                <i class="fa fa-chevron-left"></i> RxAndroid的理解
               </a>
             
           </div>
