@@ -65,7 +65,7 @@ build.gradle(Module) （ 配置模块的参数 ）">
 <meta property="og:site_name" content="OrcishDev">
 <meta property="og:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
 build.gradle(Module) （ 配置模块的参数 ）">
-<meta property="og:updated_time" content="2016-04-05T09:05:04.000Z">
+<meta property="og:updated_time" content="2016-04-07T02:51:44.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle的学习">
 <meta name="twitter:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
@@ -269,57 +269,58 @@ build.gradle(Module) （ 配置模块的参数 ）">
 </ul>
 <a id="more"></a>
 <pre><code>apply plugin: &apos;com.android.application&apos; //声明该工程是android工程
-android{
+    android{
 
-    signingConfigs {//获取build.properties里的密码常量，需要在buildeTypes引用
-        releaseConfig {
-            storeFile file(STORE_FILE)
-            storePassword STORE_PASSWORD
-            keyAlias KEY_ALIAS
-            keyPassword KEY_PASSWORD
+        signingConfigs {//获取build.properties里的密码常量，需要在buildeTypes引用
+            releaseConfig {
+                storeFile file(STORE_FILE)
+                storePassword STORE_PASSWORD
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+            }
+        }
+
+        //安卓构建过程需要配置的参数
+        compileSdkVersion 21//编译版本
+        buildToolsVersion &quot;21.1.2&quot;//buildtool版本
+        defaultConfig {
+          //默认配置，会同时应用到debug和release版本上
+          applicationId &quot;com.taobao.startupanim&quot;//程序包名
+          minSdkVersion 15
+          targetSdkVersion 21
+          versionCode 1
+          versionName &quot;1.0&quot;
+      }
+
+           buildTypes { //这里面可以配置不同版本的一些参数，比如混淆、签名配置等
+
+        release {//release版本
+
+            signingConfig signingConfigs.release //用keystore打包
+
+            shrinkResources true //去掉无用的resourse文件
+
+            minifyEnabled false//是否开启混淆
+
+            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;//加载混淆文件，开启混淆没有这句会报错
+        }
+
+        debug {
+
+        }
+      }
+
+        lintOptions {//移除lint检查的error
+            abortOnError false
         }
     }
 
-    //安卓构建过程需要配置的参数
-    compileSdkVersion 21//编译版本
-    buildToolsVersion &quot;21.1.2&quot;//buildtool版本
-    defaultConfig {
-      //默认配置，会同时应用到debug和release版本上
-      applicationId &quot;com.taobao.startupanim&quot;//程序包名
-      minSdkVersion 15
-      targetSdkVersion 21
-      versionCode 1
-      versionName &quot;1.0&quot;
-  }
-
-       buildTypes { //这里面可以配置不同版本的一些参数，比如混淆、签名配置等
-
-    release {//release版本
-
-        signingConfig signingConfigs.release //用keystore打包
-
-        shrinkResources true //去掉无用的resourse文件
-
-        minifyEnabled false//是否开启混淆
-
-        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;//加载混淆文件，开启混淆没有这句会报错
-    }
-
-    debug {
-
-    }
-  }
-
-    lintOptions {//移除lint检查的error
-        abortOnError false
-    }
-}
-
-dependencies {
-    //模块依赖
+    dependencies {
+        //模块依赖
 
 
-}    
+    }   
+} 
 </code></pre><ul>
 <li><p>Mapping（/project/app/build/outputs/mapping/）</p>
 <ul>
@@ -332,29 +333,32 @@ dependencies {
 </ul>
 <hr>
 <ul>
-<li><p>settings.gradle （声明加入工程的module）</p>
-<pre><code>include &apos;:app&apos;,&apos;:module-b&apos; //示例
-</code></pre></li>
-<li><p>gradle.properties （保存应用签名密码等常量）</p>
-<pre><code>STORE_FILE = keystore（jks）的路径
+<li>settings.gradle （声明加入工程的module）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">':app'</span>,<span class="string">':module-b'</span> <span class="comment">//示例</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>gradle.properties （保存应用签名密码等常量）</li>
+</ul>
+<pre><code class="java">STORE_FILE = keystore（jks）的路径
 STORE_PASSWORD = KEYSTORE密码
 KEY_ALIAS = 别名
 KEY_PASSWORD = KEYSTORE密码
-</code></pre><ul>
+</code></pre>
+<ul>
 <li><p>在build.gradle的android标签下引用</p>
 <pre><code>signingConfigs {  //获取应用签名的密码常量，需要在buildTypes里调用
     releaseConfig { 
-        storeFile file(STORE_FILE)
-        storePassword STORE_PASSWORD
-        keyAlias KEY_ALIAS
-        keyPassword KEY_PASSWORD
+    storeFile file(STORE_FILE)
+    storePassword STORE_PASSWORD
+    keyAlias KEY_ALIAS
+    keyPassword KEY_PASSWORD
     }
-}
+}        
 </code></pre></li>
 </ul>
-</li>
-</ul>
-<h3 id="ProGuard配置"><a href="#ProGuard配置" class="headerlink" title="ProGuard配置"></a>ProGuard配置</h3><pre><code>生成mapping文件
+<h3 id="ProGuard配置"><a href="#ProGuard配置" class="headerlink" title="ProGuard配置"></a>ProGuard配置</h3><ul>
+<li><p>语法 </p>
+<pre><code>生成mapping文件
 不能混淆的代码
 系统接口
 Jni接口
@@ -401,7 +405,9 @@ Jni接口
 可以匹配多个字符，但是如果是一个类，不会匹配其前面的包名 
 可以匹配多个字符，会匹配前面的包名。  
 在android中在android Manifest文件中的activity，service，provider， receviter，等都不能进行混淆。一些在xml中配置的view也不能进行混淆，android提供的默认配置中都有
-</code></pre><ul>
+</code></pre></li>
+</ul>
+<ul>
 <li><p>示例：</p>
 <pre><code>sharesdk混淆注意
 
