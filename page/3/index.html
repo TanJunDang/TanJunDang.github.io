@@ -59,12 +59,12 @@
 
 <meta name="description" content="You don&apos;t know me , you are about to .">
 <meta property="og:type" content="website">
-<meta property="og:title" content="OrcishDev">
-<meta property="og:url" content="OrcishDev.github.io/page/3/index.html">
-<meta property="og:site_name" content="OrcishDev">
+<meta property="og:title" content="Sam-Tam">
+<meta property="og:url" content="Sam-Tam.github.io/page/3/index.html">
+<meta property="og:site_name" content="Sam-Tam">
 <meta property="og:description" content="You don&apos;t know me , you are about to .">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OrcishDev">
+<meta name="twitter:title" content="Sam-Tam">
 <meta name="twitter:description" content="You don&apos;t know me , you are about to .">
 
 
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title> OrcishDev </title>
+  <title> Sam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -116,7 +116,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">OrcishDev</span>
+      <span class="site-title">Sam-Tam</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -715,21 +715,17 @@
 
       
         
-          <h4 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h4><ul>
+          <h3 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h3><ul>
+<li>Notification.Builder类 用于设置消息的标题、内容、图标等信息。</li>
+<li><p>NotificationManager类 用于发送、取消通知。</p>
+<p>  <img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h3><ul>
 <li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
 <li><p>通常Notification的用法如下：</p>
-<pre><code>NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-Notification notification = new Notification.Builder(SettingActivity.this)
-        .setContentTitle(&quot;版本更新&quot;)//设置标题
-        .setSmallIcon(R.mipmap.ic_launcher)//图标
-        .setContentInfo(&quot;GDPC&quot;)//设置右边的小提示
-        .setAutoCancel(false) // 设置点击取消（貌似无效）
-        .setTicker(&quot;有新版本了&quot;) //状态栏显示收到的消息
-        .setDefaults(Notification.DEFAULT_VIBRATE)//设置震动
-        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) //设置声音
-        .build();
-manager.notify(0,notification); // 发送通知
-</code></pre></li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">   Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">          .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">          .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">          .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">          .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">          .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">          .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">          .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">          .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/03/Notification/#more" rel="contents">
@@ -1386,8 +1382,8 @@ tv.setText(schoolBasicInfo.getIntroduct());
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/favicon.ico"
-               alt="OrcishDev" />
-          <p class="site-author-name" itemprop="name">OrcishDev</p>
+               alt="Sam-Tam" />
+          <p class="site-author-name" itemprop="name">Sam-Tam</p>
           <p class="site-description motion-element" itemprop="description">You don't know me , you are about to .</p>
         </div>
         <nav class="site-state motion-element">
@@ -1446,7 +1442,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">OrcishDev</span>
+  <span class="author" itemprop="copyrightHolder">Sam-Tam</span>
 </div>
 
 <div class="powered-by">
