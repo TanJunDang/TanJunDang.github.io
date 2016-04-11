@@ -74,7 +74,7 @@ onMeasure、onLayout、onDraw先后执行顺序。
 WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 widt">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:02.000Z">
+<meta property="og:updated_time" content="2016-04-11T08:13:41.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CustomView">
 <meta name="twitter:description" content="自定义View的基础知识
@@ -299,7 +299,7 @@ height = wm.getDefaultDisplay().getHeight();
 <li>重写其构造方法(加载xml布局文件,利用通过LayoutInflate)。</li>
 <li>在其构造方法里获取自定义属性。(可选,在values文件夹创建一个attrs的xml文件) </li>
 </ol>
-<h5 id="为自定义View添加自定义属性"><a href="#为自定义View添加自定义属性" class="headerlink" title="为自定义View添加自定义属性"></a>为自定义View添加自定义属性</h5><ul>
+<h3 id="为自定义View添加自定义属性"><a href="#为自定义View添加自定义属性" class="headerlink" title="为自定义View添加自定义属性"></a>为自定义View添加自定义属性</h3><ul>
 <li><p>在attrs文件中创建declare-styleable标签，其name属性是控件名字(不需要加包名)<br>在上述标签下 创建attr标签，name属性是属性名、format指明改属性的格式</p>
 <p>  <declare-styleable name="自定义控件名"></declare-styleable></p>
 <pre><code>&lt;attr name=&quot;src&quot;&gt;&lt;/attr&gt; // name默认不加前缀 则调用方法为app:src
@@ -348,12 +348,12 @@ array.recycle();
 {
 return editText.getText().toString();
 }
-</code></pre><h4 id="完全自定义View-进阶"><a href="#完全自定义View-进阶" class="headerlink" title="完全自定义View(进阶)"></a>完全自定义View(进阶)</h4><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
+</code></pre><h3 id="完全自定义View-进阶"><a href="#完全自定义View-进阶" class="headerlink" title="完全自定义View(进阶)"></a>完全自定义View(进阶)</h3><p>1.绘图，通过重写onDraw方法控制View在屏幕上的渲染效果  </p>
 <p>2.交互，通过重写onTouchEvent方法或者使用手势来控制用户的交互  </p>
 <p>3.测量，通过重写onMeasure方法来对控件进行测量  </p>
 <p>4.属性，可以通过xml自定义控件的属性，然后通过TypedArray来进行使用  </p>
 <p>5.状态的保存，为了避免配置改变时丢失View状态，通过重写onSaveInstanceState，onRestoreInstanceState方法来保存和恢复状态。</p>
-<h3 id="自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><a href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件" class="headerlink" title="自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"></a><font color="red">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</font></h3><h4 id="自定义View-—-重写onMeasure"><a href="#自定义View-—-重写onMeasure" class="headerlink" title="自定义View — 重写onMeasure"></a>自定义View — 重写onMeasure</h4><ul>
+<h3 id="自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><a href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件" class="headerlink" title="自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件"></a><font color="red">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</font></h3><h3 id="自定义View-—-重写onMeasure"><a href="#自定义View-—-重写onMeasure" class="headerlink" title="自定义View — 重写onMeasure"></a>自定义View — 重写onMeasure</h3><ul>
 <li>判断是否需要重写OnMeasure （下述需求判断是否重写）</li>
 </ul>
 <hr>
@@ -416,7 +416,7 @@ int w = resolveSizeAndState(minw, widthMeasureSpec, 1);
 int minh = MeasureSpec.getSize(w) + getPaddingBottom() + getPaddingTop();
 int h = resolveSizeAndState(MeasureSpec.getSize(w), heightMeasureSpec,0);
 </code></pre><p><a href="http://www.cnblogs.com/0616--ataozhijia/p/4003380.html" target="_blank" rel="external">参考</a></p>
-<h2 id="2015-10-05-10-02-11"><a href="#2015-10-05-10-02-11" class="headerlink" title="2015-10-05 10:02:11"></a>2015-10-05 10:02:11</h2><h4 id="自定义监听器"><a href="#自定义监听器" class="headerlink" title="自定义监听器"></a>自定义监听器</h4><p>1.写一个接口，并且添加抽象方法  </p>
+<h3 id="自定义监听器"><a href="#自定义监听器" class="headerlink" title="自定义监听器"></a>自定义监听器</h3><p>1.写一个接口，并且添加抽象方法  </p>
 <pre><code>public interface onStateChangedListener {
 public void stateOn();
 
@@ -723,7 +723,7 @@ public void stateOff() {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的基础知识"><span class="nav-number">1.</span> <span class="nav-text">自定义View的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自定义控件有3种方式："><span class="nav-number">2.</span> <span class="nav-text">实现自定义控件有3种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合View"><span class="nav-number">3.</span> <span class="nav-text">组合View</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为自定义View添加自定义属性"><span class="nav-number">3.0.1.</span> <span class="nav-text">为自定义View添加自定义属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="nav-number">4.</span> <span class="nav-text">实战开发帮你教项目中的意见反馈功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完全自定义View-进阶"><span class="nav-number">4.1.</span> <span class="nav-text">完全自定义View(进阶)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><span class="nav-number">5.</span> <span class="nav-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义View-—-重写onMeasure"><span class="nav-number">5.1.</span> <span class="nav-text">自定义View — 重写onMeasure</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-10-05-10-02-11"><span class="nav-number"></span> <span class="nav-text">2015-10-05 10:02:11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义监听器"><span class="nav-number">0.1.</span> <span class="nav-text">自定义监听器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-—-分割线"><span class="nav-number">1.</span> <span class="nav-text">实际开发 — 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="nav-number">2.</span> <span class="nav-text">为RecycleView重写SwipeRefreshLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现请求View-RequestView"><span class="nav-number">3.</span> <span class="nav-text">实现请求View RequestView</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的基础知识"><span class="nav-number">1.</span> <span class="nav-text">自定义View的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自定义控件有3种方式："><span class="nav-number">2.</span> <span class="nav-text">实现自定义控件有3种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合View"><span class="nav-number">3.</span> <span class="nav-text">组合View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为自定义View添加自定义属性"><span class="nav-number">4.</span> <span class="nav-text">为自定义View添加自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="nav-number">5.</span> <span class="nav-text">实战开发帮你教项目中的意见反馈功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全自定义View-进阶"><span class="nav-number">6.</span> <span class="nav-text">完全自定义View(进阶)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><span class="nav-number">7.</span> <span class="nav-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View-—-重写onMeasure"><span class="nav-number">8.</span> <span class="nav-text">自定义View — 重写onMeasure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义监听器"><span class="nav-number">9.</span> <span class="nav-text">自定义监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-—-分割线"><span class="nav-number">10.</span> <span class="nav-text">实际开发 — 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="nav-number">11.</span> <span class="nav-text">为RecycleView重写SwipeRefreshLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现请求View-RequestView"><span class="nav-number">12.</span> <span class="nav-text">实现请求View RequestView</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
