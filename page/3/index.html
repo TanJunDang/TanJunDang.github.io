@@ -216,6 +216,139 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/18/SystemService/" itemprop="url">
+                  系统服务使用记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-18T10:11:13+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/SystemService/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/SystemService/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Wifi服务"><a href="#Wifi服务" class="headerlink" title="Wifi服务"></a>Wifi服务</h3><ul>
+<li>WifiManager</li>
+<li>Context.WIFI_SERVICE</li>
+</ul>
+<pre><code>WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+</code></pre><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>isWifiEnable 判断wifi是否开启</li>
+<li>setWifiEnable 可以设置wifi开启or关闭</li>
+<li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
+<li>getScanResults 可以获取扫描到的wifi</li>
+</ul>
+<h3 id="常用的Action"><a href="#常用的Action" class="headerlink" title="常用的Action"></a>常用的Action</h3><ul>
+<li><p>程序的开始（Intent.Action_MAIN）</p>
+<pre><code>android.intent.action.MAIN
+</code></pre></li>
+</ul>
+<ul>
+<li><p>拨号界面 （Intent.Action_DIAL）</p>
+<pre><code>action.intent.action.DIAL
+</code></pre></li>
+</ul>
+<ul>
+<li><p>网络状态变化（广播）</p>
+<pre><code>android.net.conn.CONNECTIVITY_CHANGE
+</code></pre></li>
+</ul>
+<ul>
+<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
+<pre><code>android.intent.action.VIEW
+
+Uri uri = Uri.parse(&quot;http://www.google.com&quot;); //浏览器 
+Uri uri =Uri.parse(&quot;tel:1232333&quot;); //拨号程序 
+Uri uri=Uri.parse(&quot;geo:39.899533,116.036476&quot;); //打开地图定位 
+Intent it = new Intent(Intent.ACTION_VIEW,uri); 
+startActivity(it); 
+</code></pre></li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/11/Utils/" itemprop="url">
                   常用工具及网站
                 </a>
@@ -1257,104 +1390,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/30/JAVA-Coding/" itemprop="url">
-                  java代码动态布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-30T15:17:39+08:00" content="2015-09-30">
-              2015-09-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/30/JAVA-Coding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/JAVA-Coding/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="动态布局的基本知识"><a href="#动态布局的基本知识" class="headerlink" title="动态布局的基本知识"></a>动态布局的基本知识</h3><p>ViewGroup.LayoutParams 设置的是子控件的属性<br>Gravity 设置显示位置<br>addView （RelativeLayout专有）将控件添加到父控件里<br>setMargins 设置外边距<br>addRule(属性,相对控件的id)<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/30/JAVA-Coding/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1400,7 +1435,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1410,7 +1445,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

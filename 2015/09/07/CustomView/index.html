@@ -74,7 +74,7 @@ onMeasure、onLayout、onDraw先后执行顺序。
 WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 widt">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29Md3RKb0FweUF6N1FaN1JVeGhoK0t6cmxZRE5peUhBT3hnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-11T08:13:41.700Z">
+<meta property="og:updated_time" content="2016-04-11T08:26:41.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CustomView">
 <meta name="twitter:description" content="自定义View的基础知识
@@ -464,100 +464,8 @@ public void stateOff() {
 <li>重写onMeasure、设置默认值。（参考上述）</li>
 <li>重写onDraw。</li>
 </ol>
-<pre><code>* Created by Erintrus on 2015/10/9.
-* Email: Erintrus@126.com
-* 两点确定一条线
-* 获取屏幕高、宽
-* 当要改变wrap_content时,需要设置默认值
-
-
-       public class CustomDivider extends View {
-
-       private int orientation = 0;
-       private static final int HORIZONTAL = LinearLayout.HORIZONTAL;
-       private static final int VERTICAL = LinearLayout.VERTICAL;
-
-       private static final int DEFAULT_COLOR = R.color.common_divider_gray; //默认红色的线
-       private Paint paint;
-       private static final int DEFAULT_LENGTH = 3;
-       private int length;
-       private int color;
-       private int width;
-       private int height;
-
-
-       public CustomDivider(Context context) {
-           this(context, null);
-       }
-
-       public CustomDivider(Context context, AttributeSet attrs) {
-           this(context, attrs, 0);
-       }
-
-       public CustomDivider(Context context, AttributeSet attrs, int defStyleAttr) {
-           super(context, attrs, defStyleAttr);
-           WindowManager wm = (WindowManager) getContext()
-                   .getSystemService(Context.WINDOW_SERVICE);
-           width = wm.getDefaultDisplay().getWidth();
-           height = wm.getDefaultDisplay().getHeight();
-           TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomDivider);
-           orientation = array.getInteger(R.styleable.CustomDivider_dividerOrientation, HORIZONTAL);
-           color = array.getColor(R.styleable.CustomDivider_dividerColor, getResources().getColor(DEFAULT_COLOR));
-           if (orientation == HORIZONTAL) {
-               length = width;
-           } else {
-               length = height;
-           }
-           array.recycle();
-           paint = new Paint();
-           paint.setAntiAlias(true);
-           paint.setColor(color);
-           paint.setStrokeWidth(5);
-           paint.setStyle(Paint.Style.FILL_AND_STROKE);
-       }
-
-       @Override
-       protected void onDraw(Canvas canvas) {
-           super.onDraw(canvas);
-
-           if (orientation == HORIZONTAL) {
-               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, length, DEFAULT_LENGTH, paint);
-           } else {
-               canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, DEFAULT_LENGTH, length, paint);
-           }
-       }
-
-       //必须要重写这段代码，使其warp_content可以为某个值
-       @Override
-       protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-           super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-           int w;
-           int h;
-           if (orientation == HORIZONTAL) {
-               w = getSize(width, widthMeasureSpec);
-               h = DEFAULT_LENGTH;
-           } else {
-               w = DEFAULT_LENGTH;
-               h = getSize(height, heightMeasureSpec);
-           }
-           setMeasuredDimension(w, h);
-       }
-
-       public int getSize(int defaultSize, int measureSpec) {
-           int result = defaultSize;
-           int specSize = MeasureSpec.getSize(measureSpec);
-           int specMode = MeasureSpec.getMode(measureSpec);
-           if (specMode == MeasureSpec.EXACTLY) {
-               result = specSize;
-           } else {
-               result = Math.min(defaultSize, specSize);
-           }
-           return result;
-       }
-
-
-   }
-</code></pre><h3 id="为RecycleView重写SwipeRefreshLayout"><a href="#为RecycleView重写SwipeRefreshLayout" class="headerlink" title="为RecycleView重写SwipeRefreshLayout"></a>为RecycleView重写SwipeRefreshLayout</h3><p><a href="https://github.com/Demievil/SwipeRefreshLayout" target="_blank" rel="external">SwipeRefreshLayout</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by Erintrus on 2015/10/9.</span><br><span class="line"> * Email: Erintrus@126.com</span><br><span class="line"> * 两点确定一条线</span><br><span class="line"> * 获取屏幕高、宽</span><br><span class="line"> * 当要改变wrap_content时,需要设置默认值</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDivider</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> orientation = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HORIZONTAL = LinearLayout.HORIZONTAL;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VERTICAL = LinearLayout.VERTICAL;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_COLOR = R.color.common_divider_gray; <span class="comment">//默认红色的线</span></span><br><span class="line">    <span class="keyword">private</span> Paint paint;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_LENGTH = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> length;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> color;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomDivider</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomDivider</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomDivider</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</span><br><span class="line">        WindowManager wm = (WindowManager) getContext()</span><br><span class="line">                .getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">        width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">        height = wm.getDefaultDisplay().getHeight();</span><br><span class="line">        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomDivider);</span><br><span class="line">        orientation = array.getInteger(R.styleable.CustomDivider_dividerOrientation, HORIZONTAL);</span><br><span class="line">        color = array.getColor(R.styleable.CustomDivider_dividerColor, getResources().getColor(DEFAULT_COLOR));</span><br><span class="line">        <span class="keyword">if</span> (orientation == HORIZONTAL) &#123;</span><br><span class="line">            length = width;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            length = height;</span><br><span class="line">        &#125;</span><br><span class="line">        array.recycle();</span><br><span class="line">        paint = <span class="keyword">new</span> Paint();</span><br><span class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">        paint.setColor(color);</span><br><span class="line">        paint.setStrokeWidth(<span class="number">5</span>);</span><br><span class="line">        paint.setStyle(Paint.Style.FILL_AND_STROKE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (orientation == HORIZONTAL) &#123;</span><br><span class="line">            canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, length, DEFAULT_LENGTH, paint);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            canvas.drawLine(DEFAULT_LENGTH, DEFAULT_LENGTH, DEFAULT_LENGTH, length, paint);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//必须要重写这段代码，使其warp_content可以为某个值</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">        <span class="keyword">int</span> w;</span><br><span class="line">        <span class="keyword">int</span> h;</span><br><span class="line">        <span class="keyword">if</span> (orientation == HORIZONTAL) &#123;</span><br><span class="line">            w = getSize(width, widthMeasureSpec);</span><br><span class="line">            h = DEFAULT_LENGTH;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            w = DEFAULT_LENGTH;</span><br><span class="line">            h = getSize(height, heightMeasureSpec);</span><br><span class="line">        &#125;</span><br><span class="line">        setMeasuredDimension(w, h);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">(<span class="keyword">int</span> defaultSize, <span class="keyword">int</span> measureSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = defaultSize;</span><br><span class="line">        <span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</span><br><span class="line">        <span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</span><br><span class="line">        <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) &#123;</span><br><span class="line">            result = specSize;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result = Math.min(defaultSize, specSize);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">        paint.setColor(color);</span><br><span class="line">        invalidate();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为RecycleView重写SwipeRefreshLayout"><a href="#为RecycleView重写SwipeRefreshLayout" class="headerlink" title="为RecycleView重写SwipeRefreshLayout"></a>为RecycleView重写SwipeRefreshLayout</h3><p><a href="https://github.com/Demievil/SwipeRefreshLayout" target="_blank" rel="external">SwipeRefreshLayout</a></p>
 <h3 id="实现请求View-RequestView"><a href="#实现请求View-RequestView" class="headerlink" title="实现请求View RequestView"></a>实现请求View RequestView</h3><p>作用：</p>
 <ol>
 <li>请求的时候显示进度条加载。</li>
@@ -574,6 +482,69 @@ public void stateOff() {
 <li><p>由于请求时，不能点击下层的按钮。所以需要设置布局文件clickable为false</p>
 </li>
 </ol>
+<h3 id="实际开发-带删除按钮的EditText"><a href="#实际开发-带删除按钮的EditText" class="headerlink" title="实际开发 - 带删除按钮的EditText"></a>实际开发 - 带删除按钮的EditText</h3><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomEditText</span> <span class="keyword">extends</span> <span class="title">EditText</span> </span>{
+    Drawable drawable;
+    <span class="function"><span class="keyword">public</span> <span class="title">CustomEditText</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{
+        <span class="keyword">super</span>(context, attrs);
+        <span class="keyword">int</span> crossedRes = android.R.drawable.presence_busy;
+        drawable = getResources().getDrawable(crossedRes);
+
+        drawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        addTextChangedListener(<span class="keyword">new</span> TextWatcher() {
+            <span class="meta">@Override</span>
+            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>{
+            }
+
+            <span class="meta">@Override</span>
+            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>{
+            }
+
+            <span class="meta">@Override</span>
+            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>{
+                displayDelete(s.length() &gt; <span class="number">0</span>);
+            }
+        });
+    }
+
+    <span class="comment">/**
+     * 判断是否显示图标
+     *
+     * <span class="doctag">@param</span> show
+     */</span>
+    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">displayDelete</span><span class="params">(<span class="keyword">boolean</span> show)</span> </span>{
+        <span class="keyword">if</span> (show) {
+            setCompoundDrawables(<span class="keyword">this</span>.getCompoundDrawables()[<span class="number">0</span>], <span class="keyword">null</span>, drawable, <span class="keyword">null</span>);
+        } <span class="keyword">else</span> {
+            setCompoundDrawables(<span class="keyword">this</span>.getCompoundDrawables()[<span class="number">0</span>], <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);
+        }
+    }
+
+    <span class="comment">/**
+     * event.getX() 获取相对应自身左上角的X坐标
+     * event.getY() 获取相对应自身左上角的Y坐标
+     * getWidth() 获取控件的宽度
+     * getTotalPaddingRight() 获取删除图标左边缘到控件右边缘的距离
+     * getPaddingRight() 获取删除图标右边缘到控件右边缘的距离
+     * getWidth() - getTotalPaddingRight() 计算删除图标左边缘到控件左边缘的距离
+     * getWidth() - getPaddingRight() 计算删除图标右边缘到控件左边缘的距离
+     * getCompoundDrawables()[2]判断是否EditText右边是否有图标：0表示左、1表示上、3表示下
+     */</span>
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
+        <span class="keyword">if</span> (event.getAction() == MotionEvent.ACTION_UP) {
+            <span class="keyword">if</span> (getCompoundDrawables()[<span class="number">2</span>] != <span class="keyword">null</span>) {
+                <span class="keyword">boolean</span> touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())
+                        &amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));
+                <span class="keyword">if</span> (touchable) {
+                    <span class="keyword">this</span>.setText(<span class="string">""</span>);
+                }
+            }
+        }
+        <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(event);
+    }
+
+}
+</code></pre>
 
       
     </div>
@@ -679,7 +650,7 @@ public void stateOff() {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -689,7 +660,7 @@ public void stateOff() {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -723,7 +694,7 @@ public void stateOff() {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的基础知识"><span class="nav-number">1.</span> <span class="nav-text">自定义View的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自定义控件有3种方式："><span class="nav-number">2.</span> <span class="nav-text">实现自定义控件有3种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合View"><span class="nav-number">3.</span> <span class="nav-text">组合View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为自定义View添加自定义属性"><span class="nav-number">4.</span> <span class="nav-text">为自定义View添加自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="nav-number">5.</span> <span class="nav-text">实战开发帮你教项目中的意见反馈功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全自定义View-进阶"><span class="nav-number">6.</span> <span class="nav-text">完全自定义View(进阶)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><span class="nav-number">7.</span> <span class="nav-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View-—-重写onMeasure"><span class="nav-number">8.</span> <span class="nav-text">自定义View — 重写onMeasure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义监听器"><span class="nav-number">9.</span> <span class="nav-text">自定义监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-—-分割线"><span class="nav-number">10.</span> <span class="nav-text">实际开发 — 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="nav-number">11.</span> <span class="nav-text">为RecycleView重写SwipeRefreshLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现请求View-RequestView"><span class="nav-number">12.</span> <span class="nav-text">实现请求View RequestView</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的基础知识"><span class="nav-number">1.</span> <span class="nav-text">自定义View的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自定义控件有3种方式："><span class="nav-number">2.</span> <span class="nav-text">实现自定义控件有3种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合View"><span class="nav-number">3.</span> <span class="nav-text">组合View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为自定义View添加自定义属性"><span class="nav-number">4.</span> <span class="nav-text">为自定义View添加自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战开发帮你教项目中的意见反馈功能"><span class="nav-number">5.</span> <span class="nav-text">实战开发帮你教项目中的意见反馈功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全自定义View-进阶"><span class="nav-number">6.</span> <span class="nav-text">完全自定义View(进阶)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View的layout文件根标签为match-parent导致CustomView设置warp-content时，会填满整个布局文件"><span class="nav-number">7.</span> <span class="nav-text">自定义View的layout文件根标签为match_parent导致CustomView设置warp_content时，会填满整个布局文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义View-—-重写onMeasure"><span class="nav-number">8.</span> <span class="nav-text">自定义View — 重写onMeasure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义监听器"><span class="nav-number">9.</span> <span class="nav-text">自定义监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-—-分割线"><span class="nav-number">10.</span> <span class="nav-text">实际开发 — 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为RecycleView重写SwipeRefreshLayout"><span class="nav-number">11.</span> <span class="nav-text">为RecycleView重写SwipeRefreshLayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现请求View-RequestView"><span class="nav-number">12.</span> <span class="nav-text">实现请求View RequestView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际开发-带删除按钮的EditText"><span class="nav-number">13.</span> <span class="nav-text">实际开发 - 带删除按钮的EditText</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Markdown," />
+  <meta name="keywords" content="Gesture," />
 
 
 
@@ -57,27 +57,31 @@
 
 
 
-<meta name="description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="description" content="GestureDetector的使用
+创建GestureDetector对象并设置监听器。
+将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
+1private
+GestureListener重写的方法(一般用SimpleOnGestureListener)按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。抛掷（onFl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="Sam-Tam.github.io/2016/03/25/Markdown/index.html">
+<meta property="og:title" content="Gesture的理解">
+<meta property="og:url" content="Sam-Tam.github.io/2016/04/12/Gesture/index.html">
 <meta property="og:site_name" content="Sam-Tam">
-<meta property="og:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta property="og:description" content="GestureDetector的使用
+创建GestureDetector对象并设置监听器。
+将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta property="og:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+1private
+GestureListener重写的方法(一般用SimpleOnGestureListener)按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。抛掷（onFl">
+<meta property="og:updated_time" content="2016-04-12T06:07:03.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown">
-<meta name="twitter:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="twitter:title" content="Gesture的理解">
+<meta name="twitter:description" content="GestureDetector的使用
+创建GestureDetector对象并设置监听器。
+将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta name="twitter:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
+1private
+GestureListener重写的方法(一般用SimpleOnGestureListener)按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。抛掷（onFl">
 
 
 
@@ -95,7 +99,7 @@
   };
 </script>
 
-  <title> Markdown | Sam-Tam </title>
+  <title> Gesture的理解 | Sam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +229,7 @@
             
             
               
-                Markdown
+                Gesture的理解
               
             
           </h1>
@@ -237,8 +241,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T12:45:20+08:00" content="2016-03-25">
-              2016-03-25
+            <time itemprop="dateCreated" datetime="2016-04-12T11:43:13+08:00" content="2016-04-12">
+              2016-04-12
             </time>
           </span>
 
@@ -248,8 +252,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/25/Markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/Markdown/" itemprop="commentsCount"></span>
+                <a href="/2016/04/12/Gesture/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/Gesture/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -269,66 +273,14 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimwpx5j80011h8qvgw5kro9i"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p><strong>马克飞象</strong>是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：</p>
-<ul>
-<li><strong>功能丰富</strong> ：支持高亮代码块、<em>LaTeX</em> 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；</li>
-<li><strong>得心应手</strong> ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持移动端 Web；</li>
-<li><strong>深度整合</strong> ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。</li>
-</ul>
-<hr>
-<a id="more"></a>
-<h2 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="external">维基百科</a></p>
-</blockquote>
-<p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.example.com" target="_blank" rel="external">链接</a>或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按<code>Ctrl + /</code>查看帮助。 </p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span><br><span class="line"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:right">Value</th>
-<th style="text-align:center">Qty</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 USD</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 USD</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 USD</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">e=&gt;end</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<p>以及时序图:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+        <h3 id="GestureDetector的使用"><a href="#GestureDetector的使用" class="headerlink" title="GestureDetector的使用"></a>GestureDetector的使用</h3><ol>
+<li>创建GestureDetector对象并设置监听器。</li>
+<li>将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span></span><br></pre></td></tr></table></figure>
+<h3 id="GestureListener重写的方法-一般用SimpleOnGestureListener"><a href="#GestureListener重写的方法-一般用SimpleOnGestureListener" class="headerlink" title="GestureListener重写的方法(一般用SimpleOnGestureListener)"></a>GestureListener重写的方法(一般用SimpleOnGestureListener)</h3><p>按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。<br>抛掷（onFling）： 手指在触摸屏上迅速移动，并松开的动作。<br>长按（onLongPress）： 手指按在持续一段时间，并且没有松开。<br>滚动（onScroll）： 手指在触摸屏上滑动。<br>按住（onShowPress）： 手指按在触摸屏上，它的时间范围在按下起效，在长按之前。<br>抬起（onSingleTapUp）：手指离开触摸屏的那一刹那。</p>
 
       
     </div>
@@ -343,7 +295,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag">#Markdown</a>
+            <a href="/tags/Gesture/" rel="tag">#Gesture</a>
           
         </div>
       
@@ -352,17 +304,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/10/RecyclerView/" rel="next" title="RecyclerView笔记">
-                <i class="fa fa-chevron-left"></i> RecyclerView笔记
+              <a href="/2016/04/11/Handler/" rel="next" title="Handler机制">
+                <i class="fa fa-chevron-left"></i> Handler机制
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/30/Skills/" rel="prev" title="布局常用的技巧">
-                布局常用的技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,8 +336,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/25/Markdown/"
-           data-title="Markdown" data-url="Sam-Tam.github.io/2016/03/25/Markdown/">
+      <div class="ds-thread" data-thread-key="2016/04/12/Gesture/"
+           data-title="Gesture的理解" data-url="Sam-Tam.github.io/2016/04/12/Gesture/">
       </div>
     
   </div>
@@ -478,7 +426,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown简介"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.1.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">1.1.2.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">1.1.3.</span> <span class="nav-text">流程图</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GestureDetector的使用"><span class="nav-number">1.</span> <span class="nav-text">GestureDetector的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GestureListener重写的方法-一般用SimpleOnGestureListener"><span class="nav-number">2.</span> <span class="nav-text">GestureListener重写的方法(一般用SimpleOnGestureListener)</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
