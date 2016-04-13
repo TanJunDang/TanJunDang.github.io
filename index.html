@@ -217,7 +217,7 @@
               
                 
                 <a class="post-title-link" href="/2016/04/12/Gesture/" itemprop="url">
-                  Gesture的理解
+                  Gesture手势理解
                 </a>
               
             
@@ -270,7 +270,7 @@
 <li>创建GestureDetector对象并设置监听器。</li>
 <li>将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> GestureDetetor detetor = <span class="keyword">new</span> GestureDetetor(<span class="keyword">this</span>,<span class="keyword">new</span> SimpleOnGestureListener());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> detector.onTouchEvent(event); <span class="comment">//Activity返回</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="GestureListener重写的方法-一般用SimpleOnGestureListener"><a href="#GestureListener重写的方法-一般用SimpleOnGestureListener" class="headerlink" title="GestureListener重写的方法(一般用SimpleOnGestureListener)"></a>GestureListener重写的方法(一般用SimpleOnGestureListener)</h3><p>按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。<br>抛掷（onFling）： 手指在触摸屏上迅速移动，并松开的动作。<br>长按（onLongPress）： 手指按在持续一段时间，并且没有松开。<br>滚动（onScroll）： 手指在触摸屏上滑动。<br>按住（onShowPress）： 手指按在触摸屏上，它的时间范围在按下起效，在长按之前。<br>抬起（onSingleTapUp）：手指离开触摸屏的那一刹那。</p>
 
           
@@ -520,116 +520,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
-                  RxAndroid的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
-<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
-<li>RxAndroid代码简洁、逻辑清晰。</li>
-<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
-<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
-<ul>
-<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
-<li>unsubscribe用于释放内存。</li>
-</ul>
-</li>
-</ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li>观察者Observer/订阅者Subscriber</li>
-<li></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
                   EventBus基本使用
                 </a>
@@ -697,6 +587,116 @@
 <li><p>接收消息（注册/反注册EventBus）</p>
 </li>
 </ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
+                  RxAndroid的理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
+<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
+<li>RxAndroid代码简洁、逻辑清晰。</li>
+<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
+<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
+<ul>
+<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
+<li>unsubscribe用于释放内存。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>观察者Observer/订阅者Subscriber</li>
+<li></li>
+</ul>
 
           
         
@@ -1212,22 +1212,24 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
       
         
           <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li>如何实现一个启动界面，例如微信、网易新闻。  </li>
+<li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
+<ol>
+<li>创建一个布局文件，里面放一张图。</li>
+<li><p>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </p>
+<pre><code>new Handler().postDelayed(new Runnable(){ 
+
+    @Override
+        public void run(){
+            Intent intent = new Intent (Appstart.this,Welcome.class);
+            startActivity(intent);            
+            Appstart.this.finish();
+        }
+
+},1000);  
+</code></pre></li>
+</ol>
+</li>
 </ul>
-<pre><code>1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                public void run(){
-                    Intent intent = new Intent (Appstart.this,Welcome.class);
-                    startActivity(intent);            
-                    Appstart.this.finish();
-                }
-
-        },1000);  
-</code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/30/Skills/#more" rel="contents">
               阅读全文 &raquo;
@@ -1327,7 +1329,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimwpx5j80011h8qvgw5kro9i"
+                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cimygk4gd00129oqvfmcqqm63"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
               </a>

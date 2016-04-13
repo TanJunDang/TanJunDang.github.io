@@ -60,13 +60,13 @@
 <meta name="description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
 
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+创建一个布局文件，里面放一张图。
+在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+new Handler().postDelayed(new Runnable(){ 
 
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                public voi">
+    @Override
+        public void run(){
+            Intent int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布局常用的技巧">
 <meta property="og:url" content="Sam-Tam.github.io/2016/03/30/Skills/index.html">
@@ -74,31 +74,31 @@
 <meta property="og:description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
 
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+创建一个布局文件，里面放一张图。
+在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+new Handler().postDelayed(new Runnable(){ 
 
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                public voi">
+    @Override
+        public void run(){
+            Intent int">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:08.000Z">
+<meta property="og:updated_time" content="2016-04-12T10:36:35.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
 
-1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+创建一个布局文件，里面放一张图。
+在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+new Handler().postDelayed(new Runnable(){ 
 
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                public voi">
+    @Override
+        public void run(){
+            Intent int">
 <meta name="twitter:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 
 
@@ -294,22 +294,25 @@
 
       
         <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li>如何实现一个启动界面，例如微信、网易新闻。  </li>
+<li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
+<ol>
+<li>创建一个布局文件，里面放一张图。</li>
+<li><p>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </p>
+<pre><code>new Handler().postDelayed(new Runnable(){ 
+
+    @Override
+        public void run(){
+            Intent intent = new Intent (Appstart.this,Welcome.class);
+            startActivity(intent);            
+            Appstart.this.finish();
+        }
+
+},1000);  
+</code></pre></li>
+</ol>
+</li>
 </ul>
-<pre><code>1. 创建一个布局文件，里面放一张图。
-2. 在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
-
-        new Handler().postDelayed(new Runnable(){ 
-
-            @Override
-                public void run(){
-                    Intent intent = new Intent (Appstart.this,Welcome.class);
-                    startActivity(intent);            
-                    Appstart.this.finish();
-                }
-
-        },1000);  
-</code></pre> <a id="more"></a>
+ <a id="more"></a>
 <h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
 <h3 id="EditText、TextView"><a href="#EditText、TextView" class="headerlink" title="EditText、TextView"></a>EditText、TextView</h3><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
 <pre><code>editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});  

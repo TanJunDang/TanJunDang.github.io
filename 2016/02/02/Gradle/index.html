@@ -65,7 +65,7 @@ build.gradle(Module) （ 配置模块的参数 ）">
 <meta property="og:site_name" content="Sam-Tam">
 <meta property="og:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
 build.gradle(Module) （ 配置模块的参数 ）">
-<meta property="og:updated_time" content="2016-04-12T06:09:34.917Z">
+<meta property="og:updated_time" content="2016-04-12T06:11:21.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle的学习">
 <meta name="twitter:description" content="build.gradle(Project) （ 可以查看Gradle的版本 ）
@@ -270,60 +270,8 @@ build.gradle(Module) （ 配置模块的参数 ）">
 <a id="more"></a>
 <ul>
 <li><p>语法</p>
-<pre><code>apply plugin: &apos;com.android.application&apos; //声明该工程是android工程
-    android{
-
-        signingConfigs {//获取build.properties里的密码常量，需要在buildeTypes引用
-            releaseConfig {
-                storeFile file(STORE_FILE)
-                storePassword STORE_PASSWORD
-                keyAlias KEY_ALIAS
-                keyPassword KEY_PASSWORD
-            }
-        }
-
-        //安卓构建过程需要配置的参数
-        compileSdkVersion 21//编译版本
-        buildToolsVersion &quot;21.1.2&quot;//buildtool版本
-        defaultConfig {
-          //默认配置，会同时应用到debug和release版本上
-          applicationId &quot;com.taobao.startupanim&quot;//程序包名
-          minSdkVersion 15
-          targetSdkVersion 21
-          versionCode 1
-          versionName &quot;1.0&quot;
-      }
-
-           buildTypes { //这里面可以配置不同版本的一些参数，比如混淆、签名配置等
-
-        release {//release版本
-
-            signingConfig signingConfigs.release //用keystore打包
-
-            shrinkResources true //去掉无用的resourse文件
-
-            minifyEnabled false//是否开启混淆
-
-            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;//加载混淆文件，开启混淆没有这句会报错
-        }
-
-        debug {
-
-        }
-      }
-
-        lintOptions {//移除lint检查的error
-            abortOnError false
-        }
-    }
-
-    dependencies {
-        //模块依赖
-</code></pre></li>
-</ul>
-<pre><code>    }   
-} 
-</code></pre><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.application'</span> <span class="comment">//声明该工程是android工程</span></span><br><span class="line">	android&#123;</span><br><span class="line">	</span><br><span class="line">	    signingConfigs &#123;<span class="comment">//获取build.properties里的密码常量，需要在buildeTypes引用</span></span><br><span class="line">	        releaseConfig &#123;</span><br><span class="line">	            <span class="function">storeFile <span class="title">file</span><span class="params">(STORE_FILE)</span></span><br><span class="line">	            storePassword STORE_PASSWORD</span><br><span class="line">	            keyAlias KEY_ALIAS</span><br><span class="line">	            keyPassword KEY_PASSWORD</span><br><span class="line">	        &#125;</span><br><span class="line">    	&#125;</span><br><span class="line">	</span><br><span class="line">        <span class="comment">//安卓构建过程需要配置的参数</span></span><br><span class="line">        compileSdkVersion 21<span class="comment">//编译版本</span></span><br><span class="line">        buildToolsVersion "21.1.2"<span class="comment">//buildtool版本</span></span><br><span class="line">        defaultConfig </span>&#123;</span><br><span class="line">          <span class="comment">//默认配置，会同时应用到debug和release版本上</span></span><br><span class="line">          applicationId <span class="string">"com.taobao.startupanim"</span><span class="comment">//程序包名</span></span><br><span class="line">          minSdkVersion <span class="number">15</span></span><br><span class="line">          targetSdkVersion <span class="number">21</span></span><br><span class="line">          versionCode <span class="number">1</span></span><br><span class="line">          versionName <span class="string">"1.0"</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">   		buildTypes &#123; <span class="comment">//这里面可以配置不同版本的一些参数，比如混淆、签名配置等</span></span><br><span class="line">       </span><br><span class="line">        release &#123;<span class="comment">//release版本</span></span><br><span class="line">	</span><br><span class="line">			signingConfig signingConfigs.release <span class="comment">//用keystore打包</span></span><br><span class="line">	</span><br><span class="line">            shrinkResources <span class="keyword">true</span> <span class="comment">//去掉无用的resourse文件</span></span><br><span class="line">	</span><br><span class="line">            minifyEnabled <span class="keyword">false</span><span class="comment">//是否开启混淆</span></span><br><span class="line">	</span><br><span class="line">            <span class="function">proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'<span class="comment">//加载混淆文件，开启混淆没有这句会报错</span></span><br><span class="line">        &#125;</span><br><span class="line">	</span><br><span class="line">		debug </span>&#123;</span><br><span class="line">	</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;</span><br><span class="line">	</span><br><span class="line">		lintOptions &#123;<span class="comment">//移除lint检查的error</span></span><br><span class="line">			abortOnError <span class="keyword">false</span></span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dependencies &#123;</span><br><span class="line">        <span class="comment">//模块依赖</span></span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>Mapping（/project/app/build/outputs/mapping/）</p>
 <ul>
 <li>dump.txt 描述apk文件中所有类文件间的内部结构。</li>
