@@ -1107,11 +1107,11 @@ public View getView(int i , View view , ViewGroup parent)
         
           
             <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
-<li>系统广播接收器。</li>
-<li>利用intent-filter过滤action。</li>
-<li>可进行多线程、单线程之间消息通信。</li>
+<li>当收到某系统消息时，可以做相应的处理。</li>
+<li>动态注册：程序启动后才有效。</li>
+<li>静态注册：不需要启动程序就有效。</li>
 </ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<h3 id="动态广播实际开发"><a href="#动态广播实际开发" class="headerlink" title="动态广播实际开发"></a>动态广播实际开发</h3><ul>
 <li>服务器下发新消息时，通知MainActivity更改UI</li>
 </ul>
 <ol>
@@ -1124,27 +1124,11 @@ public View getView(int i , View view , ViewGroup parent)
 <li>在获取到服务器数据的地方发送广播</li>
 <li>在ondestory里取消广播</li>
 </ol>
-<pre><code>Intent intent = new Intent();
-intent.putExtra(....);
-intent.setAction(Receiver定义的Action);
-sendBroadcast(intent);
-</code></pre><hr>
-<ul>
-<li><p>注册(在MainFest注册一下即可)</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVB4bFNPU3VrckRzMG9nZDgrUlNQR1FPYmJHV0ZGMmd5Z29MbVlwTHRFTG93PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-<li><p>使用</p>
-<pre><code>private MsgUpdateReceiver msgReceiver
-@Override
-public void onCreate(Bundle savedInstanceState) {
-msgReceiver = new MsgUpdateReceiver(this); //实例化
-IntentFilter filter = new IntentFilter(MsgUpdateReceiver.MSG_UPDATE);//设置过滤器
-//利用LocalBroadcastManager调用其注册方法
-LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);
-}
-</code></pre></li>
-</ul>
-<h3 id="Fragment里注册广播"><a href="#Fragment里注册广播" class="headerlink" title="Fragment里注册广播"></a>Fragment里注册广播</h3><ul>
+<h4 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"Sam-Tam"</span>);</span><br><span class="line">	sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Fragment里注册广播注意事项"><a href="#Fragment里注册广播注意事项" class="headerlink" title="Fragment里注册广播注意事项"></a>Fragment里注册广播注意事项</h3><ul>
 <li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
 <li>记得在ondestory方法里注销广播</li>
 </ul>
@@ -1347,7 +1331,7 @@ LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, f
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
