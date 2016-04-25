@@ -57,24 +57,39 @@
 
 
 
-<meta name="description" content="ListViewListView
-RecyclerViewRecyclerView">
+<meta name="description" content="EditTextEditText禁止输入回车
+方法一
+@Override
+public boolean dispatchKeyEvent(KeyEvent event) {
+    switch (event.getKeyCode()) {
+        case KeyEvent.KEYCODE_DPAD_CENTER:
+        case KeyEvent.KEYCODE_ENTER:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Widgets学习">
 <meta property="og:url" content="Sam-Tam.github.io/2016/02/01/Widgets/index.html">
 <meta property="og:site_name" content="Sam-Tam">
-<meta property="og:description" content="ListViewListView
-RecyclerViewRecyclerView">
+<meta property="og:description" content="EditTextEditText禁止输入回车
+方法一
+@Override
+public boolean dispatchKeyEvent(KeyEvent event) {
+    switch (event.getKeyCode()) {
+        case KeyEvent.KEYCODE_DPAD_CENTER:
+        case KeyEvent.KEYCODE_ENTER:">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1iWWVRazkrdDczU3loWTJkMmlOc1RrK1N6SVlCTlVCU1htM0JTQzBZRklRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwekhXL2NIbXJ5NGpkWmlMOTVHN3RheDVtTDVMcTd4RCtBPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5URHZUejNvSzNwNHJxNEZHbGtTOFQ0d1oyb2hNS0pZc0VIOTZOM0FxdEl3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxb2ZFNEZEOGpNVHJ6QXhQRmtxY09qWDZQeElwYzltWDFBPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:12.000Z">
+<meta property="og:updated_time" content="2016-04-25T03:13:21.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Widgets学习">
-<meta name="twitter:description" content="ListViewListView
-RecyclerViewRecyclerView">
+<meta name="twitter:description" content="EditTextEditText禁止输入回车
+方法一
+@Override
+public boolean dispatchKeyEvent(KeyEvent event) {
+    switch (event.getKeyCode()) {
+        case KeyEvent.KEYCODE_DPAD_CENTER:
+        case KeyEvent.KEYCODE_ENTER:">
 <meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 
 
@@ -269,7 +284,44 @@ RecyclerViewRecyclerView">
       
 
       
-        <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
+        <h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><h4 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h4><ul>
+<li><p>方法一</p>
+<pre><code>@Override
+public boolean dispatchKeyEvent(KeyEvent event) {
+    switch (event.getKeyCode()) {
+        case KeyEvent.KEYCODE_DPAD_CENTER:
+        case KeyEvent.KEYCODE_ENTER:
+            return true;
+    }
+    return super.dispatchKeyEvent(event);
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>方法二</p>
+<pre><code>//在布局文件里声明singleLine属性
+android:singleLine=&quot;true&quot;
+</code></pre></li>
+</ul>
+<h4 id="设置EditText默认不弹出小键盘"><a href="#设置EditText默认不弹出小键盘" class="headerlink" title="设置EditText默认不弹出小键盘"></a>设置EditText默认不弹出小键盘</h4><ul>
+<li>配置文件中配置下列代码  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> </span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
+<h4 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setKeyListener(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="光标移到最后"><a href="#光标移到最后" class="headerlink" title="光标移到最后"></a>光标移到最后</h4><pre><code>Editable ea = editText.getText();
+editText.setSelection(ea.length());
+</code></pre><h4 id="软键盘相关"><a href="#软键盘相关" class="headerlink" title="软键盘相关"></a>软键盘相关</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
+<pre><code>android:windowSoftInputMode=&quot;stateAlwaysVisible&quot;
+</code></pre><p>【A】stateUnspecified：默认状态，系统将选择一个合适的状态或依赖于主题的设置</p>
+<p>【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
+<p>【C】stateHidden：用户选择activity时，软键盘总是被隐藏</p>
+<p>【D】stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的</p>
+<p>【E】stateVisible：软键盘通常是可见的</p>
+<p>【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
+<p>【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
+<p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间</p>
+<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分</p>
+<h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
 <h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
 <a id="more"></a>
 <h3 id="ExpandableListView"><a href="#ExpandableListView" class="headerlink" title="ExpandableListView"></a>ExpandableListView</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU04eWZsUCszL244ZXhqMDBIOS81Sm1vT08vQWQvRG1CTTIzUWFPbDI4eGVRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
@@ -601,7 +653,7 @@ if(selectIten.keySet().contains(position)){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -635,7 +687,7 @@ if(selectIten.keySet().contains(position)){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView"><span class="nav-number">1.</span> <span class="nav-text">ListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ExpandableListView"><span class="nav-number">3.</span> <span class="nav-text">ExpandableListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView使用总结"><span class="nav-number">4.</span> <span class="nav-text">WebView使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView的属性"><span class="nav-number">5.</span> <span class="nav-text">TextView的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePickerDialog的总结"><span class="nav-number">6.</span> <span class="nav-text">DatePickerDialog的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar跟onDateSet里面的月份比正常少1"><span class="nav-number">6.1.</span> <span class="nav-text">Calendar跟onDateSet里面的月份比正常少1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onDateSet之后求long型日期，月份需要加上1"><span class="nav-number">6.2.</span> <span class="nav-text">onDateSet之后求long型日期，月份需要加上1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar-getTimeInMillis-得出的是正确的日期"><span class="nav-number">6.3.</span> <span class="nav-text">Calendar.getTimeInMillis()得出的是正确的日期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求long时，dateSet传入的月份要-1"><span class="nav-number">7.</span> <span class="nav-text">(求long时，dateSet传入的月份要+1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkbox、RadioButton总结"><span class="nav-number">8.</span> <span class="nav-text">Checkbox、RadioButton总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton"><span class="nav-number">8.1.</span> <span class="nav-text">RadioButton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Checkbox（选中效果必须与HashMap、HashSet等结合使用）"><span class="nav-number">8.2.</span> <span class="nav-text">Checkbox（选中效果必须与HashMap、HashSet等结合使用）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText"><span class="nav-number">1.</span> <span class="nav-text">EditText</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EditText禁止输入回车"><span class="nav-number">1.1.</span> <span class="nav-text">EditText禁止输入回车</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置EditText默认不弹出小键盘"><span class="nav-number">1.2.</span> <span class="nav-text">设置EditText默认不弹出小键盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EditText-只读内容滚动"><span class="nav-number">1.3.</span> <span class="nav-text">EditText 只读内容滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光标移到最后"><span class="nav-number">1.4.</span> <span class="nav-text">光标移到最后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软键盘相关"><span class="nav-number">1.5.</span> <span class="nav-text">软键盘相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView"><span class="nav-number">2.</span> <span class="nav-text">ListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RecyclerView"><span class="nav-number">3.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ExpandableListView"><span class="nav-number">4.</span> <span class="nav-text">ExpandableListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView使用总结"><span class="nav-number">5.</span> <span class="nav-text">WebView使用总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView的属性"><span class="nav-number">6.</span> <span class="nav-text">TextView的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatePickerDialog的总结"><span class="nav-number">7.</span> <span class="nav-text">DatePickerDialog的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar跟onDateSet里面的月份比正常少1"><span class="nav-number">7.1.</span> <span class="nav-text">Calendar跟onDateSet里面的月份比正常少1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onDateSet之后求long型日期，月份需要加上1"><span class="nav-number">7.2.</span> <span class="nav-text">onDateSet之后求long型日期，月份需要加上1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Calendar-getTimeInMillis-得出的是正确的日期"><span class="nav-number">7.3.</span> <span class="nav-text">Calendar.getTimeInMillis()得出的是正确的日期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求long时，dateSet传入的月份要-1"><span class="nav-number">8.</span> <span class="nav-text">(求long时，dateSet传入的月份要+1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Checkbox、RadioButton总结"><span class="nav-number">9.</span> <span class="nav-text">Checkbox、RadioButton总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RadioButton"><span class="nav-number">9.1.</span> <span class="nav-text">RadioButton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Checkbox（选中效果必须与HashMap、HashSet等结合使用）"><span class="nav-number">9.2.</span> <span class="nav-text">Checkbox（选中效果必须与HashMap、HashSet等结合使用）</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
