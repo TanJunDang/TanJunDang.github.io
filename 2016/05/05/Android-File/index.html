@@ -58,33 +58,30 @@
 
 
 <meta name="description" content="文件内外部存储Android内部存储
-文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data//files/下.
 
-1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
 Context对象相关文件API
 
-openFileInput(String n">
+getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android-File">
 <meta property="og:url" content="Sam-Tam.github.io/2016/05/05/Android-File/index.html">
 <meta property="og:site_name" content="Sam-Tam">
 <meta property="og:description" content="文件内外部存储Android内部存储
-文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data//files/下.
 
-1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
 Context对象相关文件API
 
-openFileInput(String n">
-<meta property="og:updated_time" content="2016-05-05T08:12:58.386Z">
+getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
+<meta property="og:updated_time" content="2016-05-05T10:10:06.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-File">
 <meta name="twitter:description" content="文件内外部存储Android内部存储
-文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data//files/下.
 
-1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
 Context对象相关文件API
 
-openFileInput(String n">
+getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
 
 
 
@@ -279,11 +276,12 @@ openFileInput(String n">
 
       
         <h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
-<p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。</p>
+<p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data/<package_name>/files/下.</package_name></p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fifle file = getFilesDir()  <span class="comment">//用于获取内部存储空间路径(/data/data/包名/files/)</span></span><br></pre></td></tr></table></figure>
 <p>Context对象相关文件API</p>
 <ul>
+<li><p>getFilesDir() - 用于获取内部存储空间路径(/data/data/<package_name>/files/)</package_name></p>
+</li>
 <li><p>openFileInput(String name) - 打开应用程序私有目录下的的指定私有文件以读入数据，返回一个FileInputStream 对象.</p>
 </li>
 <li><p>openFileOutput(String name , int mode) - 打开应用程序私有目录下的的指定私有文件以写入数据，返回一个FileOutputStream 对象.如果文件不存在就创建这个文件。</p>
@@ -292,20 +290,31 @@ openFileInput(String n">
 </li>
 <li><p>deleteFile(String fileName) - 删除指定文件名的文件，成功返回true,失败返回false。</p>
 </li>
+<li><p>getDir(String name , int mode);//创建一个目录，返回一个File对象。</p>
+</li>
 </ul>
 <blockquote>
 <p>MODE_PRIVATE 默认模式，文件只可以被调用该方法的应用程序访问<br>MODE_APPEND 如果文件已存在就向该文件的末尾继续写入数据，而不是覆盖原来的数据。<br>MODE_WORLD_READABLE 赋予所有的应用程序对该文件读的权限。<br>MODE_WORLD_WRITEABLE  赋予所有的应用程序对该文件写的权限。</p>
 </blockquote>
 <hr>
 <ul>
-<li>实例 - 将数据保存在私有文件里，然后再拿出来显示。</li>
+<li>实例 - 将数据保存在内部存储私有文件里，然后再拿出来显示。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileOutputStream fos  =  openFileOutput(<span class="string">"SamTam.md"</span>,Context.MODE_PRIVATE);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileInputStream fis  = openFileInput(<span class="string">"SamTam.md"</span>);</span><br><span class="line"><span class="keyword">int</span> lenght = fis.available(); <span class="comment">//可读长度？</span></span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[lenght];</span><br><span class="line">fis.read(buffer);</span><br><span class="line"><span class="comment">//将byte数组转换成指定格式的字符串</span></span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Android外部存储"><a href="#Android外部存储" class="headerlink" title="Android外部存储"></a>Android外部存储</h4><blockquote>
-<p>文件可以被其他应用访问,当应用被卸载时,数据不会被销毁。</p>
+<p>文件可以被其他应用访问,当应用被卸载时,数据不会被销毁。所有应用程序的外部存储的私有文件都放在根目录的Android/data/<package_name>/下，目录形式为/Android/data/<package_name>/</package_name></package_name></p>
 </blockquote>
-<p>### </p>
-
+<p>Context对象相关文件API</p>
+<ul>
+<li><p>getExternalFilesDir(String name) - 用于获取外部存储空间名称为name的目录的路径(/storage/emulated/0/Android/data/<package_name>/Sam/)  有些设备的部分路径不是/storage/emulated/0而是/mnt/sdcard</package_name></p>
+</li>
+<li><p>Environment.getExternalStorageDirectory() - 获取根路径</p>
+</li>
+</ul>
+<ul>
+<li>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
