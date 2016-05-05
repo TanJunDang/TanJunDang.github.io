@@ -1275,7 +1275,7 @@ dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);
       
         
           
-            <h4 id="Fragment知识点总结"><a href="#Fragment知识点总结" class="headerlink" title="Fragment知识点总结"></a>Fragment知识点总结</h4><h3 id="定义Fragment的方式"><a href="#定义Fragment的方式" class="headerlink" title="定义Fragment的方式"></a>定义Fragment的方式</h3><ul>
+            <h3 id="定义Fragment的方式"><a href="#定义Fragment的方式" class="headerlink" title="定义Fragment的方式"></a>定义Fragment的方式</h3><ul>
 <li>动态</li>
 <li>静态</li>
 </ul>
@@ -1312,7 +1312,7 @@ E.提交事务 transaction.commit();
 <li>在写好的java文件里 重写onActivityCreated  </li>
 <li>通过getActivity()方法获得上下文  </li>
 </ol>
-<h4 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h4><ol>
+<h3 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h3><ol>
 <li><p>只要加入到回退栈就能回退，主显示Fragment不回退<br>addToBackTrack（null）  </p>
 </li>
 <li><p>事务的replace 会删除数据，若要保存上个Fragment的数据 ，先隐藏hide，再添加add</p>
@@ -1320,8 +1320,8 @@ E.提交事务 transaction.commit();
 <li><p>调用getFragmentManager.popBackStack()方法 可以返回上一个Fragment</p>
 </li>
 </ol>
-<h4 id="Fragment之间通信"><a href="#Fragment之间通信" class="headerlink" title="Fragment之间通信"></a>Fragment之间通信</h4><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
-<h4 id="Fragment-切换、嵌套则会报错"><a href="#Fragment-切换、嵌套则会报错" class="headerlink" title="Fragment 切换、嵌套则会报错"></a>Fragment 切换、嵌套则会报错</h4><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
+<h3 id="Fragment之间通信"><a href="#Fragment之间通信" class="headerlink" title="Fragment之间通信"></a>Fragment之间通信</h3><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
+<h3 id="Fragment-切换、嵌套则会报错"><a href="#Fragment-切换、嵌套则会报错" class="headerlink" title="Fragment 切换、嵌套则会报错"></a>Fragment 切换、嵌套则会报错</h3><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
 <p>解决方法：<br>onCreateView下面使用下列代码</p>
 <pre><code>if (view != null) {
 ViewGroup parent = (ViewGroup) view.getParent(); 
@@ -1356,7 +1356,7 @@ this.mTitle = title;
 </ol>
 <pre><code>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent); 
 tv.setText(schoolBasicInfo.getIntroduct());
-</code></pre><p>.参考TrainingAgencyAdapter</p>
+</code></pre><p>参考TrainingAgencyAdapter</p>
 
           
         
@@ -1536,7 +1536,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

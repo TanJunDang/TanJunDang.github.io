@@ -87,7 +87,7 @@
 在给数据的地方调用接口的方法(通过接口引用调用方法">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBvNk5ORFJQUGFUclBoc2FqUVNzUk5xa2hiNXRvdW41OUN6QmY2S3ZGZ2FRPT0.jpg?imageView&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+<meta property="og:updated_time" content="2016-05-05T08:41:30.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="回调函数Callback的理解
@@ -320,58 +320,26 @@
 </li>
 </ol>
 <a id="more"></a>
-<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><p>[A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务] </p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre><code>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据
-</code></pre><h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><pre><code>员工A 完成任务后 告知老板B
-</code></pre><ul>
+<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><blockquote>
+<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务</p>
+</blockquote>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><blockquote>
+<p>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据</p>
+<p>员工A 完成任务后 告知老板B</p>
+</blockquote>
+<ul>
 <li><p>回调接口  </p>
-<pre><code>interface Callback{ //接口返回something time等参数
-    void execute(String something ，long time);
-}
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Callback</span></span>&#123; <span class="comment">//接口返回something time等参数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>(员工)</p>
-<pre><code>class A{
-private Callback callback; //预留回调接口,方便他人调用
-private doSomething(){
-
-        .
-        .    //工作数小时
-        .
-
-        callback.execute(work,144000055); //告知老板
-
-    }
-private setUser(Callback callback){//提供注册回调函数的方法、还可以考虑通过构造函数注册
-        this.callback = callback;    
-    }
-
-}
-</code></pre></li>
-</ul>
-<ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Callback callback; <span class="comment">//预留回调接口,方便他人调用</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		.</span><br><span class="line">		.    <span class="comment">//工作数小时</span></span><br><span class="line">		.</span><br><span class="line"></span><br><span class="line">		callback.execute(work,<span class="number">144000055</span>); <span class="comment">//告知老板</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">setUser</span><span class="params">(Callback callback)</span></span>&#123;<span class="comment">//提供注册回调函数的方法、还可以考虑通过构造函数注册</span></span><br><span class="line">		<span class="keyword">this</span>.callback = callback;    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>(老板)</p>
-<pre><code>class B implements Callback{  //实现回调接口
-@Override
-public void execute(String something ，long time){
-    System.out.println(&quot;员工在&quot;+time+&quot;做了&quot;+something);
-    }
-}
-</code></pre></li>
-</ul>
-<ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Callback</span></span>&#123;  <span class="comment">//实现回调接口</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"员工在"</span>+time+<span class="string">"做了"</span>+something);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>测试</p>
-<pre><code>class Test{
-
-    public static void main (String args[]){
-
-    A a = new A();
-    a.setUser(new B());//注册接口
-    a.doSomething();
-
-    }
-
-}
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String args[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	A a = <span class="keyword">new</span> A();</span><br><span class="line">	a.setUser(<span class="keyword">new</span> B());<span class="comment">//注册接口</span></span><br><span class="line">	a.doSomething();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="文件-目录-操作File的理解"><a href="#文件-目录-操作File的理解" class="headerlink" title="文件(目录)操作File的理解"></a><font color="#5566ff">文件(目录)操作File的理解</font></h3><ul>
 <li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
@@ -398,118 +366,37 @@ file.mkdirs();
 </ul>
 </li>
 </ul>
-<ul>
-<li><p>下面通过一个示例来讲述字符流跟字节流的区别。</p>
-<ul>
-<li><p>示例： 对一个md文件写入Hello World语句</p>
-<pre><code>File file = new File(&quot;B:/Erintrus.md&quot;);
-if(file.exists()){
-    println(&quot;This file already exists&quot;);
-}else{
-    file.createNewFile();
-}
-//上述代码创建一个md文件
-
--------------------------------------------
-
-**********字符流*************
-FileWriter fw = new FileWriter(file);
-String msg = &quot;Hello World&quot;;//需要写入的信息
-fw.write(msg);//直接将数据写入字符流
-
-**********字节流*************
-FileOutputStream fos = new FileOutputStream(file);
-String msg = &quot;Hello World&quot;;
-byte[] bytes = msg.getBytes();//将数据写入缓冲区
-fos.write(bytes); //将缓冲区写入字节流
-
-***********进阶 —— 高级流************
-BufferReader、BufferWriter
-</code></pre></li>
+<h4 id="下面通过一个示例来讲述字符流跟字节流的区别。"><a href="#下面通过一个示例来讲述字符流跟字节流的区别。" class="headerlink" title="下面通过一个示例来讲述字符流跟字节流的区别。"></a>下面通过一个示例来讲述字符流跟字节流的区别。</h4><ul>
+<li>示例： 对一个md文件写入Hello World语句</li>
 </ul>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line"><span class="keyword">if</span>(file.exists())&#123;</span><br><span class="line">println(<span class="string">"This file already exists"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//上述代码创建一个md文件</span></span><br><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line"></span><br><span class="line">**********字符流*************</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;<span class="comment">//需要写入的信息</span></span><br><span class="line">fw.write(msg);<span class="comment">//直接将数据写入字符流</span></span><br><span class="line"></span><br><span class="line">**********字节流*************</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = msg.getBytes();<span class="comment">//将数据写入缓冲区</span></span><br><span class="line">fos.write(bytes); <span class="comment">//将缓冲区写入字节流</span></span><br><span class="line"></span><br><span class="line">***********进阶 —— 高级流************</span><br><span class="line">BufferReader、BufferWriter</span><br></pre></td></tr></table></figure>
+<ul>
+<li>InputStream示例</li>
 </ul>
-<pre><code>* InputStream示例
-
-        ************InputStream的缺陷，需要提前设置缓存区大小***************
-        File file = new File(&quot;B:/Erintrus.md&quot;);
-        FileInputStream fis = new FileInputStream(file);
-        byte[] bytes = new byte[10240]; //文件过大，还是无法读取到完整的数据    
-        fis.read(bytes);
-
-* &lt;font color =&quot;red&quot;&gt;推荐示例 —— BufferReader(必须加\n)&lt;/font&gt;
-
-         ***********FileReader跟BufferReader的结合使用********
-        FileReader r = new FileReader(file);
-        BufferedReader br = new BufferedReader(r);
-
-        StringBuffer msg = new StringBuffer();
-        String s;
-        while ((s = br.readLine()) != null) {
-            msg = msg.append(s+“\n”); //必须要加\n 否则全部数据变成一行
-        }
-
-* &lt;font color=&quot;red&quot;&gt;推荐示例 —— BufferWriter(必须要关闭流)&lt;/font&gt;
-
-        *********FileWriter跟BufferWriter的结合使用
-        FileWriter fw = new FileWriter(decFile);
-        BufferedWriter bw = new BufferedWriter(fw); //可以不用BufferWriter
-
-        bw.write(msg.toString());
-        bw.close();//必须要关闭，不然写不了数据
-        fw.close();必须要关闭，不然写不了数据
-
-* &lt;font color = &quot;red&quot;&gt;推荐示例 —— FileChanel与FileInputStream、FileOutputStream结合&lt;/font&gt;
-
-        FileInputStream fis = new FileInputStream(file);
-        FileOutputStream fos = new FileOutputStream(desFile);
-        FileChanel fcIn = new FileChanel(fis); //将输入流放到输入管道中
-        FileChanel fcOut = new FileChanel(fos);//将输出流放到输出管道中
-
-        ******************输入管道调用transferTo()方法传输数据************
-        fcIn.transferTo(0,fcIn.size(),fcOut);
-        .
-        .
-        .
-        关闭流
-</code></pre><ul>
-<li><p>总结：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">************InputStream的缺陷，需要提前设置缓存区大小***************</span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10240</span>]; <span class="comment">//文件过大，还是无法读取到完整的数据	</span></span><br><span class="line">fis.read(bytes);</span><br><span class="line">String result = EncodingUtils.getString(bytes, <span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— BufferReader</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">***********FileReader跟BufferReader的结合使用********</span><br><span class="line">FileReader r = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(r);</span><br><span class="line"></span><br><span class="line">StringBuffer msg = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">String s;</span><br><span class="line"><span class="keyword">while</span> ((s = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">	msg = msg.append(s+“\n”); <span class="comment">//必须要加\n 否则全部数据变成一行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— BufferWriter</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*********FileWriter跟BufferWriter的结合使用</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(decFile);</span><br><span class="line">BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(fw); <span class="comment">//可以不用BufferWriter</span></span><br><span class="line">bw.write(msg.toString());</span><br><span class="line">bw.close();<span class="comment">//必须要关闭，不然写不了数据</span></span><br><span class="line">fw.close();必须要关闭，不然写不了数据</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— FileChanel与FileInputStream、FileOutputStream结合</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(desFile);</span><br><span class="line">FileChanel fcIn = <span class="keyword">new</span> FileChanel(fis); <span class="comment">//将输入流放到输入管道中</span></span><br><span class="line">FileChanel fcOut = <span class="keyword">new</span> FileChanel(fos);<span class="comment">//将输出流放到输出管道中</span></span><br><span class="line"></span><br><span class="line">******************输入管道调用transferTo()方法传输数据************</span><br><span class="line">fcIn.transferTo(<span class="number">0</span>,fcIn.size(),fcOut);</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">关闭流</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：</li>
+</ul>
 <ol>
 <li>字符流比字节流简便。</li>
 <li>不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</li>
 </ol>
-</li>
-</ul>
-<hr>
 <p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
-<h3 id="示例-——-写一个用文件保存数据的方法"><a href="#示例-——-写一个用文件保存数据的方法" class="headerlink" title="示例 —— 写一个用文件保存数据的方法"></a>示例 —— 写一个用文件保存数据的方法</h3><pre><code>//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)
-public void saveData(Context context , Object data , String name , String folder){
-    if(context ==null) return ;
-    File file;
-    if(folder.isEmpty){ //如果没有折叠器，则在当前目录创建文件
-        file = new File(context.getFilesDir(),name);
-    }else{ //否则，创建一个文件夹
-        File filesDir = new File(context.getFilesDir(),folder);
-        if(!filesDir.exists()||!filesDir.isDirectory()){//如果文件夹不存在,则创建该文件夹
-        {
-            fileDir.mkdir();
-        }
-        file = new File(filesDir,name);//在该目录下创建文件            
-    }
-
-
-    if (file.exists()) {
-        file.delete();
-    }
-
-*************************保存数据
-
-ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-oos.writeObject(data);
-oos.close();
-}
-</code></pre><h3 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h3><ul>
+<h3 id="示例-——-写一个用文件保存数据的方法"><a href="#示例-——-写一个用文件保存数据的方法" class="headerlink" title="示例 —— 写一个用文件保存数据的方法"></a>示例 —— 写一个用文件保存数据的方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(Context context , Object data , String name , String folder)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">	File file;</span><br><span class="line">	<span class="keyword">if</span>(folder.isEmpty)&#123; <span class="comment">//如果没有折叠器，则在当前目录创建文件</span></span><br><span class="line">		file = <span class="keyword">new</span> File(context.getFilesDir(),name);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">//否则，创建一个文件夹</span></span><br><span class="line">		File filesDir = <span class="keyword">new</span> File(context.getFilesDir(),folder);</span><br><span class="line">		<span class="keyword">if</span>(!filesDir.exists()||!filesDir.isDirectory())&#123;<span class="comment">//如果文件夹不存在,则创建该文件夹</span></span><br><span class="line">		&#123;</span><br><span class="line">			fileDir.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		file = <span class="keyword">new</span> File(filesDir,name);<span class="comment">//在该目录下创建文件			</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">		file.delete();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">*************************保存数据</span><br><span class="line"></span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(data);</span><br><span class="line">oos.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h3><ul>
 <li><p>判断是否需要创建折叠器(文件夹)</p>
 <ul>
 <li>不要 ——&gt; 直接创建文件</li>
@@ -528,16 +415,13 @@ oos.close();
 <li><p>getFilesDir()方法用于获取/data/data//files目录</p>
 </li>
 <li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
-<pre><code>ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-oos.writeObject(data);
-oos.close();
-</code></pre></li>
-<li><p>读取内容(readObject、ObjectInputStream方法)</p>
-<pre><code>ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
-ois.readObject();
-ois.close();
-</code></pre></li>
+</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(data);</span><br><span class="line">oos.close();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取内容(readObject、ObjectInputStream方法)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
 <h3 id="通过文件保存、读取数据需要序列化"><a href="#通过文件保存、读取数据需要序列化" class="headerlink" title="通过文件保存、读取数据需要序列化"></a>通过文件保存、读取数据需要序列化</h3><h4 id="关于String的subString方法"><a href="#关于String的subString方法" class="headerlink" title="关于String的subString方法"></a>关于String的subString方法</h4><ul>
 <li>subString(int start,int end)中的start、end指的是第几位（从start开始,不算strat到end的字符）</li>
 </ul>
@@ -550,72 +434,33 @@ day = date.subString(6,8);
 <li>比较两段代码的不同</li>
 </ul>
 <p>示例一：Iterator删除</p>
-<pre><code>Iterator&lt;ShowInfo&gt; iterator = showList.iterator();
-if (iterator.hasNext()) {
-   ShowInfo delShow = iterator.next();
-    if (delShow.isCheck() == true) {
-                iterator.remove();
-    }
-}
-</code></pre><p>示例二: for循环删除</p>
-<pre><code>for(int i =0;i&lt;list.size();i++){
-    list.remove(i);
-    i--;
-}
-</code></pre><h3 id="静态成员只初始化一次-创建第一个对象时"><a href="#静态成员只初始化一次-创建第一个对象时" class="headerlink" title="静态成员只初始化一次(创建第一个对象时)"></a>静态成员只初始化一次(创建第一个对象时)</h3><h3 id="必须同时重写equal跟hashCode方法"><a href="#必须同时重写equal跟hashCode方法" class="headerlink" title="必须同时重写equal跟hashCode方法"></a>必须同时重写equal跟hashCode方法</h3><ul>
-<li><p>如何重写equal方法？</p>
-<pre><code>1. 判断两个对象是否相等 if(this==obj)
-2. 判断是否本类实例化的对象 if(obj instanceof Test)
-3. 判断各种属性(将obj强转成本类)
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;ShowInfo&gt; iterator = showList.iterator();</span><br><span class="line"><span class="keyword">if</span> (iterator.hasNext()) &#123;</span><br><span class="line">   ShowInfo delShow = iterator.next();</span><br><span class="line">    <span class="keyword">if</span> (delShow.isCheck() == <span class="keyword">true</span>) &#123;</span><br><span class="line">                iterator.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例二: for循环删除<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">	list.remove(i);</span><br><span class="line">	i--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="静态成员只初始化一次-创建第一个对象时"><a href="#静态成员只初始化一次-创建第一个对象时" class="headerlink" title="静态成员只初始化一次(创建第一个对象时)"></a>静态成员只初始化一次(创建第一个对象时)</h3><h3 id="必须同时重写equal跟hashCode方法"><a href="#必须同时重写equal跟hashCode方法" class="headerlink" title="必须同时重写equal跟hashCode方法"></a>必须同时重写equal跟hashCode方法</h3><ul>
+<li>如何重写equal方法？</li>
 </ul>
-<pre><code>public class Test{
-
-    private String name;
-
-    @Override
-    public boolean equals(Object obj) { //此处必须是Object对象
-
-        if(this == obj){return true;}
-        if(!obj instanceof Test){return false} //obj不是Test实例化的对象
-        Test test = (Test)obj;
-        //判断各种属性
-        if(name.equal(obj.getName())){return true;}
-    }
-
-}
-</code></pre><ul>
-<li><p>如何重写hashCode方法</p>
-<pre><code>1. 定义常量基数prime = 31
-2. 定义存放散列值的变量 result = 1
-3. 散码值通过属性判断，属性为空，则为0，否则调用hashCode方法获取散列值
-4. 结果= 基数 * 散列码变量 +散列值
-</code></pre></li>
-</ul>
-<pre><code>@Override
-public int hashCode() {    
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + (name==?0:name.hashCode());
-    return result;
-}
-</code></pre><h3 id="集合按某个属性-时间-排序"><a href="#集合按某个属性-时间-排序" class="headerlink" title="集合按某个属性(时间)排序"></a><font color="red">集合按某个属性(时间)排序</font></h3><ul>
-<li>使用Collections的排序方法sort()</li>
-<li><p>对象需要实现Comparable接口、重写compareTo方法</p>
+<ol>
+<li>判断两个对象是否相等 if(this==obj)</li>
+<li>判断是否本类实例化的对象 if(obj instanceof Test)</li>
+<li>判断各种属性(将obj强转成本类)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123; <span class="comment">//此处必须是Object对象</span></span><br><span class="line">	</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;<span class="keyword">return</span> <span class="keyword">true</span>;&#125;</span><br><span class="line">		<span class="keyword">if</span>(!obj <span class="keyword">instanceof</span> Test)&#123;<span class="keyword">return</span> <span class="keyword">false</span>&#125; <span class="comment">//obj不是Test实例化的对象</span></span><br><span class="line">		Test test = (Test)obj;</span><br><span class="line">		<span class="comment">//判断各种属性</span></span><br><span class="line">		<span class="keyword">if</span>(name.equal(obj.getName()))&#123;<span class="keyword">return</span> <span class="keyword">true</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>下面是重写compareTo方法的过程</p>
-<pre><code>@Override
-public int compareTo(Object another) {
-    if (another instanceof User) {
-        return ((Long) ((User) another).getLastContentTime()).compareTo((Long) this.getLastContentTime());
-    } else {
-        return 0;
-    }
-}
-</code></pre></li>
+<li>如何重写hashCode方法</li>
 </ul>
-</li>
+<ol>
+<li>定义常量基数prime = 31</li>
+<li>定义存放散列值的变量 result = 1</li>
+<li>散码值通过属性判断，属性为空，则为0，否则调用hashCode方法获取散列值</li>
+<li>结果= 基数 * 散列码变量 +散列值</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">	result = prime * result + (name==?<span class="number">0</span>:name.hashCode());</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="集合按某个属性-时间-排序"><a href="#集合按某个属性-时间-排序" class="headerlink" title="集合按某个属性(时间)排序"></a><font color="red">集合按某个属性(时间)排序</font></h3><ul>
+<li>使用Collections的排序方法sort()</li>
+<li>对象需要实现Comparable接口、重写compareTo方法</li>
+<li>下面是重写compareTo方法的过程</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object another)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (another <span class="keyword">instanceof</span> User) &#123;</span><br><span class="line">        <span class="keyword">return</span> ((Long) ((User) another).getLastContentTime()).compareTo((Long) <span class="keyword">this</span>.getLastContentTime());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>总结：使用不了compareTo方法需要将其属性强转。</p>
 <h3 id="业务审核模块源码分析"><a href="#业务审核模块源码分析" class="headerlink" title="业务审核模块源码分析"></a>业务审核模块源码分析</h3><p>分析:</p>
 <ol>
@@ -740,7 +585,7 @@ public int compareTo(Object another) {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -774,7 +619,7 @@ public int compareTo(Object another) {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数Callback的理解"><span class="nav-number">1.</span> <span class="nav-text">回调函数Callback的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征"><span class="nav-number">2.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">3.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：-1"><span class="nav-number">4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-目录-操作File的理解"><span class="nav-number">5.</span> <span class="nav-text">文件(目录)操作File的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件流的理解"><span class="nav-number">6.</span> <span class="nav-text">文件流的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-——-写一个用文件保存数据的方法"><span class="nav-number">7.</span> <span class="nav-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-——-创建一个文件的过程"><span class="nav-number">8.</span> <span class="nav-text">总结 —— 创建一个文件的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的读写"><span class="nav-number">9.</span> <span class="nav-text">文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过文件保存、读取数据需要序列化"><span class="nav-number">10.</span> <span class="nav-text">通过文件保存、读取数据需要序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于String的subString方法"><span class="nav-number">10.1.</span> <span class="nav-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陷阱"><span class="nav-number"></span> <span class="nav-text">陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合删除元素"><span class="nav-number">1.</span> <span class="nav-text">集合删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="nav-number">2.</span> <span class="nav-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必须同时重写equal跟hashCode方法"><span class="nav-number">3.</span> <span class="nav-text">必须同时重写equal跟hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按某个属性-时间-排序"><span class="nav-number">4.</span> <span class="nav-text">集合按某个属性(时间)排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务审核模块源码分析"><span class="nav-number">5.</span> <span class="nav-text">业务审核模块源码分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数Callback的理解"><span class="nav-number">1.</span> <span class="nav-text">回调函数Callback的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征"><span class="nav-number">1.1.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例："><span class="nav-number">1.2.</span> <span class="nav-text">示例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-目录-操作File的理解"><span class="nav-number">2.</span> <span class="nav-text">文件(目录)操作File的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件流的理解"><span class="nav-number">3.</span> <span class="nav-text">文件流的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面通过一个示例来讲述字符流跟字节流的区别。"><span class="nav-number">3.1.</span> <span class="nav-text">下面通过一个示例来讲述字符流跟字节流的区别。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-——-写一个用文件保存数据的方法"><span class="nav-number">4.</span> <span class="nav-text">示例 —— 写一个用文件保存数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-——-创建一个文件的过程"><span class="nav-number">5.</span> <span class="nav-text">总结 —— 创建一个文件的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的读写"><span class="nav-number">6.</span> <span class="nav-text">文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过文件保存、读取数据需要序列化"><span class="nav-number">7.</span> <span class="nav-text">通过文件保存、读取数据需要序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于String的subString方法"><span class="nav-number">7.1.</span> <span class="nav-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陷阱"><span class="nav-number"></span> <span class="nav-text">陷阱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合删除元素"><span class="nav-number">1.</span> <span class="nav-text">集合删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="nav-number">2.</span> <span class="nav-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必须同时重写equal跟hashCode方法"><span class="nav-number">3.</span> <span class="nav-text">必须同时重写equal跟hashCode方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合按某个属性-时间-排序"><span class="nav-number">4.</span> <span class="nav-text">集合按某个属性(时间)排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务审核模块源码分析"><span class="nav-number">5.</span> <span class="nav-text">业务审核模块源码分析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Markdown," />
+  <meta name="keywords" content="Android-File," />
 
 
 
@@ -57,27 +57,34 @@
 
 
 
-<meta name="description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="description" content="文件内外部存储Android内部存储
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
+1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
+Context对象相关文件API
+
+openFileInput(String n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="Sam-Tam.github.io/2016/03/25/Markdown/index.html">
+<meta property="og:title" content="Android-File">
+<meta property="og:url" content="Sam-Tam.github.io/2016/05/05/Android-File/index.html">
 <meta property="og:site_name" content="Sam-Tam">
-<meta property="og:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta property="og:description" content="文件内外部存储Android内部存储
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta property="og:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
+Context对象相关文件API
+
+openFileInput(String n">
+<meta property="og:updated_time" content="2016-05-05T08:12:58.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown">
-<meta name="twitter:description" content="Markdown语法马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+<meta name="twitter:title" content="Android-File">
+<meta name="twitter:description" content="文件内外部存储Android内部存储
+文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。
 
-功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
-得心应手 ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持">
-<meta name="twitter:image" content="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg">
+1Fifle file = getFilesDir()  //用于获取内部存储空间路径(/data/data/包名/files/)
+Context对象相关文件API
+
+openFileInput(String n">
 
 
 
@@ -95,7 +102,7 @@
   };
 </script>
 
-  <title> Markdown | Sam-Tam </title>
+  <title> Android-File | Sam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +232,7 @@
             
             
               
-                Markdown
+                Android-File
               
             
           </h1>
@@ -237,8 +244,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T12:45:20+08:00" content="2016-03-25">
-              2016-03-25
+            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
+              2016-05-05
             </time>
           </span>
 
@@ -248,8 +255,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/25/Markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/Markdown/" itemprop="commentsCount"></span>
+                <a href="/2016/05/05/Android-File/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/Android-File/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -269,66 +276,35 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" rel="gallery_cinr68w5t0018ygqvpq8jvpua"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://farm8.staticflickr.com/7308/15783866983_27160395b9_b.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p><strong>马克飞象</strong>是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：</p>
-<ul>
-<li><strong>功能丰富</strong> ：支持高亮代码块、<em>LaTeX</em> 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；</li>
-<li><strong>得心应手</strong> ：简洁高效的编辑器，提供[桌面客户端][1]以及[离线Chrome App][2]，支持移动端 Web；</li>
-<li><strong>深度整合</strong> ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。</li>
-</ul>
-<hr>
-<a id="more"></a>
-<h2 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="external">维基百科</a></p>
+        <h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
+<p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。</p>
 </blockquote>
-<p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.example.com" target="_blank" rel="external">链接</a>或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按<code>Ctrl + /</code>查看帮助。 </p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span><br><span class="line"><span class="meta">... </span>prompt'''</span></span><br></pre></td></tr></table></figure>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:right">Value</th>
-<th style="text-align:center">Qty</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 USD</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 USD</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 USD</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">e=&gt;end</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<p>以及时序图:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fifle file = getFilesDir()  <span class="comment">//用于获取内部存储空间路径(/data/data/包名/files/)</span></span><br></pre></td></tr></table></figure>
+<p>Context对象相关文件API</p>
+<ul>
+<li><p>openFileInput(String name) - 打开应用程序私有目录下的的指定私有文件以读入数据，返回一个FileInputStream 对象.</p>
+</li>
+<li><p>openFileOutput(String name , int mode) - 打开应用程序私有目录下的的指定私有文件以写入数据，返回一个FileOutputStream 对象.如果文件不存在就创建这个文件。</p>
+</li>
+<li><p>fileList() - 列出程序所有私有文件夹下的所有私有文件。</p>
+</li>
+<li><p>deleteFile(String fileName) - 删除指定文件名的文件，成功返回true,失败返回false。</p>
+</li>
+</ul>
+<blockquote>
+<p>MODE_PRIVATE 默认模式，文件只可以被调用该方法的应用程序访问<br>MODE_APPEND 如果文件已存在就向该文件的末尾继续写入数据，而不是覆盖原来的数据。<br>MODE_WORLD_READABLE 赋予所有的应用程序对该文件读的权限。<br>MODE_WORLD_WRITEABLE  赋予所有的应用程序对该文件写的权限。</p>
+</blockquote>
+<hr>
+<ul>
+<li>实例 - 将数据保存在私有文件里，然后再拿出来显示。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileOutputStream fos  =  openFileOutput(<span class="string">"SamTam.md"</span>,Context.MODE_PRIVATE);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileInputStream fis  = openFileInput(<span class="string">"SamTam.md"</span>);</span><br><span class="line"><span class="keyword">int</span> lenght = fis.available(); <span class="comment">//可读长度？</span></span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[lenght];</span><br><span class="line">fis.read(buffer);</span><br><span class="line"><span class="comment">//将byte数组转换成指定格式的字符串</span></span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Android外部存储"><a href="#Android外部存储" class="headerlink" title="Android外部存储"></a>Android外部存储</h4><blockquote>
+<p>文件可以被其他应用访问,当应用被卸载时,数据不会被销毁。</p>
+</blockquote>
+<p>### </p>
 
       
     </div>
@@ -343,7 +319,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag">#Markdown</a>
+            <a href="/tags/Android-File/" rel="tag">#Android-File</a>
           
         </div>
       
@@ -352,17 +328,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/10/RecyclerView/" rel="next" title="RecyclerView笔记">
-                <i class="fa fa-chevron-left"></i> RecyclerView笔记
+              <a href="/2016/04/12/Gesture/" rel="next" title="Gesture手势理解">
+                <i class="fa fa-chevron-left"></i> Gesture手势理解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/30/Skills/" rel="prev" title="布局常用的技巧">
-                布局常用的技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,8 +360,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/25/Markdown/"
-           data-title="Markdown" data-url="Sam-Tam.github.io/2016/03/25/Markdown/">
+      <div class="ds-thread" data-thread-key="2016/05/05/Android-File/"
+           data-title="Android-File" data-url="Sam-Tam.github.io/2016/05/05/Android-File/">
       </div>
     
   </div>
@@ -444,7 +416,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -478,7 +450,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown简介"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码块"><span class="nav-number">1.1.1.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">1.1.2.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图"><span class="nav-number">1.1.3.</span> <span class="nav-text">流程图</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件内外部存储"><span class="nav-number">1.</span> <span class="nav-text">文件内外部存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android内部存储"><span class="nav-number">1.1.</span> <span class="nav-text">Android内部存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android外部存储"><span class="nav-number">1.2.</span> <span class="nav-text">Android外部存储</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

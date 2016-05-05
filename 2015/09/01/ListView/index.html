@@ -83,7 +83,7 @@ listView.setDivider(null);
 
 在XML布局文件取消  
 android:divider=&amp;quot;#FFCC00&amp;q">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+<meta property="og:updated_time" content="2016-05-03T09:22:25.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ListView的理解">
 <meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
@@ -340,7 +340,7 @@ holder.tvName.setText(DATA[position]);
 class ViewHolder{
     private TextView tvName;
 }
-</code></pre><h4 id="ListView的下拉刷新，上拉加载数据"><a href="#ListView的下拉刷新，上拉加载数据" class="headerlink" title="ListView的下拉刷新，上拉加载数据"></a>ListView的下拉刷新，上拉加载数据</h4><p>在跟服务器交互时  </p>
+</code></pre><h3 id="ListView的下拉刷新，上拉加载数据"><a href="#ListView的下拉刷新，上拉加载数据" class="headerlink" title="ListView的下拉刷新，上拉加载数据"></a>ListView的下拉刷新，上拉加载数据</h3><p>在跟服务器交互时  </p>
 <ul>
 <li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
 <li><p>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </p>
@@ -418,7 +418,7 @@ class ViewHolder{
         srlShare.setRefreshing(false);
         srlShare.setLoading(false);
     }  
-</code></pre><h2 id="2015-11-3-17-20-58"><a href="#2015-11-3-17-20-58" class="headerlink" title="2015/11/3 17:20:58"></a>2015/11/3 17:20:58</h2><h4 id="使用不同布局的Listview"><a href="#使用不同布局的Listview" class="headerlink" title="使用不同布局的Listview"></a>使用不同布局的Listview</h4><p>getViewTypeCount 返回该listview有多少个布局  </p>
+</code></pre><h3 id="使用不同布局的Listview"><a href="#使用不同布局的Listview" class="headerlink" title="使用不同布局的Listview"></a>使用不同布局的Listview</h3><p>getViewTypeCount 返回该listview有多少个布局  </p>
 <p>getItemViewType 返回布局的id  </p>
 <p>有多少个布局就要创建多少个Holder  </p>
 <p>每个ListView都有一个数据源 下面给出一个例子：</p>
@@ -481,7 +481,7 @@ student.setStuNum(-1);
 }
 list.add(student)
 }
-</code></pre><h4 id="notifyDataSetChanged方法正常使用的前提是数据源ID没变"><a href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变" class="headerlink" title="notifyDataSetChanged方法正常使用的前提是数据源ID没变"></a>notifyDataSetChanged方法正常使用的前提是数据源ID没变</h4><h4 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h4><p>原因：</p>
+</code></pre><h3 id="notifyDataSetChanged方法正常使用的前提是数据源ID没变"><a href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变" class="headerlink" title="notifyDataSetChanged方法正常使用的前提是数据源ID没变"></a>notifyDataSetChanged方法正常使用的前提是数据源ID没变</h3><h3 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h3><p>原因：</p>
 <pre><code>getItemViewType的值必须小于getItemViewTypeCount
 </code></pre><p>例子：</p>
 <pre><code>public static final int TYPE_COUNT = 2;
@@ -497,10 +497,10 @@ public int getItemViewType(int position) {
 public int getViewTypeCount() {
     return TYPE_COUNT;
 }
-</code></pre><h4 id="加载更多的逻辑判断"><a href="#加载更多的逻辑判断" class="headerlink" title="加载更多的逻辑判断"></a>加载更多的逻辑判断</h4><ul>
+</code></pre><h3 id="加载更多的逻辑判断"><a href="#加载更多的逻辑判断" class="headerlink" title="加载更多的逻辑判断"></a>加载更多的逻辑判断</h3><ul>
 <li>显示的数据&gt;=下发的数据 则不可以加载更多</li>
 </ul>
-<h4 id="下发后的json，转成对象后，集合一定要判断是否为空。"><a href="#下发后的json，转成对象后，集合一定要判断是否为空。" class="headerlink" title="下发后的json，转成对象后，集合一定要判断是否为空。"></a>下发后的json，转成对象后，集合一定要判断是否为空。</h4><h4 id="listview点击item选中的实现"><a href="#listview点击item选中的实现" class="headerlink" title="listview点击item选中的实现"></a>listview点击item选中的实现</h4><ul>
+<h3 id="下发后的json，转成对象后，集合一定要判断是否为空。"><a href="#下发后的json，转成对象后，集合一定要判断是否为空。" class="headerlink" title="下发后的json，转成对象后，集合一定要判断是否为空。"></a>下发后的json，转成对象后，集合一定要判断是否为空。</h3><h3 id="listview点击item选中的实现"><a href="#listview点击item选中的实现" class="headerlink" title="listview点击item选中的实现"></a>listview点击item选中的实现</h3><ul>
 <li>在Adapter定义一个类方法setSelectedItem,用于接收点击的item。</li>
 <li>外部listiview点击事件中调用上述方法即可。</li>
 </ul>
@@ -663,7 +663,7 @@ convertView.setTag(tag,info);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -697,7 +697,7 @@ convertView.setTag(tag,info);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-分割线"><span class="nav-number">1.</span> <span class="nav-text">ListView 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置listview无点击背景效果"><span class="nav-number">2.</span> <span class="nav-text">设置listview无点击背景效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConvertView的理解"><span class="nav-number">3.</span> <span class="nav-text">ConvertView的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListView的下拉刷新，上拉加载数据"><span class="nav-number">3.1.</span> <span class="nav-text">ListView的下拉刷新，上拉加载数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2015-11-3-17-20-58"><span class="nav-number"></span> <span class="nav-text">2015/11/3 17:20:58</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用不同布局的Listview"><span class="nav-number">0.1.</span> <span class="nav-text">使用不同布局的Listview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变"><span class="nav-number">0.2.</span> <span class="nav-text">notifyDataSetChanged方法正常使用的前提是数据源ID没变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于getItemViewType报数组越界的问题"><span class="nav-number">0.3.</span> <span class="nav-text">关于getItemViewType报数组越界的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载更多的逻辑判断"><span class="nav-number">0.4.</span> <span class="nav-text">加载更多的逻辑判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下发后的json，转成对象后，集合一定要判断是否为空。"><span class="nav-number">0.5.</span> <span class="nav-text">下发后的json，转成对象后，集合一定要判断是否为空。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listview点击item选中的实现"><span class="nav-number">0.6.</span> <span class="nav-text">listview点击item选中的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView的Item点击传递对象"><span class="nav-number">1.</span> <span class="nav-text">ListView的Item点击传递对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView-分割线"><span class="nav-number">1.</span> <span class="nav-text">ListView 分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置listview无点击背景效果"><span class="nav-number">2.</span> <span class="nav-text">设置listview无点击背景效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConvertView的理解"><span class="nav-number">3.</span> <span class="nav-text">ConvertView的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView的下拉刷新，上拉加载数据"><span class="nav-number">4.</span> <span class="nav-text">ListView的下拉刷新，上拉加载数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用不同布局的Listview"><span class="nav-number">5.</span> <span class="nav-text">使用不同布局的Listview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变"><span class="nav-number">6.</span> <span class="nav-text">notifyDataSetChanged方法正常使用的前提是数据源ID没变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于getItemViewType报数组越界的问题"><span class="nav-number">7.</span> <span class="nav-text">关于getItemViewType报数组越界的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载更多的逻辑判断"><span class="nav-number">8.</span> <span class="nav-text">加载更多的逻辑判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下发后的json，转成对象后，集合一定要判断是否为空。"><span class="nav-number">9.</span> <span class="nav-text">下发后的json，转成对象后，集合一定要判断是否为空。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#listview点击item选中的实现"><span class="nav-number">10.</span> <span class="nav-text">listview点击item选中的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView的Item点击传递对象"><span class="nav-number">11.</span> <span class="nav-text">ListView的Item点击传递对象</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
