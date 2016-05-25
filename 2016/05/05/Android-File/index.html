@@ -73,7 +73,7 @@ getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
 Context对象相关文件API
 
 getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
-<meta property="og:updated_time" content="2016-05-05T10:12:19.863Z">
+<meta property="og:updated_time" content="2016-05-06T07:24:11.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-File">
 <meta name="twitter:description" content="文件内外部存储Android内部存储
@@ -314,7 +314,12 @@ getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
 <ul>
 <li>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</span><br><span class="line"><span class="comment">//判断SD卡是否插入</span></span><br><span class="line">..............</span><br><span class="line">&#125;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">上面两句可简写为</span><br><span class="line">String path = Environment.getExternalStorageDirectory().getCanonicalPath() + <span class="string">"/"</span> + <span class="string">"Test.md"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>所需权限</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -344,6 +349,10 @@ getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/05/RxBus/" rel="prev" title="Android-RxJava">
+                Android-RxJava <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -415,7 +424,7 @@ getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -425,7 +434,7 @@ getFilesDir() - 用于获取内部存储空间路径(/data/data//files">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

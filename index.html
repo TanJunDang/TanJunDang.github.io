@@ -216,6 +216,344 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/25/CustomMenu/" itemprop="url">
+                  自定义底部弹出菜单
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-25T11:02:59+08:00" content="2016-05-25">
+              2016-05-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/25/CustomMenu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/CustomMenu/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="自定义底部弹出菜单"><a href="#自定义底部弹出菜单" class="headerlink" title="自定义底部弹出菜单"></a>自定义底部弹出菜单</h3><ul>
+<li>效果如图</li>
+</ul>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1TOU5RV2FPTlJYSHlaSUlkSldPaitKb2I4ZXh2cWcyaTY5R3RlNGkybG5BPT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>思路：由于是底部弹出菜单，所以应该用PopupWindow来实现。PopupWindow显示的主View分为两部分,一部分为取消按钮，另一部分为LinearLayout。其余的就是编写动态布局的代码了。即主View包括取消按钮和主Menu两部分。</p>
+<p>实现：先创建一个类CustomMenu，重写其构造方法，参数为Context。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomMenu</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> PopupWindow mPopupWindow;</span><br><span class="line">    <span class="keyword">private</span> RelativeLayout mContentLayout; <span class="comment">//popupwindow 显示的内容 主View</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> margin_size;</span><br><span class="line">    <span class="keyword">private</span> LinearLayout mMenuLayout; <span class="comment">//popupwindow的主Menu部分</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.LOLLIPOP)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomMenu</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 对popuowindow的内容（主View）进行初始化</span><br><span class="line">         */</span></span><br><span class="line">        mContext = context;</span><br><span class="line">        mContentLayout = <span class="keyword">new</span> RelativeLayout(mContext);</span><br><span class="line">        mContentLayout.setBackgroundColor(Color.parseColor(<span class="string">"#b0000000"</span>)); <span class="comment">//背景半透明</span></span><br><span class="line"></span><br><span class="line">        margin_size = mContext.getResources().getDimensionPixelOffset(R.dimen.layout_size_10dp);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 动态编写取消按钮的相关初始化代码</span><br><span class="line">         */</span></span><br><span class="line">        Button cancelButton = <span class="keyword">new</span> Button(mContext);</span><br><span class="line">        cancelButton.setText(<span class="string">"取消"</span>);</span><br><span class="line">        RelativeLayout.LayoutParams cancelLp = <span class="keyword">new</span> RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span><br><span class="line">        cancelLp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);<span class="comment">//放在底部</span></span><br><span class="line">        cancelLp.setMargins(margin_size, margin_size, margin_size, margin_size);<span class="comment">//设置外边距</span></span><br><span class="line">        cancelButton.setLayoutParams(cancelLp);</span><br><span class="line">        cancelButton.setId(cancelButton.hashCode()); <span class="comment">//此处一定要设置id,否则找不到该控件。(利用hashCode的方式设置ID)</span></span><br><span class="line">        cancelButton.setBackgroundResource(R.drawable.common_bg_shape_white); <span class="comment">//设置shape</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         *动态编写主MenuLayout的相关初始化代码</span><br><span class="line">         */</span></span><br><span class="line">        mMenuLayout = <span class="keyword">new</span> LinearLayout(mContext);</span><br><span class="line">        mMenuLayout.setOrientation(LinearLayout.VERTICAL);<span class="comment">//设置方向</span></span><br><span class="line">        mMenuLayout.setBackgroundResource(R.drawable.common_bg_shape_white);<span class="comment">//设置shape</span></span><br><span class="line">        mMenuLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);<span class="comment">//设置分割线</span></span><br><span class="line">        mMenuLayout.setDividerDrawable(mContext.getDrawable(R.drawable.common_divider_shape));</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 为主Menu添加Item</span><br><span class="line">         */</span></span><br><span class="line">        Button voice = <span class="keyword">new</span> Button(mContext);</span><br><span class="line">        voice.setText(<span class="string">"录音"</span>);</span><br><span class="line">        voice.setTextColor(Color.parseColor(<span class="string">"#5566ff"</span>));</span><br><span class="line">        voice.setBackgroundResource(R.drawable.transparent);</span><br><span class="line">        Button video = <span class="keyword">new</span> Button(mContext);</span><br><span class="line">        video.setText(<span class="string">"视频"</span>);</span><br><span class="line">        video.setTextColor(Color.parseColor(<span class="string">"#5566ff"</span>));</span><br><span class="line">        video.setBackgroundResource(R.drawable.transparent);</span><br><span class="line">        Button image = <span class="keyword">new</span> Button(mContext);</span><br><span class="line">        image.setText(<span class="string">"图文"</span>);</span><br><span class="line">        image.setTextColor(Color.parseColor(<span class="string">"#5566ff"</span>));</span><br><span class="line">        image.setBackgroundResource(R.drawable.transparent);</span><br><span class="line">        mMenuLayout.addView(voice);</span><br><span class="line">        mMenuLayout.addView(video);</span><br><span class="line">        mMenuLayout.addView(image);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 将主Menu置于取消按钮之上(取消按钮未设置id，则无效)</span><br><span class="line">         */</span></span><br><span class="line">        RelativeLayout.LayoutParams lp = <span class="keyword">new</span> RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span><br><span class="line">        lp.addRule(RelativeLayout.ABOVE, cancelButton.getId());</span><br><span class="line">        lp.leftMargin = margin_size;</span><br><span class="line">        lp.rightMargin = margin_size;</span><br><span class="line">        mMenuLayout.setLayoutParams(lp);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 将主Menu跟取消按钮添加的主View里</span><br><span class="line">         */</span></span><br><span class="line">        mContentLayout.addView(cancelButton);</span><br><span class="line">        mContentLayout.addView(mMenuLayout);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 将主View配置到PopupWindow</span><br><span class="line">         */</span></span><br><span class="line">        mPopupWindow = <span class="keyword">new</span> PopupWindow(mContentLayout, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, <span class="keyword">true</span>);</span><br><span class="line">        mPopupWindow.setBackgroundDrawable(<span class="keyword">new</span> BitmapDrawable());</span><br><span class="line">        mPopupWindow.setOutsideTouchable(<span class="keyword">true</span>);</span><br><span class="line">        mContentLayout.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                mPopupWindow.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        cancelButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                mPopupWindow.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showMenu</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mPopupWindow.isShowing()) &#123;</span><br><span class="line">            mPopupWindow.dismiss();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            mPopupWindow.showAtLocation(view, Gravity.BOTTOM, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：上述自定义View有所局限,就是固定写死主Menu里的Item。后续将会介绍实现动态添加Item。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/09/Achieve/" itemprop="url">
+                  实际开发-效果实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-09T16:34:26+08:00" content="2016-05-09">
+              2016-05-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/09/Achieve/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Achieve/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="如何实现View倾斜一定角度？"><a href="#如何实现View倾斜一定角度？" class="headerlink" title="如何实现View倾斜一定角度？"></a>如何实现View倾斜一定角度？</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpaGE2MWthT2RJWlkyZ09sVWZYb1ZzaDhFNW1sMnByN1VRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>思路：使用旋转动画RotateAnimation</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">final</span> RotateAnimation animation = <span class="keyword">new</span> RotateAnimation(<span class="number">30f</span>, <span class="number">30f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>);</span><br><span class="line"></span><br><span class="line">animation.setFillAfter(<span class="keyword">true</span>);<span class="comment">//动画执行完后是否停留在执行完的状态</span></span><br><span class="line">ivTest.setAnimation(animation); <span class="comment">//设置动画</span></span><br><span class="line">animation.startNow(); <span class="comment">//启动动画</span></span><br></pre></td></tr></table></figure>
+<p>参数说明</p>
+<p>fromDegrees：旋转的开始角度。</p>
+<p>toDegrees：旋转的结束角度。</p>
+<p>pivotXType：X轴的伸缩模式，可以取值为ABSOLUTE(完整显示)、RELATIVE_TO_SELF(以自己为中心旋转)、RELATIVE_TO_PARENT。</p>
+<p>pivotXValue：X坐标的伸缩值。</p>
+<p>pivotYType：Y轴的伸缩模式，可以取值为ABSOLUTE、RELATIVE_TO_SELF、RELATIVE_TO_PARENT。</p>
+<p>pivotYValue：Y坐标的伸缩值。</p>
+<ul>
+<li>ABSOLUTE  </li>
+</ul>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpcEhEQ3IwejVzdlpoZkE3aVhUSUwvNEZTL0RoWDlZQzJnPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<hr>
+<ul>
+<li>RELATIVE_TO_SELF</li>
+</ul>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpdVc1QmFMRy9qRGo4WjNUZUZ2NnMxSkRsVEFFalRTS3l3PT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<hr>
+<ul>
+<li>RELATIVE_TO_PARENT</li>
+</ul>
+<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpbHByL2EvVmxHVjYwY0R1Z2tjVW0yb01lSFdTUXlxUmZRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<hr>
+<h3 id="RecyclerView每添加一项如何保存原有Edittext的文本"><a href="#RecyclerView每添加一项如何保存原有Edittext的文本" class="headerlink" title="RecyclerView每添加一项如何保存原有Edittext的文本"></a>RecyclerView每添加一项如何保存原有Edittext的文本</h3><blockquote>
+<p>思路：由于每次添加Item都要更新数据,这会导致前面Edittext输入的内容为空,所以应该为Edittext添加TextWatch监听器。</p>
+<p>实现：自定义一个TextWatch,添加一个position为参数的方法，用于更新数据。然后重写onTextChange更新数据源.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextWatch</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.position = position;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">         data.get(position).setTitle(s.toString());</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NormalHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    CustomTextWatch watch = <span class="keyword">new</span> CustomTextWatch();</span><br><span class="line">    EditText editText;</span><br><span class="line">    View rootview;</span><br><span class="line">    TextView tvAddMore;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NormalHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootview = itemView;</span><br><span class="line">        editText = (EditText) rootview.findViewById(R.id.editText);</span><br><span class="line">        tvAddMore = (TextView) rootview.findViewById(R.id.tvAddMore);</span><br><span class="line">        editText.addTextChangedListener(watch);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">final</span> <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	itemHolder.getWatch().updateItem(position);</span><br><span class="line">	itemHolder.editText.setText(item.getTitle());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/05/RxBus/" itemprop="url">
+                  Android-RxJava
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
+              2016-05-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/05/RxBus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/RxBus/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/05/Android-File/" itemprop="url">
                   Android-File
                 </a>
@@ -305,7 +643,12 @@
 <ul>
 <li>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</span><br><span class="line"><span class="comment">//判断SD卡是否插入</span></span><br><span class="line">..............</span><br><span class="line">&#125;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">上面两句可简写为</span><br><span class="line">String path = Environment.getExternalStorageDirectory().getCanonicalPath() + <span class="string">"/"</span> + <span class="string">"Test.md"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>所需权限</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -654,118 +997,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
-                  EventBus基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/EventBus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/EventBus/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
-<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
-<li>EventBus自定义消息类型。（创建Event）。</li>
-<li>EventBus一般不创建对象，直接调用default方法即可。</li>
-<li>发送者直接调用post方法即可。</li>
-<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
-<li>自定义Event事件(待传递的消息)。</li>
-<li><p>发送消息</p>
-<pre><code>EventBus.getDefault().post(new MyEvent(&quot;msg&quot;));
-</code></pre></li>
-<li><p>接收消息（注册/反注册EventBus）</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
                   RxAndroid的理解
                 </a>
@@ -829,8 +1060,120 @@
 </ul>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
 <li>观察者Observer/订阅者Subscriber</li>
-<li></li>
 </ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
+                  EventBus基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/EventBus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/EventBus/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
+<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
+<li>EventBus自定义消息类型。（创建Event）。</li>
+<li>EventBus一般不创建对象，直接调用default方法即可。</li>
+<li>发送者直接调用post方法即可。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
+<li>定义事件类型（或者不定义）。例如：MsgBean等</li>
+<li>接收页面定义事件处理方法。例如：onEvent等</li>
+<li>接收页面注册/反注册订阅者。例如：EventBus.getDefault().register(this)</li>
+<li>发送事件。例如：EventBus.getDefault().post(new MyEvent())</li>
+</ol>
+<p><a href="https://segmentfault.com/a/1190000004279679" target="_blank" rel="external">什么是EventBus</a><br><a href="http://www.mamicode.com/info-detail-626753.html" target="_blank" rel="external">参考</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义事件类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestEvent</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收页面添加处理方法</span></span><br><span class="line"><span class="meta">@Subscribe</span> <span class="comment">//要自行添加注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(TestEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//处理操作</span></span><br><span class="line">    tvSignature.setText(event.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"><span class="comment">//在oncreate注册EventBUs 在onDestory反注册</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_modify_profile);</span><br><span class="line">    initViews();</span><br><span class="line">    initData();</span><br><span class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送事件</span></span><br><span class="line">EventBus.getDefault().post(<span class="keyword">new</span> TestEvent(<span class="string">"success"</span>));</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1071,326 +1414,6 @@ Jni接口
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/31/OnTouchEvent/" itemprop="url">
-                  事件分发机制
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-31T10:44:19+08:00" content="2016-03-31">
-              2016-03-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/31/OnTouchEvent/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/OnTouchEvent/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
-<li><p>跟Touch相关的三个方法：</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/31/OnTouchEvent/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/30/BNJSummarize/" itemprop="url">
-                  BNJ项目学到的知识点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-30T10:22:24+08:00" content="2016-03-30">
-              2016-03-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/30/BNJSummarize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/BNJSummarize/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
-<li>定义一个全局变量isClick。</li>
-<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
-<li><p>重写Activity的onResume方法，设置isClick为true。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/30/BNJSummarize/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/30/Skills/" itemprop="url">
-                  布局常用的技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-30T09:08:39+08:00" content="2016-03-30">
-              2016-03-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/30/Skills/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/30/Skills/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
-<ol>
-<li>创建一个布局文件，里面放一张图。</li>
-<li><p>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </p>
-<pre><code>new Handler().postDelayed(new Runnable(){ 
-
-    @Override
-        public void run(){
-            Intent intent = new Intent (Appstart.this,Welcome.class);
-            startActivity(intent);            
-            Appstart.this.finish();
-        }
-
-},1000);  
-</code></pre></li>
-</ol>
-</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/30/Skills/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1436,7 +1459,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1446,7 +1469,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

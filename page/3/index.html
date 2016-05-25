@@ -216,6 +216,349 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/23/Framework/" itemprop="url">
+                  常用的技术框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-23T15:59:10+08:00" content="2015-11-23">
+              2015-11-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/23/Framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/23/Framework/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>网站</li>
+</ul>
+<p><a href="http://www.tuicool.com/articles/jyA3MrU">tuicool</a>  </p>
+<p><a href="http://www.see-source.com/androidwidget/list.html?type=24">看源社区</a></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/23/Framework/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/19/Android-Broadcast/" itemprop="url">
+                  四大组件之Broadcast
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-19T15:43:42+08:00" content="2015-11-19">
+              2015-11-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/19/Android-Broadcast/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/19/Android-Broadcast/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
+<li>当收到某系统消息时，可以做相应的处理。</li>
+<li>动态注册：程序启动后才有效。</li>
+<li>静态注册：不需要启动程序就有效。</li>
+</ul>
+<h3 id="动态广播实际开发"><a href="#动态广播实际开发" class="headerlink" title="动态广播实际开发"></a>动态广播实际开发</h3><ul>
+<li>服务器下发新消息时，通知MainActivity更改UI</li>
+</ul>
+<ol>
+<li>继承BroadcastReceiver</li>
+<li>定义过滤的Action</li>
+<li>添加回调接口</li>
+<li>构造函数初始化接口</li>
+<li>重写onReceive方法(调用接口的方法)</li>
+<li>实现接口、动态注册接口(LocalBroadcastManager类)</li>
+<li>在获取到服务器数据的地方发送广播</li>
+<li>在ondestory里取消广播</li>
+</ol>
+<h4 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"Sam-Tam"</span>);</span><br><span class="line">	sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Fragment里注册广播注意事项"><a href="#Fragment里注册广播注意事项" class="headerlink" title="Fragment里注册广播注意事项"></a>Fragment里注册广播注意事项</h3><ul>
+<li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
+<li>记得在ondestory方法里注销广播</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/18/JAVASE/" itemprop="url">
+                  JAVASE基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-18T15:03:37+08:00" content="2015-11-18">
+              2015-11-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/18/JAVASE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/JAVASE/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h3><ol>
+<li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
+<li><p>回调函数分成3部分</p>
+<ul>
+<li><p>回调接口 —— 数据提供者编写</p>
+</li>
+<li><p>数据提供者</p>
+<ul>
+<li>预留接口给他人实现(定义接口) OnItemListener</li>
+<li>创建接口引用 onItemListener listener</li>
+<li>提供注册接口的方法(注册接口) setonlistener</li>
+<li>在给数据的地方调用接口的方法(通过接口引用调用方法) listener.giveMsg();</li>
+</ul>
+</li>
+<li><p>数据获取者</p>
+<ul>
+<li>（实现回调接口） implements Callback</li>
+<li>注册回调函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/18/JAVASE/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/18/SystemService/" itemprop="url">
                   系统服务使用记录
                 </a>
@@ -1094,393 +1437,6 @@ startActivity(it);
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/02/VersionUpdate/" itemprop="url">
-                  版本更新实际开发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-02T15:41:04+08:00" content="2015-10-02">
-              2015-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/02/VersionUpdate/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/02/VersionUpdate/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h4><p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
-<p>代码一：  </p>
-<pre><code>builder.setPositiveButton(&quot;确定&quot;,new OnClickListener(){.....});
-</code></pre><p>代码二：</p>
-<pre><code>builder.setPositiveButton(&quot;确定&quot;,null);
-.
-.
-.
-.
-AlertDialog dialog = builder.create();
-dialog.show();
-dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);      
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/02/VersionUpdate/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/01/Fragment/" itemprop="url">
-                  Fragment
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-01T16:52:53+08:00" content="2015-10-01">
-              2015-10-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/01/Fragment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/Fragment/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="定义Fragment的方式"><a href="#定义Fragment的方式" class="headerlink" title="定义Fragment的方式"></a>定义Fragment的方式</h3><ul>
-<li>动态</li>
-<li>静态</li>
-</ul>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
-<li>在主布局文件中定义不同</li>
-</ul>
-<p>主Activity必须继承FragmentActivity</p>
-<ul>
-<li><p>静态：主布局文件里定义 一个fragment控件  </p>
-</li>
-<li><p>动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout</p>
-</li>
-</ul>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
-<li>标题栏通常用静态定义、 内容通常用动态定义</li>
-</ul>
-<h3 id="动态："><a href="#动态：" class="headerlink" title="动态："></a>动态：</h3><ol>
-<li>创建一个xml布局文件，里面包含Fragment要显示的控件  </li>
-<li><p>创建一个java文件 继承Fragment（导入V4包），重写onCreateView方法<br>（所有控件都在这使用，MainActivity就用来调用Fragment），加载上述xml文件<br>最后返回view，而不是返回之前的布局</p>
-</li>
-<li><p>Activity布局文件 创建一个LinearLayout，设置ID，用于装载Fragment，name属性是上述文件的路径名   </p>
-</li>
-<li><p>MainActivity文件里   </p>
-</li>
-</ol>
-<pre><code>A.通过getSupportFragmentManager()方法获得一个FragmentManager  
-B.用manager对象 通过beginTransaction方法开启事务，返回FragmentTransaction对象  
-C.创建一个MyFragment对象  MyFragment mFragment= new MyFragment(); (必须判断是否为空)  
-D.利用事务对象 跟上述定义个布局加载该Fragment transaction.add(Activity里布局的id，Fragment对象)  
-E.提交事务 transaction.commit();
-</code></pre><h3 id="静态："><a href="#静态：" class="headerlink" title="静态："></a>静态：</h3><p>定义好java文件，然后在主布局文件里 创建fragment控件即可，name属性是该java文件的路径名</p>
-<p>如何取得fragment里的控件？  </p>
-<ol>
-<li>在写好的java文件里 重写onActivityCreated  </li>
-<li>通过getActivity()方法获得上下文  </li>
-</ol>
-<h3 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h3><ol>
-<li><p>只要加入到回退栈就能回退，主显示Fragment不回退<br>addToBackTrack（null）  </p>
-</li>
-<li><p>事务的replace 会删除数据，若要保存上个Fragment的数据 ，先隐藏hide，再添加add</p>
-</li>
-<li><p>调用getFragmentManager.popBackStack()方法 可以返回上一个Fragment</p>
-</li>
-</ol>
-<h3 id="Fragment之间通信"><a href="#Fragment之间通信" class="headerlink" title="Fragment之间通信"></a>Fragment之间通信</h3><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
-<h3 id="Fragment-切换、嵌套则会报错"><a href="#Fragment-切换、嵌套则会报错" class="headerlink" title="Fragment 切换、嵌套则会报错"></a>Fragment 切换、嵌套则会报错</h3><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
-<p>解决方法：<br>onCreateView下面使用下列代码</p>
-<pre><code>if (view != null) {
-ViewGroup parent = (ViewGroup) view.getParent(); 
-if (parent != null)
-parent.removeView(view); 
-}else{
-    //数据初始化
-view = inflater(R.layout.xx,container,false);
-}
-
-return view;
-</code></pre><h3 id="Activity传值给Fragment"><a href="#Activity传值给Fragment" class="headerlink" title="Activity传值给Fragment"></a>Activity传值给Fragment</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
-<li>在Activity中定义一个字段，生成get、set方法  </li>
-<li><p>在Fragment中通过get方法获取</p>
-<pre><code>private String mTitle;
-public String getmTitle() {
-return mTitle;
-}
-
-public void setmTitle(String title) {
-this.mTitle = title;
-}
-((DemoActivity)getActivity()).getmTitle();
-</code></pre></li>
-</ol>
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><ul>
-<li>通过构造函数传递值</li>
-</ul>
-<h3 id="Activity与-ViewPager-里Fragment的交互"><a href="#Activity与-ViewPager-里Fragment的交互" class="headerlink" title="Activity与 ViewPager 里Fragment的交互"></a>Activity与 ViewPager 里Fragment的交互</h3><ol>
-<li>在创建Fragment的Adapter里 获取该Fragment的控件</li>
-<li>通过Fragment实例的getView和findViewById获取控件  </li>
-</ol>
-<pre><code>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent); 
-tv.setText(schoolBasicInfo.getIntroduct());
-</code></pre><p>参考TrainingAgencyAdapter</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/30/Shape/" itemprop="url">
-                  自定义控件显示形状(Shape)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-30T17:44:56+08:00" content="2015-09-30">
-              2015-09-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/30/Shape/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Shape/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="shape改变控件的背景"><a href="#shape改变控件的背景" class="headerlink" title="shape改变控件的背景"></a>shape改变控件的背景</h4><p>shape自定义控件形状，改变背景就无效了  </p>
-<p>标签为shape<br>主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）<br>solid：主要属性 color填充整个控件的颜色<br>stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小<br>corners：主要属性radius 设置弧度<br>size：主要属性width、height 设置宽高，相同为圆<br>gradient：主要属性是startcolor endcolor</p>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmcxc3lld0F1b1Joa29tZENGREdMUUVGZlNZS3U5ejd3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/30/Shape/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1526,7 +1482,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1536,7 +1492,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
