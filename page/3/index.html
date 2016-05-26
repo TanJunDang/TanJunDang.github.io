@@ -858,12 +858,12 @@ startActivity(it);
       
         
           
-            <h4 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h4><ul>
+            <h4 id="项目架构基本目录"><a href="#项目架构基本目录" class="headerlink" title="项目架构基本目录"></a>项目架构基本目录</h4><ul>
 <li><p>通用包common 包括工具包、实体包、控件包、网络包、数据库包等</p>
 <ul>
 <li>Broadcast(带接口的广播、EventBus事件)</li>
 <li>Dao(数据库)    </li>
-<li>Entities(各种实体类)</li>
+<li>Entities(实体类)</li>
 <li>Utils(Toast封装、Log封装、ImageLoader封装、异常捕获类）</li>
 <li>Network(protocol协议包、各种网络请求接口、CallBack)</li>
 <li>View(各种自定义View)</li>
@@ -874,9 +874,10 @@ startActivity(it);
 <ul>
 <li><p>模块包(每个功能模块单独成包)</p>
 </li>
-<li><p>全局包base(Application初始化相关)</p>
+<li><p>全局基础包base(Application初始化相关)</p>
 </li>
 </ul>
+<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5TUHlCTnJuNjZ2SUw1U1JKbkFLU25Pd1cyTG5PdlJnd1ZhMnVxRE1IWHV3PT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <p>Token 识别用户、连接服务器时需要token</p>
 <p>服务端：<br>用户数据库、服务器API程序</p>
 <p>客户端：<br>app<br>sdk</p>
