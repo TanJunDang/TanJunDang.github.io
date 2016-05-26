@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Notification," />
+  <meta name="keywords" content="Android项目架构," />
 
 
 
@@ -57,42 +57,58 @@
 
 
 
-<meta name="description" content="Notification基本知识
-Notification.Builder类 用于设置消息的标题、内容、图标等信息。
-NotificationManager类 用于发送、取消通知。
-  
+<meta name="description" content="项目架构
+通用包common 包括工具包、实体包、控件包、网络包、数据库包等
+
+Broadcast(带接口的广播、EventBus事件)
+Dao(数据库)    
+Entities(各种实体类)
+Utils(Toast封装、Log封装、ImageLoader封装、异常捕获类）
+Network(protocol协议包、各种网络请求接口、CallBack)
+View(各种自定义View)
 
 
-自定义Notification
-由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
-通常Notificat">
+
+
+
+模">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Notification实际开发">
-<meta property="og:url" content="YimSamTam.github.io/2015/10/03/Notification/index.html">
+<meta property="og:title" content="Android项目架构">
+<meta property="og:url" content="YimSamTam.github.io/2015/11/02/Project-Build/index.html">
 <meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description" content="Notification基本知识
-Notification.Builder类 用于设置消息的标题、内容、图标等信息。
-NotificationManager类 用于发送、取消通知。
-  
+<meta property="og:description" content="项目架构
+通用包common 包括工具包、实体包、控件包、网络包、数据库包等
+
+Broadcast(带接口的广播、EventBus事件)
+Dao(数据库)    
+Entities(各种实体类)
+Utils(Toast封装、Log封装、ImageLoader封装、异常捕获类）
+Network(protocol协议包、各种网络请求接口、CallBack)
+View(各种自定义View)
 
 
-自定义Notification
-由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
-通常Notificat">
-<meta property="og:image" content="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-07T10:34:06.018Z">
+
+
+
+模">
+<meta property="og:updated_time" content="2016-05-26T08:35:22.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notification实际开发">
-<meta name="twitter:description" content="Notification基本知识
-Notification.Builder类 用于设置消息的标题、内容、图标等信息。
-NotificationManager类 用于发送、取消通知。
-  
+<meta name="twitter:title" content="Android项目架构">
+<meta name="twitter:description" content="项目架构
+通用包common 包括工具包、实体包、控件包、网络包、数据库包等
+
+Broadcast(带接口的广播、EventBus事件)
+Dao(数据库)    
+Entities(各种实体类)
+Utils(Toast封装、Log封装、ImageLoader封装、异常捕获类）
+Network(protocol协议包、各种网络请求接口、CallBack)
+View(各种自定义View)
 
 
-自定义Notification
-由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。
-通常Notificat">
-<meta name="twitter:image" content="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+
+
+
+模">
 
 
 
@@ -110,7 +126,7 @@ NotificationManager类 用于发送、取消通知。
   };
 </script>
 
-  <title> Notification实际开发 | YimSam-Tam </title>
+  <title> Android项目架构 | YimSam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +256,7 @@ NotificationManager类 用于发送、取消通知。
             
             
               
-                Notification实际开发
+                Android项目架构
               
             
           </h1>
@@ -252,8 +268,8 @@ NotificationManager类 用于发送、取消通知。
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-03T17:34:10+08:00" content="2015-10-03">
-              2015-10-03
+            <time itemprop="dateCreated" datetime="2015-11-02T18:09:52+08:00" content="2015-11-02">
+              2015-11-02
             </time>
           </span>
 
@@ -263,8 +279,8 @@ NotificationManager类 用于发送、取消通知。
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/03/Notification/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/Notification/" itemprop="commentsCount"></span>
+                <a href="/2015/11/02/Project-Build/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/Project-Build/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -286,43 +302,29 @@ NotificationManager类 用于发送、取消通知。
       
 
       
-        <h3 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h3><ul>
-<li>Notification.Builder类 用于设置消息的标题、内容、图标等信息。</li>
-<li><p>NotificationManager类 用于发送、取消通知。</p>
-<p>  <img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h3><ul>
-<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
-<li><p>通常Notification的用法如下：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">   Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">          .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">          .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">          .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">          .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">          .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">          .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">          .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">          .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<a id="more"></a>
+        <h4 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h4><ul>
+<li><p>通用包common 包括工具包、实体包、控件包、网络包、数据库包等</p>
 <ul>
-<li><p>如果要使用自定义Notification 需要用到RemoteViews的构造方法装载布局（统一使用该API的方法来设置布局里的控件）</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RemoteViews rv = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.activity_test);</span><br><span class="line">rv.setTextViewText(R.id.tvTestFuntion, <span class="string">"我是自定义的 notification"</span>);</span><br><span class="line">notification.contentView = rv; <span class="comment">// 初始化RemoteViews</span></span><br></pre></td></tr></table></figure>
-<p>  使用RemoteView可以会报下列错误，这是因为布局activity_test中使用了RemoteView不支持的控件，例如View。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.app.RemoteServiceException: Bad notification posted from XXX</span><br></pre></td></tr></table></figure>
-<p>  在RemoteViews这种调用方式中，你只能使用以下几种界面组件：  </p>
-<p>  Layout: </p>
-<pre><code>FrameLayout, LinearLayout, RelativeLayout
-</code></pre><p>  Component: </p>
-<pre><code>AnalogClock, Button, Chronometer, ImageButton, ImageView, ProgressBar, TextView, ViewFlipper, ListView, GridView, StackView, AdapterViewFlipper
-</code></pre></li>
+<li>Broadcast(带接口的广播、EventBus事件)</li>
+<li>Dao(数据库)    </li>
+<li>Entities(各种实体类)</li>
+<li>Utils(Toast封装、Log封装、ImageLoader封装、异常捕获类）</li>
+<li>Network(protocol协议包、各种网络请求接口、CallBack)</li>
+<li>View(各种自定义View)</li>
 </ul>
-<ul>
-<li><p>Intent与PendingIntent联合使用，实现点击消息进行跳转页面。</p>
-<ol>
-<li>Intent用于设置跳转的Activity。</li>
-<li>PendingIntent用于设置将要跳转的Intent。  </li>
-</ol>
 </li>
-<li><pre><code> Intent myIntent = new Intent(SettingActivity.this, AboutUsActivity.class);
-PendingIntent pendingIntent = PendingIntent.getActivity(SettingActivity.this, 0, myIntent, 0);//装载Intent
-notification.contentIntent = pendingIntent;//初始化PedingIntent
-</code></pre></li>
 </ul>
+<hr>
+<ul>
+<li><p>模块包(每个功能模块单独成包)</p>
+</li>
+<li><p>全局包base(Application初始化相关)</p>
+</li>
+</ul>
+<p>Token 识别用户、连接服务器时需要token</p>
+<p>服务端：<br>用户数据库、服务器API程序</p>
+<p>客户端：<br>app<br>sdk</p>
+<p><a href="http://blog.csdn.net/u013278099/article/details/51485476#java" target="_blank" rel="external">架构参考</a></p>
 
       
     </div>
@@ -337,7 +339,7 @@ notification.contentIntent = pendingIntent;//初始化PedingIntent
       
         <div class="post-tags">
           
-            <a href="/tags/Notification/" rel="tag">#Notification</a>
+            <a href="/tags/Android项目架构/" rel="tag">#Android项目架构</a>
           
         </div>
       
@@ -346,16 +348,16 @@ notification.contentIntent = pendingIntent;//初始化PedingIntent
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/02/VersionUpdate/" rel="next" title="版本更新实际开发">
-                <i class="fa fa-chevron-left"></i> 版本更新实际开发
+              <a href="/2015/10/30/Android-Activity/" rel="next" title="四大组件之Activity">
+                <i class="fa fa-chevron-left"></i> 四大组件之Activity
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/03/InterView/" rel="prev" title="天工面试">
-                天工面试 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/11/Utils/" rel="prev" title="常用工具及网站">
+                常用工具及网站 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -382,8 +384,8 @@ notification.contentIntent = pendingIntent;//初始化PedingIntent
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/03/Notification/"
-           data-title="Notification实际开发" data-url="YimSamTam.github.io/2015/10/03/Notification/">
+      <div class="ds-thread" data-thread-key="2015/11/02/Project-Build/"
+           data-title="Android项目架构" data-url="YimSamTam.github.io/2015/11/02/Project-Build/">
       </div>
     
   </div>
@@ -472,7 +474,7 @@ notification.contentIntent = pendingIntent;//初始化PedingIntent
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Notification基本知识"><span class="nav-number">1.</span> <span class="nav-text">Notification基本知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Notification"><span class="nav-number">2.</span> <span class="nav-text">自定义Notification</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目架构"><span class="nav-number">1.</span> <span class="nav-text">项目架构</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
