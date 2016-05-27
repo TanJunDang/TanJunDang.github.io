@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="VersionUpdate," />
+  <meta name="keywords" content="版本更新," />
 
 
 
@@ -57,28 +57,46 @@
 
 
 
-<meta name="description" content="版本更新开发思路：1.创建一个AlertDialog.builder对象，设置相关的参数。2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  
-代码一：  
-builder.setPositiveButton(&amp;quot;确定&amp;quot;,new OnClickListener(){.....});
-代码二：
-b">
+<meta name="description" content="版本更新开发
+思路：实际开发中服务器会推送一个App新的版本,该版本号与App当前版本对比，高则更新，跳转一个对话框Activity，点击按钮启动相关服务。
+
+
+
+实现：
+
+
+创建版本更新信息的实体类一般包括Apk下载url、版本更新内容、版本号、更新标识(强升、不强升、不需要更新)等
+创建一个Dialog形式Activity，布局好相关的页面。
+创建服务，处理下载、完成下载、取消下载、安装等多种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="版本更新实际开发">
+<meta property="og:title" content="版本更新">
 <meta property="og:url" content="YimSamTam.github.io/2015/10/02/VersionUpdate/index.html">
 <meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description" content="版本更新开发思路：1.创建一个AlertDialog.builder对象，设置相关的参数。2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  
-代码一：  
-builder.setPositiveButton(&amp;quot;确定&amp;quot;,new OnClickListener(){.....});
-代码二：
-b">
-<meta property="og:updated_time" content="2016-04-05T09:05:10.000Z">
+<meta property="og:description" content="版本更新开发
+思路：实际开发中服务器会推送一个App新的版本,该版本号与App当前版本对比，高则更新，跳转一个对话框Activity，点击按钮启动相关服务。
+
+
+
+实现：
+
+
+创建版本更新信息的实体类一般包括Apk下载url、版本更新内容、版本号、更新标识(强升、不强升、不需要更新)等
+创建一个Dialog形式Activity，布局好相关的页面。
+创建服务，处理下载、完成下载、取消下载、安装等多种">
+<meta property="og:updated_time" content="2016-05-27T02:45:39.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="版本更新实际开发">
-<meta name="twitter:description" content="版本更新开发思路：1.创建一个AlertDialog.builder对象，设置相关的参数。2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  
-代码一：  
-builder.setPositiveButton(&amp;quot;确定&amp;quot;,new OnClickListener(){.....});
-代码二：
-b">
+<meta name="twitter:title" content="版本更新">
+<meta name="twitter:description" content="版本更新开发
+思路：实际开发中服务器会推送一个App新的版本,该版本号与App当前版本对比，高则更新，跳转一个对话框Activity，点击按钮启动相关服务。
+
+
+
+实现：
+
+
+创建版本更新信息的实体类一般包括Apk下载url、版本更新内容、版本号、更新标识(强升、不强升、不需要更新)等
+创建一个Dialog形式Activity，布局好相关的页面。
+创建服务，处理下载、完成下载、取消下载、安装等多种">
 
 
 
@@ -96,7 +114,7 @@ b">
   };
 </script>
 
-  <title> 版本更新实际开发 | YimSam-Tam </title>
+  <title> 版本更新 | YimSam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +244,7 @@ b">
             
             
               
-                版本更新实际开发
+                版本更新
               
             
           </h1>
@@ -272,7 +290,19 @@ b">
       
 
       
-        <h4 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h4><p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
+        <h3 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h3><blockquote>
+<p>思路：实际开发中服务器会推送一个App新的版本,该版本号与App当前版本对比，高则更新，跳转一个对话框Activity，点击按钮启动相关服务。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>实现：</p>
+</blockquote>
+<ol>
+<li>创建版本更新信息的实体类一般包括Apk下载url、版本更新内容、版本号、更新标识(强升、不强升、不需要更新)等</li>
+<li>创建一个Dialog形式Activity，布局好相关的页面。</li>
+<li>创建服务，处理下载、完成下载、取消下载、安装等多种情况。</li>
+</ol>
+<p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
 <p>代码一：  </p>
 <pre><code>builder.setPositiveButton(&quot;确定&quot;,new OnClickListener(){.....});
 </code></pre><p>代码二：</p>
@@ -313,7 +343,7 @@ dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);
       
         <div class="post-tags">
           
-            <a href="/tags/VersionUpdate/" rel="tag">#VersionUpdate</a>
+            <a href="/tags/版本更新/" rel="tag">#版本更新</a>
           
         </div>
       
@@ -359,7 +389,7 @@ dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/10/02/VersionUpdate/"
-           data-title="版本更新实际开发" data-url="YimSamTam.github.io/2015/10/02/VersionUpdate/">
+           data-title="版本更新" data-url="YimSamTam.github.io/2015/10/02/VersionUpdate/">
       </div>
     
   </div>
@@ -448,7 +478,7 @@ dialog.getButton(AlertDialog.POSITIVEBUTTON).setonClickListener(new .....);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#版本更新开发"><span class="nav-number">1.</span> <span class="nav-text">版本更新开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结合Notification实现开发"><span class="nav-number">2.</span> <span class="nav-text">结合Notification实现开发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本更新开发"><span class="nav-number">1.</span> <span class="nav-text">版本更新开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结合Notification实现开发"><span class="nav-number">1.1.</span> <span class="nav-text">结合Notification实现开发</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

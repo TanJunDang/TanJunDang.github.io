@@ -373,7 +373,7 @@
           
             <h3 id="如何实现View倾斜一定角度？"><a href="#如何实现View倾斜一定角度？" class="headerlink" title="如何实现View倾斜一定角度？"></a>如何实现View倾斜一定角度？</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpaGE2MWthT2RJWlkyZ09sVWZYb1ZzaDhFNW1sMnByN1VRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <blockquote>
-<p>思路：使用旋转动画RotateAnimation</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2015/09/95790312.jpg" alt="">思路：使用旋转动画RotateAnimation</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">final</span> RotateAnimation animation = <span class="keyword">new</span> RotateAnimation(<span class="number">30f</span>, <span class="number">30f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>);</span><br><span class="line"></span><br><span class="line">animation.setFillAfter(<span class="keyword">true</span>);<span class="comment">//动画执行完后是否停留在执行完的状态</span></span><br><span class="line">ivTest.setAnimation(animation); <span class="comment">//设置动画</span></span><br><span class="line">animation.startNow(); <span class="comment">//启动动画</span></span><br></pre></td></tr></table></figure>
 <p>参数说明</p>
@@ -407,6 +407,107 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NormalHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    CustomTextWatch watch = <span class="keyword">new</span> CustomTextWatch();</span><br><span class="line">    EditText editText;</span><br><span class="line">    View rootview;</span><br><span class="line">    TextView tvAddMore;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NormalHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootview = itemView;</span><br><span class="line">        editText = (EditText) rootview.findViewById(R.id.editText);</span><br><span class="line">        tvAddMore = (TextView) rootview.findViewById(R.id.tvAddMore);</span><br><span class="line">        editText.addTextChangedListener(watch);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">final</span> <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	itemHolder.getWatch().updateItem(position);</span><br><span class="line">	itemHolder.editText.setText(item.getTitle());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/05/RxBus/" itemprop="url">
+                  Android-RxJava
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
+              2016-05-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/05/RxBus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/RxBus/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
+
           
         
       
@@ -545,107 +646,6 @@
 <li>所需权限</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/RxBus/" itemprop="url">
-                  Android-RxJava
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/05/RxBus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/RxBus/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
 
           
         
@@ -995,115 +995,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
-                  RxAndroid的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
-<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
-<li>RxAndroid代码简洁、逻辑清晰。</li>
-<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
-<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
-<ul>
-<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
-<li>unsubscribe用于释放内存。</li>
-</ul>
-</li>
-</ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li>观察者Observer/订阅者Subscriber</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
                   EventBus基本使用
                 </a>
@@ -1172,6 +1063,115 @@
 <p><a href="https://segmentfault.com/a/1190000004279679" target="_blank" rel="external">什么是EventBus</a><br><a href="http://www.mamicode.com/info-detail-626753.html" target="_blank" rel="external">参考</a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义事件类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestEvent</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收页面添加处理方法</span></span><br><span class="line"><span class="meta">@Subscribe</span> <span class="comment">//要自行添加注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(TestEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//处理操作</span></span><br><span class="line">    tvSignature.setText(event.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"><span class="comment">//在oncreate注册EventBUs 在onDestory反注册</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_modify_profile);</span><br><span class="line">    initViews();</span><br><span class="line">    initData();</span><br><span class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送事件</span></span><br><span class="line">EventBus.getDefault().post(<span class="keyword">new</span> TestEvent(<span class="string">"success"</span>));</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
+                  RxAndroid的理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
+<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
+<li>RxAndroid代码简洁、逻辑清晰。</li>
+<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
+<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
+<ul>
+<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
+<li>unsubscribe用于释放内存。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>观察者Observer/订阅者Subscriber</li>
+</ul>
 
           
         

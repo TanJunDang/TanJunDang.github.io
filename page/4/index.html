@@ -217,7 +217,7 @@
               
                 
                 <a class="post-title-link" href="/2015/10/02/VersionUpdate/" itemprop="url">
-                  版本更新实际开发
+                  版本更新
                 </a>
               
             
@@ -265,7 +265,19 @@
 
       
         
-          <h4 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h4><p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
+          <h3 id="版本更新开发"><a href="#版本更新开发" class="headerlink" title="版本更新开发"></a>版本更新开发</h3><blockquote>
+<p>思路：实际开发中服务器会推送一个App新的版本,该版本号与App当前版本对比，高则更新，跳转一个对话框Activity，点击按钮启动相关服务。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>实现：</p>
+</blockquote>
+<ol>
+<li>创建版本更新信息的实体类一般包括Apk下载url、版本更新内容、版本号、更新标识(强升、不强升、不需要更新)等</li>
+<li>创建一个Dialog形式Activity，布局好相关的页面。</li>
+<li>创建服务，处理下载、完成下载、取消下载、安装等多种情况。</li>
+</ol>
+<p>思路：<br>1.创建一个AlertDialog.builder对象，设置相关的参数。<br>2.通常情况下，通过setPositiveButton跟setNegativeButton方法设置监听。下面贴两段代码，其效果的不同。  </p>
 <p>代码一：  </p>
 <pre><code>builder.setPositiveButton(&quot;确定&quot;,new OnClickListener(){.....});
 </code></pre><p>代码二：</p>
