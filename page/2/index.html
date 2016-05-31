@@ -216,6 +216,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
+                  EventBus基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/EventBus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/EventBus/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
+<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
+<li>EventBus自定义消息类型。（创建Event）。</li>
+<li>EventBus一般不创建对象，直接调用default方法即可。</li>
+<li>发送者直接调用post方法即可。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
+<li>定义事件类型（或者不定义）。例如：MsgBean等</li>
+<li>接收页面定义事件处理方法。例如：onEvent等</li>
+<li>接收页面注册/反注册订阅者。例如：EventBus.getDefault().register(this)</li>
+<li>发送事件。例如：EventBus.getDefault().post(new MyEvent())</li>
+</ol>
+<p><a href="https://segmentfault.com/a/1190000004279679" target="_blank" rel="external">什么是EventBus</a><br><a href="http://www.mamicode.com/info-detail-626753.html" target="_blank" rel="external">参考</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义事件类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestEvent</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收页面添加处理方法</span></span><br><span class="line"><span class="meta">@Subscribe</span> <span class="comment">//要自行添加注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(TestEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//处理操作</span></span><br><span class="line">    tvSignature.setText(event.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"><span class="comment">//在oncreate注册EventBUs 在onDestory反注册</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_modify_profile);</span><br><span class="line">    initViews();</span><br><span class="line">    initData();</span><br><span class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送事件</span></span><br><span class="line">EventBus.getDefault().post(<span class="keyword">new</span> TestEvent(<span class="string">"success"</span>));</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/04/ProGuard/" itemprop="url">
                   ProGuard混淆
                 </a>
@@ -1285,126 +1398,6 @@ editText.setSelection(ea.length());
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/13/LayoutInflater/" itemprop="url">
-                  LayoutInflater的理解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-13T16:19:33+08:00" content="2016-01-13">
-              2016-01-13
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/13/LayoutInflater/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/13/LayoutInflater/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_layout,true);
-//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
-
-View view = inflater.inflate(R.layout.button_layout, main_layout,false);
-//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
-
-View view = inflater.inflate(R.layout.button_layout, null,true);
-父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
-
-//父布局为null,后面的参数无效
-</code></pre><p>自定义View</p>
-<p>分析Adatper里的一句代码</p>
-<pre><code>@Override
-public View getView(int i , View view , ViewGroup parent)
-{
-    view = inflater.inflate(R.layout.list_item, parent);
-}
-</code></pre><ul>
-<li>view 是指list_item里面的根标签</li>
-<li>parent 是指外部使用该Item的控件，即ListView</li>
-<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1450,7 +1443,7 @@ public View getView(int i , View view , ViewGroup parent)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1460,7 +1453,7 @@ public View getView(int i , View view , ViewGroup parent)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

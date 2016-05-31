@@ -216,6 +216,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/13/LayoutInflater/" itemprop="url">
+                  LayoutInflater的理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-13T16:19:33+08:00" content="2016-01-13">
+              2016-01-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/13/LayoutInflater/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/13/LayoutInflater/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
+
+View view = inflater.inflate(R.layout.button_layout, main_layout);
+View view = inflater.inflate(R.layout.button_layout, main_layout,true);
+//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
+
+View view = inflater.inflate(R.layout.button_layout, main_layout,false);
+//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
+
+View view = inflater.inflate(R.layout.button_layout, null,true);
+父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
+
+//父布局为null,后面的参数无效
+</code></pre><p>自定义View</p>
+<p>分析Adatper里的一句代码</p>
+<pre><code>@Override
+public View getView(int i , View view , ViewGroup parent)
+{
+    view = inflater.inflate(R.layout.list_item, parent);
+}
+</code></pre><ul>
+<li>view 是指list_item里面的根标签</li>
+<li>parent 是指外部使用该Item的控件，即ListView</li>
+<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/01/Animation/" itemprop="url">
                   Animation总结
                 </a>
@@ -959,8 +1079,11 @@ startActivity(it);
       
         
           
-            <h3 id="项目架构基本目录"><a href="#项目架构基本目录" class="headerlink" title="项目架构基本目录"></a>项目架构基本目录</h3><ul>
-<li><p>通用包common 包括工具包、实体包、控件包、网络包、数据库包等</p>
+            <h3 id="项目架构基本目录"><a href="#项目架构基本目录" class="headerlink" title="项目架构基本目录"></a>项目架构基本目录</h3><blockquote>
+<p>思路 项目架构基本分为三种类别通用模块包、业务模块包、全局基础包。</p>
+</blockquote>
+<ul>
+<li><p>通用模块包（common） 包括工具包、实体包、控件包、网络包、数据库包等</p>
 <ul>
 <li><p>Broadcast(带接口的广播、EventBus事件)</p>
 </li>
@@ -970,16 +1093,15 @@ startActivity(it);
 </li>
 <li><p>Utils</p>
 <ul>
-<li>文件操作类</li>
-<li>Toast封装</li>
-<li>Log封装</li>
-<li>Gson封装</li>
-<li>ImageLoader封装</li>
-<li>SharePreference封装</li>
-<li>SD卡相关类封装</li>
+<li><a href="/2016/05/31/FileUtil/">文件操作类封装</a></li>
+<li><a href="/2016/05/31/Function/">基础工具类Function的编写</a>（包括Toast封装、SD操作等基础功能）</li>
+<li><a href="/2016/05/31/LogUtil/">Log封装</a>（日志类的管理）</li>
+<li><a href="/2016/05/31/GsonUtil/">Gson封装</a></li>
+<li><a href="/2016/05/31/ImageLoaderUtil/">ImageLoader封装</a></li>
+<li><a href="/2016/05/31/SharePreUtil/">SharePreference封装</a></li>
 </ul>
 </li>
-<li><p><a href="/2016/05/31/Model/">Model</a> (缓存数据) </p>
+<li><p><a href="/2016/05/31/Model/">Model</a> (用于缓存数据) </p>
 </li>
 <li><p>Network(protocol协议包、各种网络请求接口、CallBack)</p>
 </li>
@@ -990,20 +1112,15 @@ startActivity(it);
 </ul>
 <hr>
 <ul>
-<li>模块包(每个功能模块单独成包)</li>
+<li>业务模块包（以业务命名） 每个功能模块单独成包</li>
 </ul>
 <hr>
 <ul>
-<li>全局基础包base(Application初始化相、异常捕获类)</li>
+<li>全局基础包（base） 做Application初始化相关操作、异常捕获类。</li>
 </ul>
 <hr>
 <p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5TUHlCTnJuNjZ2SUw1U1JKbkFLU25Pd1cyTG5PdlJnd1ZhMnVxRE1IWHV3PT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <p><a href="http://blog.csdn.net/u013278099/article/details/51485476#java" target="_blank" rel="external">架构参考</a></p>
-<h3 id="Utils包的基础类"><a href="#Utils包的基础类" class="headerlink" title="Utils包的基础类"></a>Utils包的基础类</h3><ul>
-<li>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</li>
-</ul>
-<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> ENABLE_LOG = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOG_FILE_NAME = <span class="string">"Log.txt"</span>;<span class="comment">//普通日志的文件路径</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CRASH_FILE_NAME = <span class="string">"Crash.txt"</span>;<span class="comment">//奔溃日志的文件路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOGGER_PREFIX = <span class="string">"YimSam_MOVIES_"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG = <span class="string">"YimSamTam.github.io"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 控制输出信息,通过TAG控制</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTag</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ENABLE_LOG = Log.isLoggable(TAG, Log.VERBOSE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 该方法作用：打印崩溃信息并输出</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> t</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">logCrash</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>) &#123;</span><br><span class="line">            t.printStackTrace();</span><br><span class="line">            String msg = t.getMessage();</span><br><span class="line">            log2File(msg, CRASH_FILE_NAME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.VERBOSE, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.DEBUG, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.INFO, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.WARN, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.ERROR, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 封装v</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> priority 优先级</span><br><span class="line">     * <span class="doctag">@param</span> tag      标识</span><br><span class="line">     * <span class="doctag">@param</span> msg      打印信息</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(<span class="keyword">int</span> priority, String tag, Object... msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isEnableLog() &amp;&amp; msg != <span class="keyword">null</span>) &#123;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (Object o : msg) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    sb.append(<span class="string">','</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                sb.append(o == <span class="keyword">null</span> ? <span class="string">"null"</span> : o.toString());</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> logStrLength = sb.length();</span><br><span class="line">            <span class="keyword">int</span> maxLogSize = Integer.MAX_VALUE;</span><br><span class="line">            String subStr = <span class="string">""</span>;</span><br><span class="line">            subStr = sb.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取字符串</span></span><br><span class="line"><span class="comment">//            for (i = 0; i &lt;= logStrLength / maxLogSize; i++) &#123;</span></span><br><span class="line"><span class="comment">//                int start = i * maxLogSize;</span></span><br><span class="line"><span class="comment">//                int end = (i + 1) * maxLogSize;</span></span><br><span class="line"><span class="comment">//                end = end &gt; logStrLength ? logStrLength : end;</span></span><br><span class="line"><span class="comment">//                subStr = sb.substring(start, end);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 封装Log相关方法</span><br><span class="line">             */</span></span><br><span class="line">            <span class="keyword">switch</span> (priority) &#123;</span><br><span class="line">                <span class="keyword">case</span> Log.VERBOSE:</span><br><span class="line">                    Log.v(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.DEBUG:</span><br><span class="line">                    Log.d(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.INFO:</span><br><span class="line">                    Log.i(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.WARN:</span><br><span class="line">                    Log.w(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.ERROR:</span><br><span class="line">                    Log.e(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 把logStr按照一定的格式输出到文件中</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log2File</span><span class="params">(String logStr, String fileName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-DD hh:mm:ss"</span>);</span><br><span class="line">        String dateFormat = sdf.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String filePath = Functions.getSDPath() + fileName;</span><br><span class="line">            File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">            <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 利用FileWriter输出</span><br><span class="line">             */</span></span><br><span class="line">            fw = <span class="keyword">new</span> FileWriter(filePath, <span class="keyword">true</span>);</span><br><span class="line">            fw.write(dateFormat + <span class="string">":"</span> + logStr + <span class="string">"\r\n"</span>);</span><br><span class="line">            fw.flush();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fw.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                fw = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEnableLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ENABLE_LOG;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1342,116 +1459,6 @@ startActivity(it);
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/03/InterView/" itemprop="url">
-                  天工面试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-03T17:41:19+08:00" content="2015-10-03">
-              2015-10-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/03/InterView/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/InterView/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><p>如何检测手机内装了什么APP？</p>
-<p>  相关类</p>
-<ul>
-<li>PackageManager</li>
-<li>ApplicationInfo</li>
-<li>ResolveInfo</li>
-<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
-</li>
-</ul>
-</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/03/InterView/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1497,7 +1504,7 @@ startActivity(it);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1507,7 +1514,7 @@ startActivity(it);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

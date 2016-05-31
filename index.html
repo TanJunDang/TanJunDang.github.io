@@ -216,6 +216,105 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/31/LogUtil/" itemprop="url">
+                  工具类的编写 - Log的封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-31T10:20:07+08:00" content="2016-05-31">
+              2016-05-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/31/LogUtil/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/LogUtil/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> ENABLE_LOG = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOG_FILE_NAME = <span class="string">"Log.txt"</span>;<span class="comment">//普通日志的文件路径</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CRASH_FILE_NAME = <span class="string">"Crash.txt"</span>;<span class="comment">//奔溃日志的文件路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOGGER_PREFIX = <span class="string">"YimSam_MOVIES_"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG = <span class="string">"YimSamTam.github.io"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 控制输出信息,通过TAG控制</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTag</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ENABLE_LOG = Log.isLoggable(TAG, Log.VERBOSE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 该方法作用：打印崩溃信息并输出</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> t</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">logCrash</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>) &#123;</span><br><span class="line">            t.printStackTrace();</span><br><span class="line">            String msg = t.getMessage();</span><br><span class="line">            log2File(msg, CRASH_FILE_NAME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.VERBOSE, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.DEBUG, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.INFO, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.WARN, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.ERROR, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 封装v</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> priority 优先级</span><br><span class="line">     * <span class="doctag">@param</span> tag      标识</span><br><span class="line">     * <span class="doctag">@param</span> msg      打印信息</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(<span class="keyword">int</span> priority, String tag, Object... msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isEnableLog() &amp;&amp; msg != <span class="keyword">null</span>) &#123;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (Object o : msg) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    sb.append(<span class="string">','</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                sb.append(o == <span class="keyword">null</span> ? <span class="string">"null"</span> : o.toString());</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> logStrLength = sb.length();</span><br><span class="line">            <span class="keyword">int</span> maxLogSize = Integer.MAX_VALUE;</span><br><span class="line">            String subStr = <span class="string">""</span>;</span><br><span class="line">            subStr = sb.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取字符串</span></span><br><span class="line"><span class="comment">//            for (i = 0; i &lt;= logStrLength / maxLogSize; i++) &#123;</span></span><br><span class="line"><span class="comment">//                int start = i * maxLogSize;</span></span><br><span class="line"><span class="comment">//                int end = (i + 1) * maxLogSize;</span></span><br><span class="line"><span class="comment">//                end = end &gt; logStrLength ? logStrLength : end;</span></span><br><span class="line"><span class="comment">//                subStr = sb.substring(start, end);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 封装Log相关方法</span><br><span class="line">             */</span></span><br><span class="line">            <span class="keyword">switch</span> (priority) &#123;</span><br><span class="line">                <span class="keyword">case</span> Log.VERBOSE:</span><br><span class="line">                    Log.v(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.DEBUG:</span><br><span class="line">                    Log.d(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.INFO:</span><br><span class="line">                    Log.i(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.WARN:</span><br><span class="line">                    Log.w(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.ERROR:</span><br><span class="line">                    Log.e(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 把logStr按照一定的格式输出到文件中</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log2File</span><span class="params">(String logStr, String fileName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-DD hh:mm:ss"</span>);</span><br><span class="line">        String dateFormat = sdf.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String filePath = Functions.getSDPath() + fileName;</span><br><span class="line">            File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">            <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 利用FileWriter输出</span><br><span class="line">             */</span></span><br><span class="line">            fw = <span class="keyword">new</span> FileWriter(filePath, <span class="keyword">true</span>);</span><br><span class="line">            fw.write(dateFormat + <span class="string">":"</span> + logStr + <span class="string">"\r\n"</span>);</span><br><span class="line">            fw.flush();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fw.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                fw = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEnableLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ENABLE_LOG;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/31/Model/" itemprop="url">
                   Android项目架构-Model类编写
                 </a>
@@ -266,7 +365,29 @@
       
         
           
-            
+            <h3 id="Model基础知识"><a href="#Model基础知识" class="headerlink" title="Model基础知识"></a>Model基础知识</h3><blockquote>
+<p>Model包主要用于缓存数据,将数据保存在内部存储中。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
+</blockquote>
+<h3 id="实例-Model类的编写"><a href="#实例-Model类的编写" class="headerlink" title="实例 - Model类的编写"></a>实例 - Model类的编写</h3><blockquote>
+<p>思路 </p>
+<ul>
+<li>由于Model类是需要被继承的,所以要定义成abstract抽象类。</li>
+<li>由于抽象类不能被初始化,所以要在抽象定义一个内部类DataCache。</li>
+<li>在内部类定义通用的读写方法。</li>
+<li>封装读写方法,声明读写普通对象的方法以及读写集合的方法。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//基本框架如下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FOLDER = <span class="string">"BUFFER"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DataCache</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadList</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveList</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li>写入方法的实现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(Context context , String folder , String filename , Object data)</span></span>&#123;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件夹的路径</span><br><span class="line">	*/</span></span><br><span class="line">	  File fileDir = <span class="keyword">new</span> File(context.getFilesDir(), folder);</span><br><span class="line">	  <span class="keyword">if</span> (!fileDir.exists() || !fileDir.isDirectory()) &#123; <span class="comment">//当文件存在、且文件是一个目录的时候</span></span><br><span class="line">	      fileDir.mkdirs();</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件是否存在</span><br><span class="line">	*/</span></span><br><span class="line">	  File file = <span class="keyword">new</span> File(fileDir, filename);</span><br><span class="line">	  <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">	      file.delete();</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*向文件写入数据</span><br><span class="line">	*/</span></span><br><span class="line">	  <span class="keyword">try</span> &#123;</span><br><span class="line">	      ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">	      oos.writeObject(data);</span><br><span class="line">	      oos.close();</span><br><span class="line">	  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">	      e.printStackTrace();</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li>读取方法的实现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;T&gt; T <span class="title">loadList</span><span class="params">(Context context ,String filename)</span></span>&#123;</span><br><span class="line"><span class="comment">//public &lt;T&gt; T loadObject(Context context ,String filename)&#123;</span></span><br><span class="line"></span><br><span class="line">	ArrayList&lt;T&gt; data = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//	T data = null;</span></span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件夹的路径</span><br><span class="line">	*/</span></span><br><span class="line">	 File fileDir = <span class="keyword">new</span> File(context.getFilesDir(), FOLDER);</span><br><span class="line">     <span class="keyword">if</span> (!fileDir.exists() || !fileDir.isDirectory()) &#123;</span><br><span class="line">         fileDir.mkdirs();</span><br><span class="line">     &#125;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件是否存在</span><br><span class="line">	*/</span></span><br><span class="line">     File file = <span class="keyword">new</span> File(fileDir, filename);</span><br><span class="line">     <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">         file.delete();</span><br><span class="line">     &#125;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*向文件写入数据</span><br><span class="line">	*/</span></span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line"> 		 data = (ArrayList&lt;T&gt;) ois.readObject();</span><br><span class="line"> 	<span class="comment">//	 data = (T) ois.readObject();</span></span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> data;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -648,7 +769,7 @@
               
                 
                 <a class="post-title-link" href="/2016/05/05/Android-File/" itemprop="url">
-                  Android-File
+                  Android - 文件操作
                 </a>
               
             
@@ -697,7 +818,102 @@
       
         
           
-            <h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
+            <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#5566ff">文件的基础知识</font></h3><ul>
+<li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
+</ul>
+<ul>
+<li><p>创建文件</p>
+<pre><code>File file = new File(路径,文件名);
+</code></pre></li>
+<li><p>创建文件夹</p>
+<pre><code>File file = new File(路径,文件名);
+file.mkdirs();
+</code></pre></li>
+<li><p>删除文件</p>
+<pre><code>file.delete();
+</code></pre></li>
+</ul>
+<h4 id="文件流的理解"><a href="#文件流的理解" class="headerlink" title="文件流的理解"></a><font color="#5566ff">文件流的理解</font></h4><ul>
+<li><p>理解 —— 在程序中要操作文件(读写),必须先将文件转换成流，然后从流中读取(写入)数据。</p>
+<ul>
+<li><p>字符流(Reader、Writer) —— 读取(写入)相关的字符(String)，不需要缓冲区。  </p>
+</li>
+<li><p>字节流(InputStream、OutputStream) —— 读取(写入)相关的字节,需要先将数据读入(写入)缓冲区，然后再将缓冲区读入(写入)流中。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="下面通过一个示例来讲述字符流跟字节流的区别。"><a href="#下面通过一个示例来讲述字符流跟字节流的区别。" class="headerlink" title="下面通过一个示例来讲述字符流跟字节流的区别。"></a>下面通过一个示例来讲述字符流跟字节流的区别。</h4><ul>
+<li>示例： 对一个md文件写入Hello World语句</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line"><span class="keyword">if</span>(file.exists())&#123;</span><br><span class="line">println(<span class="string">"This file already exists"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//上述代码创建一个md文件</span></span><br><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line"></span><br><span class="line">**********字符流*************</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;<span class="comment">//需要写入的信息</span></span><br><span class="line">fw.write(msg);<span class="comment">//直接将数据写入字符流</span></span><br><span class="line"></span><br><span class="line">**********字节流*************</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = msg.getBytes();<span class="comment">//将数据写入缓冲区</span></span><br><span class="line">fos.write(bytes); <span class="comment">//将缓冲区写入字节流</span></span><br><span class="line"></span><br><span class="line">***********进阶 —— 高级流************</span><br><span class="line">BufferReader、BufferWriter</span><br></pre></td></tr></table></figure>
+<ul>
+<li>InputStream示例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">************InputStream的缺陷，需要提前设置缓存区大小***************</span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10240</span>]; <span class="comment">//文件过大，还是无法读取到完整的数据	</span></span><br><span class="line">fis.read(bytes);</span><br><span class="line">String result = EncodingUtils.getString(bytes, <span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— BufferReader</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">***********FileReader跟BufferReader的结合使用********</span><br><span class="line">FileReader r = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(r);</span><br><span class="line"></span><br><span class="line">StringBuffer msg = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">String s;</span><br><span class="line"><span class="keyword">while</span> ((s = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">	msg = msg.append(s+“\n”); <span class="comment">//必须要加\n 否则全部数据变成一行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— BufferWriter</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*********FileWriter跟BufferWriter的结合使用</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(decFile);</span><br><span class="line">BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(fw); <span class="comment">//可以不用BufferWriter</span></span><br><span class="line">bw.write(msg.toString());</span><br><span class="line">bw.close();<span class="comment">//必须要关闭，不然写不了数据</span></span><br><span class="line">fw.close();必须要关闭，不然写不了数据</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐示例 —— FileChanel与FileInputStream、FileOutputStream结合</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(desFile);</span><br><span class="line">FileChanel fcIn = <span class="keyword">new</span> FileChanel(fis); <span class="comment">//将输入流放到输入管道中</span></span><br><span class="line">FileChanel fcOut = <span class="keyword">new</span> FileChanel(fos);<span class="comment">//将输出流放到输出管道中</span></span><br><span class="line"></span><br><span class="line">******************输入管道调用transferTo()方法传输数据************</span><br><span class="line">fcIn.transferTo(<span class="number">0</span>,fcIn.size(),fcOut);</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">关闭流</span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：</li>
+</ul>
+<ol>
+<li>字符流比字节流简便。</li>
+<li>不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</li>
+</ol>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
+<h4 id="示例-——-编写用文件保存数据的方法"><a href="#示例-——-编写用文件保存数据的方法" class="headerlink" title="示例 —— 编写用文件保存数据的方法"></a>示例 —— 编写用文件保存数据的方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(Context context , Object data , String name , String folder)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">	File file;</span><br><span class="line">	<span class="keyword">if</span>(folder.isEmpty)&#123; <span class="comment">//如果没有折叠器，则在当前目录创建文件</span></span><br><span class="line">		file = <span class="keyword">new</span> File(context.getFilesDir(),name);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">//否则，创建一个文件夹</span></span><br><span class="line">		File filesDir = <span class="keyword">new</span> File(context.getFilesDir(),folder);</span><br><span class="line">		<span class="keyword">if</span>(!filesDir.exists()||!filesDir.isDirectory())&#123;<span class="comment">//如果文件夹不存在,则创建该文件夹</span></span><br><span class="line">		&#123;</span><br><span class="line">			fileDir.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		file = <span class="keyword">new</span> File(filesDir,name);<span class="comment">//在该目录下创建文件			</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">		file.delete();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">*************************保存数据</span><br><span class="line"></span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(data);</span><br><span class="line">oos.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h4><ul>
+<li><p>判断是否需要创建折叠器(文件夹)</p>
+<ul>
+<li>不要 ——&gt; 直接创建文件</li>
+<li>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</li>
+</ul>
+</li>
+<li><p>判断文件是否存在</p>
+<ul>
+<li>存在 —— &gt;删除</li>
+</ul>
+</li>
+</ul>
+<h4 id="文件的读写（Model类编写）"><a href="#文件的读写（Model类编写）" class="headerlink" title="文件的读写（Model类编写）"></a>文件的读写（Model类编写）</h4><ul>
+<li><p>getCacheDir()方法用于获取/data/data/cache目录</p>
+</li>
+<li><p>getFilesDir()方法用于获取/data/data/files目录</p>
+</li>
+<li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
+</li>
+</ul>
+<blockquote>
+<p>数据写入文件的基本流程：</p>
+<ul>
+<li>用File类确定文件夹的路径（进行必要的判断和创建） </li>
+<li>用File类确定文件是否存在，存在则删除。</li>
+<li>用ObjectOutputStream向文件写入数据</li>
+</ul>
+</blockquote>
+<ul>
+<li>读取内容(readObject、ObjectInputStream方法)</li>
+</ul>
+<blockquote>
+<p>读取数据的基本流程：</p>
+<ul>
+<li>用File确定文件夹路径</li>
+<li>用File确定文件</li>
+<li>用ObjectInputStream读取数据</li>
+</ul>
+</blockquote>
+<h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
 <p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data/<package_name>/files/下.</package_name></p>
 </blockquote>
 <p>Context对象相关文件API</p>
@@ -1178,119 +1394,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/05/EventBus/" itemprop="url">
-                  EventBus基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/EventBus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/EventBus/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
-<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
-<li>EventBus自定义消息类型。（创建Event）。</li>
-<li>EventBus一般不创建对象，直接调用default方法即可。</li>
-<li>发送者直接调用post方法即可。</li>
-<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
-<li>定义事件类型（或者不定义）。例如：MsgBean等</li>
-<li>接收页面定义事件处理方法。例如：onEvent等</li>
-<li>接收页面注册/反注册订阅者。例如：EventBus.getDefault().register(this)</li>
-<li>发送事件。例如：EventBus.getDefault().post(new MyEvent())</li>
-</ol>
-<p><a href="https://segmentfault.com/a/1190000004279679" target="_blank" rel="external">什么是EventBus</a><br><a href="http://www.mamicode.com/info-detail-626753.html" target="_blank" rel="external">参考</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义事件类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestEvent</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收页面添加处理方法</span></span><br><span class="line"><span class="meta">@Subscribe</span> <span class="comment">//要自行添加注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(TestEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//处理操作</span></span><br><span class="line">    tvSignature.setText(event.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"><span class="comment">//在oncreate注册EventBUs 在onDestory反注册</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_modify_profile);</span><br><span class="line">    initViews();</span><br><span class="line">    initData();</span><br><span class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送事件</span></span><br><span class="line">EventBus.getDefault().post(<span class="keyword">new</span> TestEvent(<span class="string">"success"</span>));</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1336,7 +1439,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1346,7 +1449,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">62</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
