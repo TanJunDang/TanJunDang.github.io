@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="onTouchEvent," />
+  <meta name="keywords" content="Android项目架构-Model类编写," />
 
 
 
@@ -57,31 +57,16 @@
 
 
 
-<meta name="description" content="分发事件基本认识
-跟Touch相关的三个方法：
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEven">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件分发机制">
-<meta property="og:url" content="YimSamTam.github.io/2016/03/31/OnTouchEvent/index.html">
+<meta property="og:title" content="Android项目架构-Model类编写">
+<meta property="og:url" content="YimSamTam.github.io/2016/05/31/Model/index.html">
 <meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description" content="分发事件基本认识
-跟Touch相关的三个方法：
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEven">
-<meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:image" content="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-05-31T02:20:12.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件分发机制">
-<meta name="twitter:description" content="分发事件基本认识
-跟Touch相关的三个方法：
-public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEven">
-<meta name="twitter:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="Android项目架构-Model类编写">
+<meta name="twitter:description">
 
 
 
@@ -99,7 +84,7 @@ public boolean nTouchEvent(MotionEven">
   };
 </script>
 
-  <title> 事件分发机制 | YimSam-Tam </title>
+  <title> Android项目架构-Model类编写 | YimSam-Tam </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -229,7 +214,7 @@ public boolean nTouchEvent(MotionEven">
             
             
               
-                事件分发机制
+                Android项目架构-Model类编写
               
             
           </h1>
@@ -241,8 +226,8 @@ public boolean nTouchEvent(MotionEven">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-31T10:44:19+08:00" content="2016-03-31">
-              2016-03-31
+            <time itemprop="dateCreated" datetime="2016-05-31T10:20:07+08:00" content="2016-05-31">
+              2016-05-31
             </time>
           </span>
 
@@ -252,8 +237,8 @@ public boolean nTouchEvent(MotionEven">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/31/OnTouchEvent/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/OnTouchEvent/" itemprop="commentsCount"></span>
+                <a href="/2016/05/31/Model/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/Model/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -275,119 +260,7 @@ public boolean nTouchEvent(MotionEven">
       
 
       
-        <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
-<li><p>跟Touch相关的三个方法：</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
-</code></pre><a id="more"></a>
-</li>
-</ul>
-<h3 id="OnTouchEvent与DispatchTouchEvent的关系（源码分析）"><a href="#OnTouchEvent与DispatchTouchEvent的关系（源码分析）" class="headerlink" title="OnTouchEvent与DispatchTouchEvent的关系（源码分析）"></a>OnTouchEvent与DispatchTouchEvent的关系（源码分析）</h3><ul>
-<li><p>只要点击了一个控件，一定会执行该控件父布局的dispatchTouchEvent方法。</p>
-</li>
-<li><p>onTouch方法优先于onClick方法。</p>
-</li>
-<li><p>当onTouch返回true的时候，则dispatchTouchEvent方法中不会再执行onTouchEvent方法。</p>
-</li>
-<li><p>dispatchTouchEvent</p>
-<ul>
-<li><p>返回True： 三个条件（监听器不空、控件是激活的、onTouch返回True），即被当前控件消费了事件，不再向下传递。</p>
-</li>
-<li><p>返回false，执行onTouchEvent事件。</p>
-</li>
-</ul>
-</li>
-<li><p>onTouchEvent方法内部还有一个判断，当控件是可以点击的时候，才可以执行ACTION_DOWN、ACTION_UP等行为。执行完之后返回True。否则返回false，继续向下传递。</p>
-</li>
-</ul>
-<ul>
-<li><p>dispatchTouchEvent代码（一般不重写）</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent event) {  
-    if (mOnTouchListener != null &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp;  
-            mOnTouchListener.onTouch(this, event)) {  
-        return true;  
-    }  
-    return onTouchEvent(event);  
-}  
-</code></pre></li>
-<li><p>onTouchEvent内部的判断是否可点击的代码</p>
-<pre><code>if (((viewFlags &amp; CLICKABLE) == CLICKABLE || (viewFlags &amp; LONG_CLICKABLE) == LONG_CLICKABLE)) {  
-    //当控件可点击的时候，才会执行一系列Action
-    switch(event.getAction()){
-        case MotionEvent.ACTION_UP:
-        case MotionEvent.ACTION_DOWN:
-        ......
-        break;
-        return true
-    }
-}
-return false; //当控件不可点击时 直接返回false
-</code></pre></li>
-</ul>
-<ul>
-<li><p>点击按钮的过程</p>
-<p>  <img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1FaGhBekl1K3UwWUhidTdmQlRUdHhqZXdwWXZUaUo2Tzlkb0hZUEZhQVRnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<ul>
-<li><p>用法：</p>
-<pre><code>onTouchEvent()    用来处理事件。
-返回true则表示该View能处理该事件，事件将终止向上传递（传递给其父View）；
-返回false表示不能处理，则把事件传递给其父View的onTouchEvent()方法来处理
-</code></pre></li>
-</ul>
-<ul>
-<li><p>事件分发</p>
-<p>  <img src="http://img.blog.csdn.net/20130629200236578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2lueXU4OTA4MDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-</ul>
-<h3 id="onInterceptTouchEvent"><a href="#onInterceptTouchEvent" class="headerlink" title="onInterceptTouchEvent"></a>onInterceptTouchEvent</h3><ul>
-<li><p>onInterceptTouchEvent()用来拦截事件。</p>
-<ul>
-<li><p>return false表示不拦截该事件，事件将向下传递（传递给其子View）。  </p>
-</li>
-<li><p>return true则表示拦截该事件，事件将终止向下传递。事件由当前ViewGroup类来处理，就是调用该类的onTouchEvent()方法。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="实际开发中的应用"><a href="#实际开发中的应用" class="headerlink" title="实际开发中的应用"></a>实际开发中的应用</h4><ul>
-<li><p>在BNJ项目中遇到的是ScrollView里面嵌套GridView，因此两者是有滑动冲突的。</p>
-</li>
-<li><p>项目要求：保留两者的滑动效果</p>
-</li>
-<li><p>思路：</p>
-<ul>
-<li><p>自定义ScrollView，使其可以重写onInterceptTouchEvent方法。  </p>
-</li>
-<li><p>在onInterceptTouchEvent方法中返回false即可。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="dispatchTouchEvent"><a href="#dispatchTouchEvent" class="headerlink" title="dispatchTouchEvent"></a>dispatchTouchEvent</h3><ul>
-<li><p>dispatchTouchEvent() 用来分派事件。  </p>
-</li>
-<li><p>当View的dispatchTouchEvent返回True时，则View的onClick事件不再执行  </p>
-</li>
-<li><p>当View的dispatchTouchEvent返回false时，执行onToucEvent里面的onClick。  </p>
-</li>
-<li><p>所以View的onTouch返回值只用来决定该View是否还执行onClick。  </p>
-</li>
-</ul>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li><p>android 的分发事件先传递给ViewGroup，再由ViewGroup传给View。  </p>
-</li>
-<li><p>只要ViewGroup拦截了事件（onInterceptTouchEvent返回true） 事件就不会在往子View传递。  </p>
-</li>
-<li><p>详细参考 </p>
-<p>  <a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">OnTouch参考一</a><br>  <a href="http://blog.csdn.net/guolin_blog/article/details/9153747" target="_blank" rel="external">OnTouch参考二</a></p>
-</li>
-</ul>
-
+        
       
     </div>
 
@@ -401,7 +274,7 @@ return false; //当控件不可点击时 直接返回false
       
         <div class="post-tags">
           
-            <a href="/tags/onTouchEvent/" rel="tag">#onTouchEvent</a>
+            <a href="/tags/Android项目架构-Model类编写/" rel="tag">#Android项目架构-Model类编写</a>
           
         </div>
       
@@ -410,17 +283,13 @@ return false; //当控件不可点击时 直接返回false
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/30/BNJSummarize/" rel="next" title="BNJ项目学到的知识点">
-                <i class="fa fa-chevron-left"></i> BNJ项目学到的知识点
+              <a href="/2016/05/25/CustomMenu/" rel="next" title="自定义底部弹出菜单">
+                <i class="fa fa-chevron-left"></i> 自定义底部弹出菜单
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/04/ProGuard/" rel="prev" title="ProGuard混淆">
-                ProGuard混淆 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,8 +315,8 @@ return false; //当控件不可点击时 直接返回false
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/31/OnTouchEvent/"
-           data-title="事件分发机制" data-url="YimSamTam.github.io/2016/03/31/OnTouchEvent/">
+      <div class="ds-thread" data-thread-key="2016/05/31/Model/"
+           data-title="Android项目架构-Model类编写" data-url="YimSamTam.github.io/2016/05/31/Model/">
       </div>
     
   </div>
@@ -536,7 +405,7 @@ return false; //当控件不可点击时 直接返回false
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#分发事件基本认识"><span class="nav-number">1.</span> <span class="nav-text">分发事件基本认识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnTouchEvent与DispatchTouchEvent的关系（源码分析）"><span class="nav-number">2.</span> <span class="nav-text">OnTouchEvent与DispatchTouchEvent的关系（源码分析）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#onInterceptTouchEvent"><span class="nav-number">3.</span> <span class="nav-text">onInterceptTouchEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实际开发中的应用"><span class="nav-number">3.1.</span> <span class="nav-text">实际开发中的应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatchTouchEvent"><span class="nav-number">4.</span> <span class="nav-text">dispatchTouchEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
