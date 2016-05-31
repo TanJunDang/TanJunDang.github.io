@@ -1,63 +1,17 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion">
+<!DOCTYPE html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description">
+  <meta charset="utf-8">
+  
+  <title>YimSam-Tam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="YimSam-Tam">
 <meta property="og:url" content="YimSamTam.github.io/index.html">
@@ -66,422 +20,394 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YimSam-Tam">
 <meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+      <style> .article { opacity: 0;} </style>
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+  
+  <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+          search: undefined
+      }
+  </script>
 
+  
+      <script>
+          yiliaConfig.jquery_ui = [false];
+      </script>
+  
 
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-  <title> YimSam-Tam </title>
+  
+  
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">YimSam-Tam</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">程序猿</p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">YimSam-Tam</a></h1>
+        </hgroup>
 
         
+        <p class="header-subtitle">程序猿</p>
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/about/">About</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:YimSamTam@126.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="/YimSamTam.github.io" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-                <a class="post-title-link" href="/2016/05/31/LogUtil/" itemprop="url">
-                  工具类的编写 - Log的封装
-                </a>
-              
-            
-          </h1>
-        
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/0-9/">0.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Check/">Check</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Draw/">Draw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fragment/">Fragment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frequent-Fault/">Frequent_Fault</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gesture/">Gesture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Handler机制/">Handler机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASE/">JAVASE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java动态布局/">Java动态布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecycleView/">RecycleView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegEx/">RegEx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxAndroid/">RxAndroid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Style/">Style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SystemService/">SystemService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timestamp/">Timestamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volley/">Volley</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Widgets/">Widgets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selector/">selector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shape/">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码优化技巧/">代码优化技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码混淆/">代码混淆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/四大组件之Broadcast/">四大组件之Broadcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用开发工具及网站/">常用开发工具及网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用的框架/">常用的框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间戳/">时间戳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本更新/">版本更新</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T10:20:07+08:00" content="2016-05-31">
-              2016-05-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/31/LogUtil/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/LogUtil/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-      </header>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">YimSam-Tam</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">YimSam-Tam</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">程序猿</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:YimSamTam@126.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="/YimSamTam.github.io" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/LogUtil/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
 <p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> ENABLE_LOG = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOG_FILE_NAME = <span class="string">"Log.txt"</span>;<span class="comment">//普通日志的文件路径</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CRASH_FILE_NAME = <span class="string">"Crash.txt"</span>;<span class="comment">//奔溃日志的文件路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOGGER_PREFIX = <span class="string">"YimSam_MOVIES_"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG = <span class="string">"YimSamTam.github.io"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 控制输出信息,通过TAG控制</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTag</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ENABLE_LOG = Log.isLoggable(TAG, Log.VERBOSE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 该方法作用：打印崩溃信息并输出</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> t</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">logCrash</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>) &#123;</span><br><span class="line">            t.printStackTrace();</span><br><span class="line">            String msg = t.getMessage();</span><br><span class="line">            log2File(msg, CRASH_FILE_NAME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.VERBOSE, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.DEBUG, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.INFO, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.WARN, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.ERROR, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 封装v</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> priority 优先级</span><br><span class="line">     * <span class="doctag">@param</span> tag      标识</span><br><span class="line">     * <span class="doctag">@param</span> msg      打印信息</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(<span class="keyword">int</span> priority, String tag, Object... msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isEnableLog() &amp;&amp; msg != <span class="keyword">null</span>) &#123;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (Object o : msg) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    sb.append(<span class="string">','</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                sb.append(o == <span class="keyword">null</span> ? <span class="string">"null"</span> : o.toString());</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> logStrLength = sb.length();</span><br><span class="line">            <span class="keyword">int</span> maxLogSize = Integer.MAX_VALUE;</span><br><span class="line">            String subStr = <span class="string">""</span>;</span><br><span class="line">            subStr = sb.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取字符串</span></span><br><span class="line"><span class="comment">//            for (i = 0; i &lt;= logStrLength / maxLogSize; i++) &#123;</span></span><br><span class="line"><span class="comment">//                int start = i * maxLogSize;</span></span><br><span class="line"><span class="comment">//                int end = (i + 1) * maxLogSize;</span></span><br><span class="line"><span class="comment">//                end = end &gt; logStrLength ? logStrLength : end;</span></span><br><span class="line"><span class="comment">//                subStr = sb.substring(start, end);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 封装Log相关方法</span><br><span class="line">             */</span></span><br><span class="line">            <span class="keyword">switch</span> (priority) &#123;</span><br><span class="line">                <span class="keyword">case</span> Log.VERBOSE:</span><br><span class="line">                    Log.v(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.DEBUG:</span><br><span class="line">                    Log.d(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.INFO:</span><br><span class="line">                    Log.i(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.WARN:</span><br><span class="line">                    Log.w(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.ERROR:</span><br><span class="line">                    Log.e(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 把logStr按照一定的格式输出到文件中</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log2File</span><span class="params">(String logStr, String fileName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-DD hh:mm:ss"</span>);</span><br><span class="line">        String dateFormat = sdf.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String filePath = Functions.getSDPath() + fileName;</span><br><span class="line">            File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">            <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 利用FileWriter输出</span><br><span class="line">             */</span></span><br><span class="line">            fw = <span class="keyword">new</span> FileWriter(filePath, <span class="keyword">true</span>);</span><br><span class="line">            fw.write(dateFormat + <span class="string">":"</span> + logStr + <span class="string">"\r\n"</span>);</span><br><span class="line">            fw.flush();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fw.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                fw = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEnableLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ENABLE_LOG;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
           
-        
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/05/31/Model/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/31/Model/" itemprop="url">
-                  Android项目架构-Model类编写
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/Model/">Android项目架构-Model类编写</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T10:20:07+08:00" content="2016-05-31">
-              2016-05-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/31/Model/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/Model/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
           
-            <h3 id="Model基础知识"><a href="#Model基础知识" class="headerlink" title="Model基础知识"></a>Model基础知识</h3><blockquote>
+              <h3 id="Model基础知识"><a href="#Model基础知识" class="headerlink" title="Model基础知识"></a>Model基础知识</h3><blockquote>
 <p>Model包主要用于缓存数据,将数据保存在内部存储中。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
 </blockquote>
-<h3 id="实例-Model类的编写"><a href="#实例-Model类的编写" class="headerlink" title="实例 - Model类的编写"></a>实例 - Model类的编写</h3><blockquote>
-<p>思路 </p>
-<ul>
-<li>由于Model类是需要被继承的,所以要定义成abstract抽象类。</li>
-<li>由于抽象类不能被初始化,所以要在抽象定义一个内部类DataCache。</li>
-<li>在内部类定义通用的读写方法。</li>
-<li>封装读写方法,声明读写普通对象的方法以及读写集合的方法。</li>
-</ul>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//基本框架如下</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseModel</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String FOLDER = <span class="string">"BUFFER"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DataCache</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadList</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveList</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li>写入方法的实现</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(Context context , String folder , String filename , Object data)</span></span>&#123;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件夹的路径</span><br><span class="line">	*/</span></span><br><span class="line">	  File fileDir = <span class="keyword">new</span> File(context.getFilesDir(), folder);</span><br><span class="line">	  <span class="keyword">if</span> (!fileDir.exists() || !fileDir.isDirectory()) &#123; <span class="comment">//当文件存在、且文件是一个目录的时候</span></span><br><span class="line">	      fileDir.mkdirs();</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件是否存在</span><br><span class="line">	*/</span></span><br><span class="line">	  File file = <span class="keyword">new</span> File(fileDir, filename);</span><br><span class="line">	  <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">	      file.delete();</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*向文件写入数据</span><br><span class="line">	*/</span></span><br><span class="line">	  <span class="keyword">try</span> &#123;</span><br><span class="line">	      ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">	      oos.writeObject(data);</span><br><span class="line">	      oos.close();</span><br><span class="line">	  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">	      e.printStackTrace();</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li>读取方法的实现</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;T&gt; T <span class="title">loadList</span><span class="params">(Context context ,String filename)</span></span>&#123;</span><br><span class="line"><span class="comment">//public &lt;T&gt; T loadObject(Context context ,String filename)&#123;</span></span><br><span class="line"></span><br><span class="line">	ArrayList&lt;T&gt; data = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//	T data = null;</span></span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件夹的路径</span><br><span class="line">	*/</span></span><br><span class="line">	 File fileDir = <span class="keyword">new</span> File(context.getFilesDir(), FOLDER);</span><br><span class="line">     <span class="keyword">if</span> (!fileDir.exists() || !fileDir.isDirectory()) &#123;</span><br><span class="line">         fileDir.mkdirs();</span><br><span class="line">     &#125;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*确定文件是否存在</span><br><span class="line">	*/</span></span><br><span class="line">     File file = <span class="keyword">new</span> File(fileDir, filename);</span><br><span class="line">     <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">         file.delete();</span><br><span class="line">     &#125;</span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	*向文件写入数据</span><br><span class="line">	*/</span></span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line"> 		 data = (ArrayList&lt;T&gt;) ois.readObject();</span><br><span class="line"> 	<span class="comment">//	 data = (T) ois.readObject();</span></span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> data;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
-        
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-CustomMenu" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/05/25/CustomMenu/" class="article-date">
+      <time datetime="2016-05-25T03:02:59.000Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/25/CustomMenu/" itemprop="url">
-                  自定义底部弹出菜单
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-25T11:02:59+08:00" content="2016-05-25">
-              2016-05-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/25/CustomMenu/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/CustomMenu/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <h3 id="自定义底部弹出菜单"><a href="#自定义底部弹出菜单" class="headerlink" title="自定义底部弹出菜单"></a>自定义底部弹出菜单</h3><ul>
+          
+              <h3 id="自定义底部弹出菜单"><a href="#自定义底部弹出菜单" class="headerlink" title="自定义底部弹出菜单"></a>自定义底部弹出菜单</h3><ul>
 <li>效果如图</li>
 </ul>
 <p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1TOU5RV2FPTlJYSHlaSUlkSldPaitKb2I4ZXh2cWcyaTY5R3RlNGkybG5BPT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
@@ -489,336 +415,133 @@
 <p>思路：由于是底部弹出菜单，所以应该用PopupWindow来实现。PopupWindow显示的主View分为两部分,一部分为取消按钮，另一部分为LinearLayout。其余的就是编写动态布局的代码了。即主View包括取消按钮和主Menu两部分。</p>
 <p>实现：先创建一个类CustomMenu，重写其构造方法，参数为Context。</p>
 </blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/25/CustomMenu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+          
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/05/25/CustomMenu/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-Achieve" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/05/09/Achieve/" class="article-date">
+      <time datetime="2016-05-09T08:34:26.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/09/Achieve/" itemprop="url">
-                  实际开发-效果实现
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/Achieve/">实际开发-效果实现</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-09T16:34:26+08:00" content="2016-05-09">
-              2016-05-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/09/Achieve/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Achieve/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
           
-            <h3 id="如何实现View倾斜一定角度？"><a href="#如何实现View倾斜一定角度？" class="headerlink" title="如何实现View倾斜一定角度？"></a>如何实现View倾斜一定角度？</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpaGE2MWthT2RJWlkyZ09sVWZYb1ZzaDhFNW1sMnByN1VRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+              <h3 id="如何实现View倾斜一定角度？"><a href="#如何实现View倾斜一定角度？" class="headerlink" title="如何实现View倾斜一定角度？"></a>如何实现View倾斜一定角度？</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpaGE2MWthT2RJWlkyZ09sVWZYb1ZzaDhFNW1sMnByN1VRPT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <blockquote>
 <p><img src="http://www.runoob.com/wp-content/uploads/2015/09/95790312.jpg" alt="">思路：使用旋转动画RotateAnimation</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">final</span> RotateAnimation animation = <span class="keyword">new</span> RotateAnimation(<span class="number">30f</span>, <span class="number">30f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>, Animation.ABSOLUTE, <span class="number">0.5f</span>);</span><br><span class="line"></span><br><span class="line">animation.setFillAfter(<span class="keyword">true</span>);<span class="comment">//动画执行完后是否停留在执行完的状态</span></span><br><span class="line">ivTest.setAnimation(animation); <span class="comment">//设置动画</span></span><br><span class="line">animation.startNow(); <span class="comment">//启动动画</span></span><br></pre></td></tr></table></figure>
-<p>参数说明</p>
-<p>fromDegrees：旋转的开始角度。</p>
-<p>toDegrees：旋转的结束角度。</p>
-<p>pivotXType：X轴的伸缩模式，可以取值为ABSOLUTE(完整显示)、RELATIVE_TO_SELF(以自己为中心旋转)、RELATIVE_TO_PARENT。</p>
-<p>pivotXValue：X坐标的伸缩值。</p>
-<p>pivotYType：Y轴的伸缩模式，可以取值为ABSOLUTE、RELATIVE_TO_SELF、RELATIVE_TO_PARENT。</p>
-<p>pivotYValue：Y坐标的伸缩值。</p>
-<ul>
-<li>ABSOLUTE  </li>
-</ul>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpcEhEQ3IwejVzdlpoZkE3aVhUSUwvNEZTL0RoWDlZQzJnPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<hr>
-<ul>
-<li>RELATIVE_TO_SELF</li>
-</ul>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpdVc1QmFMRy9qRGo4WjNUZUZ2NnMxSkRsVEFFalRTS3l3PT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<hr>
-<ul>
-<li>RELATIVE_TO_PARENT</li>
-</ul>
-<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBaUnloVTdGdmZpbHByL2EvVmxHVjYwY0R1Z2tjVW0yb01lSFdTUXlxUmZRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<hr>
-<h3 id="RecyclerView每添加一项如何保存原有Edittext的文本"><a href="#RecyclerView每添加一项如何保存原有Edittext的文本" class="headerlink" title="RecyclerView每添加一项如何保存原有Edittext的文本"></a>RecyclerView每添加一项如何保存原有Edittext的文本</h3><blockquote>
-<p>思路：由于每次添加Item都要更新数据,这会导致前面Edittext输入的内容为空,所以应该为Edittext添加TextWatch监听器。</p>
-<p>实现：自定义一个TextWatch,添加一个position为参数的方法，用于更新数据。然后重写onTextChange更新数据源.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomTextWatch</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.position = position;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">         data.get(position).setTitle(s.toString());</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NormalHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    CustomTextWatch watch = <span class="keyword">new</span> CustomTextWatch();</span><br><span class="line">    EditText editText;</span><br><span class="line">    View rootview;</span><br><span class="line">    TextView tvAddMore;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NormalHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootview = itemView;</span><br><span class="line">        editText = (EditText) rootview.findViewById(R.id.editText);</span><br><span class="line">        tvAddMore = (TextView) rootview.findViewById(R.id.tvAddMore);</span><br><span class="line">        editText.addTextChangedListener(watch);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(RecyclerView.ViewHolder holder, <span class="keyword">final</span> <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">	itemHolder.getWatch().updateItem(position);</span><br><span class="line">	itemHolder.editText.setText(item.getTitle());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
-        
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/05/09/Achieve/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-Android-File" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/05/05/Android-File/" class="article-date">
+      <time datetime="2016-05-05T02:21:17.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/RxBus/" itemprop="url">
-                  Android-RxJava
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/Android-File/">Android - 文件操作</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/05/RxBus/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/RxBus/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
           
-            <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/Android-File/" itemprop="url">
-                  Android - 文件操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T10:21:17+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/05/Android-File/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/05/Android-File/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#5566ff">文件的基础知识</font></h3><ul>
+              <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#5566ff">文件的基础知识</font></h3><ul>
 <li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
 </ul>
 <ul>
@@ -833,772 +556,437 @@ file.mkdirs();
 <pre><code>file.delete();
 </code></pre></li>
 </ul>
-<h4 id="文件流的理解"><a href="#文件流的理解" class="headerlink" title="文件流的理解"></a><font color="#5566ff">文件流的理解</font></h4><ul>
-<li><p>理解 —— 在程序中要操作文件(读写),必须先将文件转换成流，然后从流中读取(写入)数据。</p>
-<ul>
-<li><p>字符流(Reader、Writer) —— 读取(写入)相关的字符(String)，不需要缓冲区。  </p>
-</li>
-<li><p>字节流(InputStream、OutputStream) —— 读取(写入)相关的字节,需要先将数据读入(写入)缓冲区，然后再将缓冲区读入(写入)流中。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="下面通过一个示例来讲述字符流跟字节流的区别。"><a href="#下面通过一个示例来讲述字符流跟字节流的区别。" class="headerlink" title="下面通过一个示例来讲述字符流跟字节流的区别。"></a>下面通过一个示例来讲述字符流跟字节流的区别。</h4><ul>
-<li>示例： 对一个md文件写入Hello World语句</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line"><span class="keyword">if</span>(file.exists())&#123;</span><br><span class="line">println(<span class="string">"This file already exists"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//上述代码创建一个md文件</span></span><br><span class="line"></span><br><span class="line">-------------------------------------------</span><br><span class="line"></span><br><span class="line">**********字符流*************</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;<span class="comment">//需要写入的信息</span></span><br><span class="line">fw.write(msg);<span class="comment">//直接将数据写入字符流</span></span><br><span class="line"></span><br><span class="line">**********字节流*************</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">String msg = <span class="string">"Hello World"</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = msg.getBytes();<span class="comment">//将数据写入缓冲区</span></span><br><span class="line">fos.write(bytes); <span class="comment">//将缓冲区写入字节流</span></span><br><span class="line"></span><br><span class="line">***********进阶 —— 高级流************</span><br><span class="line">BufferReader、BufferWriter</span><br></pre></td></tr></table></figure>
-<ul>
-<li>InputStream示例</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">************InputStream的缺陷，需要提前设置缓存区大小***************</span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"B:/Erintrus.md"</span>);</span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10240</span>]; <span class="comment">//文件过大，还是无法读取到完整的数据	</span></span><br><span class="line">fis.read(bytes);</span><br><span class="line">String result = EncodingUtils.getString(bytes, <span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推荐示例 —— BufferReader</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">***********FileReader跟BufferReader的结合使用********</span><br><span class="line">FileReader r = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(r);</span><br><span class="line"></span><br><span class="line">StringBuffer msg = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">String s;</span><br><span class="line"><span class="keyword">while</span> ((s = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">	msg = msg.append(s+“\n”); <span class="comment">//必须要加\n 否则全部数据变成一行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推荐示例 —— BufferWriter</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*********FileWriter跟BufferWriter的结合使用</span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(decFile);</span><br><span class="line">BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(fw); <span class="comment">//可以不用BufferWriter</span></span><br><span class="line">bw.write(msg.toString());</span><br><span class="line">bw.close();<span class="comment">//必须要关闭，不然写不了数据</span></span><br><span class="line">fw.close();必须要关闭，不然写不了数据</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推荐示例 —— FileChanel与FileInputStream、FileOutputStream结合</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(desFile);</span><br><span class="line">FileChanel fcIn = <span class="keyword">new</span> FileChanel(fis); <span class="comment">//将输入流放到输入管道中</span></span><br><span class="line">FileChanel fcOut = <span class="keyword">new</span> FileChanel(fos);<span class="comment">//将输出流放到输出管道中</span></span><br><span class="line"></span><br><span class="line">******************输入管道调用transferTo()方法传输数据************</span><br><span class="line">fcIn.transferTo(<span class="number">0</span>,fcIn.size(),fcOut);</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">关闭流</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：</li>
-</ul>
-<ol>
-<li>字符流比字节流简便。</li>
-<li>不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</li>
-</ol>
-<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
-<h4 id="示例-——-编写用文件保存数据的方法"><a href="#示例-——-编写用文件保存数据的方法" class="headerlink" title="示例 —— 编写用文件保存数据的方法"></a>示例 —— 编写用文件保存数据的方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(Context context , Object data , String name , String folder)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">	File file;</span><br><span class="line">	<span class="keyword">if</span>(folder.isEmpty)&#123; <span class="comment">//如果没有折叠器，则在当前目录创建文件</span></span><br><span class="line">		file = <span class="keyword">new</span> File(context.getFilesDir(),name);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">//否则，创建一个文件夹</span></span><br><span class="line">		File filesDir = <span class="keyword">new</span> File(context.getFilesDir(),folder);</span><br><span class="line">		<span class="keyword">if</span>(!filesDir.exists()||!filesDir.isDirectory())&#123;<span class="comment">//如果文件夹不存在,则创建该文件夹</span></span><br><span class="line">		&#123;</span><br><span class="line">			fileDir.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		file = <span class="keyword">new</span> File(filesDir,name);<span class="comment">//在该目录下创建文件			</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">		file.delete();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">*************************保存数据</span><br><span class="line"></span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(data);</span><br><span class="line">oos.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h4><ul>
-<li><p>判断是否需要创建折叠器(文件夹)</p>
-<ul>
-<li>不要 ——&gt; 直接创建文件</li>
-<li>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</li>
-</ul>
-</li>
-<li><p>判断文件是否存在</p>
-<ul>
-<li>存在 —— &gt;删除</li>
-</ul>
-</li>
-</ul>
-<h4 id="文件的读写（Model类编写）"><a href="#文件的读写（Model类编写）" class="headerlink" title="文件的读写（Model类编写）"></a>文件的读写（Model类编写）</h4><ul>
-<li><p>getCacheDir()方法用于获取/data/data/cache目录</p>
-</li>
-<li><p>getFilesDir()方法用于获取/data/data/files目录</p>
-</li>
-<li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
-</li>
-</ul>
-<blockquote>
-<p>数据写入文件的基本流程：</p>
-<ul>
-<li>用File类确定文件夹的路径（进行必要的判断和创建） </li>
-<li>用File类确定文件是否存在，存在则删除。</li>
-<li>用ObjectOutputStream向文件写入数据</li>
-</ul>
-</blockquote>
-<ul>
-<li>读取内容(readObject、ObjectInputStream方法)</li>
-</ul>
-<blockquote>
-<p>读取数据的基本流程：</p>
-<ul>
-<li>用File确定文件夹路径</li>
-<li>用File确定文件</li>
-<li>用ObjectInputStream读取数据</li>
-</ul>
-</blockquote>
-<h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
-<p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data/<package_name>/files/下.</package_name></p>
-</blockquote>
-<p>Context对象相关文件API</p>
-<ul>
-<li><p>getFilesDir() - 用于获取内部存储空间路径(/data/data/<package_name>/files/)</package_name></p>
-</li>
-<li><p>openFileInput(String name) - 打开应用程序私有目录下的的指定私有文件以读入数据，返回一个FileInputStream 对象.</p>
-</li>
-<li><p>openFileOutput(String name , int mode) - 打开应用程序私有目录下的的指定私有文件以写入数据，返回一个FileOutputStream 对象.如果文件不存在就创建这个文件。</p>
-</li>
-<li><p>fileList() - 列出程序所有私有文件夹下的所有私有文件。</p>
-</li>
-<li><p>deleteFile(String fileName) - 删除指定文件名的文件，成功返回true,失败返回false。</p>
-</li>
-<li><p>getDir(String name , int mode);//创建一个目录，返回一个File对象。</p>
-</li>
-</ul>
-<blockquote>
-<p>MODE_PRIVATE 默认模式，文件只可以被调用该方法的应用程序访问<br>MODE_APPEND 如果文件已存在就向该文件的末尾继续写入数据，而不是覆盖原来的数据。<br>MODE_WORLD_READABLE 赋予所有的应用程序对该文件读的权限。<br>MODE_WORLD_WRITEABLE  赋予所有的应用程序对该文件写的权限。</p>
-</blockquote>
-<hr>
-<ul>
-<li>实例 - 将数据保存在内部存储私有文件里，然后再拿出来显示。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileOutputStream fos  =  openFileOutput(<span class="string">"SamTam.md"</span>,Context.MODE_PRIVATE);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">FileInputStream fis  = openFileInput(<span class="string">"SamTam.md"</span>);</span><br><span class="line"><span class="keyword">int</span> lenght = fis.available(); <span class="comment">//可读长度？</span></span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[lenght];</span><br><span class="line">fis.read(buffer);</span><br><span class="line"><span class="comment">//将byte数组转换成指定格式的字符串</span></span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Android外部存储"><a href="#Android外部存储" class="headerlink" title="Android外部存储"></a>Android外部存储</h4><blockquote>
-<p>文件可以被其他应用访问,当应用被卸载时,数据不会被销毁。所有应用程序的外部存储的私有文件都放在根目录的Android/data/<package_name>/下，目录形式为/Android/data/<package_name>/</package_name></package_name></p>
-</blockquote>
-<p>Context对象相关文件API</p>
-<ul>
-<li><p>getExternalFilesDir(String name) - 用于获取外部存储空间名称为name的目录的路径(/storage/emulated/0/Android/data/<package_name>/Sam/)  有些设备的部分路径不是/storage/emulated/0而是/mnt/sdcard</package_name></p>
-</li>
-<li><p>Environment.getExternalStorageDirectory() - 获取根路径</p>
-</li>
-</ul>
-<ul>
-<li>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</span><br><span class="line"><span class="comment">//判断SD卡是否插入</span></span><br><span class="line">..............</span><br><span class="line">&#125;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">上面两句可简写为</span><br><span class="line">String path = Environment.getExternalStorageDirectory().getCanonicalPath() + <span class="string">"/"</span> + <span class="string">"Test.md"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>所需权限</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
           
-        
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/05/05/Android-File/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-RxBus" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/05/05/RxBus/" class="article-date">
+      <time datetime="2016-05-05T02:21:17.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/12/Gesture/" itemprop="url">
-                  Gesture手势理解
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/RxBus/">Android-RxJava</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-12T11:43:13+08:00" content="2016-04-12">
-              2016-04-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/12/Gesture/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/Gesture/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
           
-            <h3 id="GestureDetector的使用"><a href="#GestureDetector的使用" class="headerlink" title="GestureDetector的使用"></a>GestureDetector的使用</h3><ol>
+        <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Gesture" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/Gesture/" class="article-date">
+      <time datetime="2016-04-12T03:43:13.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/12/Gesture/">Gesture手势理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="GestureDetector的使用"><a href="#GestureDetector的使用" class="headerlink" title="GestureDetector的使用"></a>GestureDetector的使用</h3><ol>
 <li>创建GestureDetector对象并设置监听器。</li>
 <li>将Activity或者特定组件上的TouchEvent的事件交给GestureDetector处理即可。</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> GestureDetetor detetor = <span class="keyword">new</span> GestureDetetor(<span class="keyword">this</span>,<span class="keyword">new</span> SimpleOnGestureListener());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> detector.onTouchEvent(event); <span class="comment">//Activity返回</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="GestureListener重写的方法-一般用SimpleOnGestureListener"><a href="#GestureListener重写的方法-一般用SimpleOnGestureListener" class="headerlink" title="GestureListener重写的方法(一般用SimpleOnGestureListener)"></a>GestureListener重写的方法(一般用SimpleOnGestureListener)</h3><p>按下（onDown）： 刚刚手指接触到触摸屏的那一刹那，就是触的那一下。<br>抛掷（onFling）： 手指在触摸屏上迅速移动，并松开的动作。<br>长按（onLongPress）： 手指按在持续一段时间，并且没有松开。<br>滚动（onScroll）： 手指在触摸屏上滑动。<br>按住（onShowPress）： 手指按在触摸屏上，它的时间范围在按下起效，在长按之前。<br>抬起（onSingleTapUp）：手指离开触摸屏的那一刹那。</p>
 
-          
-        
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gesture/">Gesture</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-Handler" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/04/11/Handler/" class="article-date">
+      <time datetime="2016-04-11T01:58:30.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/11/Handler/" itemprop="url">
-                  Handler机制
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/11/Handler/">Handler机制</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-11T09:58:30+08:00" content="2016-04-11">
-              2016-04-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/11/Handler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/11/Handler/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <h3 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h3><ul>
+          
+              <h3 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h3><ul>
 <li>多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。</li>
 </ul>
 <h3 id="Handler的作用"><a href="#Handler的作用" class="headerlink" title="Handler的作用"></a>Handler的作用</h3><ul>
 <li>Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。</li>
 </ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/11/Handler/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+          
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Handler机制/">Handler机制</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/04/11/Handler/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-CodeOptimize" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/04/06/CodeOptimize/" class="article-date">
+      <time datetime="2016-04-06T10:13:44.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/06/CodeOptimize/" itemprop="url">
-                  Android-代码优化技巧
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-06T18:13:44+08:00" content="2016-04-06">
-              2016-04-06
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/06/CodeOptimize/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/CodeOptimize/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
-          <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
+          
+              <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
 <li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
 </ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/06/CodeOptimize/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+          
       
     </div>
-
-    <div>
+    
+    <div class="article-info article-info-index">
       
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码优化技巧/">代码优化技巧</a></li></ul>
     </div>
 
-    <footer class="post-footer">
       
-
+        <p class="article-more-link">
+          <a href="/2016/04/06/CodeOptimize/#more">阅读全文 >></a>
+        </p>
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+      <div class="clearfix"></div>
+    </div>
     
-      
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
 
   
+    <article id="post-EventBus" class="article article-type-post" itemscope itemprop="blogPost">
   
-
+    <div class="article-meta">
+      <a href="/2016/04/05/EventBus/" class="article-date">
+      <time datetime="2016-04-05T03:08:58.000Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
   
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+  <div class="article-inner">
     
-      <header class="post-header">
-
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/05/RxAndroid/" itemprop="url">
-                  RxAndroid的理解
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/EventBus/">EventBus基本使用</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-05T11:08:58+08:00" content="2016-04-05">
-              2016-04-05
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/05/RxAndroid/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/RxAndroid/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        
           
-            <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
-<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
-<li>RxAndroid代码简洁、逻辑清晰。</li>
-<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
-<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
-<ul>
-<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
-<li>unsubscribe用于释放内存。</li>
-</ul>
+              <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
+<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
+<li>EventBus自定义消息类型。（创建Event）。</li>
+<li>EventBus一般不创建对象，直接调用default方法即可。</li>
+<li>发送者直接调用post方法即可。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 </li>
 </ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li>观察者Observer/订阅者Subscriber</li>
-</ul>
-
           
-        
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
-  </section>
+    <div class="article-info article-info-index">
+      
+      
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li></ul>
     </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/04/05/EventBus/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
+</article>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/favicon.ico"
-               alt="YimSam-Tam" />
-          <p class="site-author-name" itemprop="name">YimSam-Tam</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">47</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
-          
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">62</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 YimSam-Tam
             </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
         </div>
-
         
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
         
-
-        
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
-
-      </section>
-
-      
-
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">YimSam-Tam</span>
-</div>
-
-<div class="powered-by">
-  Powered By <a class="theme-link" href="http://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
+</footer>
     </div>
-  </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-  
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
-  
 
 
-
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"YimSamTam"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
-
-
-
-
-
-  
-  
-  
-
-  
-
-  
-
+  </div>
 </body>
 </html>
