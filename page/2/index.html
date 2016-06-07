@@ -239,10 +239,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-EventBus" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-RxAndroid" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/EventBus/" class="article-date">
+      <a href="/2016/04/05/RxAndroid/" class="article-date">
       <time datetime="2016-04-05T03:08:58.000Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
@@ -256,7 +256,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/EventBus/">EventBus基本使用</a>
+      <a class="article-title" href="/2016/04/05/RxAndroid/">RxAndroid的理解</a>
     </h1>
   
 
@@ -266,16 +266,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
-<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
-<li>EventBus自定义消息类型。（创建Event）。</li>
-<li>EventBus一般不创建对象，直接调用default方法即可。</li>
-<li>发送者直接调用post方法即可。</li>
-<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+        <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
+<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
+<li>RxAndroid代码简洁、逻辑清晰。</li>
+<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
+<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
+<ul>
+<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
+<li>unsubscribe用于释放内存。</li>
+</ul>
 </li>
 </ul>
-          
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>观察者Observer/订阅者Subscriber</li>
+</ul>
+
       
     </div>
     
@@ -285,13 +290,9 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RxAndroid/">RxAndroid</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a href="/2016/04/05/EventBus/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -650,21 +651,22 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
 <li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
 <ol>
 <li>创建一个布局文件，里面放一张图。</li>
-<li><p>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </p>
-<pre><code>new Handler().postDelayed(new Runnable(){ 
-
-    @Override
-        public void run(){
-            Intent intent = new Intent (Appstart.this,Welcome.class);
-            startActivity(intent);            
-            Appstart.this.finish();
-        }
-
-},1000);  
-</code></pre></li>
+<li>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </li>
 </ol>
 </li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable()&#123; </span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">			Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.class);</span><br><span class="line">			startActivity(intent);			</span><br><span class="line">			Appstart.<span class="keyword">this</span>.finish();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>解决启动界面瞬间白屏的问题</p>
+<ul>
+<li>Mainfest的主题使用@android:style/Theme.Translucent”</li>
+<li>StartActivity继承Activity</li>
+</ul>
+</li>
+<li><p>主要代码</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">      &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
           
       
     </div>
@@ -885,7 +887,7 @@ android:singleLine=&quot;true&quot;
 <h4 id="设置EditText默认不弹出小键盘"><a href="#设置EditText默认不弹出小键盘" class="headerlink" title="设置EditText默认不弹出小键盘"></a>设置EditText默认不弹出小键盘</h4><ul>
 <li>配置文件中配置下列代码  </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> </span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> </span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span> <span class="comment">//默认不弹出键盘,以及将底部按钮显示在软键盘上方</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
 <h4 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setKeyListener(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="光标移到最后"><a href="#光标移到最后" class="headerlink" title="光标移到最后"></a>光标移到最后</h4><pre><code>Editable ea = editText.getText();
 editText.setSelection(ea.length());
@@ -898,8 +900,8 @@ editText.setSelection(ea.length());
 <p>【E】stateVisible：软键盘通常是可见的</p>
 <p>【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
 <p>【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
-<p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间</p>
-<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分</p>
+<p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间 (将底部的按钮往上顶)</p>
+<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分(整个页面往上顶)</p>
 <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
 <h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
           

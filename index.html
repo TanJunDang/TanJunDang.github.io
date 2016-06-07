@@ -239,70 +239,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/LogUtil/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
-<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -349,6 +285,70 @@
       
         <p class="article-more-link">
           <a href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/LogUtil/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -834,10 +834,10 @@ file.mkdirs();
 
 
   
-    <article id="post-RxAndroid" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EventBus" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/RxAndroid/" class="article-date">
+      <a href="/2016/04/05/EventBus/" class="article-date">
       <time datetime="2016-04-05T03:08:58.000Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
@@ -851,7 +851,7 @@ file.mkdirs();
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/RxAndroid/">RxAndroid的理解</a>
+      <a class="article-title" href="/2016/04/05/EventBus/">EventBus基本使用</a>
     </h1>
   
 
@@ -861,21 +861,16 @@ file.mkdirs();
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="RxAndroid的理解"><a href="#RxAndroid的理解" class="headerlink" title="RxAndroid的理解"></a>RxAndroid的理解</h3><ul>
-<li>使用观察者与被观察者模式，主要用于实现异步操作。</li>
-<li>RxAndroid代码简洁、逻辑清晰。</li>
-<li>观察者监听被观察者的行为活动。被观察者一有活动，观察者便进行相应的处理。</li>
-<li><p>观察者Observer跟Subscriber的区别，Subscriber拥有onStart()、unsubscribe()。</p>
-<ul>
-<li>onStart用于做一些事件发送前的工作。例如数据的清零或重置。</li>
-<li>unsubscribe用于释放内存。</li>
-</ul>
+              <h3 id="EventBus的理解"><a href="#EventBus的理解" class="headerlink" title="EventBus的理解"></a>EventBus的理解</h3><ul>
+<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
+<li>EventBus自定义消息类型。（创建Event）。</li>
+<li>EventBus一般不创建对象，直接调用default方法即可。</li>
+<li>发送者直接调用post方法即可。</li>
+<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
+<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 </li>
 </ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li>观察者Observer/订阅者Subscriber</li>
-</ul>
-
+          
       
     </div>
     
@@ -885,9 +880,13 @@ file.mkdirs();
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RxAndroid/">RxAndroid</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2016/04/05/EventBus/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
