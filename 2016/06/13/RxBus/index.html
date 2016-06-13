@@ -9,53 +9,18 @@
 
   <meta charset="utf-8">
   
-  <title>时间戳 | YimSam-Tam</title>
+  <title>Android-RxJava | YimSam-Tam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间戳的总结
-时间戳的理解
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
-
-
-
-
-格式
-
-EEEE表示星期几、E表示周几
-HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
+  <meta name="description" content="用RxJava实现EventBus1234567891011121314151617181920212223242526272829303132333435363738394041public class RxBus &amp;#123;    private static volatile RxBus defaultInstance;    // 主题    private final Subject">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时间戳">
-<meta property="og:url" content="YimSamTam.github.io/2016/01/29/Timestamp/index.html">
+<meta property="og:title" content="Android-RxJava">
+<meta property="og:url" content="YimSamTam.github.io/2016/06/13/RxBus/index.html">
 <meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description" content="时间戳的总结
-时间戳的理解
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
-
-
-
-
-格式
-
-EEEE表示星期几、E表示周几
-HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
-<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:10.000Z">
+<meta property="og:description" content="用RxJava实现EventBus1234567891011121314151617181920212223242526272829303132333435363738394041public class RxBus &amp;#123;    private static volatile RxBus defaultInstance;    // 主题    private final Subject">
+<meta property="og:updated_time" content="2016-06-13T00:52:39.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时间戳">
-<meta name="twitter:description" content="时间戳的总结
-时间戳的理解
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
-
-
-
-
-格式
-
-EEEE表示星期几、E表示周几
-HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
-<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="Android-RxJava">
+<meta name="twitter:description" content="用RxJava实现EventBus1234567891011121314151617181920212223242526272829303132333435363738394041public class RxBus &amp;#123;    private static volatile RxBus defaultInstance;    // 主题    private final Subject">
   
     <link rel="alternative" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
   
@@ -268,11 +233,11 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Timestamp" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-RxBus" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/29/Timestamp/" class="article-date">
-      <time datetime="2016-01-29T03:42:10.000Z" itemprop="datePublished">2016-01-29</time>
+      <a href="/2016/06/13/RxBus/" class="article-date">
+      <time datetime="2016-06-13T00:52:37.000Z" itemprop="datePublished">2016-06-13</time>
 </a>
     </div>
   
@@ -285,7 +250,7 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
         
   
     <h1 class="article-title" itemprop="name">
-      时间戳
+      Android-RxJava
     </h1>
   
 
@@ -296,7 +261,7 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Timestamp/">Timestamp</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -306,22 +271,12 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
-<li><p>时间戳的理解</p>
-<ul>
-<li>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>格式</p>
-<ul>
-<li>EEEE表示星期几、E表示周几</li>
-<li>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+        <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxBus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> RxBus defaultInstance;</span><br><span class="line">    <span class="comment">// 主题</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject bus;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RxBus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 单例RxBus</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxBus <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RxBus rxBus = defaultInstance;</span><br><span class="line">        <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (RxBus.class) &#123;</span><br><span class="line">                rxBus = defaultInstance;</span><br><span class="line">                <span class="keyword">if</span> (defaultInstance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rxBus = <span class="keyword">new</span> RxBus();</span><br><span class="line">                    defaultInstance = rxBus;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rxBus;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供了一个新的事件</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        bus.onNext(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者,在处理的时候的线程是主线程</span><br><span class="line">      * <span class="doctag">@param</span> eventType</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Observable&lt;T&gt; <span class="title">toObservable</span><span class="params">(Class&lt;T&gt; eventType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bus.observeOn(AndroidSchedulers.mainThread()).ofType(eventType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：接收页面需要定义全局变量Subscription testScption,并且反注册.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息</span></span><br><span class="line">RxBus.getDefault().post(<span class="keyword">new</span> TestEvent());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收处理</span></span><br><span class="line">  testScption = RxBus.getDefault().toObservable(TestEvent.class).subscribe(<span class="keyword">new</span> Action1&lt;TestEvent&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(TestEvent testEvent)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//收到消息后做相应的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (testScption != <span class="keyword">null</span> &amp;&amp; !testScption.isUnsubscribed()) &#123;</span><br><span class="line">            testScption.unsubscribe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/ca090f6e2fe2" target="_blank" rel="external">RxBus参考</a></p>
 
       
     </div>
@@ -333,16 +288,10 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/02/01/Widgets/">
-                    Widgets(View)学习
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/29/ImageUpload/">
-                    图片增加、删除
+                <a href="/2016/06/13/RxAndroid/">
+                    RxJava、RxAndroid的理解
                 </a>
             </div>
         
@@ -353,7 +302,7 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间戳的总结"><span class="toc-number">1.</span> <span class="toc-text">时间戳的总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用RxJava实现EventBus"><span class="toc-number">1.</span> <span class="toc-text">用RxJava实现EventBus</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -410,7 +359,7 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"时间戳　| YimSam-Tam　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Android-RxJava　| YimSam-Tam　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -430,15 +379,13 @@ HH表示导0(01:10),H表示不导(1:10) 推荐使用H">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/02/01/Widgets/" title="上一篇: Widgets(View)学习">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/29/ImageUpload/" title="下一篇: 图片增加、删除">
+            <a href="/2016/06/13/RxAndroid/" title="下一篇: RxJava、RxAndroid的理解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
