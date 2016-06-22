@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
-  
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
   <meta charset="utf-8">
   
   <title>四大组件之Broadcast | YimSam-Tam</title>
@@ -64,228 +58,65 @@
 重写onReceive方法(调用接口的方法)
 实现接口、动态注册接口(LocalBroad">
   
-    <link rel="alternative" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
   
-      <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
   
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-  
-  <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-          search: undefined
-      }
-  </script>
 
-  
-      <script>
-          yiliaConfig.jquery_ui = [false];
-      </script>
-  
-
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
-
-  
-  
 </head>
+
 <body>
   <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">YimSam-Tam</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">程序猿</p>
-        
-
-        
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">Home</a></li>
-                        
-                            <li><a href="/archives/">Archives</a></li>
-                        
-                            <li><a href="/tags/">Tags</a></li>
-                        
-                            <li><a href="/about/">About</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:YimSamTam@126.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/yimsamtam" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/0-9/">0.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Broadcast/">Broadcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Check/">Check</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Draw/">Draw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fragment/">Fragment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frequent-Fault/">Frequent_Fault</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle打包相关基础/">Gradle打包相关基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Handler机制/">Handler机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASE/">JAVASE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java动态布局/">Java动态布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecycleView/">RecycleView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegEx/">RegEx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJava、RxAndroid的理解/">RxJava、RxAndroid的理解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Style/">Style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SystemService/">SystemService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timestamp/">Timestamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volley/">Volley</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Widgets/">Widgets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selector/">selector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shape/">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码混淆/">代码混淆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用开发工具及网站/">常用开发工具及网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用的框架/">常用的框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间戳/">时间戳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本更新/">版本更新</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-            </div>
-        </div>
-    </header>                
-</div>
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YimSam-Tam</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">程序猿</a>
+        </h2>
+      
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">YimSam-Tam</a></h1>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="YimSamTam.github.io"></form>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">YimSam-Tam</a></h1>
-            </hgroup>
-            
-            <p class="header-subtitle">程序猿</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">Home</a></li>
-                
-                    <li><a href="/archives/">Archives</a></li>
-                
-                    <li><a href="/tags/">Tags</a></li>
-                
-                    <li><a href="/about/">About</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:YimSamTam@126.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/yimsamtam" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
-</nav>
-      <div class="body-wrap"><article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/19/Android-Broadcast/" class="article-date">
-      <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished">2015-11-19</time>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/19/Android-Broadcast/" class="article-date">
+  <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished">2015-11-19</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -297,22 +128,9 @@
   
 
       </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Broadcast/">Broadcast</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
 <li>当收到某系统消息时，可以做相应的处理。</li>
 <li>动态注册：程序启动后才有效。</li>
@@ -347,198 +165,136 @@
 
       
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="YimSamTam.github.io/2015/11/19/Android-Broadcast/" data-id="cipq9pfs50005s0qv3j94bm73" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Broadcast/">Broadcast</a></li></ul>
+
+    </footer>
   </div>
   
     
-
-
-    <nav id="article-nav">
+<nav id="article-nav">
+  
+    <a href="/2015/11/23/Frame/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/11/23/Frame/">
-                    常用的技术框架
-                </a>
-            </div>
+          常用的技术框架
         
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/11/18/JAVASE/">
-                    JAVASE基础
-                </a>
-            </div>
-        
-    </nav>
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/18/JAVASE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JAVASE基础</div>
+    </a>
+  
+</nav>
 
   
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态广播实际开发"><span class="toc-number">2.</span> <span class="toc-text">动态广播实际开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态广播实际开发"><span class="toc-number">3.</span> <span class="toc-text">静态广播实际开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播注意事项"><span class="toc-number">4.</span> <span class="toc-text">Fragment里注册广播注意事项</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"四大组件之Broadcast　| YimSam-Tam　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
+</section>
         
-            <a href="/2015/11/23/Frame/" title="上一篇: 常用的技术框架">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
+          <aside id="sidebar">
+  
+    
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2015/11/18/JAVASE/" title="下一篇: JAVASE基础">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/0-9/">0.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Broadcast/">Broadcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Check/">Check</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Draw/">Draw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fragment/">Fragment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Frequent-Fault/">Frequent_Fault</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle打包相关基础/">Gradle打包相关基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Handler机制/">Handler机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASE/">JAVASE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java动态布局/">Java动态布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecycleView/">RecycleView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegEx/">RegEx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJava、RxAndroid的理解/">RxJava、RxAndroid的理解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Style/">Style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SystemService/">SystemService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timestamp/">Timestamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volley/">Volley</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Widgets/">Widgets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selector/">selector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shape/">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码混淆/">代码混淆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用开发工具及网站/">常用开发工具及网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用的框架/">常用的框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间戳/">时间戳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本更新/">版本更新</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
     </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/Achieve/">实际开发-效果实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包相关基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Animation总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/23/Frame/">常用的技术框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/Utils/">常用工具及网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/JAVA-Coding/">Java动态布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error/">常见的错误</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/10/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
-
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/0-9/" style="font-size: 10px;">0.9</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android-文件操作/" style="font-size: 10px;">Android - 文件操作</a> <a href="/tags/Android-RxBus/" style="font-size: 10px;">Android-RxBus</a> <a href="/tags/Android-代码优化技巧/" style="font-size: 10px;">Android-代码优化技巧</a> <a href="/tags/Android项目架构/" style="font-size: 10px;">Android项目架构</a> <a href="/tags/Android项目架构-Model类编写/" style="font-size: 10px;">Android项目架构-Model类编写</a> <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/Async-http/" style="font-size: 10px;">Async-http</a> <a href="/tags/BNJ/" style="font-size: 10px;">BNJ</a> <a href="/tags/Broadcast/" style="font-size: 10px;">Broadcast</a> <a href="/tags/Callback接口/" style="font-size: 10px;">Callback接口</a> <a href="/tags/Check/" style="font-size: 10px;">Check</a> <a href="/tags/Draw/" style="font-size: 10px;">Draw</a> <a href="/tags/DrawerLayout/" style="font-size: 10px;">DrawerLayout</a> <a href="/tags/EventBus基本使用/" style="font-size: 10px;">EventBus基本使用</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Frequent-Fault/" style="font-size: 10px;">Frequent_Fault</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Gradle打包相关基础/" style="font-size: 10px;">Gradle打包相关基础</a> <a href="/tags/Handler机制/" style="font-size: 10px;">Handler机制</a> <a href="/tags/ImageLoader/" style="font-size: 10px;">ImageLoader</a> <a href="/tags/ImageUpload/" style="font-size: 10px;">ImageUpload</a> <a href="/tags/JAVASE/" style="font-size: 10px;">JAVASE</a> <a href="/tags/Java动态布局/" style="font-size: 10px;">Java动态布局</a> <a href="/tags/LayoutInflater/" style="font-size: 10px;">LayoutInflater</a> <a href="/tags/ListView/" style="font-size: 10px;">ListView</a> <a href="/tags/MarkDown引用本地/" style="font-size: 10px;">MarkDown引用本地</a> <a href="/tags/Notification/" style="font-size: 20px;">Notification</a> <a href="/tags/PopupWindow/" style="font-size: 10px;">PopupWindow</a> <a href="/tags/RecycleView/" style="font-size: 10px;">RecycleView</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RegEx/" style="font-size: 10px;">RegEx</a> <a href="/tags/RxJava、RxAndroid的理解/" style="font-size: 10px;">RxJava、RxAndroid的理解</a> <a href="/tags/ScanCode/" style="font-size: 10px;">ScanCode</a> <a href="/tags/Style/" style="font-size: 10px;">Style</a> <a href="/tags/SystemService/" style="font-size: 10px;">SystemService</a> <a href="/tags/Timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/View/" style="font-size: 10px;">View</a> <a href="/tags/ViewPager-One/" style="font-size: 10px;">ViewPager_One</a> <a href="/tags/ViewPager-Two/" style="font-size: 10px;">ViewPager_Two</a> <a href="/tags/Volley/" style="font-size: 10px;">Volley</a> <a href="/tags/Widgets/" style="font-size: 10px;">Widgets</a> <a href="/tags/onTouchEvent/" style="font-size: 10px;">onTouchEvent</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/shape/" style="font-size: 10px;">shape</a> <a href="/tags/代码混淆/" style="font-size: 10px;">代码混淆</a> <a href="/tags/实际开发-效果实现/" style="font-size: 10px;">实际开发-效果实现</a> <a href="/tags/小技巧/" style="font-size: 10px;">小技巧</a> <a href="/tags/屏幕宽高/" style="font-size: 10px;">屏幕宽高</a> <a href="/tags/工具类的编写-Log的封装/" style="font-size: 10px;">工具类的编写 - Log的封装</a> <a href="/tags/常用开发工具及网站/" style="font-size: 10px;">常用开发工具及网站</a> <a href="/tags/常用的框架/" style="font-size: 10px;">常用的框架</a> <a href="/tags/时间戳/" style="font-size: 10px;">时间戳</a> <a href="/tags/版本更新/" style="font-size: 10px;">版本更新</a> <a href="/tags/自定义View基本知识/" style="font-size: 10px;">自定义View基本知识</a> <a href="/tags/自定义底部弹出菜单/" style="font-size: 10px;">自定义底部弹出菜单</a>
+    </div>
+  </div>
 
-    <script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-    </script>
-</div>
+          <li>
+            <a href="/2016/06/13/RxBus/">RxBus</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/31/Model/">Android项目架构-Model类编写</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
       <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016 YimSam-Tam
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 YimSam-Tam<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+  </div>
 </footer>
     </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<script src="/js/script.js"></script>
+
   </div>
 </body>
 </html>
