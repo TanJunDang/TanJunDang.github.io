@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: ListView | YimSam-Tam</title>
+  <title>开发中常见的Error、Bug | YimSam-Tam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YimSam-Tam">
-<meta property="og:url" content="YimSamTam.github.io/tags/ListView/index.html">
+  <meta name="description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+错误原因： 不能把int的值传给String类型的方法.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发中常见的Error、Bug">
+<meta property="og:url" content="YimSamTam.github.io/2015/09/17/Bug/index.html">
 <meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description">
+<meta property="og:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+错误原因： 不能把int的值传给String类型的方法.">
+<meta property="og:updated_time" content="2016-06-30T09:28:39.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YimSam-Tam">
-<meta name="twitter:description">
+<meta name="twitter:title" content="开发中常见的Error、Bug">
+<meta name="twitter:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+错误原因： 不能把int的值传给String类型的方法.">
   
     <link rel="alternate" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
   
@@ -66,39 +70,95 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/01/ListView/" class="archive-article-date">
-  <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">Sep 1</time>
+        <section id="main"><article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/17/Bug/" class="article-date">
+  <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/ListView/">ListView的理解</a>
+    <h1 class="article-title" itemprop="name">
+      开发中常见的Error、Bug
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h3><h3 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h3><pre><code>android.content.res.Resources$NotFoundException: String resource ID #0x1
+</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br> <a id="more"></a><br>例如 </p>
+<pre><code>textview.setText(1);  
+</code></pre><p>解决办法：加一个空字符””  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Error:(<span class="number">28</span>, <span class="number">9</span>) Attribute application<span class="meta">@theme</span> value=(<span class="meta">@style</span>/ThemeActionBar) from AndroidManifest.xml:<span class="number">28</span>:<span class="number">9</span></span><br><span class="line">is also present at XXXX-trunk:XXXXLib:unspecified:<span class="number">15</span>:<span class="number">9</span> value=(<span class="meta">@style</span>/AppTheme)</span><br><span class="line">Suggestion: add ‘tools:replace=”android:theme”‘ to &lt;application&gt; element at AndroidManifest.xml:<span class="number">24</span>:<span class="number">5</span> to override</span><br><span class="line">Error:Execution failed <span class="keyword">for</span> task ‘:XXXX:processDebugManifest’.</span><br></pre></td></tr></table></figure>
+<p>解决办法：<br>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”（多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools”，否则会找不到namespace）" target="_blank" rel="external">http://schemas.android.com/tools”，否则会找不到namespace）</a></p>
+<h3 id="自定义View没有重写构造函数"><a href="#自定义View没有重写构造函数" class="headerlink" title="自定义View没有重写构造函数"></a>自定义View没有重写构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.NoSuchMethodException: &lt;init&gt; [<span class="class"><span class="keyword">class</span> <span class="title">android</span>.<span class="title">content</span>.<span class="title">Context</span>, <span class="title">interface</span> <span class="title">android</span>.<span class="title">util</span>.</span></span><br></pre></td></tr></table></figure>
+<p>解决办法：重写三个构造函数</p>
+<h3 id="使用自带的控件报错"><a href="#使用自带的控件报错" class="headerlink" title="使用自带的控件报错"></a>使用自带的控件报错</h3><p>复现步骤：没有使用V4包里的viewpager 而是使用了 自带的viewpager<br>即XML文件中定义了ViewPager 而不是android.support.v4.view.ViewPager</p>
+<pre><code>android.view.InflateException: Binary XML file line #12: Error inflating class ViewPager
+</code></pre><p>解决方法：将ViewPager改成android.support.v4.view.ViewPager（可预览）</p>
+<h3 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h3><p>原因：</p>
+<pre><code>getItemViewType的值必须小于getItemViewTypeCount
+</code></pre><p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_COUNT = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_ME = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_OTHER = <span class="number">2</span>; <span class="comment">//此处报错，应该设置成0</span></span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> users.get(position).getUserType();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> TYPE_COUNT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="activityforResult没效果"><a href="#activityforResult没效果" class="headerlink" title="activityforResult没效果"></a>activityforResult没效果</h3><p>原因：</p>
+<ul>
+<li>请求码不一样</li>
+<li>没有调用startActivityForResult方法</li>
+<li>请求码不大于0</li>
+</ul>
+<h3 id="自定义View的原控件ID与使用时ID相同，报转型错误"><a href="#自定义View的原控件ID与使用时ID相同，报转型错误" class="headerlink" title="自定义View的原控件ID与使用时ID相同，报转型错误"></a>自定义View的原控件ID与使用时ID相同，报转型错误</h3><p>例如：</p>
+<p>CustomActionBar里面有TextView id为tvname;使用CustomActionBar时，命名为tvName会报错。</p>
+<h3 id="ScrollView嵌套ListView导致的BUG"><a href="#ScrollView嵌套ListView导致的BUG" class="headerlink" title="ScrollView嵌套ListView导致的BUG"></a>ScrollView嵌套ListView导致的BUG</h3><h4 id="ListView顶走上方的内容"><a href="#ListView顶走上方的内容" class="headerlink" title="ListView顶走上方的内容"></a>ListView顶走上方的内容</h4><ul>
+<li><p>ScrollView外层添加android:descendantFocusability=”blocksDescendants”属性</p>
+</li>
+<li><p>让ListView失去焦点</p>
+</li>
+</ul>
+<p><a href="http://blog.csdn.net/jifengzh/article/details/41088323" target="_blank" rel="external">问题解决</a><br><a href="http://www.cnblogs.com/eyu8874521/archive/2012/10/17/2727882.html" target="_blank" rel="external">焦点参考</a></p>
+<h4 id="ListView只显示一行数据"><a href="#ListView只显示一行数据" class="headerlink" title="ListView只显示一行数据"></a>ListView只显示一行数据</h4><ul>
+<li>在获取数据后,先计算ListView高度,然后再更新adapter。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="YimSamTam.github.io/2015/09/17/Bug/" data-id="ciq23zvrf00000kr17y8ta03a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/17/ImageLoader/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ImageLoader的理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/12/ViewPager_One/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Viewpager (一)</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
