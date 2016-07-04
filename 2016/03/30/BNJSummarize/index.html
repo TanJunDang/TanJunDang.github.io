@@ -20,7 +20,9 @@
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMmZvamh0KytJK3NJSXhMKzFtVkhldWNNVDFDSGlURThnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPRTBhV1d2cjJKU1VpYnZPaFNpRGdyR09ySzI0SzhnVFd3PT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU53Qm0zdzl2SUVPT2FaSzRZMEpsMXFwSkRuVzd5WGh5ZzNUeU4rV0tNY21RPT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-06-30T09:27:05.412Z">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9HSGx2dmxZaXFXTFZyZFFqVmoyNnM4UW9lU0ZMQVA3OEN5N294bFBoSnFBPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU9HSGx2dmxZaXFXTi9USU1EbTdGVGp5bEVJODlZVEYxaFhOQzhQTVF2dk1RPT0.jpg?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-07-04T07:14:04.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BNJ项目学到的知识点">
 <meta name="twitter:description" content="如何解决多个按钮同时点击的bug
@@ -71,7 +73,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="YimSamTam.github.io"></form>
@@ -114,7 +116,7 @@
 <li>创建一个布局文件，里面只有一个RelativeLayout 设置高度为45-50.设置背景。</li>
 <li>每个布局文件都加入上面那个布局文件，代码如下。  </li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;include</span><br><span class="line">android:id=<span class="string">"@+id/action_bar"</span></span><br><span class="line">layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;include</span><br><span class="line">android:id=<span class="string">"@+id/action_bar"</span></span><br><span class="line">layout=<span class="string">"@layout/common_view_actionbar_right_text"</span> /&gt;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>跳转页面时来通过putExtra设置相应的的标题即可</li>
 </ol>
@@ -268,11 +270,26 @@
 <pre><code>回调删除某一项
 </code></pre></li>
 </ul>
-
+<h3 id="将相同的数据归到一类"><a href="#将相同的数据归到一类" class="headerlink" title="将相同的数据归到一类"></a>将相同的数据归到一类</h3><ul>
+<li>原效果</li>
+</ul>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9HSGx2dmxZaXFXTFZyZFFqVmoyNnM4UW9lU0ZMQVA3OEN5N294bFBoSnFBPT0.jpg?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<ul>
+<li>目标效果</li>
+</ul>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU9HSGx2dmxZaXFXTi9USU1EbTdGVGp5bEVJODlZVEYxaFhOQzhQTVF2dk1RPT0.jpg?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<hr>
+<ul>
+<li>思路</li>
+</ul>
+<blockquote>
+<p>将每个Item的date格式化成YYYY-MM类型。将格式化后的结果以及其position用HashMap保存起来,在Adapter里进行判断。有则显示,无则关闭。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//代码</span></span><br><span class="line">ArrayList&lt;SalaryListResp.SalaryListItem&gt; newData = resp.getList();</span><br><span class="line"><span class="keyword">if</span> (newData != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> offset = data.size(); <span class="comment">//用于判断便宜量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; newData.size(); i++) &#123;</span><br><span class="line">        SalaryListResp.SalaryListItem item = newData.get(i);</span><br><span class="line">        String dataStr = dateFormat.format(<span class="keyword">new</span> Date(item.getDatetime()));</span><br><span class="line">        <span class="keyword">if</span> (!showDateItem.containsKey(dataStr)) &#123;</span><br><span class="line">            showDateItem.put(dataStr, offset + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    data.addAll(resp.getList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/03/30/BNJSummarize/" data-id="ciq21oaol000aisr1pq7ai4aw" class="article-share-link">Share</a>
+      <a data-url="YimSamTam.github.io/2016/03/30/BNJSummarize/" data-id="ciq25cq36000a0cr1d5s3e679" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification/">Notification</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
@@ -331,7 +348,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
     </div>
@@ -341,7 +358,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
