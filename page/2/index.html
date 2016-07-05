@@ -1,266 +1,391 @@
 <!DOCTYPE html>
-<html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
 <head>
-  <meta charset="utf-8">
-  
   <title>YimSam-Tam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YimSam-Tam">
-<meta property="og:url" content="YimSamTam.github.io/page/2/index.html">
-<meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YimSam-Tam">
-<meta name="twitter:description">
-  
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="YimSam-Tam">
+    <meta name="author" content="YimSam-Tam">
+    <meta name="description" content="程序猿" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
     <link rel="alternate" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
   
 
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">YimSam-Tam</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">程序猿</a>
-        </h2>
-      
+<!--
+<body class="home-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="YimSamTam.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-ProGuard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/04/ProGuard/" class="article-date">
-  <time datetime="2016-04-04T01:33:30.000Z" itemprop="datePublished">2016-04-04</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/ProGuard/">ProGuard混淆</a>
-    </h1>
-  
+    <!-- ============================ END Off-canvas navigation =========================== -->
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Mapping（/project/app/build/outputs/mapping/）</p>
-<ul>
-<li>dump.txt 描述apk文件中所有类文件间的内部结构。</li>
-<li>mapping.txt 列出了原始的类，方法，和字段名与混淆后代码之间的映射。</li>
-<li>seeds.txt 列出了未被混淆的类和成员</li>
-<li>usage.txt 列出了从apk中删除的代码</li>
-</ul>
-</li>
-</ul>
-<h3 id="ProGuard配置"><a href="#ProGuard配置" class="headerlink" title="ProGuard配置"></a>ProGuard配置</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">生成mapping文件</span><br><span class="line">不能混淆的代码</span><br><span class="line">系统接口</span><br><span class="line">Jni接口</span><br><span class="line">其他如四大组件、View等</span><br><span class="line">第三方类库如android-support</span><br><span class="line"></span><br><span class="line">保留选项（配置不进行处理的内容）</span><br><span class="line"></span><br><span class="line">-keep &#123;Modifier&#125; &#123;class_specification&#125; 保护指定的类文件和类的成员 </span><br><span class="line">-keepclassmembers &#123;modifier&#125; &#123;class_specification&#125; 保护指定类的成员，如果此类受到保护他们会保护的更好 </span><br><span class="line">-keepclasseswithmembers &#123;class_specification&#125; 保护指定的类和类的成员，但条件是所有指定的类和类成员是要存在。 </span><br><span class="line">-keepnames &#123;class_specification&#125; 保护指定的类和类的成员的名称（如果他们不会压缩步骤中删除） </span><br><span class="line">-keepclassmembernames &#123;class_specification&#125; 保护指定的类的成员的名称（如果他们不会压缩步骤中删除） </span><br><span class="line">-keepclasseswithmembernames &#123;class_specification&#125; 保护指定的类和类的成员的名称，如果所有指定的类成员出席（在压缩步骤之后） </span><br><span class="line">-printseeds &#123;filename&#125; 列出类和类的成员-keep选项的清单，标准输出到给定的文件</span><br><span class="line"></span><br><span class="line">压缩</span><br><span class="line"></span><br><span class="line">-dontshrink 不压缩输入的类文件 </span><br><span class="line">-printusage &#123;filename&#125; </span><br><span class="line">-whyareyoukeeping &#123;class_specification&#125;</span><br><span class="line"></span><br><span class="line">优化</span><br><span class="line"></span><br><span class="line">-dontoptimize 不优化输入的类文件 </span><br><span class="line">-assumenosideeffects &#123;class_specification&#125; 优化时假设指定的方法，没有任何副作用 </span><br><span class="line">-allowaccessmodification 优化时允许访问并修改有修饰符的类和类的成员</span><br><span class="line"></span><br><span class="line">混淆</span><br><span class="line"></span><br><span class="line">-dontobfuscate 不混淆输入的类文件 </span><br><span class="line">-obfuscationdictionary &#123;filename&#125; 使用给定文件中的关键字作为要混淆方法的名称 </span><br><span class="line">-overloadaggressively 混淆时应用侵入式重载 </span><br><span class="line">-useuniqueclassmembernames 确定统一的混淆类的成员名称来增加混淆 </span><br><span class="line">-flattenpackagehierarchy &#123;package_name&#125; 重新包装所有重命名的包并放在给定的单一包中 </span><br><span class="line">-repackageclass &#123;package_name&#125; 重新包装所有重命名的类文件中放在给定的单一包中 </span><br><span class="line">-dontusemixedcaseclassnames 混淆时不会产生形形色色的类名 </span><br><span class="line">-keepattributes &#123;attribute_name,…&#125; 保护给定的可选属性，例如LineNumberTable, LocalVariableTable,SourceFile, Deprecated, Synthetic, Signature, and InnerClasses. </span><br><span class="line">-renamesourcefileattribute &#123;string&#125; 设置源文件中给定的字符串常量</span><br><span class="line"></span><br><span class="line">后面的文件名，类名，或者包名等可以使用占位符代替 </span><br><span class="line">？表示一个字符</span><br><span class="line"></span><br><span class="line">可以匹配多个字符，但是如果是一个类，不会匹配其前面的包名 </span><br><span class="line">可以匹配多个字符，会匹配前面的包名。  </span><br><span class="line">在android中在android Manifest文件中的activity，service，provider， receviter，等都不能进行混淆。一些在xml中配置的view也不能进行混淆，android提供的默认配置中都有</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例：</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//实际开发中 开启混淆,打正式包后,可能会出现崩溃错误。这时需要通过mapping来查找错误。</span></span><br><span class="line"></span><br><span class="line">-optimizationpasses <span class="number">5</span>          # 指定代码的压缩级别</span><br><span class="line">-dontusemixedcaseclassnames   # 是否使用大小写混合</span><br><span class="line">-dontpreverify           # 混淆时是否做预校验</span><br><span class="line">-verbose                # 混淆时是否记录日志</span><br><span class="line"></span><br><span class="line">-dontwarn com.umeng.**</span><br><span class="line">#保持com.umeng.**这个包里面的所有类和所有方法不被混淆。(没有友盟的集成时删除此句)</span><br><span class="line"></span><br><span class="line"># 混淆时所采用的算法</span><br><span class="line">-optimizations !code<span class="regexp">/simplification/</span>arithmetic,!field<span class="comment">/*,!class/merging/*</span><br><span class="line"></span><br><span class="line"> # 保持哪些类不被混淆</span><br><span class="line">-keep public class * extends android.app.Application</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep public class * extends android.content.ContentProvider</span><br><span class="line">-keep public class * extends android.app.backup.BackupAgentHelper</span><br><span class="line">-keep public class * extends android.preference.Preference</span><br><span class="line">-keep public class com.android.vending.licensing.ILicensingService</span><br><span class="line"></span><br><span class="line"> # 保持 native 方法不被混淆</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    native &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> # 保持自定义控件类不被混淆</span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">&#125;</span><br><span class="line">-keepclasseswithmembers class * &#123;# 保持自定义控件类不被混淆</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.app.Activity &#123;  # 保持自定义控件类不被混淆</span><br><span class="line">    public void *(android.view.View);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers enum * &#123;     # 保持枚举 enum 类不被混淆</span><br><span class="line"> public static **[] values();</span><br><span class="line"> public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line">-keep class * implements android.os.Parcelable &#123; # 保持 Parcelable 不被混淆</span><br><span class="line"> public static final android.os.Parcelable$Creator *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keep class io.movies.common.entity.** &#123; *; &#125;  #实体类不参与混淆 </span><br><span class="line"></span><br><span class="line">#gson混淆代码</span><br><span class="line">#-libraryjars libs/gson-2.3.1.jar</span><br><span class="line">-keepattributes Signature</span><br><span class="line"># Gson specific classes</span><br><span class="line">-keep class sun.misc.Unsafe &#123; *; &#125;</span><br><span class="line"># Application classes that will be serialized/deserialized over Gson</span><br><span class="line">-keep class com.google.gson.examples.android.model.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#-printmapping mapping.txt //激活这句代码会导致不生成mapping文件</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>总结：</p>
-<ul>
-<li><p>报错</p>
-<pre><code>Unable to compute hash of /../AndroidStudioProjects/../classes.jar错误
-说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
 
-解决办法：
-加上-dontskipnonpubliclibraryclasses #不混淆第三方库
-</code></pre></li>
-<li><p>没生成mapping</p>
-<pre><code>minifyEnable true 开启混淆模式
-配置-ignorewarnings #生成mapping文件
--printmapping mapping.txt 混淆文件没有删除这句代码
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><a href="http://www.bkjia.com/Androidjc/995232.html" target="_blank" rel="external">混淆参考</a></li>
-<li><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">混淆参考</a></li>
-</ul>
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/04/04/ProGuard/" data-id="ciq25cq49001h0cr1hzdr8s4p" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码混淆/">代码混淆</a></li></ul>
+        <!-- ============================ Header & Logo bar =========================== -->
 
-    </footer>
-  </div>
-  
-</article>
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">YimSam-Tam</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
 
+        <!-- ============================ Header & Logo bar =========================== -->
 
-  
-    <article id="post-OnTouchEvent" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/31/OnTouchEvent/" class="article-date">
-  <time datetime="2016-03-31T02:44:19.000Z" itemprop="datePublished">2016-03-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      <!-- ============================ Content =========================== -->
+
+<section id="intro">
+    <div class="container">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制</a>
-    </h1>
-  
-
-      </header>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/04/04/ProGuard/">ProGuard混淆</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-04-04T01:33:30.000Z" itemprop="datePublished">
+          2016-04-04
+      </time>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
+    
+    | 
+    <a href='/tags/代码混淆/'>代码混淆</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
+Mapping（/project/app/build/outputs/mapping/）
+
+dump.txt 描述apk文件中所有类文件间的内部结构。
+mapping.txt 列出了原始的类，方法，和字段名与混淆后代码之间的映射。
+seeds.txt 列出了未被混淆的类和成员
+usage.txt 列出了从apk中删除的代码
+
+
+
+ProGuard配置1234567891011121314151617181920212223242526
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/04/04/ProGuard/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/03/31/OnTouchEvent/">事件分发机制</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-03-31T02:44:19.000Z" itemprop="datePublished">
+          2016-03-31
+      </time>
+    
+    
+    | 
+    <a href='/tags/onTouchEvent/'>onTouchEvent</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
 <li><p>跟Touch相关的三个方法：</p>
 <pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
 public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
 public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
 </code></pre>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/03/31/OnTouchEvent/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/03/31/OnTouchEvent/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/03/31/OnTouchEvent/" data-id="ciq25cq44001c0cr16va48jox" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/30/BNJSummarize/" class="article-date">
-  <time datetime="2016-03-30T02:22:24.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-03-30T02:22:24.000Z" itemprop="datePublished">
+          2016-03-30
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a>
-    </h1>
-  
-
-      </header>
+    | 
+    <a href='/tags/BNJ/'>BNJ</a>,
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
+    <a href='/tags/Check/'>Check</a>,
+    
+    <a href='/tags/时间戳/'>时间戳</a>,
+    
+    <a href='/tags/屏幕宽高/'>屏幕宽高</a>,
+    
+    <a href='/tags/Notification/'>Notification</a>,
+    
+    <a href='/tags/ScanCode/'>ScanCode</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
 <li>定义一个全局变量isClick。</li>
 <li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
 <li><p>重写Activity的onResume方法，设置isClick为true。</p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/03/30/BNJSummarize/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/03/30/BNJSummarize/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/03/30/BNJSummarize/" data-id="ciq25cq36000a0cr1d5s3e679" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification/">Notification</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Skills" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/30/Skills/" class="article-date">
-  <time datetime="2016-03-30T01:08:39.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/03/30/Skills/">布局常用的技巧</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-03-30T01:08:39.000Z" itemprop="datePublished">
+          2016-03-30
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/Skills/">布局常用的技巧</a>
-    </h1>
-  
-
-      </header>
+    | 
+    <a href='/tags/小技巧/'>小技巧</a>,
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
+    <a href='/tags/MarkDown引用本地/'>MarkDown引用本地</a>,
+    
+    <a href='/tags/selector/'>selector</a>,
+    
+    <a href='/tags/0-9/'>0.9</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
 <li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
 <ol>
 <li>创建一个布局文件，里面放一张图。</li>
@@ -280,49 +405,41 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
 </li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">      &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/03/30/Skills/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/03/30/Skills/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/03/30/Skills/" data-id="ciq25cq4k001y0cr1fawd66x9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0-9/">0.9</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selector/">selector</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小技巧/">小技巧</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-RecyclerView" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/10/RecyclerView/" class="article-date">
-  <time datetime="2016-03-10T02:55:11.000Z" itemprop="datePublished">2016-03-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-03-10T02:55:11.000Z" itemprop="datePublished">
+          2016-03-10
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a>
-    </h1>
-  
-
-      </header>
+    | 
+    <a href='/tags/RecycleView/'>RecycleView</a>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <ul>
 <li><p>Gradle</p>
 <pre><code>compile &apos;com.android.support:recyclerview-v7:22.2.1&apos;
 compile &apos;com.android.support:support-v4:22.2.1&apos;
@@ -333,117 +450,91 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 <pre><code>在list_item布局文件中的根标签设置minheight
 </code></pre></li>
 </ul>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/03/10/RecyclerView/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/03/10/RecyclerView/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/03/10/RecyclerView/" data-id="ciq25cq4d001m0cr1em2yozf8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecycleView/">RecycleView</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/02/Gradle/" class="article-date">
-  <time datetime="2016-02-02T06:13:06.000Z" itemprop="datePublished">2016-02-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/02/02/Gradle/">Gradle打包相关基础</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-02-02T06:13:06.000Z" itemprop="datePublished">
+          2016-02-02
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/02/Gradle/">Gradle打包相关基础</a>
-    </h1>
-  
-
-      </header>
+    | 
+    <a href='/tags/Gradle打包相关基础/'>Gradle打包相关基础</a>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <ul>
 <li>build.gradle(Project) （ 可以查看Gradle的版本 ）</li>
 <li>build.gradle(Module) （ 配置模块的参数 ）</li>
 </ul>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/02/02/Gradle/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/02/02/Gradle/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/02/02/Gradle/" data-id="ciq25cq3o000u0cr1htfahkaj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle打包相关基础/">Gradle打包相关基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/01/Widgets/" class="article-date">
-  <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/02/01/Widgets/">Widgets(View)学习</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">
+          2016-02-01
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/Widgets/">Widgets(View)学习</a>
-    </h1>
-  
-
-      </header>
+    | 
+    <a href='/tags/Widgets/'>Widgets</a>,
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><h4 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h4><ul>
-<li><p>方法一</p>
-<pre><code>@Override
-public boolean dispatchKeyEvent(KeyEvent event) {
-    switch (event.getKeyCode()) {
-        case KeyEvent.KEYCODE_DPAD_CENTER:
-        case KeyEvent.KEYCODE_ENTER:
-            return true;
-    }
-    return super.dispatchKeyEvent(event);
-}
-</code></pre></li>
+    <a href='/tags/View/'>View</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><h4 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h4><ul>
+<li>方法一</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchKeyEvent</span><span class="params">(KeyEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (event.getKeyCode()) &#123;</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_DPAD_CENTER:</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_ENTER:</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">super</span>.dispatchKeyEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>方法二</p>
-<pre><code>//在布局文件里声明singleLine属性
-android:singleLine=&quot;true&quot;
-</code></pre></li>
+<li>方法二</li>
 </ul>
-<h4 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setKeyListener(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="光标移到最后"><a href="#光标移到最后" class="headerlink" title="光标移到最后"></a>光标移到最后</h4><pre><code>Editable ea = editText.getText();
-editText.setSelection(ea.length());
-</code></pre><h4 id="软键盘相关"><a href="#软键盘相关" class="headerlink" title="软键盘相关"></a>软键盘相关</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//在布局文件里声明singleLine属性</span></span><br><span class="line">android:singleLine=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
+<h4 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">setKeyListener(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="光标移到最后"><a href="#光标移到最后" class="headerlink" title="光标移到最后"></a>光标移到最后</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Editable ea = editText.getText();</span><br><span class="line">editText.setSelection(ea.length());</span><br></pre></td></tr></table></figure>
+<h4 id="软键盘相关"><a href="#软键盘相关" class="headerlink" title="软键盘相关"></a>软键盘相关</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
 <pre><code>android:windowSoftInputMode=&quot;stateAlwaysVisible&quot;
 </code></pre><p>【A】stateUnspecified：默认状态，系统将选择一个合适的状态或依赖于主题的设置</p>
 <p>【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
@@ -463,289 +554,230 @@ editText.setSelection(ea.length());
 <p><a href="http://2dxgujun.com/post/2014/10/23/Soft-Keyboard-Jacking-Control.html">EditText顶走ActionBar参考</a></p>
 <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
 <h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/02/01/Widgets/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          <p class="article-more-link">
-            <a href="/2016/02/01/Widgets/#more">Read More</a>
-          </p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/01/29/Timestamp/">时间戳</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-01-29T03:42:10.000Z" itemprop="datePublished">
+          2016-01-29
+      </time>
+    
+    
+    | 
+    <a href='/tags/Timestamp/'>Timestamp</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        时间戳的总结
+时间戳的理解
+
+时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。
+
+
+
+
+格式
+
+EEEE表示星期几、E表示周几
+HH表示导0(01:10),H表示不导(1:10) 推荐使用H
+
+
+
+
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/01/29/Timestamp/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/02/01/Widgets/" data-id="ciq25cq4u002c0cr1fkl9xm3d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/View/">View</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Widgets/">Widgets</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Timestamp" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/29/Timestamp/" class="article-date">
-  <time datetime="2016-01-29T03:42:10.000Z" itemprop="datePublished">2016-01-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/01/29/ImageUpload/">图片增加、删除</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-01-29T02:23:27.000Z" itemprop="datePublished">
+          2016-01-29
+      </time>
     
     
-      <header class="article-header">
+    | 
+    <a href='/tags/RecyclerView/'>RecyclerView</a>,
+    
+    <a href='/tags/ImageUpload/'>ImageUpload</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color = "red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/01/29/ImageUpload/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/29/Timestamp/">时间戳</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
-<li><p>时间戳的理解</p>
-<ul>
-<li>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>格式</p>
-<ul>
-<li>EEEE表示星期几、E表示周几</li>
-<li>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/01/29/Timestamp/" data-id="ciq25cq4n00230cr1l3metpep" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Timestamp/">Timestamp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ImageUpload" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/29/ImageUpload/" class="article-date">
-  <time datetime="2016-01-29T02:23:27.000Z" itemprop="datePublished">2016-01-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-01-13T08:19:33.000Z" itemprop="datePublished">
+          2016-01-13
+      </time>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/29/ImageUpload/">图片增加、删除</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color = "red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/2016/01/29/ImageUpload/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/01/29/ImageUpload/" data-id="ciq25cq3s000z0cr1hrepdoym" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/13/LayoutInflater/" class="article-date">
-  <time datetime="2016-01-13T08:19:33.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
+    | 
+    <a href='/tags/LayoutInflater/'>LayoutInflater</a>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        LayoutInflater的inflate方法分析inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
 
 View view = inflater.inflate(R.layout.button_layout, main_layout);
 View view = inflater.inflate(R.layout.button_layout, main_layout,true);
-//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
-
-View view = inflater.inflate(R.layout.button_layout, main_layout,false);
-//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
-
-View view = inflater.inflate(R.layout.button_layout, null,true);
-父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
-
-//父布局为null,后面的参数无效
-</code></pre><p>自定义View</p>
-<p>分析Adatper里的一句代码</p>
-<pre><code>@Override
-public View getView(int i , View view , ViewGroup parent)
-{
-    view = inflater.inflate(R.layout.list_item, parent);
-}
-</code></pre><ul>
-<li>view 是指list_item里面的根标签</li>
-<li>parent 是指外部使用该Item的控件，即ListView</li>
-<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
-</ul>
-
-      
+//加载一个布局
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/01/13/LayoutInflater/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <nav class="pagination" role="pagination">
+          <a class="pull-left" href="/">← Newer Posts</a>
+          <a class="pull-right" href="/page/3/">Older Posts →</a>
+        </nav>
     </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/01/13/LayoutInflater/" data-id="ciq25cq3x00150cr1gydcke9f" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
-  </nav>
 </section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/0-9/">0.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Broadcast/">Broadcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Check/">Check</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Draw/">Draw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fragment/">Fragment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle打包相关基础/">Gradle打包相关基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Handler机制/">Handler机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASE/">JAVASE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java动态布局/">Java动态布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecycleView/">RecycleView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegEx/">RegEx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJava、RxAndroid的理解/">RxJava、RxAndroid的理解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Style/">Style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SystemService/">SystemService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timestamp/">Timestamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volley/">Volley</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Widgets/">Widgets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selector/">selector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shape/">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码混淆/">代码混淆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用开发工具及网站/">常用开发工具及网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用的框架/">常用的框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间戳/">时间戳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本更新/">版本更新</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+        </div>
     </div>
-  </div>
+</section>
+<!-- ============================ END Content =========================== -->
 
+      
+<!-- ============================ Footer =========================== -->
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/0-9/" style="font-size: 10px;">0.9</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android-文件操作/" style="font-size: 10px;">Android - 文件操作</a> <a href="/tags/Android-RxBus/" style="font-size: 10px;">Android-RxBus</a> <a href="/tags/Android-代码优化技巧/" style="font-size: 10px;">Android-代码优化技巧</a> <a href="/tags/Android项目架构/" style="font-size: 10px;">Android项目架构</a> <a href="/tags/Android项目架构-Model类编写/" style="font-size: 10px;">Android项目架构-Model类编写</a> <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/Async-http/" style="font-size: 10px;">Async-http</a> <a href="/tags/BNJ/" style="font-size: 10px;">BNJ</a> <a href="/tags/Broadcast/" style="font-size: 10px;">Broadcast</a> <a href="/tags/Callback接口/" style="font-size: 10px;">Callback接口</a> <a href="/tags/Check/" style="font-size: 10px;">Check</a> <a href="/tags/Draw/" style="font-size: 10px;">Draw</a> <a href="/tags/DrawerLayout/" style="font-size: 10px;">DrawerLayout</a> <a href="/tags/EventBus基本使用/" style="font-size: 10px;">EventBus基本使用</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Gradle打包相关基础/" style="font-size: 10px;">Gradle打包相关基础</a> <a href="/tags/Handler机制/" style="font-size: 10px;">Handler机制</a> <a href="/tags/ImageLoader/" style="font-size: 10px;">ImageLoader</a> <a href="/tags/ImageUpload/" style="font-size: 10px;">ImageUpload</a> <a href="/tags/JAVASE/" style="font-size: 10px;">JAVASE</a> <a href="/tags/Java动态布局/" style="font-size: 10px;">Java动态布局</a> <a href="/tags/LayoutInflater/" style="font-size: 10px;">LayoutInflater</a> <a href="/tags/ListView/" style="font-size: 10px;">ListView</a> <a href="/tags/MarkDown引用本地/" style="font-size: 10px;">MarkDown引用本地</a> <a href="/tags/Notification/" style="font-size: 20px;">Notification</a> <a href="/tags/PopupWindow/" style="font-size: 10px;">PopupWindow</a> <a href="/tags/RecycleView/" style="font-size: 10px;">RecycleView</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RegEx/" style="font-size: 10px;">RegEx</a> <a href="/tags/RxJava、RxAndroid的理解/" style="font-size: 10px;">RxJava、RxAndroid的理解</a> <a href="/tags/ScanCode/" style="font-size: 10px;">ScanCode</a> <a href="/tags/Style/" style="font-size: 10px;">Style</a> <a href="/tags/SystemService/" style="font-size: 10px;">SystemService</a> <a href="/tags/Timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/View/" style="font-size: 10px;">View</a> <a href="/tags/ViewPager-One/" style="font-size: 10px;">ViewPager_One</a> <a href="/tags/ViewPager-Two/" style="font-size: 10px;">ViewPager_Two</a> <a href="/tags/Volley/" style="font-size: 10px;">Volley</a> <a href="/tags/Widgets/" style="font-size: 10px;">Widgets</a> <a href="/tags/onTouchEvent/" style="font-size: 10px;">onTouchEvent</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/shape/" style="font-size: 10px;">shape</a> <a href="/tags/代码混淆/" style="font-size: 10px;">代码混淆</a> <a href="/tags/实际开发-效果实现/" style="font-size: 10px;">实际开发-效果实现</a> <a href="/tags/小技巧/" style="font-size: 10px;">小技巧</a> <a href="/tags/屏幕宽高/" style="font-size: 10px;">屏幕宽高</a> <a href="/tags/工具类的编写-Log的封装/" style="font-size: 10px;">工具类的编写 - Log的封装</a> <a href="/tags/常用开发工具及网站/" style="font-size: 10px;">常用开发工具及网站</a> <a href="/tags/常用的框架/" style="font-size: 10px;">常用的框架</a> <a href="/tags/开发中常见的Error、Bug/" style="font-size: 10px;">开发中常见的Error、Bug</a> <a href="/tags/时间戳/" style="font-size: 10px;">时间戳</a> <a href="/tags/版本更新/" style="font-size: 10px;">版本更新</a> <a href="/tags/自定义View基本知识/" style="font-size: 10px;">自定义View基本知识</a> <a href="/tags/自定义底部弹出菜单/" style="font-size: 10px;">自定义底部弹出菜单</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/06/13/RxBus/">RxBus</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/31/Model/">Android项目架构-Model类编写</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 YimSam-Tam<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YimSam-Tam. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
     
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
 </html>

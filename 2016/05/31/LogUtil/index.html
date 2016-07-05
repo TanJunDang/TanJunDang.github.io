@@ -1,235 +1,354 @@
 <!DOCTYPE html>
-<html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
 <head>
-  <meta charset="utf-8">
-  
   <title>工具类的编写 - Log的封装 | YimSam-Tam</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。
-思路：打包时可以控制Log的开关，可以将Log输出到文件。使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="工具类的编写 - Log的封装">
-<meta property="og:url" content="YimSamTam.github.io/2016/05/31/LogUtil/index.html">
-<meta property="og:site_name" content="YimSam-Tam">
-<meta property="og:description" content="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。
-思路：打包时可以控制Log的开关，可以将Log输出到文件。使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。">
-<meta property="og:updated_time" content="2016-05-31T09:43:41.474Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工具类的编写 - Log的封装">
-<meta name="twitter:description" content="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。
-思路：打包时可以控制Log的开关，可以将Log输出到文件。使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。">
-  
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="YimSam-Tam">
+    <meta name="author" content="YimSam-Tam">
+    <meta name="description" content="程序猿" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
     <link rel="alternate" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
   
 
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">YimSam-Tam</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">程序猿</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="YimSamTam.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/31/LogUtil/" class="article-date">
-  <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      工具类的编写 - Log的封装
-    </h1>
-  
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
 
-      </header>
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
     
-    <div class="article-entry" itemprop="articleBody">
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">YimSam-Tam</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
       
-        <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">
+          2016-05-31
+      </time>
+    
+    
+    | 
+    <a href='/tags/工具类的编写-Log的封装/'>工具类的编写 - Log的封装</a>
+    
+    
+</span>
+                <h1>工具类的编写 - Log的封装</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
 <p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
 </blockquote>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> ENABLE_LOG = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOG_FILE_NAME = <span class="string">"Log.txt"</span>;<span class="comment">//普通日志的文件路径</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CRASH_FILE_NAME = <span class="string">"Crash.txt"</span>;<span class="comment">//奔溃日志的文件路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOGGER_PREFIX = <span class="string">"YimSam_MOVIES_"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG = <span class="string">"YimSamTam.github.io"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 控制输出信息,通过TAG控制</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTag</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ENABLE_LOG = Log.isLoggable(TAG, Log.VERBOSE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 该方法作用：打印崩溃信息并输出</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> t</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">logCrash</span><span class="params">(Throwable t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>) &#123;</span><br><span class="line">            t.printStackTrace();</span><br><span class="line">            String msg = t.getMessage();</span><br><span class="line">            log2File(msg, CRASH_FILE_NAME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.VERBOSE, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.DEBUG, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.INFO, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.WARN, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.ERROR, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 封装v</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> priority 优先级</span><br><span class="line">     * <span class="doctag">@param</span> tag      标识</span><br><span class="line">     * <span class="doctag">@param</span> msg      打印信息</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(<span class="keyword">int</span> priority, String tag, Object... msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isEnableLog() &amp;&amp; msg != <span class="keyword">null</span>) &#123;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (Object o : msg) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    sb.append(<span class="string">','</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                sb.append(o == <span class="keyword">null</span> ? <span class="string">"null"</span> : o.toString());</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> logStrLength = sb.length();</span><br><span class="line">            <span class="keyword">int</span> maxLogSize = Integer.MAX_VALUE;</span><br><span class="line">            String subStr = <span class="string">""</span>;</span><br><span class="line">            subStr = sb.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取字符串</span></span><br><span class="line"><span class="comment">//            for (i = 0; i &lt;= logStrLength / maxLogSize; i++) &#123;</span></span><br><span class="line"><span class="comment">//                int start = i * maxLogSize;</span></span><br><span class="line"><span class="comment">//                int end = (i + 1) * maxLogSize;</span></span><br><span class="line"><span class="comment">//                end = end &gt; logStrLength ? logStrLength : end;</span></span><br><span class="line"><span class="comment">//                subStr = sb.substring(start, end);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 封装Log相关方法</span><br><span class="line">             */</span></span><br><span class="line">            <span class="keyword">switch</span> (priority) &#123;</span><br><span class="line">                <span class="keyword">case</span> Log.VERBOSE:</span><br><span class="line">                    Log.v(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.DEBUG:</span><br><span class="line">                    Log.d(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.INFO:</span><br><span class="line">                    Log.i(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.WARN:</span><br><span class="line">                    Log.w(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.ERROR:</span><br><span class="line">                    Log.e(LOGGER_PREFIX + tag, subStr);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 把logStr按照一定的格式输出到文件中</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log2File</span><span class="params">(String logStr, String fileName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-DD hh:mm:ss"</span>);</span><br><span class="line">        String dateFormat = sdf.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String filePath = Functions.getSDPath() + fileName;</span><br><span class="line">            File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">            <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span><br><span class="line">             * 利用FileWriter输出</span><br><span class="line">             */</span></span><br><span class="line">            fw = <span class="keyword">new</span> FileWriter(filePath, <span class="keyword">true</span>);</span><br><span class="line">            fw.write(dateFormat + <span class="string">":"</span> + logStr + <span class="string">"\r\n"</span>);</span><br><span class="line">            fw.flush();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fw.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                fw = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEnableLog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ENABLE_LOG;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="YimSamTam.github.io/2016/05/31/LogUtil/" data-id="ciq25cq4100180cr1rj388l6j" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
-
-    </footer>
-  </div>
-  
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
     
-<nav id="article-nav">
-  
-    <a href="/2016/06/13/RxAndroid/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          RxJava、RxAndroid的理解
-        
-      </div>
+    <a class="pull-left" href="/2016/06/13/RxAndroid/" style="float: left;">
+        ← RxJava、RxAndroid的理解
     </a>
-  
-  
-    <a href="/2016/05/31/Model/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Android项目架构-Model类编写</div>
+    
+    
+    <a class="pull-right" href="/2016/05/31/Model/">
+        Android项目架构-Model类编写 →
     </a>
-  
+    
 </nav>
 
-  
-</article>
-
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/05/31/LogUtil/" data-title="工具类的编写 - Log的封装" data-url="YimSamTam.github.io/2016/05/31/LogUtil/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
 </section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/0-9/">0.9</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-RxBus/">Android-RxBus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android项目架构-Model类编写/">Android项目架构-Model类编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Broadcast/">Broadcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Check/">Check</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Draw/">Draw</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fragment/">Fragment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle打包相关基础/">Gradle打包相关基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Handler机制/">Handler机制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASE/">JAVASE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java动态布局/">Java动态布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown引用本地/">MarkDown引用本地</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notification/">Notification</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecycleView/">RecycleView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RegEx/">RegEx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJava、RxAndroid的理解/">RxJava、RxAndroid的理解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Style/">Style</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SystemService/">SystemService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Timestamp/">Timestamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volley/">Volley</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Widgets/">Widgets</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selector/">selector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shape/">shape</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码混淆/">代码混淆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实际开发-效果实现/">实际开发-效果实现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用开发工具及网站/">常用开发工具及网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用的框架/">常用的框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间戳/">时间戳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本更新/">版本更新</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/0-9/" style="font-size: 10px;">0.9</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android-文件操作/" style="font-size: 10px;">Android - 文件操作</a> <a href="/tags/Android-RxBus/" style="font-size: 10px;">Android-RxBus</a> <a href="/tags/Android-代码优化技巧/" style="font-size: 10px;">Android-代码优化技巧</a> <a href="/tags/Android项目架构/" style="font-size: 10px;">Android项目架构</a> <a href="/tags/Android项目架构-Model类编写/" style="font-size: 10px;">Android项目架构-Model类编写</a> <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/Async-http/" style="font-size: 10px;">Async-http</a> <a href="/tags/BNJ/" style="font-size: 10px;">BNJ</a> <a href="/tags/Broadcast/" style="font-size: 10px;">Broadcast</a> <a href="/tags/Callback接口/" style="font-size: 10px;">Callback接口</a> <a href="/tags/Check/" style="font-size: 10px;">Check</a> <a href="/tags/Draw/" style="font-size: 10px;">Draw</a> <a href="/tags/DrawerLayout/" style="font-size: 10px;">DrawerLayout</a> <a href="/tags/EventBus基本使用/" style="font-size: 10px;">EventBus基本使用</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Gradle打包相关基础/" style="font-size: 10px;">Gradle打包相关基础</a> <a href="/tags/Handler机制/" style="font-size: 10px;">Handler机制</a> <a href="/tags/ImageLoader/" style="font-size: 10px;">ImageLoader</a> <a href="/tags/ImageUpload/" style="font-size: 10px;">ImageUpload</a> <a href="/tags/JAVASE/" style="font-size: 10px;">JAVASE</a> <a href="/tags/Java动态布局/" style="font-size: 10px;">Java动态布局</a> <a href="/tags/LayoutInflater/" style="font-size: 10px;">LayoutInflater</a> <a href="/tags/ListView/" style="font-size: 10px;">ListView</a> <a href="/tags/MarkDown引用本地/" style="font-size: 10px;">MarkDown引用本地</a> <a href="/tags/Notification/" style="font-size: 20px;">Notification</a> <a href="/tags/PopupWindow/" style="font-size: 10px;">PopupWindow</a> <a href="/tags/RecycleView/" style="font-size: 10px;">RecycleView</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/RegEx/" style="font-size: 10px;">RegEx</a> <a href="/tags/RxJava、RxAndroid的理解/" style="font-size: 10px;">RxJava、RxAndroid的理解</a> <a href="/tags/ScanCode/" style="font-size: 10px;">ScanCode</a> <a href="/tags/Style/" style="font-size: 10px;">Style</a> <a href="/tags/SystemService/" style="font-size: 10px;">SystemService</a> <a href="/tags/Timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/View/" style="font-size: 10px;">View</a> <a href="/tags/ViewPager-One/" style="font-size: 10px;">ViewPager_One</a> <a href="/tags/ViewPager-Two/" style="font-size: 10px;">ViewPager_Two</a> <a href="/tags/Volley/" style="font-size: 10px;">Volley</a> <a href="/tags/Widgets/" style="font-size: 10px;">Widgets</a> <a href="/tags/onTouchEvent/" style="font-size: 10px;">onTouchEvent</a> <a href="/tags/selector/" style="font-size: 10px;">selector</a> <a href="/tags/shape/" style="font-size: 10px;">shape</a> <a href="/tags/代码混淆/" style="font-size: 10px;">代码混淆</a> <a href="/tags/实际开发-效果实现/" style="font-size: 10px;">实际开发-效果实现</a> <a href="/tags/小技巧/" style="font-size: 10px;">小技巧</a> <a href="/tags/屏幕宽高/" style="font-size: 10px;">屏幕宽高</a> <a href="/tags/工具类的编写-Log的封装/" style="font-size: 10px;">工具类的编写 - Log的封装</a> <a href="/tags/常用开发工具及网站/" style="font-size: 10px;">常用开发工具及网站</a> <a href="/tags/常用的框架/" style="font-size: 10px;">常用的框架</a> <a href="/tags/开发中常见的Error、Bug/" style="font-size: 10px;">开发中常见的Error、Bug</a> <a href="/tags/时间戳/" style="font-size: 10px;">时间戳</a> <a href="/tags/版本更新/" style="font-size: 10px;">版本更新</a> <a href="/tags/自定义View基本知识/" style="font-size: 10px;">自定义View基本知识</a> <a href="/tags/自定义底部弹出菜单/" style="font-size: 10px;">自定义底部弹出菜单</a>
-    </div>
-  </div>
+      
+<!-- ============================ Footer =========================== -->
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/06/13/RxBus/">RxBus</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/31/Model/">Android项目架构-Model类编写</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 YimSam-Tam<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YimSam-Tam. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
     
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
 
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
 </html>
