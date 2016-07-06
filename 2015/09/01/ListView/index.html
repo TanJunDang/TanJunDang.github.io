@@ -1,316 +1,247 @@
 <!DOCTYPE html>
-<!--[if lte IE 8 ]>
-<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--
-***************  *      *     *
-      8          *    *       *
-      8          *  *         *
-      8          **           *
-      8          *  *         *
-      8          *    *       *
-      8          *      *     *
-      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
--->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
-
+<html>
 <head>
-  <title>ListView的理解 | YimSam-Tam</title>
-  <!-- Meta data -->
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="YimSam-Tam">
-    <meta name="author" content="YimSam-Tam">
-    <meta name="description" content="程序猿" />
-    <meta name="keywords" content="" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+    
 
-    <link rel="alternate" href="/atom.xml" title="YimSam-Tam" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
-	
-    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    <title>
+      ListView的理解 | YimSam-Tam 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="YimSam-Tam">
     
     
 
-    <!-- Custom stylesheet, (add custom styles here, always load last) -->
-    <!-- Load our stylesheet for IE8 -->
-    <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
-    <![endif]-->
+    <meta name="description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
 
-    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
-    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+在java中取消  
 
-    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
-    <!--[if IE]>
-    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
-    <![endif]-->
+1234listView.setDividerHeight(0);listView.setDivider(null);
 
-    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+在XML布局文件取消  
 
-    <!-- Load these in the <head> for quicker IE8+ load times -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <![endif]-->
+123456android:divider=&quot;#FFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ListView的理解 | YimSam-Tam">
+<meta property="og:url" content="YimSamTam.github.io/2015/09/01/ListView/index.html">
+<meta property="og:site_name" content="YimSam-Tam">
+<meta property="og:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
 
+在java中取消  
 
+1234listView.setDividerHeight(0);listView.setDivider(null);
 
+在XML布局文件取消  
 
+123456android:divider=&quot;#FFC">
+<meta property="og:updated_time" content="2016-07-05T08:27:17.782Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ListView的理解 | YimSam-Tam">
+<meta name="twitter:description" content="ListView 分割线在divider 为颜色 时 需设置dividerHeight如何判断listview是最后一个
+if(坐标&amp;lt;总长度-1)
+如何取消分割线
 
+在java中取消  
 
+1234listView.setDividerHeight(0);listView.setDivider(null);
 
+在XML布局文件取消  
 
+123456android:divider=&quot;#FFC">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
 
-
-  
-  
-  
-
-  
-  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
+<body>
 
-<!--
-<body class="post-template">
--->
-<body id="index" class="lightnav animsition">
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
 
-      <!-- ============================ Off-canvas navigation =========================== -->
+    
 
-    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
-        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">YimSam-Tam</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          程序猿
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
         </div>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu">
-            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
-            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
-            <!-- Dropdown Menu -->
-			 
-            <li>
-                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
-                    
-                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
-                    
-                </ul>
-            </li>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
             
-            
-            
-            <li>
-                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
-                    
-                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
-                    
-                </ul>
-            </li>
-            
-        </ul>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
-            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
-            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
-        </ul>
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">ListView的理解</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2015-09-01" class="post-meta__date date">2015-09-01</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/ListView/">ListView</a>
+            </font>
+          
+
+      </span>
     </div>
     
-    <!-- ============================ END Off-canvas navigation =========================== -->
-
-    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
-
-    <div id="sb-site">
-        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
-
-        <!-- ============================ Header & Logo bar =========================== -->
-
-        <div id="navigation" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- Nav logo -->
-                    <div class="logo">
-                        <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
-                        </a>
-                    </div>
-                    <!-- // Nav logo -->
-                    <!-- Info-bar -->
-                    <nav>
-                        <ul class="nav">
-                            <li><a href="/" class="animsition-link">YimSam-Tam</a></li>
-                            <li class="nolink"><span>Always </span>Creative.</li>
-                            
-                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
-                            
-                            
-                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
-                            
-                            
-                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
-                            
-                            
-                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
-                            
-                            
-                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
-                            
-                            <li class="nolink"><span>Welcome!</span></li>
-                        </ul>
-                    </nav>
-                    <!--// Info-bar -->
-                </div>
-                <!-- // .container -->
-                <div class="learnmore sb-toggle-right">More</div>
-                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar before"></span>
-                <span class="icon-bar main"></span>
-                <span class="icon-bar after"></span>
-                </button>
-            </div>
-            <!-- // .navbar-inner -->
-        </div>
-
-        <!-- ============================ Header & Logo bar =========================== -->
-
-        <!-- ============================ Hero Image =========================== -->
-
-        <section id="hero" class="scrollme">
-            <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                            <div>
-                            	
-                                <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                                <p></p>
-				    			
-                                <h2></h2>
-                                <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-				    			
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- // .col-md-12 -->
-                </div>
-                <div class="herofade beige-dk"></div>
-            </div>
-        </section>
-
-        <!-- Height spacing helper -->
-        <div class="heightblock"></div>
-        <!-- // End height spacing helper -->
-
-        <!-- ============================ END Hero Image =========================== -->
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">
-          2015-09-01
-      </time>
     
-    
-    | 
-    <a href='/tags/ListView/'>ListView</a>
-    
-    
-</span>
-                <h1>ListView的理解</h1>
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<h3 id="ListView-分割线"><a href="#ListView-分割线" class="headerlink" title="ListView 分割线"></a>ListView 分割线</h3><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="ListView-分割线"><a href="#ListView-分割线" class="headerlink" title="ListView 分割线"></a>ListView 分割线</h3><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
 <pre><code>if(坐标&lt;总长度-1)
 </code></pre><p>如何取消分割线</p>
 <ul>
-<li><p>在java中取消  </p>
-<pre><code>listView.setDividerHeight(0);
-
-listView.setDivider(null);
-</code></pre></li>
-<li><p>在XML布局文件取消  </p>
-<pre><code>android:divider=&quot;#FFCC00&quot;  
-
-或      
-
-android:divider=&quot;@null&quot;
-</code></pre></li>
+<li>在java中取消  </li>
 </ul>
-<h3 id="设置listview无点击背景效果"><a href="#设置listview无点击背景效果" class="headerlink" title="设置listview无点击背景效果"></a>设置listview无点击背景效果</h3><pre><code>android:listSelector=&quot;@android:color/transparent&quot;  
-</code></pre><h3 id="ConvertView的理解"><a href="#ConvertView的理解" class="headerlink" title="ConvertView的理解"></a>ConvertView的理解</h3><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">listView.setDividerHeight(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">listView.setDivider(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在XML布局文件取消  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android:divider=<span class="string">"#FFCC00"</span>  </span><br><span class="line"></span><br><span class="line">或	  </span><br><span class="line"></span><br><span class="line">android:divider=<span class="string">"@null"</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置listview无点击背景效果"><a href="#设置listview无点击背景效果" class="headerlink" title="设置listview无点击背景效果"></a>设置listview无点击背景效果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android:listSelector=<span class="string">"@android:color/transparent"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="ConvertView的理解"><a href="#ConvertView的理解" class="headerlink" title="ConvertView的理解"></a>ConvertView的理解</h3><ul>
 <li>每一个条目（Item）的显示，都是ListView加载布局来实现的。</li>
 <li>convertview就是滑出屏幕后被Android回收的条目。</li>
 </ul>
 <p>原因：由于每次加载布局会使性能下降，所以应该复用convertview。  </p>
 <p>如何复用？ 代码如下：</p>
-<pre><code>if(convertView==null){
-    加载布局
-}
-//然后获取布局里的的View设置相关的值  
-convertView.findViewById(R.id.text)).setText(DATA[position]);
-</code></pre><p>由于每次都要FindId，这样也会使性能下降。所以我们应该复用ConvertView，这时就用到ViewHolder跟settag跟gettag方法了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span>(convertView==<span class="keyword">null</span>)&#123;</span><br><span class="line">	加载布局</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//然后获取布局里的的View设置相关的值  </span></span><br><span class="line">convertView.findViewById(R.id.text)).setText(DATA[position]);</span><br></pre></td></tr></table></figure>
+<p>由于每次都要FindId，这样也会使性能下降。所以我们应该复用ConvertView，这时就用到ViewHolder跟settag跟gettag方法了。</p>
 <ul>
 <li>简单来说ViewHolder就是对一个布局里的控件FindId</li>
 </ul>
 <p>所以代码改成这样：  </p>
-<pre><code>ViewHolder holder;
-if(convertView==null){
-    加载布局
-holder =  new ViewHolder();  
-convertView.setTag(holder);
-}else{
-holder = (ViewHolder)convertView.getTag();
-}
-//然后获取布局里的的View设置相关的值  
-holder.tvName.setText(DATA[position]);
-.
-.
-.
-class ViewHolder{
-    private TextView tvName;
-}
-</code></pre><h3 id="ListView的下拉刷新，上拉加载数据"><a href="#ListView的下拉刷新，上拉加载数据" class="headerlink" title="ListView的下拉刷新，上拉加载数据"></a>ListView的下拉刷新，上拉加载数据</h3><p>在跟服务器交互时  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ViewHolder holder;</span><br><span class="line"><span class="keyword">if</span>(convertView==<span class="keyword">null</span>)&#123;</span><br><span class="line">	加载布局</span><br><span class="line">	holder =  <span class="keyword">new</span> ViewHolder();  </span><br><span class="line">	convertView.setTag(holder);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//然后获取布局里的的View设置相关的值  </span></span><br><span class="line">	</span><br><span class="line">	.</span><br><span class="line">	.</span><br><span class="line">	.</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> TextView tvName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ListView的下拉刷新，上拉加载数据"><a href="#ListView的下拉刷新，上拉加载数据" class="headerlink" title="ListView的下拉刷新，上拉加载数据"></a>ListView的下拉刷新，上拉加载数据</h3><p>在跟服务器交互时  </p>
 <ul>
 <li>当ListView 下拉时，<strong>清空原数据</strong>,请求新的一页数据(用currentPage判断)。  currentPage = 1 ;</li>
-<li><p>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </p>
-<a id="more"></a>
-<pre><code>srlExp.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-      @Override
-      public void onRefresh() {
-          currentPage = 1;
-          getData(); //向服务器请求数据
-      }
-  });
-  srlExp.setOnLoadListener(new RefreshLoadLayout.OnLoadListener() {
-      @Override
-      public void onLoad() {
-          currentPage++;
-          getData();
-      }
-  });  
-</code></pre></li>
+<li>当Listview 上拉时，重新加载一页数据。 currentPage ++;  </li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">srlExp.setOnRefreshListener(<span class="keyword">new</span> SwipeRefreshLayout.OnRefreshListener() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          currentPage = <span class="number">1</span>;</span><br><span class="line">          getData(); <span class="comment">//向服务器请求数据</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  srlExp.setOnLoadListener(<span class="keyword">new</span> RefreshLoadLayout.OnLoadListener() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoad</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          currentPage++;</span><br><span class="line">          getData();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>处理服务器获得的数据</li>
 </ul>
@@ -324,284 +255,89 @@ class ViewHolder{
 
 
 代码如下：  
-
-
-    @Override
-    public void onGeneralSuccess(String result, long flag) {
-
-        if (flag == reqFlagAchieve) {
-            achieveResp = GsonTool.getServerBean(result, AchieveResp.class);
-
-            if (achieveResp.isSuccess()) {
-                if (achieveResp.getAchievelist() != null &amp;&amp; achieveResp.getAchievelist().size() &gt; 0) {
-
-                    //refreshLayout显示
-                    srlShare.setVisibility(View.VISIBLE);
-
-                    //判断是上拉还是下拉
-                    if (currentPage == 1) {
-                        list.clear();
-                    }
-
-                    //获取服务器下发数据总长度
-                    amount = achieveResp.getAmount();
-
-                    //加入全部元素(卧槽，for循环已经low了)
-                    list.addAll(achieveResp.getAchievelist());
-                    achieveShareAdapter.notifyDataSetChanged();
-
-                    //判断是否有加载更多
-                    if (list.size() &lt; amount) {
-                        srlShare.setLoadMoreEnable(true);
-                    } else {
-                        srlShare.setLoadMoreEnable(false);
-                    }
-
-                }  
-            }  
-
-        } else {
-            Functions.toast(this, getString(R.string.common_hint_server_error));
-            rvShare.showFailed();
-        }
-        //设置停止刷新（ProgressBar消失）
-        srlShare.setRefreshing(false);
-        srlShare.setLoading(false);
-    }  
-</code></pre><h3 id="使用不同布局的Listview"><a href="#使用不同布局的Listview" class="headerlink" title="使用不同布局的Listview"></a>使用不同布局的Listview</h3><p>getViewTypeCount 返回该listview有多少个布局  </p>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGeneralSuccess</span><span class="params">(String result, <span class="keyword">long</span> flag)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (flag == reqFlagAchieve) &#123;</span><br><span class="line">        achieveResp = GsonTool.getServerBean(result, AchieveResp.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (achieveResp.isSuccess()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (achieveResp.getAchievelist() != <span class="keyword">null</span> &amp;&amp; achieveResp.getAchievelist().size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">				<span class="comment">//refreshLayout显示</span></span><br><span class="line">                srlShare.setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">				<span class="comment">//判断是上拉还是下拉</span></span><br><span class="line">                <span class="keyword">if</span> (currentPage == <span class="number">1</span>) &#123;</span><br><span class="line">                    list.clear();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">//获取服务器下发数据总长度</span></span><br><span class="line">                amount = achieveResp.getAmount();</span><br><span class="line"></span><br><span class="line">				<span class="comment">//加入全部元素(卧槽，for循环已经low了)</span></span><br><span class="line">                list.addAll(achieveResp.getAchievelist());</span><br><span class="line">                achieveShareAdapter.notifyDataSetChanged();</span><br><span class="line"></span><br><span class="line">				<span class="comment">//判断是否有加载更多</span></span><br><span class="line">                <span class="keyword">if</span> (list.size() &lt; amount) &#123;</span><br><span class="line">                    srlShare.setLoadMoreEnable(<span class="keyword">true</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    srlShare.setLoadMoreEnable(<span class="keyword">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Functions.toast(<span class="keyword">this</span>, getString(R.string.common_hint_server_error));</span><br><span class="line">        rvShare.showFailed();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//设置停止刷新（ProgressBar消失）</span></span><br><span class="line">    srlShare.setRefreshing(<span class="keyword">false</span>);</span><br><span class="line">    srlShare.setLoading(<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用不同布局的Listview"><a href="#使用不同布局的Listview" class="headerlink" title="使用不同布局的Listview"></a>使用不同布局的Listview</h3><p>getViewTypeCount 返回该listview有多少个布局  </p>
 <p>getItemViewType 返回布局的id  </p>
 <p>有多少个布局就要创建多少个Holder  </p>
 <p>每个ListView都有一个数据源 下面给出一个例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> stuNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> stuNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们重写getViewTypeCount跟getitemViewType方法如下  </p>
-<pre><code>public class MyAdapter extends BaseAdapter{  
-//我们设置这个ListView 有两种布局，则就要定义两种type  
-//type为1时我们创建一个item，type为0时创建一个分割线  
-private static final int DATA = 1;  
-private static final int DIVIDER = 0;  
-ArrayList&lt;Student&gt; = new ArrayList&lt;Student&gt;();  
-     .
-    .
-    .
-    .
-    .
- @Override
-    public int getItemViewType(int position) {  
-//通过判断Student对象的stuNum的值来决定返回什么布局  
-        if (getItem(position).getsuNum == -1) {  
-            return DIVIDER;  
-        }  
-        return DATA;  
-    }  
-}  
-
- @Override  
-    public int getViewTypeCount(int position) {  
-//因为要返回两种布局类型，所以这里是2  
-        return 2;  
-    }  
-}  
-
- public View getView(int position, View convertView, ViewGroup parent) {  
-if(convertView==null){  
-    .  
-    .  
-    .  
-    int type = getItemViewType(position);  
-
-    switch(type){  
-    case DATA:  
-    //这里装载item数据  
-    break;  
-    case DIVIDER：  
-    //这里装载一个divider  
-    break;  
-    }  
-
-}   
-</code></pre><p>在MainACtivity里，我们可以这样创建数据时，如果要加载一个Divider就设置Student里stuNum属性为-1 即可</p>
-<pre><code>ArrayList&lt;Student&gt; list = new ArrayList&lt;&gt;();
-
-for(int i = 0 ;i&lt;50;i++){
-Student student =  new Student();
-student.setStuNum(i);
-
-if(i%4==0){
-student.setStuNum(-1);
-}
-list.add(student)
-}
-</code></pre><h3 id="notifyDataSetChanged方法正常使用的前提是数据源ID没变"><a href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变" class="headerlink" title="notifyDataSetChanged方法正常使用的前提是数据源ID没变"></a>notifyDataSetChanged方法正常使用的前提是数据源ID没变</h3><h3 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h3><p>原因：</p>
-<pre><code>getItemViewType的值必须小于getItemViewTypeCount
-</code></pre><p>例子：</p>
-<pre><code>public static final int TYPE_COUNT = 2;
-public static final int TYPE_USER_ME = 1;
-public static final int TYPE_USER_OTHER = 2; //此处报错，应该设置成0
-
- @Override
-public int getItemViewType(int position) {
-    return users.get(position).getUserType();
-}
-
-@Override
-public int getViewTypeCount() {
-    return TYPE_COUNT;
-}
-</code></pre><h3 id="加载更多的逻辑判断"><a href="#加载更多的逻辑判断" class="headerlink" title="加载更多的逻辑判断"></a>加载更多的逻辑判断</h3><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span></span>&#123;  </span><br><span class="line"><span class="comment">//我们设置这个ListView 有两种布局，则就要定义两种type  </span></span><br><span class="line"><span class="comment">//type为1时我们创建一个item，type为0时创建一个分割线  </span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DATA = <span class="number">1</span>;  </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DIVIDER = <span class="number">0</span>;  </span><br><span class="line">ArrayList&lt;Student&gt; = <span class="keyword">new</span> ArrayList&lt;Student&gt;();  </span><br><span class="line"> 	.</span><br><span class="line">	.</span><br><span class="line">	.</span><br><span class="line">	.</span><br><span class="line">	.</span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;  </span><br><span class="line"><span class="comment">//通过判断Student对象的stuNum的值来决定返回什么布局  </span></span><br><span class="line">        <span class="keyword">if</span> (getItem(position).getsuNum == -<span class="number">1</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> DIVIDER;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> DATA;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;  </span><br><span class="line"><span class="comment">//因为要返回两种布局类型，所以这里是2  </span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;  </span><br><span class="line"><span class="keyword">if</span>(convertView==<span class="keyword">null</span>)&#123;  </span><br><span class="line">	.  </span><br><span class="line">	.  </span><br><span class="line">	.  </span><br><span class="line">	<span class="keyword">int</span> type = getItemViewType(position);  </span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(type)&#123;  </span><br><span class="line">	<span class="keyword">case</span> DATA:  </span><br><span class="line">	<span class="comment">//这里装载item数据  </span></span><br><span class="line">	<span class="keyword">break</span>;  </span><br><span class="line">	<span class="keyword">case</span> DIVIDER：  </span><br><span class="line">	<span class="comment">//这里装载一个divider  </span></span><br><span class="line">	<span class="keyword">break</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line"></span><br><span class="line">&#125;   </span><br><span class="line">	</span><br><span class="line">``` </span><br><span class="line"> </span><br><span class="line">在MainACtivity里，我们可以这样创建数据时，如果要加载一个Divider就设置Student里stuNum属性为-<span class="number">1</span> 即可</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line">ArrayList&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;<span class="number">50</span>;i++)&#123;</span><br><span class="line">	Student student =  <span class="keyword">new</span> Student();</span><br><span class="line">	student.setStuNum(i);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(i%<span class="number">4</span>==<span class="number">0</span>)&#123;</span><br><span class="line">	student.setStuNum(-<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	list.add(student)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="notifyDataSetChanged方法正常使用的前提是数据源ID没变"><a href="#notifyDataSetChanged方法正常使用的前提是数据源ID没变" class="headerlink" title="notifyDataSetChanged方法正常使用的前提是数据源ID没变"></a>notifyDataSetChanged方法正常使用的前提是数据源ID没变</h3><h3 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h3><p>原因：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getItemViewType的值必须小于getItemViewTypeCount</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_COUNT = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_ME = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_OTHER = <span class="number">2</span>; <span class="comment">//此处报错，应该设置成0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> users.get(position).getUserType();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> TYPE_COUNT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加载更多的逻辑判断"><a href="#加载更多的逻辑判断" class="headerlink" title="加载更多的逻辑判断"></a>加载更多的逻辑判断</h3><ul>
 <li>显示的数据&gt;=下发的数据 则不可以加载更多</li>
 </ul>
 <h3 id="下发后的json，转成对象后，集合一定要判断是否为空。"><a href="#下发后的json，转成对象后，集合一定要判断是否为空。" class="headerlink" title="下发后的json，转成对象后，集合一定要判断是否为空。"></a>下发后的json，转成对象后，集合一定要判断是否为空。</h3><h3 id="listview点击item选中的实现"><a href="#listview点击item选中的实现" class="headerlink" title="listview点击item选中的实现"></a>listview点击item选中的实现</h3><ul>
 <li>在Adapter定义一个类方法setSelectedItem,用于接收点击的item。</li>
 <li>外部listiview点击事件中调用上述方法即可。</li>
 </ul>
-<pre><code>public static void setSelectedItem(int selectedItem) {
-MySchoolAdapter.selectedItem = selectedItem;
-}
-
-
-public void onItemClick(AdapterView&lt;?&gt; adapterView, View view, int i,long l) {    
-mySchoolAdapter.setSelectedItem(i);//用于设置adapter的点击项
-}
-
- //getView下面重写 使其 点击选中修改背景
-if (i == selectedItem) {
-    holder.tvSchool.setTextColor(context.getResources().getColor(R.color.common_system_style_red));
-    holder.rlRoot.setBackgroundColor(context.getResources().getColor(R.color.white));
-} else {
-    holder.tvSchool.setTextColor(context.getResources().getColor(R.color.white));
-    holder.rlRoot.setBackgroundColor(context.getResources().getColor(R.color.common_system_style_red));
-}
-</code></pre><h3 id="ListView的Item点击传递对象"><a href="#ListView的Item点击传递对象" class="headerlink" title="ListView的Item点击传递对象"></a>ListView的Item点击传递对象</h3><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setSelectedItem</span><span class="params">(<span class="keyword">int</span> selectedItem)</span> </span>&#123;</span><br><span class="line">MySchoolAdapter.selectedItem = selectedItem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; adapterView, View view, <span class="keyword">int</span> i,<span class="keyword">long</span> l)</span> </span>&#123;    </span><br><span class="line">mySchoolAdapter.setSelectedItem(i);<span class="comment">//用于设置adapter的点击项</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//getView下面重写 使其 点击选中修改背景</span></span><br><span class="line"><span class="keyword">if</span> (i == selectedItem) &#123;</span><br><span class="line">    holder.tvSchool.setTextColor(context.getResources().getColor(R.color.common_system_style_red));</span><br><span class="line">    holder.rlRoot.setBackgroundColor(context.getResources().getColor(R.color.white));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    holder.tvSchool.setTextColor(context.getResources().getColor(R.color.white));</span><br><span class="line">    holder.rlRoot.setBackgroundColor(context.getResources().getColor(R.color.common_system_style_red));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ListView的Item点击传递对象"><a href="#ListView的Item点击传递对象" class="headerlink" title="ListView的Item点击传递对象"></a>ListView的Item点击传递对象</h3><ul>
 <li>Adapter 的getItem返回集合的对象 可以在getView里重用,将点击的数据传递给下一个activity</li>
 </ul>
 <p>示例：</p>
-<pre><code>public AgencyInfo getItem(position){ //将Object改成实际的对象
-return list.get(position);
-}
-
-.
-.
-.
-public getView(....){
-int tag = 1; //定义一个tag 用于获取相关的数据
-
-AgencyInfo info = getItem(position);
-
-convertView.setonClickListener(....){
-AgencyInfo msg = v.getTag(tag);//之后便可以将msg对象传给下一个Activity
-}
-
-convertView.setTag(tag,info);
-}    
-</code></pre><p>总结：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> AgencyInfo <span class="title">getItem</span><span class="params">(position)</span></span>&#123; <span class="comment">//将Object改成实际的对象</span></span><br><span class="line"><span class="keyword">return</span> list.get(position);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">getView</span><span class="params">(....)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> tag = <span class="number">1</span>; <span class="comment">//定义一个tag 用于获取相关的数据</span></span><br><span class="line"></span><br><span class="line">AgencyInfo info = getItem(position);</span><br><span class="line"></span><br><span class="line">convertView.setonClickListener(....)&#123;</span><br><span class="line">AgencyInfo msg = v.getTag(tag);<span class="comment">//之后便可以将msg对象传给下一个Activity</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">convertView.setTag(tag,info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：  </p>
 <ul>
 <li>重写getItem方法、getView设置tag</li>
 <li>通过setTag设置对象、通过getTag获取对象</li>
 </ul>
 
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2015/09/07/CustomView/" style="float: left;">
-        ← 自定义View基本知识
-    </a>
-    
-    
-    <a class="pull-right" href="/2015/09/01/Draw/">
-        绘图总结 →
-    </a>
-    
-</nav>
+  </section>
 
-        <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/09/01/ListView/" data-title="ListView的理解" data-url="YimSamTam.github.io/2015/09/01/ListView/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"duoshuo_name"};
-(function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-</div>
-    </div>
-</section>
+  
+  
+</article>
 
 
-      
-<!-- ============================ Footer =========================== -->
+            <footer class="footer">
 
-<footer>
-    <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YimSam-Tam. All Rights Reserved.
-                </p>
-                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
-                    
-                    
-                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
 </footer>
+        </div>
+    </div>
 
-<!-- ============================ END Footer =========================== -->
-      <!-- Load our scripts -->
-        
-<!-- Resizable 'on-demand' full-height hero -->
-<script type="text/javascript">
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
     
-    var resizeHero = function () {
-        var hero = $(".cover,.heightblock"),
-            window1 = $(window);
-        hero.css({
-            "height": window1.height()
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
         });
-    };
-    
-    resizeHero();
-    
-    $(window).resize(function () {
-        resizeHero();
-    });
-</script>
-<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
-<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
-<script src="/js/scripts.js"></script><!-- Theme scripts -->
+    </script>
 
-<!-- Initiate flexslider plugin -->
-<script type="text/javascript">
-    $(document).ready(function($) {
-      $('.flexslider').flexslider({
-        animation: "fade",
-        prevText: "",
-        nextText: "",
-        directionNav: true
-      });
-    });
-</script>
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
 </body>
 </html>
