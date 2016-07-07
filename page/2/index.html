@@ -175,84 +175,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-EventBus" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/EventBus/" class="article-date">
-      <time datetime="2016-04-05T03:08:58.000Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/EventBus/">EventBus基本使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><a href="/2016/05/05/RxBus/">RxBus</a></p>
-<p><a href="/2016/04/05/RxAndroid/">RxJava、RxAndroid</a></p>
-<h3 id="事件总线"><a href="#事件总线" class="headerlink" title="事件总线"></a>事件总线</h3><blockquote>
-<p>EventBus是Android下高效的发布/订阅事件总线机制。作用是可以代替传统的Intent,Handler,Broadcast或接口函数在Fragment,Activity,Service,线程之间传递数据。特点是代码简洁,是一种发布订阅设计模式（Publish/Subsribe）,或称作观察者设计模式。</p>
-</blockquote>
-<ul>
-<li>订阅的基本条件：订阅者、发布者、绑定两者的方法。</li>
-</ul>
-<h3 id="EventBus的作用"><a href="#EventBus的作用" class="headerlink" title="EventBus的作用"></a>EventBus的作用</h3><ul>
-<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
-<li>EventBus自定义消息类型。（创建Event）。</li>
-<li>EventBus一般不创建对象，直接调用default方法即可。</li>
-<li>发送者直接调用post方法即可。</li>
-<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/EventBus/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-ProGuard" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -917,6 +839,88 @@ adjustResize
         <p class="article-more-link">
           <a  href="/2016/01/29/ImageUpload/#more">阅读全文 >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/LayoutInflater/" class="article-date">
+      <time datetime="2016-01-13T08:19:33.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
+
+View view = inflater.inflate(R.layout.button_layout, main_layout);
+View view = inflater.inflate(R.layout.button_layout, main_layout,true);
+//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
+
+View view = inflater.inflate(R.layout.button_layout, main_layout,false);
+//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
+
+View view = inflater.inflate(R.layout.button_layout, null,true);
+父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
+
+//父布局为null,后面的参数无效
+</code></pre><p>自定义View</p>
+<p>分析Adatper里的一句代码</p>
+<pre><code>@Override
+public View getView(int i , View view , ViewGroup parent)
+{
+    view = inflater.inflate(R.layout.list_item, parent);
+}
+</code></pre><ul>
+<li>view 是指list_item里面的根标签</li>
+<li>parent 是指外部使用该Item的控件，即ListView</li>
+<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
