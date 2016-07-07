@@ -459,7 +459,7 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ/">BNJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ项目学到的知识点/">BNJ项目学到的知识点</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
     </div>
 
       
@@ -752,7 +752,16 @@ compile &apos;com.android.support:support-v4:22.2.1&apos;
 <li>配置文件中配置下列代码  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> </span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span> <span class="comment">//默认不弹出键盘,以及将底部按钮显示在软键盘上方</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
-<h4 id="如何防止ActionBar被软键盘顶走"><a href="#如何防止ActionBar被软键盘顶走" class="headerlink" title="如何防止ActionBar被软键盘顶走"></a>如何防止ActionBar被软键盘顶走</h4><p>在有Edittext的LinearLayout外添加一个ScrollView。</p>
+<h3 id="软键盘顶走按钮"><a href="#软键盘顶走按钮" class="headerlink" title="软键盘顶走按钮"></a>软键盘顶走按钮</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustPan
+adjustResize
+</code></pre><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="/2016/02/01/Widgets/">EditText</a></p>
+<p>标题栏被顶走</p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustResize
+</code></pre><h4 id="如何防止ActionBar被软键盘顶走"><a href="#如何防止ActionBar被软键盘顶走" class="headerlink" title="如何防止ActionBar被软键盘顶走"></a>如何防止ActionBar被软键盘顶走</h4><p>在有Edittext的LinearLayout外添加一个ScrollView。</p>
 <p><a href="http://2dxgujun.com/post/2014/10/23/Soft-Keyboard-Jacking-Control.html">EditText顶走ActionBar参考</a></p>
 <h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
 <h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>

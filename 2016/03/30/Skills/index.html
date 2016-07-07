@@ -28,14 +28,12 @@
 
 1234567891011new Handler().postDelayed(new Runnable()&amp;#123; 	@Override		public void run()&amp;#123;			Intent">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5TVZ1bFluWDhkNlRBejczdXI5VFRXVjh1bkRHeGJOYjJBPT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-07-04T03:45:02.938Z">
+<meta property="og:updated_time" content="2016-07-07T09:36:42.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="启动界面
@@ -265,94 +263,60 @@
  <a id="more"></a>
 <h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
 <h3 id="EditText、TextView"><a href="#EditText、TextView" class="headerlink" title="EditText、TextView"></a>EditText、TextView</h3><p>EditText background=”@null”可以去掉下划线<br>TextView 设置中心垂直 水平 无效果，是因为宽高的影响<br>EditText 设置字数限制 两种方法：<br>1.xml中设置maxLength属性<br>2.java调用setFilters方法  </p>
-<pre><code>editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});  
-</code></pre><p>TextView设置行间距  </p>
-<pre><code>android:lineSpacingExtra=&quot;7dp&quot;  
-</code></pre><p>EditText 设置光标位置  </p>
-<pre><code>android：gravity=&quot;right&quot;  
-</code></pre><p>解决光标在两行字 中间的方法  </p>
-<pre><code>android:gravity=&quot;top&quot;
-</code></pre><p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h3 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h3><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
-<h3 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h3><p>DatePicker 必须 设置 显示样式  </p>
-<pre><code>android:datepickermode  
-</code></pre><p>设置日历不显示  </p>
-<pre><code>android:calendarViewShown=&quot;false&quot;  
-</code></pre><h3 id="markdown引用格式"><a href="#markdown引用格式" class="headerlink" title="markdown引用格式"></a>markdown引用格式</h3><p>markdown引用格式：日期+文件名+”/“</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">editText.setFilters(<span class="keyword">new</span> InputFilter[]&#123;<span class="keyword">new</span> InputFilter.LengthFilter(<span class="number">140</span>)&#125;);</span><br></pre></td></tr></table></figure>
+<p>TextView设置行间距<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:lineSpacingExtra=<span class="string">"7dp"</span></span><br></pre></td></tr></table></figure></p>
+<p>EditText 设置光标位置  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android：gravity=<span class="string">"right"</span></span><br></pre></td></tr></table></figure>
+<p>解决光标在两行字 中间的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:gravity=<span class="string">"top"</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h3 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h3><ul>
+<li><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
+</li>
+<li><p>markdown引用格式</p>
+</li>
+</ul>
+<blockquote>
+<p>markdown引用格式：日期+文件名+”/“</p>
+</blockquote>
 <pre><code>/2015/09/17/ImageLoader/
-</code></pre><p><a href="/2015/09/17/ImageLoader/">ImageLoader</a></p>
-<p><a href="http://blog.csdn.net/lancees/article/details/25618237" target="_blank" rel="external">源码来自此人</a></p>
-<h3 id="退出整个程序的代码"><a href="#退出整个程序的代码" class="headerlink" title="退出整个程序的代码"></a>退出整个程序的代码</h3><pre><code>android.os.Process.killProcess(android.os.Process.myPid());
-</code></pre><h3 id="退出到桌面的代码"><a href="#退出到桌面的代码" class="headerlink" title="退出到桌面的代码"></a>退出到桌面的代码</h3><pre><code>Intent intent = new Intent();
-intent.setAction(Intent.ACTION_MAIN);
-intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-intent.addCategory(Intent.CATEGORY_HOME);
-startActivity(intent);
-</code></pre><h3 id="如何判断是否第一进入本界面"><a href="#如何判断是否第一进入本界面" class="headerlink" title="如何判断是否第一进入本界面"></a>如何判断是否第一进入本界面</h3><pre><code>1. onCreate 获取一个SharedPreferences、同时创建一个xml文件。
-2. 创建一个boolean变量isFirst 通过sp对象来获取其值。
-3. 判断isFirst是否为true，是则做第一次的处理。
-4. 第一次处理之后，要把boolean值设置为false，并传给xml文件里。
-
-代码如下
-
-    private SharedPreferences sp;  
-    private boolean isFirst = true;  
-    public void onCreate(){  
-    sp = getSharedPreferences(&quot;Erintrus.xml&quot;,MODE_PRIVATE);
-    isFirst = sp.getBoolean(&quot;isFirst&quot;,true);  
-        if(isFirst){  
-        Editor editor = sp.edit();
-        //做第一次进入界面的处理  
-        editor.putBoolean(&quot;isFirst&quot;,false);        //改变xml文件里isFirst的值  
-        editor.commit();  
-
-        }
-
-    }
-</code></pre><h3 id="将常用的代码封装成一个类-IntentUtils类"><a href="#将常用的代码封装成一个类-IntentUtils类" class="headerlink" title="将常用的代码封装成一个类 IntentUtils类"></a>将常用的代码封装成一个类 IntentUtils类</h3><pre><code>public class IntentUtils{
-
-    public void statrActivity(Context context , Class&lt;?&gt; cls){
-        Intent intent = new Intent(context,cls);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-}
-</code></pre><h3 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h3><pre><code>默认图必须放在最后面
-
-&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item android:drawable=&quot;@drawable/common_icon_gray_tab&quot; android:state_pressed=&quot;true&quot;&gt;&lt;/item&gt;
-    &lt;item android:drawable=&quot;@drawable/common_icon_red_tab&quot;&gt;&lt;/item&gt; //默认图必须放在最下面
-&lt;/selector&gt;
-</code></pre><h3 id="如何导入so文件"><a href="#如何导入so文件" class="headerlink" title="如何导入so文件"></a>如何导入so文件</h3><pre><code>在src/main 下面新建一个jniLibs文件夹 放入文件即可
-</code></pre><h3 id="缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><a href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。" class="headerlink" title="缓存集合的时候不能用“=”赋值，要用addAll或者For循环。"></a>缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</h3><h3 id="9-png"><a href="#9-png" class="headerlink" title=".9.png"></a>.9.png</h3><ul>
+</code></pre><ul>
+<li>退出整个程序的代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.os.Process.killProcess(android.os.Process.myPid());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>退出到桌面的代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setAction(Intent.ACTION_MAIN);</span><br><span class="line">intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">intent.addCategory(Intent.CATEGORY_HOME);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</li>
+</ul>
+<h3 id="如何判断是否第一进入本界面"><a href="#如何判断是否第一进入本界面" class="headerlink" title="如何判断是否第一进入本界面"></a>如何判断是否第一进入本界面</h3><ol>
+<li>onCreate 获取一个SharedPreferences、同时创建一个xml文件。</li>
+<li>创建一个boolean变量isFirst 通过sp对象来获取其值。</li>
+<li>判断isFirst是否为true，是则做第一次的处理。</li>
+<li>第一次处理之后，要把boolean值设置为false，并传给xml文件里。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SharedPreferences sp;  </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isFirst = <span class="keyword">true</span>;  </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span></span>&#123;  </span><br><span class="line">	sp = getSharedPreferences(<span class="string">"Erintrus.xml"</span>,MODE_PRIVATE);</span><br><span class="line">	isFirst = sp.getBoolean(<span class="string">"isFirst"</span>,<span class="keyword">true</span>);  </span><br><span class="line">	<span class="keyword">if</span>(isFirst)&#123;  </span><br><span class="line">	Editor editor = sp.edit();</span><br><span class="line">	<span class="comment">//做第一次进入界面的处理  </span></span><br><span class="line">	editor.putBoolean(<span class="string">"isFirst"</span>,<span class="keyword">false</span>);		<span class="comment">//改变xml文件里isFirst的值  </span></span><br><span class="line">	editor.commit();  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h3><ul>
+<li>默认图必须放在最后面</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/common_icon_gray_tab"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/common_icon_red_tab"</span>&gt;</span><span class="tag">&lt;/<span class="name">item</span>&gt;</span> //默认图必须放在最下面</span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="如何导入so文件"><a href="#如何导入so文件" class="headerlink" title="如何导入so文件"></a>如何导入so文件</h3><pre><code>在src/main 下面新建一个jniLibs文件夹 放入文件即可
+</code></pre><h3 id="9-png"><a href="#9-png" class="headerlink" title=".9.png"></a>.9.png</h3><ul>
 <li>一句话总结：画黑点的地方无限延长</li>
 <li>tool文件夹先开启工具</li>
 </ul>
-<h3 id="软键盘顶走按钮"><a href="#软键盘顶走按钮" class="headerlink" title="软键盘顶走按钮"></a>软键盘顶走按钮</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p>解决方法： </p>
-<pre><code>在activity设置windowSoftInputMode属性为adjustPan
-adjustResize
-</code></pre><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p><a href="/2016/02/01/Widgets/"></a></p>
-<p>标题栏被顶走</p>
-<p>解决方法： </p>
-<pre><code>在activity设置windowSoftInputMode属性为adjustResize
-</code></pre><h3 id="集合按key排序"><a href="#集合按key排序" class="headerlink" title="集合按key排序"></a>集合按key排序</h3><ul>
-<li><p>用TreeMap</p>
-<pre><code>Map&lt;Integer, ArrayList&lt;User&gt;&gt; map = new TreeMap&lt;&gt;();
-</code></pre></li>
-<li><p>示例</p>
-</li>
+<h3 id="集合按key排序"><a href="#集合按key排序" class="headerlink" title="集合按key排序"></a>集合按key排序</h3><ul>
+<li>用TreeMap</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, ArrayList&lt;User&gt;&gt; map = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例</li>
 </ul>
 <p>BNJ中联系人列表</p>
-<h3 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h3><ul>
-<li>设置null,空字符等数据</li>
-</ul>
 <h3 id="aligntop没效果"><a href="#aligntop没效果" class="headerlink" title="aligntop没效果"></a>aligntop没效果</h3><ul>
 <li>没有设置父布局的高度</li>
 </ul>
-<h3 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h3><p><a href="/2016/01/01/Animation/">Animation</a></p>
 <h3 id="minHeight的作用"><a href="#minHeight的作用" class="headerlink" title="minHeight的作用"></a>minHeight的作用</h3><ul>
 <li>设置warp_content可实现根据文本自动改变控件的高度</li>
 </ul>
@@ -373,20 +337,16 @@ adjustResize
 </li>
 </ul>
 <h3 id="String-Format"><a href="#String-Format" class="headerlink" title="String.Format"></a>String.Format</h3><ul>
-<li><p>设置浮点数显示一位小数</p>
-<pre><code>//score是浮点数,%.2f表示只显示两位小数
-String.format(&quot;%.2f&quot;,score);
-</code></pre></li>
+<li>设置浮点数显示一位小数</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//score是浮点数,%.2f表示只显示两位小数</span></span><br><span class="line">String.format(<span class="string">"%.2f"</span>,score);</span><br></pre></td></tr></table></figure>
 <h3 id="mipmap尺寸"><a href="#mipmap尺寸" class="headerlink" title="mipmap尺寸"></a>mipmap尺寸</h3><p>mipmap - mdpi 48<br>mipmap - hdpi 72<br>mipmap - xhdpi 96<br>mipmap - xxhpi 144  </p>
 <h3 id="include包括的布局不能使用below等属性"><a href="#include包括的布局不能使用below等属性" class="headerlink" title="include包括的布局不能使用below等属性"></a>include包括的布局不能使用below等属性</h3><ul>
-<li><p>错误示例</p>
-<pre><code>&lt;include 
-    android:layout_below=&quot;@+id/llContainer&quot; //这里会报错
-    layout=&quot;@layout/activity_mani&quot;/&gt;  
-</code></pre></li>
-<li><p>总结：其他控件要相对该layout进行布局，必须使用layout里面的根布局的id来实现。</p>
-</li>
+<li>错误示例</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">include</span> </span><br><span class="line">	<span class="attr">android:layout_below</span>=<span class="string">"@+id/llContainer"</span> //这里会报错</span><br><span class="line">	<span class="attr">layout</span>=<span class="string">"@layout/activity_mani"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>总结：其他控件要相对该layout进行布局，必须使用layout里面的根布局的id来实现。</li>
 </ul>
 <h3 id="高度布局-实现下列效果"><a href="#高度布局-实现下列效果" class="headerlink" title="高度布局(实现下列效果)"></a>高度布局(实现下列效果)</h3><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <ul>
@@ -408,11 +368,9 @@ String.format(&quot;%.2f&quot;,score);
 </ul>
 <p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
 <ul>
-<li><p>解决办法:Edittext的父布局加入下面代码</p>
-<pre><code>android:focusable=&quot;true&quot;  
-android:focusableInTouchMode=&quot;true&quot;
-</code></pre></li>
+<li>解决办法:Edittext的父布局加入下面代码</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:focusable=<span class="string">"true"</span>  </span><br><span class="line">android:focusableInTouchMode=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
 <h3 id="如何直接使用某个类的静态方法而不用类名调用"><a href="#如何直接使用某个类的静态方法而不用类名调用" class="headerlink" title="如何直接使用某个类的静态方法而不用类名调用"></a>如何直接使用某个类的静态方法而不用类名调用</h3><pre><code>//在导包的时候,加入static 关键字即可在代码中直接调用initItemView方法
 import static io.github.movie.initItemView;
 </code></pre><h3 id="实现输入完整才激活按钮的功能"><a href="#实现输入完整才激活按钮的功能" class="headerlink" title="实现输入完整才激活按钮的功能"></a>实现输入完整才激活按钮的功能</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
@@ -452,7 +410,7 @@ import static io.github.movie.initItemView;
         <p><span>本文标题:</span><a href="/2016/03/30/Skills/">布局常用的技巧</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 YimSam-Tam 的个人博客">YimSam-Tam</a></p>
         <p><span>发布时间:</span>2016年03月30日 - 09时08分</p>
-        <p><span>最后更新:</span>2016年07月04日 - 11时45分</p>
+        <p><span>最后更新:</span>2016年07月07日 - 17时36分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/30/Skills/" title="布局常用的技巧">http://YimSamTam.github.io/2016/03/30/Skills/</a>
             <span class="copy-path" data-clipboard-text="原文: http://YimSamTam.github.io/2016/03/30/Skills/　　作者: YimSam-Tam" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -487,7 +445,7 @@ import static io.github.movie.initItemView;
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动界面"><span class="toc-number">1.</span> <span class="toc-text">启动界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActionBar"><span class="toc-number">2.</span> <span class="toc-text">ActionBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">3.</span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的知识点"><span class="toc-number">4.</span> <span class="toc-text">重要的知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker"><span class="toc-number">5.</span> <span class="toc-text">DatePicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown引用格式"><span class="toc-number">6.</span> <span class="toc-text">markdown引用格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退出整个程序的代码"><span class="toc-number">7.</span> <span class="toc-text">退出整个程序的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退出到桌面的代码"><span class="toc-number">8.</span> <span class="toc-text">退出到桌面的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断是否第一进入本界面"><span class="toc-number">9.</span> <span class="toc-text">如何判断是否第一进入本界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将常用的代码封装成一个类-IntentUtils类"><span class="toc-number">10.</span> <span class="toc-text">将常用的代码封装成一个类 IntentUtils类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selector在Button里无效的原因"><span class="toc-number">11.</span> <span class="toc-text">Selector在Button里无效的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何导入so文件"><span class="toc-number">12.</span> <span class="toc-text">如何导入so文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存集合的时候不能用“-”赋值，要用addAll或者For循环。"><span class="toc-number">13.</span> <span class="toc-text">缓存集合的时候不能用“=”赋值，要用addAll或者For循环。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-png"><span class="toc-number">14.</span> <span class="toc-text">.9.png</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软键盘顶走按钮"><span class="toc-number">15.</span> <span class="toc-text">软键盘顶走按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合按key排序"><span class="toc-number">16.</span> <span class="toc-text">集合按key排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试方法"><span class="toc-number">17.</span> <span class="toc-text">测试方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aligntop没效果"><span class="toc-number">18.</span> <span class="toc-text">aligntop没效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animation动画"><span class="toc-number">19.</span> <span class="toc-text">Animation动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#minHeight的作用"><span class="toc-number">20.</span> <span class="toc-text">minHeight的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android-alpha属性"><span class="toc-number">21.</span> <span class="toc-text">android:alpha属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#透明度计算"><span class="toc-number">21.1.</span> <span class="toc-text">透明度计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-Format"><span class="toc-number">22.</span> <span class="toc-text">String.Format</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mipmap尺寸"><span class="toc-number">23.</span> <span class="toc-text">mipmap尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include包括的布局不能使用below等属性"><span class="toc-number">24.</span> <span class="toc-text">include包括的布局不能使用below等属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高度布局-实现下列效果"><span class="toc-number">25.</span> <span class="toc-text">高度布局(实现下列效果)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView与Edittext冲突"><span class="toc-number">26.</span> <span class="toc-text">ScrollView与Edittext冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何直接使用某个类的静态方法而不用类名调用"><span class="toc-number">27.</span> <span class="toc-text">如何直接使用某个类的静态方法而不用类名调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现输入完整才激活按钮的功能"><span class="toc-number">28.</span> <span class="toc-text">实现输入完整才激活按钮的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinearLayout实现分割线"><span class="toc-number">29.</span> <span class="toc-text">LinearLayout实现分割线</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动界面"><span class="toc-number">1.</span> <span class="toc-text">启动界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActionBar"><span class="toc-number">2.</span> <span class="toc-text">ActionBar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">3.</span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的知识点"><span class="toc-number">4.</span> <span class="toc-text">重要的知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断是否第一进入本界面"><span class="toc-number">5.</span> <span class="toc-text">如何判断是否第一进入本界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selector在Button里无效的原因"><span class="toc-number">6.</span> <span class="toc-text">Selector在Button里无效的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何导入so文件"><span class="toc-number">7.</span> <span class="toc-text">如何导入so文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-png"><span class="toc-number">8.</span> <span class="toc-text">.9.png</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合按key排序"><span class="toc-number">9.</span> <span class="toc-text">集合按key排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aligntop没效果"><span class="toc-number">10.</span> <span class="toc-text">aligntop没效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#minHeight的作用"><span class="toc-number">11.</span> <span class="toc-text">minHeight的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android-alpha属性"><span class="toc-number">12.</span> <span class="toc-text">android:alpha属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#透明度计算"><span class="toc-number">12.1.</span> <span class="toc-text">透明度计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-Format"><span class="toc-number">13.</span> <span class="toc-text">String.Format</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mipmap尺寸"><span class="toc-number">14.</span> <span class="toc-text">mipmap尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include包括的布局不能使用below等属性"><span class="toc-number">15.</span> <span class="toc-text">include包括的布局不能使用below等属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高度布局-实现下列效果"><span class="toc-number">16.</span> <span class="toc-text">高度布局(实现下列效果)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView与Edittext冲突"><span class="toc-number">17.</span> <span class="toc-text">ScrollView与Edittext冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何直接使用某个类的静态方法而不用类名调用"><span class="toc-number">18.</span> <span class="toc-text">如何直接使用某个类的静态方法而不用类名调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现输入完整才激活按钮的功能"><span class="toc-number">19.</span> <span class="toc-text">实现输入完整才激活按钮的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinearLayout实现分割线"><span class="toc-number">20.</span> <span class="toc-text">LinearLayout实现分割线</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -570,7 +528,7 @@ import static io.github.movie.initItemView;
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">学习网站、常用框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/Achieve/">实际开发-效果实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Animation总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/Utils/">常用工具及网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/JAVA-Coding/">Java动态布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/10/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">学习网站、常用框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/Achieve/">实际开发-效果实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/Utils/">常用工具及网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/JAVA-Coding/">Java动态布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/10/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
