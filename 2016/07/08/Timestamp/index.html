@@ -45,7 +45,7 @@ EEEE表示星期几、E表示周几HH表示导0(01:10),H表示不导(1:10) 推�
 12345    &amp;lt;         时间戳       &amp;gt;────├─────────────────────├────1970-1-1">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-07-08T10:10:23.422Z">
+<meta property="og:updated_time" content="2016-07-08T10:13:02.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间戳">
 <meta name="twitter:description" content="时间戳的总结
@@ -295,7 +295,7 @@ EEEE表示星期几、E表示周几HH表示导0(01:10),H表示不导(1:10) 推�
 <li>年月日转时间戳</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getTimestampByDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	String strDate = year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day;</span><br><span class="line">	Date date = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">	    date = sdf.parse(strDate);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">	    e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> date.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div align="center"><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br></div>
+<div align="center"><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" align="center"><br></div>
 
 <h4 id="时间戳实际开发"><a href="#时间戳实际开发" class="headerlink" title="时间戳实际开发"></a>时间戳实际开发</h4><ul>
 <li>服务器下发一串String的日期 例如 20151106 ，要显示成2015年11月06日</li>
@@ -321,7 +321,7 @@ EEEE表示星期几、E表示周几HH表示导0(01:10),H表示不导(1:10) 推�
         <p><span>本文标题:</span><a href="/2016/07/08/Timestamp/">时间戳</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 YimSam-Tam 的个人博客">YimSam-Tam</a></p>
         <p><span>发布时间:</span>2016年07月08日 - 15时10分</p>
-        <p><span>最后更新:</span>2016年07月08日 - 18时10分</p>
+        <p><span>最后更新:</span>2016年07月08日 - 18时13分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/08/Timestamp/" title="时间戳">http://YimSamTam.github.io/2016/07/08/Timestamp/</a>
             <span class="copy-path" data-clipboard-text="原文: http://YimSamTam.github.io/2016/07/08/Timestamp/　　作者: YimSam-Tam" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
