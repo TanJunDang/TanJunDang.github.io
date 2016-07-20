@@ -177,7 +177,12 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><link rel="stylesheet" href="css/loading-style.css">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+</div>
+
+
   
     <article id="post-Handler" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -920,7 +925,16 @@ adjustResize
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
-</div>
+
+<!-- loading -->
+<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+<script type="text/javascript">
+    $(window).load(function() {                              // makes sure the whole site is loaded
+        $('#loader').fadeOut();                              // will first fade out the loading animation
+            $('#loader-wrapper').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        $('body').delay(350).css({'overflow-y':'visible'});
+    })
+</script></div>
       <footer id="footer">
     <div class="outer">
         <div id="footer-info">
