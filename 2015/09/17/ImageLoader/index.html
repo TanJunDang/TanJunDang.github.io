@@ -379,6 +379,63 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
 
 
 
+    <link rel="stylesheet" type="text/css" href="/css/showshare.css"></head>
+    <div id="share" class="bdsharebuttonbox">
+        <button class="share-toggle-button"><i class="share-icon fa fa-share-alt"></i>
+        </button>
+        <ul class="share-items">
+            <li class="share-item"><a href="#" class="share-button fa fa-weibo" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-weixin" data-cmd="weixin" title="分享到微信"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-qq" data-cmd="sqq" title="分享到QQ好友"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-facebook" data-cmd="fbook" title="分享到Facebook"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-twitter" data-cmd="twi" title="分享到Twitter"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-linkedin" data-cmd="linkedin" title="分享到linkedin"></a></li>
+        </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    <!-- 推荐开源CDN来选取需引用的外部JS //-->
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/TweenMax.js"></script>
+<script>
+    window._bd_share_config = {
+    common : {
+                    bdText : '',
+                    //文本内容
+                    bdDesc : 'Luuman，90后，水瓶座普通男青年！爱折腾，爱运动，更爱游离于错综复杂的编码与逻辑中，无法自拔。相信编程是一门艺术，自诩为游弋在代码里的人生。',
+                    // 描述
+                    bdUrl : 'http://luuman.github.io/',
+                    // URL地址
+                    bdPic : 'https://hexo.io/build/screenshots/spfk-2b30506937.png'
+                    // 图片信息
+                },
+        share: [{
+            "bdSize": 24
+        }]
+    }
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~ (-new Date() / 36e5)];
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33765729-1']);
+    _gaq.push(['_setDomainName', 'chuanke.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
 
     
       <div class="duoshuo" id="comments">
@@ -418,7 +475,7 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
