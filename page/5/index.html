@@ -275,18 +275,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="ListView-分割线"><a href="#ListView-分割线" class="headerlink" title="ListView 分割线"></a>ListView 分割线</h3><p>在divider 为颜色 时 需设置dividerHeight<br>如何判断listview是最后一个</p>
-<pre><code>if(坐标&lt;总长度-1)
-</code></pre><p>如何取消分割线</p>
-<ul>
+              <h3 id="ListView-分割线"><a href="#ListView-分割线" class="headerlink" title="ListView 分割线"></a>ListView 分割线</h3><ul>
+<li>在divider 为颜色 时 需设置dividerHeight</li>
+</ul>
+<h4 id="如何取消分割线"><a href="#如何取消分割线" class="headerlink" title="如何取消分割线"></a>如何取消分割线</h4><ul>
 <li>在java中取消  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">listView.setDividerHeight(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">listView.setDivider(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在XML布局文件取消  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android:divider=<span class="string">"#FFCC00"</span>  </span><br><span class="line"></span><br><span class="line">或	  </span><br><span class="line"></span><br><span class="line">android:divider=<span class="string">"@null"</span></span><br></pre></td></tr></table></figure>
-<h3 id="设置listview无点击背景效果"><a href="#设置listview无点击背景效果" class="headerlink" title="设置listview无点击背景效果"></a>设置listview无点击背景效果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android:listSelector=<span class="string">"@android:color/transparent"</span></span><br></pre></td></tr></table></figure>
           
       
     </div>
