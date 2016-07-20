@@ -9,15 +9,9 @@
 理解 —— File是一个工具类,通过其对象来操作文件的增删改查
 
 
-创建文件
-File file = new File(路径,文件名);
-
-创建文件夹
-File file = new File(路径,文件名);
-file.mkdirs();
-
-删除文件
-file.delete();">
+创建文件1File file = new File(路径,文件名);
+创建文件夹12File file = new File(路径,文件名);file.mkdirs();
+删除文件1file.delete();">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - 文件操作">
 <meta property="og:url" content="TanJunDang.github.io/2016/05/05/Android-File/index.html">
@@ -26,32 +20,20 @@ file.delete();">
 理解 —— File是一个工具类,通过其对象来操作文件的增删改查
 
 
-创建文件
-File file = new File(路径,文件名);
-
-创建文件夹
-File file = new File(路径,文件名);
-file.mkdirs();
-
-删除文件
-file.delete();">
+创建文件1File file = new File(路径,文件名);
+创建文件夹12File file = new File(路径,文件名);file.mkdirs();
+删除文件1file.delete();">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-05-31T09:45:14.549Z">
+<meta property="og:updated_time" content="2016-07-20T03:49:47.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 文件操作">
 <meta name="twitter:description" content="文件的基础知识
 理解 —— File是一个工具类,通过其对象来操作文件的增删改查
 
 
-创建文件
-File file = new File(路径,文件名);
-
-创建文件夹
-File file = new File(路径,文件名);
-file.mkdirs();
-
-删除文件
-file.delete();">
+创建文件1File file = new File(路径,文件名);
+创建文件夹12File file = new File(路径,文件名);file.mkdirs();
+删除文件1file.delete();">
 <meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -243,32 +225,22 @@ file.delete();">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#5566ff">文件的基础知识</font></h3><ul>
+        <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="red">文件的基础知识</font></h3><ul>
 <li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
 </ul>
-<ul>
-<li><p>创建文件</p>
-<pre><code>File file = new File(路径,文件名);
-</code></pre></li>
-<li><p>创建文件夹</p>
-<pre><code>File file = new File(路径,文件名);
-file.mkdirs();
-</code></pre></li>
-<li><p>删除文件</p>
-<pre><code>file.delete();
-</code></pre></li>
-</ul>
+<blockquote>
+<p>创建文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br></pre></td></tr></table></figure></p>
+<p>创建文件夹<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br><span class="line">file.mkdirs();</span><br></pre></td></tr></table></figure></p>
+<p>删除文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.delete();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <a id="more"></a>
 <h4 id="文件流的理解"><a href="#文件流的理解" class="headerlink" title="文件流的理解"></a><font color="#5566ff">文件流的理解</font></h4><ul>
-<li><p>理解 —— 在程序中要操作文件(读写),必须先将文件转换成流，然后从流中读取(写入)数据。</p>
-<ul>
-<li><p>字符流(Reader、Writer) —— 读取(写入)相关的字符(String)，不需要缓冲区。  </p>
-</li>
-<li><p>字节流(InputStream、OutputStream) —— 读取(写入)相关的字节,需要先将数据读入(写入)缓冲区，然后再将缓冲区读入(写入)流中。</p>
-</li>
+<li>理解 —— 在程序中要操作文件(读写),必须先将文件转换成流，然后从流中读取(写入)数据。</li>
 </ul>
-</li>
-</ul>
+<blockquote>
+<p>字符流(Reader、Writer) —— 读取(写入)相关的字符(String)，不需要缓冲区。  </p>
+<p>字节流(InputStream、OutputStream) —— 读取(写入)相关的字节,需要先将数据读入(写入)缓冲区，然后再将缓冲区读入(写入)流中。</p>
+</blockquote>
 <h4 id="下面通过一个示例来讲述字符流跟字节流的区别。"><a href="#下面通过一个示例来讲述字符流跟字节流的区别。" class="headerlink" title="下面通过一个示例来讲述字符流跟字节流的区别。"></a>下面通过一个示例来讲述字符流跟字节流的区别。</h4><ul>
 <li>示例： 对一个md文件写入Hello World语句</li>
 </ul>
@@ -292,73 +264,47 @@ file.mkdirs();
 <ul>
 <li>总结：</li>
 </ul>
-<ol>
-<li>字符流比字节流简便。</li>
-<li>不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</li>
-</ol>
+<blockquote>
+<p>1.字符流比字节流简便。<br>2.不推荐使用FileInputStream、FileInputStream，要用就结合FileChannel来用。</p>
+</blockquote>
 <p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5tNkp1azg4dzNkd1dhaHQyM3RES2FxZHBQOTgyaDlVTWJ6eFZEejFKZkhnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <p><a href="http://blog.csdn.net/yeruby/article/details/21558577" target="_blank" rel="external">文件流的参考</a></p>
 <h4 id="示例-——-编写用文件保存数据的方法"><a href="#示例-——-编写用文件保存数据的方法" class="headerlink" title="示例 —— 编写用文件保存数据的方法"></a>示例 —— 编写用文件保存数据的方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//参数依次是上下文、待保存数据、文件名、折叠器(用于判断是否在当前文件夹下创建文件)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveData</span><span class="params">(Context context , Object data , String name , String folder)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(context ==<span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">	File file;</span><br><span class="line">	<span class="keyword">if</span>(folder.isEmpty)&#123; <span class="comment">//如果没有折叠器，则在当前目录创建文件</span></span><br><span class="line">		file = <span class="keyword">new</span> File(context.getFilesDir(),name);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">//否则，创建一个文件夹</span></span><br><span class="line">		File filesDir = <span class="keyword">new</span> File(context.getFilesDir(),folder);</span><br><span class="line">		<span class="keyword">if</span>(!filesDir.exists()||!filesDir.isDirectory())&#123;<span class="comment">//如果文件夹不存在,则创建该文件夹</span></span><br><span class="line">		&#123;</span><br><span class="line">			fileDir.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		file = <span class="keyword">new</span> File(filesDir,name);<span class="comment">//在该目录下创建文件			</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">		file.delete();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">*************************保存数据</span><br><span class="line"></span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(data);</span><br><span class="line">oos.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="总结-——-创建一个文件的过程"><a href="#总结-——-创建一个文件的过程" class="headerlink" title="总结 —— 创建一个文件的过程"></a>总结 —— 创建一个文件的过程</h4><ul>
-<li><p>判断是否需要创建折叠器(文件夹)</p>
-<ul>
-<li>不要 ——&gt; 直接创建文件</li>
-<li>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</li>
-</ul>
-</li>
-<li><p>判断文件是否存在</p>
-<ul>
-<li>存在 —— &gt;删除</li>
-</ul>
-</li>
-</ul>
-<h4 id="文件的读写（Model类编写）"><a href="#文件的读写（Model类编写）" class="headerlink" title="文件的读写（Model类编写）"></a>文件的读写（Model类编写）</h4><ul>
-<li><p>getCacheDir()方法用于获取/data/data/cache目录</p>
-</li>
-<li><p>getFilesDir()方法用于获取/data/data/files目录</p>
-</li>
-<li><p>写入内容(writeObject、ObjectOutputStream方法)</p>
-</li>
+<li>判断是否需要创建折叠器(文件夹)</li>
 </ul>
 <blockquote>
-<p>数据写入文件的基本流程：</p>
-<ul>
-<li>用File类确定文件夹的路径（进行必要的判断和创建） </li>
-<li>用File类确定文件是否存在，存在则删除。</li>
-<li>用ObjectOutputStream向文件写入数据</li>
-</ul>
+<p>不要 ——&gt; 直接创建文件<br>需要 ——&gt; 判断文件的目录是否存在 &amp;&amp; 判断是否文件夹 ——&gt; 如果不存在，则在该路径下创建文件</p>
 </blockquote>
+<ul>
+<li>判断文件是否存在</li>
+</ul>
+<blockquote>
+<p>存在 —— &gt;删除</p>
+</blockquote>
+<h4 id="文件的读写（Model类编写）"><a href="#文件的读写（Model类编写）" class="headerlink" title="文件的读写（Model类编写）"></a>文件的读写（Model类编写）</h4><blockquote>
+<p>getCacheDir()方法用于获取/data/data/cache目录<br>getFilesDir()方法用于获取/data/data/files目录</p>
+<ul>
+<li>写入内容(writeObject、ObjectOutputStream方法)</li>
+</ul>
+<p>数据写入文件的基本流程：<br>1.用File类确定文件夹的路径（进行必要的判断和创建）<br>2.用File类确定文件是否存在，存在则删除。<br>3.用ObjectOutputStream向文件写入数据</p>
 <ul>
 <li>读取内容(readObject、ObjectInputStream方法)</li>
 </ul>
-<blockquote>
-<p>读取数据的基本流程：</p>
-<ul>
-<li>用File确定文件夹路径</li>
-<li>用File确定文件</li>
-<li>用ObjectInputStream读取数据</li>
-</ul>
+<p>读取数据的基本流程：<br>1.用File确定文件夹路径<br>2.用File确定文件<br>3.用ObjectInputStream读取数据</p>
 </blockquote>
 <h3 id="文件内外部存储"><a href="#文件内外部存储" class="headerlink" title="文件内外部存储"></a>文件内外部存储</h3><h4 id="Android内部存储"><a href="#Android内部存储" class="headerlink" title="Android内部存储"></a>Android内部存储</h4><blockquote>
 <p>文件只能被自己的应用访问,并且当应用被卸载时,数据也会被销毁。Shared Preferences和SQLite数据库都是存储在内部存储空间上的。所有应用程序的内部存储的私有文件都放在根目录的data/data/<package_name>/files/下.</package_name></p>
 </blockquote>
 <p>Context对象相关文件API</p>
-<ul>
-<li><p>getFilesDir() - 用于获取内部存储空间路径(/data/data/<package_name>/files/)</package_name></p>
-</li>
-<li><p>openFileInput(String name) - 打开应用程序私有目录下的的指定私有文件以读入数据，返回一个FileInputStream 对象.</p>
-</li>
-<li><p>openFileOutput(String name , int mode) - 打开应用程序私有目录下的的指定私有文件以写入数据，返回一个FileOutputStream 对象.如果文件不存在就创建这个文件。</p>
-</li>
-<li><p>fileList() - 列出程序所有私有文件夹下的所有私有文件。</p>
-</li>
-<li><p>deleteFile(String fileName) - 删除指定文件名的文件，成功返回true,失败返回false。</p>
-</li>
-<li><p>getDir(String name , int mode);//创建一个目录，返回一个File对象。</p>
-</li>
-</ul>
 <blockquote>
-<p>MODE_PRIVATE 默认模式，文件只可以被调用该方法的应用程序访问<br>MODE_APPEND 如果文件已存在就向该文件的末尾继续写入数据，而不是覆盖原来的数据。<br>MODE_WORLD_READABLE 赋予所有的应用程序对该文件读的权限。<br>MODE_WORLD_WRITEABLE  赋予所有的应用程序对该文件写的权限。</p>
+<p>getFilesDir() - 用于获取内部存储空间路径(/data/data/<package_name>/files/)</package_name></p>
+<p>openFileInput(String name) - 打开应用程序私有目录下的的指定私有文件以读入数据，返回一个FileInputStream 对象.</p>
+<p>openFileOutput(String name , int mode) - 打开应用程序私有目录下的的指定私有文件以写入数据，返回一个FileOutputStream 对象.如果文件不存在就创建这个文件。</p>
+<p>fileList() - 列出程序所有私有文件夹下的所有私有文件。</p>
+<p>deleteFile(String fileName) - 删除指定文件名的文件，成功返回true,失败返回false。</p>
+<p>getDir(String name , int mode);//创建一个目录，返回一个File对象。</p>
+<p>MODE_PRIVATE 默认模式，文件只可以被调用该方法的应用程序访问<br>1.MODE_APPEND 如果文件已存在就向该文件的末尾继续写入数据，而不是覆盖原来的数据。<br>2.MODE_WORLD_READABLE 赋予所有的应用程序对该文件读的权限。<br>3.MODE_WORLD_WRITEABLE  赋予所有的应用程序对该文件写的权限。</p>
 </blockquote>
 <hr>
 <ul>
@@ -369,15 +315,11 @@ file.mkdirs();
 <p>文件可以被其他应用访问,当应用被卸载时,数据不会被销毁。所有应用程序的外部存储的私有文件都放在根目录的Android/data/<package_name>/下，目录形式为/Android/data/<package_name>/</package_name></package_name></p>
 </blockquote>
 <p>Context对象相关文件API</p>
-<ul>
-<li><p>getExternalFilesDir(String name) - 用于获取外部存储空间名称为name的目录的路径(/storage/emulated/0/Android/data/<package_name>/Sam/)  有些设备的部分路径不是/storage/emulated/0而是/mnt/sdcard</package_name></p>
-</li>
-<li><p>Environment.getExternalStorageDirectory() - 获取根路径</p>
-</li>
-</ul>
-<ul>
-<li>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</li>
-</ul>
+<blockquote>
+<p>getExternalFilesDir(String name) - 用于获取外部存储空间名称为name的目录的路径(/storage/emulated/0/Android/data/<package_name>/Sam/)  有些设备的部分路径不是/storage/emulated/0而是/mnt/sdcard</package_name></p>
+<p>Environment.getExternalStorageDirectory() - 获取根路径</p>
+<p>实例 - 将数据保存在外部存储私有文件里，然后再拿出来显示。</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">String data  = <span class="string">"Man should keep his words"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将data写入到SamTam.md文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</span><br><span class="line"><span class="comment">//判断SD卡是否插入</span></span><br><span class="line">..............</span><br><span class="line">&#125;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">上面两句可简写为</span><br><span class="line">String path = Environment.getExternalStorageDirectory().getCanonicalPath() + <span class="string">"/"</span> + <span class="string">"Test.md"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;</span><br><span class="line">file.createNewFile();</span><br><span class="line">&#125;</span><br><span class="line">FileOutputStream fos  = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">fos.write(data.getBytes());</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//将SamTam.md里的数据读取出来，显示在TextView里。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">File fileDir  =  getExternalFilesDir(<span class="string">"Sam"</span>); <span class="comment">//获取Sam目录的路径</span></span><br><span class="line">File file  =  <span class="keyword">new</span> File(fileDir , <span class="string">"Test.md"</span>); <span class="comment">//找sam目录下的Test.md文件</span></span><br><span class="line"></span><br><span class="line">FileInputStream fis  = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"><span class="keyword">int</span> length = fis.avaliable();</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[length];</span><br><span class="line">fis.read(buffer);</span><br><span class="line">String result = EncodingUtils.getString(buffer, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>所需权限</li>
@@ -394,7 +336,7 @@ file.mkdirs();
         <p><span>本文标题:</span><a href="/2016/05/05/Android-File/">Android - 文件操作</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JunDang-Tan 的个人博客">JunDang-Tan</a></p>
         <p><span>发布时间:</span>2016年05月05日 - 10时21分</p>
-        <p><span>最后更新:</span>2016年05月31日 - 17时45分</p>
+        <p><span>最后更新:</span>2016年07月20日 - 11时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/05/Android-File/" title="Android - 文件操作">http://TanJunDang.github.io/2016/05/05/Android-File/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/05/05/Android-File/　　作者: JunDang-Tan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

@@ -844,21 +844,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#5566ff">文件的基础知识</font></h3><ul>
+              <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="red">文件的基础知识</font></h3><ul>
 <li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
 </ul>
-<ul>
-<li><p>创建文件</p>
-<pre><code>File file = new File(路径,文件名);
-</code></pre></li>
-<li><p>创建文件夹</p>
-<pre><code>File file = new File(路径,文件名);
-file.mkdirs();
-</code></pre></li>
-<li><p>删除文件</p>
-<pre><code>file.delete();
-</code></pre></li>
-</ul>
+<blockquote>
+<p>创建文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br></pre></td></tr></table></figure></p>
+<p>创建文件夹<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br><span class="line">file.mkdirs();</span><br></pre></td></tr></table></figure></p>
+<p>删除文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.delete();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
           
       
     </div>
