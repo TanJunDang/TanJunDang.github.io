@@ -273,24 +273,18 @@
       
           
               <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
-<ol>
-<li>创建一个布局文件，里面放一张图。</li>
-<li>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </li>
-</ol>
+<li>如何实现一个启动界面，例如微信、网易新闻。  <blockquote>
+<p>1.创建一个布局文件，里面放一张图。<br>2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面</p>
+</blockquote>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable()&#123; </span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">			Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.class);</span><br><span class="line">			startActivity(intent);			</span><br><span class="line">			Appstart.<span class="keyword">this</span>.finish();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>解决启动界面瞬间白屏的问题</p>
-<ul>
-<li>Mainfest的主题使用@android:style/Theme.Translucent”</li>
-<li>StartActivity继承Activity</li>
+<li>解决启动界面瞬间白屏的问题</li>
 </ul>
-</li>
-<li><p>主要代码</p>
-</li>
-</ul>
+<blockquote>
+<p>Mainfest的主题使用@android:style/Theme.Translucent”<br>StartActivity继承Activity</p>
+</blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">      &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
           
       

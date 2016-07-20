@@ -7,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
-
-创建一个布局文件，里面放一张图。
-在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+1.创建一个布局文件，里面放一张图。2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面
 
 
 
@@ -20,9 +18,7 @@
 <meta property="og:site_name" content="JunDang-Tan">
 <meta property="og:description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
-
-创建一个布局文件，里面放一张图。
-在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+1.创建一个布局文件，里面放一张图。2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面
 
 
 
@@ -33,14 +29,12 @@
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5TVZ1bFluWDhkNlRBejczdXI5VFRXVjh1bkRHeGJOYjJBPT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-07-08T07:40:30.382Z">
+<meta property="og:updated_time" content="2016-07-20T03:37:30.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局常用的技巧">
 <meta name="twitter:description" content="启动界面
 如何实现一个启动界面，例如微信、网易新闻。  
-
-创建一个布局文件，里面放一张图。
-在主Activity里,通过handler 的postDelayed方法 进行跳转界面  
+1.创建一个布局文件，里面放一张图。2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面
 
 
 
@@ -241,24 +235,18 @@
       
           
         <h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li><p>如何实现一个启动界面，例如微信、网易新闻。  </p>
-<ol>
-<li>创建一个布局文件，里面放一张图。</li>
-<li>在主Activity里,通过handler 的postDelayed方法 进行跳转界面  </li>
-</ol>
+<li>如何实现一个启动界面，例如微信、网易新闻。  <blockquote>
+<p>1.创建一个布局文件，里面放一张图。<br>2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面</p>
+</blockquote>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable()&#123; </span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">			Intent intent = <span class="keyword">new</span> Intent (Appstart.<span class="keyword">this</span>,Welcome.class);</span><br><span class="line">			startActivity(intent);			</span><br><span class="line">			Appstart.<span class="keyword">this</span>.finish();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>解决启动界面瞬间白屏的问题</p>
-<ul>
-<li>Mainfest的主题使用@android:style/Theme.Translucent”</li>
-<li>StartActivity继承Activity</li>
+<li>解决启动界面瞬间白屏的问题</li>
 </ul>
-</li>
-<li><p>主要代码</p>
-</li>
-</ul>
+<blockquote>
+<p>Mainfest的主题使用@android:style/Theme.Translucent”<br>StartActivity继承Activity</p>
+</blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">      &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
  <a id="more"></a>
 <h3 id="ActionBar"><a href="#ActionBar" class="headerlink" title="ActionBar"></a>ActionBar</h3><p>标题栏可用一个layout 表示 heidht设置45dp<br>分割线可用view控件表示 height设置成2dp</p>
@@ -269,17 +257,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android：gravity=<span class="string">"right"</span></span><br></pre></td></tr></table></figure>
 <p>解决光标在两行字 中间的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:gravity=<span class="string">"top"</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MemgvRVNHM3ZzQUdyaUoyd29YVTFOeU5hVnZWZSswdDJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h3 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h3><ul>
-<li><p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。  </p>
-</li>
-<li><p>markdown引用格式</p>
-</li>
-</ul>
-<blockquote>
-<p>markdown引用格式：日期+文件名+”/“</p>
+<h3 id="重要的知识点"><a href="#重要的知识点" class="headerlink" title="重要的知识点"></a>重要的知识点</h3><blockquote>
+<p>相同布局的Activity，可以通过传参数 改变Title来实现 多个activity共用一个布局。<br>markdown引用格式：日期+文件名+”/“<br>/2015/09/17/ImageLoader/</p>
 </blockquote>
-<pre><code>/2015/09/17/ImageLoader/
-</code></pre><ul>
+<ul>
 <li>退出整个程序的代码</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.os.Process.killProcess(android.os.Process.myPid());</span><br></pre></td></tr></table></figure>
@@ -330,12 +311,10 @@
 <li>Framlayout 设置背景为黑色</li>
 <li>ImageView设置alpha=0.5</li>
 </ol>
-<h4 id="透明度计算"><a href="#透明度计算" class="headerlink" title="透明度计算"></a>透明度计算</h4><ul>
-<li><p>透明色的值也是0~255,0表示全透明,255表示不透明,数值越小,透明的越明显。</p>
-</li>
-<li><p>例如要设置60%透明的黑色 那么黑色的RGB = “#000000” ，那么不透明为40%,可计算出不透明度40%的值是0.4*255=102,然后再将102转成16进制即可（66）。 所以最终结果是#66000000</p>
-</li>
-</ul>
+<h4 id="透明度计算"><a href="#透明度计算" class="headerlink" title="透明度计算"></a>透明度计算</h4><blockquote>
+<p>透明色的值也是0~255,0表示全透明,255表示不透明,数值越小,透明的越明显。</p>
+<p>例如要设置60%透明的黑色 那么黑色的RGB = “#000000” ，那么不透明为40%,可计算出不透明度40%的值是0.4*255=102,然后再将102转成16进制即可（66）。 所以最终结果是#66000000</p>
+</blockquote>
 <h3 id="String-Format"><a href="#String-Format" class="headerlink" title="String.Format"></a>String.Format</h3><ul>
 <li>设置浮点数显示一位小数</li>
 </ul>
@@ -350,18 +329,15 @@
 </ul>
 <h3 id="高度布局-实现下列效果"><a href="#高度布局-实现下列效果" class="headerlink" title="高度布局(实现下列效果)"></a>高度布局(实现下列效果)</h3><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <ul>
-<li><p>布局技巧</p>
-<ul>
-<li><p>RelativeLayout为自适应、设置最小高度</p>
-</li>
-<li><p>tvTitle为margin_top= 15</p>
-</li>
-<li><p>tvValue 为margin_top = 15 、margin_bottom = 15</p>
-</li>
+<li>布局技巧</li>
 </ul>
-</li>
-<li><p>参考机构端事项内容</p>
-</li>
+<blockquote>
+<p>RelativeLayout为自适应、设置最小高度</p>
+<p>tvTitle为margin_top= 15</p>
+<p>tvValue 为margin_top = 15 、margin_bottom = 15</p>
+</blockquote>
+<ul>
+<li>参考机构端事项内容</li>
 </ul>
 <h3 id="ScrollView与Edittext冲突"><a href="#ScrollView与Edittext冲突" class="headerlink" title="ScrollView与Edittext冲突"></a>ScrollView与Edittext冲突</h3><ul>
 <li>Scrollview 里面加有edittext，由于Edittext会自动获取焦点，会导致界面向Edittext方向移动。（如下）</li>
@@ -410,7 +386,7 @@ import static io.github.movie.initItemView;
         <p><span>本文标题:</span><a href="/2016/07/08/Skills/">布局常用的技巧</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 JunDang-Tan 的个人博客">JunDang-Tan</a></p>
         <p><span>发布时间:</span>2016年07月08日 - 15时40分</p>
-        <p><span>最后更新:</span>2016年07月08日 - 15时40分</p>
+        <p><span>最后更新:</span>2016年07月20日 - 11时37分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/08/Skills/" title="布局常用的技巧">http://TanJunDang.github.io/2016/07/08/Skills/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/07/08/Skills/　　作者: JunDang-Tan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -528,7 +504,7 @@ import static io.github.movie.initItemView;
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
