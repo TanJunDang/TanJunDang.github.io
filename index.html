@@ -348,58 +348,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
+              <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
 <li>时间戳的理解</li>
 </ul>
 <blockquote>
 <p>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
 </blockquote>
-<ul>
-<li>格式</li>
-</ul>
-<blockquote>
-<p>EEEE表示星期几、E表示周几<br>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</p>
-</blockquote>
-<div align="center"><br><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br></div>
-
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;         时间戳       &gt;</span><br><span class="line">────├─────────────────────├────</span><br><span class="line"></span><br><span class="line"><span class="number">1970</span>-<span class="number">1</span>-<span class="number">1</span>                 now</span><br></pre></td></tr></table></figure>
-<h4 id="时间戳的转换"><a href="#时间戳的转换" class="headerlink" title="时间戳的转换"></a>时间戳的转换</h4><ul>
-<li>时间戳转String</li>
-</ul>
-<blockquote>
-<p>涉及Date、SimpleDateFormat的format方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Long date = <span class="keyword">new</span> Long(<span class="string">"1467607128000"</span>))；</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">String date = sdf.format(<span class="keyword">new</span> Date(<span class="keyword">long</span>));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>String转时间戳</li>
-</ul>
-<blockquote>
-<p>涉及SimpleDateFormat的parse方法、Date的getTime方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String strDate = dpBirth.getYear() + <span class="string">"-"</span> + (dpBirth.getMonth() + <span class="number">1</span>) + <span class="string">"-"</span> + dpBirth.getDayOfMonth() + <span class="string">""</span>;</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">Date date = sdf.parse(strDate);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取时间戳</span></span><br><span class="line">birthday = date.getTime();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>年月日转时间戳</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getTimestampByDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	String strDate = year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day;</span><br><span class="line">	Date date = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">	    date = sdf.parse(strDate);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">	    e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> date.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div align="center"><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" align="center"><br></div>
-
-<h4 id="时间戳实际开发"><a href="#时间戳实际开发" class="headerlink" title="时间戳实际开发"></a>时间戳实际开发</h4><ul>
-<li>服务器下发一串String的日期 例如 20151106 ，要显示成2015年11月06日</li>
-</ul>
-<p>思路：将String转成Date，再用date转成其他</p>
-<ol>
-<li>将String转Date </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyyMMdd"</span>).parse(<span class="string">"20151106"</span>);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>再用Date转成自己想要的格式</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String msg = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyy年MM月dd日"</span>).format(date.getTime());</span><br></pre></td></tr></table></figure>
-<h3 id="DatePicker-初始化日期"><a href="#DatePicker-初始化日期" class="headerlink" title="DatePicker 初始化日期"></a>DatePicker 初始化日期</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.init(<span class="number">2015</span>,<span class="number">09</span>,<span class="number">11</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-
+          
       
     </div>
     
@@ -412,6 +367,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间工具类/">时间工具类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/08/Timestamp/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -625,70 +584,6 @@
 
 
   
-    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/LogUtil/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
-<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -735,6 +630,70 @@
       
         <p class="article-more-link">
           <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/LogUtil/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
