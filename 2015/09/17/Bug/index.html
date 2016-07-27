@@ -5,18 +5,18 @@
   
   <title>开发中常见的Error、Bug | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+  <meta name="description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值1android.content.res.Resources$NotFoundException: String resource ID #0x1
 错误原因： 不能把int的值传给String类型的方法.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发中常见的Error、Bug">
 <meta property="og:url" content="TanJunDang.github.io/2015/09/17/Bug/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+<meta property="og:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值1android.content.res.Resources$NotFoundException: String resource ID #0x1
 错误原因： 不能把int的值传给String类型的方法.">
-<meta property="og:updated_time" content="2016-07-07T09:39:47.068Z">
+<meta property="og:updated_time" content="2016-07-27T08:57:57.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中常见的Error、Bug">
-<meta name="twitter:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值android.content.res.Resources$NotFoundException: String resource ID #0x1
+<meta name="twitter:description" content="复制布局文件时，有自定义view，要注意改其包名。String类型方法传非String类型的值1android.content.res.Resources$NotFoundException: String resource ID #0x1
 错误原因： 不能把int的值传给String类型的方法.">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -213,8 +213,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h3><h3 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h3><pre><code>android.content.res.Resources$NotFoundException: String resource ID #0x1
-</code></pre><p>错误原因： 不能把int的值传给String类型的方法.<br> <a id="more"></a><br>例如 </p>
+        <h3 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h3><h3 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
+<p>错误原因： 不能把int的值传给String类型的方法.<br> <a id="more"></a><br>例如 </p>
 <pre><code>textview.setText(1);  
 </code></pre><p>解决办法：加一个空字符””  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Error:(<span class="number">28</span>, <span class="number">9</span>) Attribute application<span class="meta">@theme</span> value=(<span class="meta">@style</span>/ThemeActionBar) from AndroidManifest.xml:<span class="number">28</span>:<span class="number">9</span></span><br><span class="line">is also present at XXXX-trunk:XXXXLib:unspecified:<span class="number">15</span>:<span class="number">9</span> value=(<span class="meta">@style</span>/AppTheme)</span><br><span class="line">Suggestion: add ‘tools:replace=”android:theme”‘ to &lt;application&gt; element at AndroidManifest.xml:<span class="number">24</span>:<span class="number">5</span> to override</span><br><span class="line">Error:Execution failed <span class="keyword">for</span> task ‘:XXXX:processDebugManifest’.</span><br></pre></td></tr></table></figure>
@@ -222,18 +222,18 @@
 <h3 id="自定义View没有重写构造函数"><a href="#自定义View没有重写构造函数" class="headerlink" title="自定义View没有重写构造函数"></a>自定义View没有重写构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.NoSuchMethodException: &lt;init&gt; [<span class="class"><span class="keyword">class</span> <span class="title">android</span>.<span class="title">content</span>.<span class="title">Context</span>, <span class="title">interface</span> <span class="title">android</span>.<span class="title">util</span>.</span></span><br></pre></td></tr></table></figure>
 <p>解决办法：重写三个构造函数</p>
 <h3 id="使用自带的控件报错"><a href="#使用自带的控件报错" class="headerlink" title="使用自带的控件报错"></a>使用自带的控件报错</h3><p>复现步骤：没有使用V4包里的viewpager 而是使用了 自带的viewpager<br>即XML文件中定义了ViewPager 而不是android.support.v4.view.ViewPager</p>
-<pre><code>android.view.InflateException: Binary XML file line #12: Error inflating class ViewPager
-</code></pre><p>解决方法：将ViewPager改成android.support.v4.view.ViewPager（可预览）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.view.InflateException: Binary XML file line #12: Error inflating class ViewPager</span><br></pre></td></tr></table></figure>
+<p>解决方法：将ViewPager改成android.support.v4.view.ViewPager（可预览）</p>
 <h3 id="关于getItemViewType报数组越界的问题"><a href="#关于getItemViewType报数组越界的问题" class="headerlink" title="关于getItemViewType报数组越界的问题"></a>关于getItemViewType报数组越界的问题</h3><p>原因：</p>
-<pre><code>getItemViewType的值必须小于getItemViewTypeCount
-</code></pre><p>例子：</p>
+<blockquote>
+<p>getItemViewType的值必须小于getItemViewTypeCount</p>
+</blockquote>
+<p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_COUNT = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_ME = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_USER_OTHER = <span class="number">2</span>; <span class="comment">//此处报错，应该设置成0</span></span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> users.get(position).getUserType();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getViewTypeCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> TYPE_COUNT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="activityforResult没效果"><a href="#activityforResult没效果" class="headerlink" title="activityforResult没效果"></a>activityforResult没效果</h3><p>原因：</p>
-<ul>
-<li>请求码不一样</li>
-<li>没有调用startActivityForResult方法</li>
-<li>请求码不大于0</li>
-</ul>
+<blockquote>
+<p>请求码不一样<br>没有调用startActivityForResult方法<br>请求码不大于0</p>
+</blockquote>
 <h3 id="自定义View的原控件ID与使用时ID相同，报转型错误"><a href="#自定义View的原控件ID与使用时ID相同，报转型错误" class="headerlink" title="自定义View的原控件ID与使用时ID相同，报转型错误"></a>自定义View的原控件ID与使用时ID相同，报转型错误</h3><p>例如：</p>
 <p>CustomActionBar里面有TextView id为tvname;使用CustomActionBar时，命名为tvName会报错。</p>
 <h3 id="ScrollView嵌套ListView导致的BUG"><a href="#ScrollView嵌套ListView导致的BUG" class="headerlink" title="ScrollView嵌套ListView导致的BUG"></a>ScrollView嵌套ListView导致的BUG</h3><h4 id="ListView顶走上方的内容"><a href="#ListView顶走上方的内容" class="headerlink" title="ListView顶走上方的内容"></a>ListView顶走上方的内容</h4><ul>
@@ -246,7 +246,17 @@
 <h4 id="ListView只显示一行数据"><a href="#ListView只显示一行数据" class="headerlink" title="ListView只显示一行数据"></a>ListView只显示一行数据</h4><ul>
 <li>在获取数据后,先计算ListView高度,然后再更新adapter。</li>
 </ul>
-
+<h3 id="引入新的包时，导致v7、v4包冲突的解决方法。"><a href="#引入新的包时，导致v7、v4包冲突的解决方法。" class="headerlink" title="引入新的包时，导致v7、v4包冲突的解决方法。"></a>引入新的包时，导致v7、v4包冲突的解决方法。</h3><ul>
+<li>错误代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D:\****\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\<span class="number">23.4</span>.0\res\values-v23\values-v23.xml</span><br><span class="line"></span><br><span class="line">Error:(<span class="number">2</span>) Error retrieving parent <span class="keyword">for</span> item: No resource found that matches the given name <span class="string">'android:TextAppearance.Material.Widget.Button.Inverse'</span>.</span><br><span class="line"></span><br><span class="line">Error:(<span class="number">2</span>) Error retrieving parent <span class="keyword">for</span> item: No resource found that matches the given name <span class="string">'android:Widget.Material.Button.Colored'</span>.</span><br><span class="line"></span><br><span class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:processBaiduDebugResources'</span>.</span><br><span class="line">&gt; com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process <span class="string">'command '</span>D:\Android\build-tools\<span class="number">23.0</span>.1\aapt.exe<span class="string">''</span> finished with non-zero exit value <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>解决方法</li>
+</ul>
+<blockquote>
+<p>将sdk升到高版本23。但是会导致22版本的apache相关方法无法使用。这是因为23版本Google已经移动了apache包,所以要在gradle里添加下面那句代码即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android&#123;</span><br><span class="line">useLibrary <span class="string">'org.apache.http.legacy'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -257,7 +267,7 @@
         <p><span>本文标题:</span><a href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年09月17日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年07月07日 - 17时39分</p>
+        <p><span>最后更新:</span>2016年07月27日 - 16时57分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/09/17/Bug/" title="开发中常见的Error、Bug">http://TanJunDang.github.io/2015/09/17/Bug/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/09/17/Bug/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -270,18 +280,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/09/17/ImageLoader/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/20/ViewPager_Two/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          ImageLoader的理解
+          ViewPager（二）
         
       </div>
     </a>
   
   
-    <a href="/2015/09/12/ViewPager_One/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Viewpager (一)</div>
+    <a href="/2015/09/17/ImageLoader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ImageLoader的理解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -292,7 +302,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">2.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">3.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">4.</span> <span class="toc-text">使用自带的控件报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于getItemViewType报数组越界的问题"><span class="toc-number">5.</span> <span class="toc-text">关于getItemViewType报数组越界的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#activityforResult没效果"><span class="toc-number">6.</span> <span class="toc-text">activityforResult没效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的原控件ID与使用时ID相同，报转型错误"><span class="toc-number">7.</span> <span class="toc-text">自定义View的原控件ID与使用时ID相同，报转型错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView嵌套ListView导致的BUG"><span class="toc-number">8.</span> <span class="toc-text">ScrollView嵌套ListView导致的BUG</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView顶走上方的内容"><span class="toc-number">8.1.</span> <span class="toc-text">ListView顶走上方的内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView只显示一行数据"><span class="toc-number">8.2.</span> <span class="toc-text">ListView只显示一行数据</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#复制布局文件时，有自定义view，要注意改其包名。"><span class="toc-number">1.</span> <span class="toc-text">复制布局文件时，有自定义view，要注意改其包名。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String类型方法传非String类型的值"><span class="toc-number">2.</span> <span class="toc-text">String类型方法传非String类型的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View没有重写构造函数"><span class="toc-number">3.</span> <span class="toc-text">自定义View没有重写构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用自带的控件报错"><span class="toc-number">4.</span> <span class="toc-text">使用自带的控件报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于getItemViewType报数组越界的问题"><span class="toc-number">5.</span> <span class="toc-text">关于getItemViewType报数组越界的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#activityforResult没效果"><span class="toc-number">6.</span> <span class="toc-text">activityforResult没效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义View的原控件ID与使用时ID相同，报转型错误"><span class="toc-number">7.</span> <span class="toc-text">自定义View的原控件ID与使用时ID相同，报转型错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView嵌套ListView导致的BUG"><span class="toc-number">8.</span> <span class="toc-text">ScrollView嵌套ListView导致的BUG</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView顶走上方的内容"><span class="toc-number">8.1.</span> <span class="toc-text">ListView顶走上方的内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListView只显示一行数据"><span class="toc-number">8.2.</span> <span class="toc-text">ListView只显示一行数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入新的包时，导致v7、v4包冲突的解决方法。"><span class="toc-number">9.</span> <span class="toc-text">引入新的包时，导致v7、v4包冲突的解决方法。</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -367,18 +377,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/09/17/ImageLoader/" title="上一篇: ImageLoader的理解">
+            <a href="/2015/09/20/ViewPager_Two/" title="上一篇: ViewPager（二）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/09/12/ViewPager_One/" title="下一篇: Viewpager (一)">
+            <a href="/2015/09/17/ImageLoader/" title="下一篇: ImageLoader的理解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
