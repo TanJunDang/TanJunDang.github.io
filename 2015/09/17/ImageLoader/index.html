@@ -21,7 +21,7 @@
 根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMjlEeFlDdzkwTDB6bTJPeDZmVEN3QWVMSFBRWlJmMWtRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MN3psR0dURFBQRWdSNVBOTXVuYTBBL25GZ3pIaXlQMjVnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:04.000Z">
+<meta property="og:updated_time" content="2016-08-04T08:25:32.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageLoader的理解">
 <meta name="twitter:description" content="ImageLoader作用
@@ -231,18 +231,11 @@
 <li>支持图片下载过程的监听</li>
 <li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
 </ol>
- <a id="more"></a>
-<ul>
-<li><p>支持库 </p>
-<pre><code>&apos;com.nostra13.universalimageloader:universal-image-loader:1.9.4&apos;
-</code></pre></li>
-</ul>
-<ul>
-<li><p>权限  </p>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;  
-&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;  
-</code></pre></li>
-</ul>
+<a id="more"></a>
+<blockquote>
+<p>‘com.nostra13.universalimageloader:universal-image-loader:1.9.4’</p>
+</blockquote>
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.INTERNET"</span> /&gt;  </span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="ImageLoader加载的类型"><a href="#ImageLoader加载的类型" class="headerlink" title="ImageLoader加载的类型"></a>ImageLoader加载的类型</h3><ul>
 <li>“<a href="http://site.com/image.png" target="_blank" rel="external">http://site.com/image.png</a>“ // from Web  </li>
 <li>“file:///mnt/sdcard/image.png” // from SD card</li>
@@ -257,50 +250,29 @@
 <li>（自定义配置）通过new ImageLoaderConfiguration.Builder().builder()方法进行实例化。</li>
 </ul>
 <p>通常配置如下：</p>
-<pre><code>File diskCache = StorageUtils.getOwnCacheDirectory(context, &quot;BNJ_IMAGE_CACHE/&quot;);  
-ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
-        .diskCache(new UnlimitedDiscCache(diskCache)) // 设置缓存路径
-        .memoryCacheSize(2 * 1024) // 设置缓存的最大字节
-        .diskCacheFileNameGenerator(new Md5FileNameGenerator())  // 加密
-        .denyCacheImageMultipleSizesInMemory() // 禁止缓存显示不同大小的同一张图片
-        .memoryCacheExtraOptions(800, 760) // 保存每个缓存图片的最大长和宽
-        .diskCacheFileCount(100) //缓存的File数量 
-        .build();
-</code></pre><p>使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">File diskCache = StorageUtils.getOwnCacheDirectory(context, <span class="string">"BNJ_IMAGE_CACHE/"</span>);  </span><br><span class="line">ImageLoaderConfiguration config = <span class="keyword">new</span> ImageLoaderConfiguration.Builder(context)</span><br><span class="line">		.diskCache(<span class="keyword">new</span> UnlimitedDiscCache(diskCache)) <span class="comment">// 设置缓存路径</span></span><br><span class="line">		.memoryCacheSize(<span class="number">2</span> * <span class="number">1024</span>) <span class="comment">// 设置缓存的最大字节</span></span><br><span class="line">		.diskCacheFileNameGenerator(<span class="keyword">new</span> Md5FileNameGenerator())  <span class="comment">// 加密</span></span><br><span class="line">		.denyCacheImageMultipleSizesInMemory() <span class="comment">// 禁止缓存显示不同大小的同一张图片</span></span><br><span class="line">		.memoryCacheExtraOptions(<span class="number">800</span>, <span class="number">760</span>) <span class="comment">// 保存每个缓存图片的最大长和宽</span></span><br><span class="line">		.diskCacheFileCount(<span class="number">100</span>) <span class="comment">//缓存的File数量 </span></span><br><span class="line">		.build();</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
 <p>通过ImageLoader的getInstance().init()方法传入上述options对象.</p>
 <h4 id="显示Image时的配置-DisplayImageOptions"><a href="#显示Image时的配置-DisplayImageOptions" class="headerlink" title="显示Image时的配置(DisplayImageOptions)"></a>显示Image时的配置(DisplayImageOptions)</h4><ul>
 <li>(自定义配置）通过new DisplayImageOptions.Builder().builder()方法实例化对象  </li>
 </ul>
 <p>通常配置如下： </p>
-<pre><code> DisplayImageOptions options = new DisplayImageOptions.Builder()  
-            .showImageOnLoading(R.drawable.ic_stub) // 设置加载时的图片 （使用loadImage方法加载时无效）
-            .showImageForEmptyUri(R.drawable.ic_empty) // resource or drawable  
-            .showImageOnFail(R.drawable.ic_error) // 设置加载失败的图片
-            .cacheInMemory(true) //设置使用内存缓存 
-            .cacheOnDisk(true)  //使用文件缓存
-            .displayer(new RoundedBitmapDisplayer(20))  // 设置成圆角图片   
-            .bitmapConfig(Bitmap.Config.RGB_565)  //减少内存消耗
-            .delayBeforeLoading(100) //设置下载图片前的延时
-            .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) 
-            .build();  
-
-ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对象设置）
-
-上述图片显示displayer  
-</code></pre><p>显示圆角 RoundedBitmapDisplayer (Displays bitmap with rounded corners)<br>淡入显示 FadeInBitmapDisplayer (Displays image with “fade in” animation)  </p>
-<h3 id="加载图片的方法"><a href="#加载图片的方法" class="headerlink" title="加载图片的方法"></a>加载图片的方法</h3><p>loadImage跟displayImage<br>A.ImageLoader.getInstance().loadImage(uri地址，图片大小，上述配置，监听器，进度监听器)；<br>B.ImageLoader.getinstance().displayImage(uri地址，控件，上述配置，监听器，进度监听器);<br>区别：<br>A方法可以设置图片大小，即自定义下载图片的大小<br>B方法会根据控件大小及ImageScaleType来裁剪图片</p>
-<p>监听器有两种：<br>SimpleImageLoadingListener（简单的监听器）<br>ImageLoadingListener （该监听器能实现 加载图片取消时，失败时的方法）<br>ImageLoadingProgressListener<br>5.最后在监听器的onLoadingComplete方法里，设置图片显示即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">DisplayImageOptions options = <span class="keyword">new</span> DisplayImageOptions.Builder()  </span><br><span class="line">           .showImageOnLoading(R.drawable.ic_stub) <span class="comment">// 设置加载时的图片 （使用loadImage方法加载时无效）</span></span><br><span class="line">           .showImageForEmptyUri(R.drawable.ic_empty) <span class="comment">// resource or drawable  </span></span><br><span class="line">           .showImageOnFail(R.drawable.ic_error) <span class="comment">// 设置加载失败的图片</span></span><br><span class="line">           .cacheInMemory(<span class="keyword">true</span>) <span class="comment">//设置使用内存缓存 </span></span><br><span class="line">           .cacheOnDisk(<span class="keyword">true</span>)  <span class="comment">//使用文件缓存</span></span><br><span class="line">           .displayer(<span class="keyword">new</span> RoundedBitmapDisplayer(<span class="number">20</span>))  <span class="comment">// 设置成圆角图片   </span></span><br><span class="line">           .bitmapConfig(Bitmap.Config.RGB_565)  <span class="comment">//减少内存消耗</span></span><br><span class="line">		   .delayBeforeLoading(<span class="number">100</span>) <span class="comment">//设置下载图片前的延时</span></span><br><span class="line">           .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) </span><br><span class="line">   		   .considerExifParams(<span class="keyword">false</span>) <span class="comment">//是否考虑JPEG图像EXIF参数（旋转，翻转）</span></span><br><span class="line">           .build();  </span><br><span class="line"></span><br><span class="line">ImageSize size= <span class="keyword">new</span> ImageSize(<span class="number">300</span>,<span class="number">300</span>);（大小可以通过创建ImageSize对象设置）</span><br><span class="line"></span><br><span class="line">上述图片显示displayer</span><br></pre></td></tr></table></figure>
+<p>显示圆角 RoundedBitmapDisplayer (Displays bitmap with rounded corners)<br>淡入显示 FadeInBitmapDisplayer (Displays image with “fade in” animation)  </p>
+<h3 id="加载图片的方法"><a href="#加载图片的方法" class="headerlink" title="加载图片的方法"></a>加载图片的方法</h3><p>loadImage跟displayImage</p>
+<blockquote>
+<p>A.ImageLoader.getInstance().loadImage(uri地址，图片大小，上述配置，监听器，进度监听器);<br>B.ImageLoader.getinstance().displayImage(uri地址，控件，上述配置，监听器，进度监听器);</p>
+</blockquote>
+<p>区别：</p>
+<blockquote>
+<p>A方法可以设置图片大小，即自定义下载图片的大小<br>B方法会根据控件大小及ImageScaleType来裁剪图片</p>
+</blockquote>
+<p>监听器有两种：<br>SimpleImageLoadingListener（简单的监听器）<br>ImageLoadingListener （该监听器能实现 加载图片取消时，失败时的方法）<br>ImageLoadingProgressListener<br>最后在监听器的onLoadingComplete方法里，设置图片显示即可</p>
 <p>进阶<br>listView.setOnScrollListener(new PauseOnScrollListener(imageLoader, pauseOnScroll, pauseOnFling));<br>第一个参数是imageLoader，第二个参数是滑动时是否加载图片，第三个参数是猛的滑动时是否加载图片</p>
 <h3 id="OOM问题"><a href="#OOM问题" class="headerlink" title="OOM问题"></a>OOM问题</h3><p>如果使用了ImageLoader出现OutOfMemoryError的话,那么可以通过下列方法解决<br>关闭memory的cache。</p>
-<ul>
-<li><p>减少线程池的大小</p>
-</li>
-<li><p>用Bitmap.Config.RGB565代替ARGB8888</p>
-</li>
-<li><p>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）</p>
-</li>
-<li>使用.diskCacheExtraOption(480, 320, null)</li>
-</ul>
+<blockquote>
+<p>减少线程池的大小<br>用Bitmap.Config.RGB565代替ARGB8888<br>使用.imageScaleType(ImageScaleType.EXACTLY 或ImageScaleType.IN_SAMPLE_INT）<br>使用.diskCacheExtraOption(480, 320, null)</p>
+</blockquote>
 <h3 id="ImageView-ScaleType"><a href="#ImageView-ScaleType" class="headerlink" title="ImageView ScaleType"></a>ImageView ScaleType</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MMjlEeFlDdzkwTDB6bTJPeDZmVEN3QWVMSFBRWlJmMWtRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""> <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MN3psR0dURFBQRWdSNVBOTXVuYTBBL25GZ3pIaXlQMjVnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 
       
@@ -313,7 +285,7 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
         <p><span>本文标题:</span><a href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年09月17日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年04月05日 - 17时05分</p>
+        <p><span>最后更新:</span>2016年08月04日 - 16时25分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/09/17/ImageLoader/" title="ImageLoader的理解">http://TanJunDang.github.io/2015/09/17/ImageLoader/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/09/17/ImageLoader/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -326,18 +298,18 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
 
 <nav id="article-nav">
   
-    <a href="/2015/09/17/Bug/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/20/ViewPager_Two/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          开发中常见的Error、Bug
+          ViewPager（二）
         
       </div>
     </a>
   
   
-    <a href="/2015/09/12/ViewPager_One/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Viewpager (一)</div>
+    <a href="/2015/09/17/Bug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开发中常见的Error、Bug</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -348,7 +320,7 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.</span> <span class="toc-text">ImageLoader作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader加载的类型"><span class="toc-number">2.</span> <span class="toc-text">ImageLoader加载的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader的加载、显示配置："><span class="toc-number">3.</span> <span class="toc-text">ImageLoader的加载、显示配置：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载Image时的配置-ImageLoaderConfiguration"><span class="toc-number">3.1.</span> <span class="toc-text">加载Image时的配置(ImageLoaderConfiguration)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示Image时的配置-DisplayImageOptions"><span class="toc-number">3.2.</span> <span class="toc-text">显示Image时的配置(DisplayImageOptions)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载图片的方法"><span class="toc-number">4.</span> <span class="toc-text">加载图片的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OOM问题"><span class="toc-number">5.</span> <span class="toc-text">OOM问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView-ScaleType"><span class="toc-number">6.</span> <span class="toc-text">ImageView ScaleType</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader作用"><span class="toc-number">1.</span> <span class="toc-text">ImageLoader作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限"><span class="toc-number">2.</span> <span class="toc-text">权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader加载的类型"><span class="toc-number">3.</span> <span class="toc-text">ImageLoader加载的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageLoader的加载、显示配置："><span class="toc-number">4.</span> <span class="toc-text">ImageLoader的加载、显示配置：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载Image时的配置-ImageLoaderConfiguration"><span class="toc-number">4.1.</span> <span class="toc-text">加载Image时的配置(ImageLoaderConfiguration)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示Image时的配置-DisplayImageOptions"><span class="toc-number">4.2.</span> <span class="toc-text">显示Image时的配置(DisplayImageOptions)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载图片的方法"><span class="toc-number">5.</span> <span class="toc-text">加载图片的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OOM问题"><span class="toc-number">6.</span> <span class="toc-text">OOM问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageView-ScaleType"><span class="toc-number">7.</span> <span class="toc-text">ImageView ScaleType</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -423,18 +395,18 @@ ImageSize size= new ImageSize(300,300);（大小可以通过创建ImageSize对�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/09/17/Bug/" title="上一篇: 开发中常见的Error、Bug">
+            <a href="/2015/09/20/ViewPager_Two/" title="上一篇: ViewPager（二）">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/09/12/ViewPager_One/" title="下一篇: Viewpager (一)">
+            <a href="/2015/09/17/Bug/" title="下一篇: 开发中常见的Error、Bug">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-Model类编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - 文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">ProGuard混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
