@@ -648,10 +648,10 @@
 
 
   
-    <article id="post-LogUtil" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/31/LogUtil/" class="article-date">
+      <a href="/2016/05/31/LogTool/" class="article-date">
       <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
@@ -665,7 +665,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/LogUtil/">工具类的编写 - Log的封装</a>
+      <a class="article-title" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a>
     </h1>
   
 
@@ -675,8 +675,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="日志管理类LogUtil-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogUtil-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogUtil:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogUtil:主要用于过滤日志和控制日志的开关。</h3><blockquote>
-<p>思路：打包时可以控制Log的开关，可以将Log输出到文件。<br>使用：将日志写入到文件的基本步骤是先找到路径，再创建文件，再写入日志到文件。</p>
+              <h3 id="日志管理类LogTool-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogTool-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogTool:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogTool:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+<p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
 </blockquote>
           
       
@@ -693,7 +693,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/05/31/LogUtil/#more">阅读全文 >></a>
+          <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -808,7 +808,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="red">文件的基础知识</font></h3><ul>
+              <h3 id="所需权限"><a href="#所需权限" class="headerlink" title="所需权限"></a>所需权限</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一步就是添加权限,否则创建不了文件,并且不会提示。</p>
+</blockquote>
+<h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="red">文件的基础知识</font></h3><ul>
 <li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
 </ul>
 <blockquote>
