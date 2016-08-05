@@ -176,6 +176,106 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/Widgets/" class="article-date">
+      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/01/Widgets/">Widgets(View)学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><h4 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h4><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchKeyEvent</span><span class="params">(KeyEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (event.getKeyCode()) &#123;</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_DPAD_CENTER:</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_ENTER:</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">super</span>.dispatchKeyEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//在布局文件里声明singleLine属性</span></span><br><span class="line">android:singleLine=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
+<h4 id="EditText-只读内容滚动"><a href="#EditText-只读内容滚动" class="headerlink" title="EditText 只读内容滚动"></a>EditText 只读内容滚动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">setKeyListener(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="光标移到最后"><a href="#光标移到最后" class="headerlink" title="光标移到最后"></a>光标移到最后</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Editable ea = editText.getText();</span><br><span class="line">editText.setSelection(ea.length());</span><br></pre></td></tr></table></figure>
+<h4 id="软键盘相关"><a href="#软键盘相关" class="headerlink" title="软键盘相关"></a>软键盘相关</h4><p>Mainfest中设置   windowSoftInputMode属性</p>
+<pre><code>android:windowSoftInputMode=&quot;stateAlwaysVisible&quot;
+</code></pre><p>【A】stateUnspecified：默认状态，系统将选择一个合适的状态或依赖于主题的设置</p>
+<p>【B】stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
+<p>【C】stateHidden：用户选择activity时，软键盘总是被隐藏.—&gt;点击以下Edittext才显示软键盘。在Mainfest文件设置无效。需要在Activity里设置下列代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);</span><br></pre></td></tr></table></figure>
+<p>【D】stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的</p>
+<p>【E】stateVisible：软键盘通常是可见的</p>
+<p>【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
+<p>【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
+<p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间 (将底部的按钮往上顶)</p>
+<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分(整个页面往上顶)</p>
+<h4 id="设置EditText默认不弹出小键盘"><a href="#设置EditText默认不弹出小键盘" class="headerlink" title="设置EditText默认不弹出小键盘"></a>设置EditText默认不弹出小键盘</h4><ul>
+<li>配置文件中配置下列代码  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span> </span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span> <span class="comment">//默认不弹出键盘,以及将底部按钮显示在软键盘上方</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
+<h3 id="软键盘顶走按钮"><a href="#软键盘顶走按钮" class="headerlink" title="软键盘顶走按钮"></a>软键盘顶走按钮</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustPan
+adjustResize
+</code></pre><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="/2016/02/01/Widgets/">EditText</a></p>
+<p>标题栏被顶走</p>
+<p>解决方法： </p>
+<pre><code>在activity设置windowSoftInputMode属性为adjustResize
+</code></pre><h4 id="如何防止ActionBar被软键盘顶走"><a href="#如何防止ActionBar被软键盘顶走" class="headerlink" title="如何防止ActionBar被软键盘顶走"></a>如何防止ActionBar被软键盘顶走</h4><p>在有Edittext的LinearLayout外添加一个ScrollView。</p>
+<p><a href="http://2dxgujun.com/post/2014/10/23/Soft-Keyboard-Jacking-Control.html">EditText顶走ActionBar参考</a></p>
+<h3 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h3><p><a href="/2015/09/01/ListView/">ListView</a></p>
+<h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/View/">View</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Widgets/">Widgets</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ImageUpload" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -633,122 +733,6 @@ startActivity(it);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemService/">SystemService</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Project-Build" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/02/Project-Build/" class="article-date">
-      <time datetime="2015-11-02T10:09:52.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/Project-Build/">Android项目架构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="将工程Push到Coding"><a href="#将工程Push到Coding" class="headerlink" title="将工程Push到Coding"></a>将工程Push到Coding</h3><blockquote>
-<p>1.配置ssh,在Coding的个人设置里配置SSH公钥。而不是在某个项目里配置公钥。</p>
-</blockquote>
-<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5GaDBVbWViUnJlTzZkMjNyd3JQTklqeUpWUnA2aVh6SW9wRTIzU2ZMVEZnPT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<blockquote>
-<p>2.打开AS,利用ssh从Coding把项目check下来。打开工程后,只有一个readme文件。然后再创建新的工程,名称跟Coding项目名一致。</p>
-</blockquote>
-<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5GaDBVbWViUnJlRlB6VzNrTFU3a2I1Wk9XYjZsOGVHZUl4ZmtXZjZRZTNnPT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<blockquote>
-<p>3.修改gitignore文件。提交推送即可。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#通用android忽略代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 所有apk文件</span><br><span class="line">*.apk</span><br><span class="line">*.ap_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/local.properties</span><br><span class="line"></span><br><span class="line"># Files for the Dalvik VM</span><br><span class="line">*.dex</span><br><span class="line"></span><br><span class="line"># Java class files</span><br><span class="line">*.class</span><br><span class="line"></span><br><span class="line"># Generated files</span><br><span class="line">bin/</span><br><span class="line">gen/</span><br><span class="line"></span><br><span class="line"># Gradle files</span><br><span class="line">.gradle/</span><br><span class="line">build/</span><br><span class="line">/*/build/</span><br><span class="line"></span><br><span class="line"># 忽略.idea目录</span><br><span class="line">/.idea/workspace.xml</span><br><span class="line">/.idea/libraries</span><br><span class="line"></span><br><span class="line"># Local configuration file (sdk path, etc) 忽略签名文件</span><br><span class="line">local.properties</span><br><span class="line"></span><br><span class="line"># Proguard folder generated by Eclipse</span><br><span class="line">proguard/</span><br><span class="line"></span><br><span class="line"># Intellij project files</span><br><span class="line">*.iml</span><br><span class="line">*.ipr</span><br><span class="line">*.iws</span><br><span class="line"></span><br><span class="line"># Log Files</span><br><span class="line">*.log</span><br><span class="line"></span><br><span class="line">gradlew</span><br><span class="line">gradlew.bat</span><br><span class="line">gradle.properties</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https:<span class="comment">//git.coding.net/TanJunDang/ER.git</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<h3 id="项目架构基本目录"><a href="#项目架构基本目录" class="headerlink" title="项目架构基本目录"></a>项目架构基本目录</h3><blockquote>
-<p>思路 项目架构基本分为三种类别通用模块包、业务模块包、全局基础包。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>通用模块包（common）包括工具包、实体包、控件包、网络包、数据库包等</p>
-<p>1.Broadcast(带接口的广播、EventBus事件)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>2.Dao(数据库)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>3.Entities(实体类)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>4.Tools(工具包)</p>
-<p><a href="/2016/05/05/File/">文件操作类封装</a><br>基础工具类Function的编写（包括Toast封装、SD操作等基础功能）<br><a href="/2016/05/31/LogTool/">Log封装</a>（日志类的管理）<br><a href="/2016/05/31/GsonTool/">Gson封装</a><br><a href="/2015/09/17/ImageLoaderTool/">ImageLoader封装</a><br><a href="/2016/05/31/SharePreUtil/">SharePreference封装</a></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>5.<a href="/2016/05/31/Model/">Model</a> (用于缓存数据) </p>
-</blockquote>
-<hr>
-<blockquote>
-<p>6.Network(protocol协议包、各种网络请求接口、CallBack)</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>7.View(各种自定义View)</p>
-</blockquote>
-<hr>
-<ul>
-<li>业务模块包（以业务命名） 每个功能模块单独成包</li>
-</ul>
-<hr>
-<ul>
-<li>全局基础包（base） 做Application初始化相关操作、异常捕获类。</li>
-</ul>
-<hr>
-<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5TUHlCTnJuNjZ2SUw1U1JKbkFLU25Pd1cyTG5PdlJnd1ZhMnVxRE1IWHV3PT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p><a href="http://blog.csdn.net/u013278099/article/details/51485476#java" target="_blank" rel="external">架构参考</a></p>
-<p><a href="http://blog.csdn.net/zang141588761/article/details/50554483" target="_blank" rel="external">详细架构流程</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li></ul>
     </div>
 
       

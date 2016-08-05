@@ -5,18 +5,18 @@
   
   <title>工具类的编写 - Log的封装 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="日志管理类LogTool:主要用于过滤日志和控制日志的开关。
+  <meta name="description" content="日志管理类LogTool
 功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工具类的编写 - Log的封装">
 <meta property="og:url" content="TanJunDang.github.io/2016/05/31/LogTool/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="日志管理类LogTool:主要用于过滤日志和控制日志的开关。
+<meta property="og:description" content="日志管理类LogTool
 功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。">
-<meta property="og:updated_time" content="2016-08-04T06:38:09.747Z">
+<meta property="og:updated_time" content="2016-08-05T01:44:51.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工具类的编写 - Log的封装">
-<meta name="twitter:description" content="日志管理类LogTool:主要用于过滤日志和控制日志的开关。
+<meta name="twitter:description" content="日志管理类LogTool
 功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -213,12 +213,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="日志管理类LogTool-主要用于过滤日志和控制日志的开关。"><a href="#日志管理类LogTool-主要用于过滤日志和控制日志的开关。" class="headerlink" title="日志管理类LogTool:主要用于过滤日志和控制日志的开关。"></a>日志管理类LogTool:主要用于过滤日志和控制日志的开关。</h3><blockquote>
+        <h3 id="日志管理类LogTool"><a href="#日志管理类LogTool" class="headerlink" title="日志管理类LogTool"></a>日志管理类LogTool</h3><blockquote>
 <p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
 </blockquote>
 <a id="more"></a>
+<hr>
 <blockquote>
-<p>1.实现通过BuildConfig控制Log的功能。<br>2.以Log的优先级、标识、待输出内容Object… 做参数,编写通用方法。拼接输出结果。<br>3.封装Log的输出,以及判断是否输出。<br>4.实现输出到文件的功能。</p>
+<p>编写步骤：<br>1.实现通过BuildConfig控制Log的功能。<br>2.以Log的优先级、标识、待输出内容Object… 做参数,编写通用方法。拼接输出结果。<br>3.封装Log的输出,以及判断是否输出。<br>4.实现输出到文件的功能。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Developer: TanJunDang</span><br><span class="line"> * Date: 2016/8/4</span><br><span class="line"> * Email: TanJunDang324@gmail.com</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> LOG_ENABLE = BuildConfig.DEBUG;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String TAG = <span class="string">"TanJunDang.github.io"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isLogEnable</span><span class="params">()</span> </span>&#123; <span class="comment">//判断是否打开日志输出</span></span><br><span class="line">        <span class="keyword">return</span> LOG_ENABLE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String LOG_RESOURCE = <span class="string">"NBA_"</span>;<span class="comment">//判断是否本程序输出</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> priority 优先级 LOG.DEBUG VERBORSE等</span><br><span class="line">     * <span class="doctag">@param</span> tag      标识</span><br><span class="line">     * <span class="doctag">@param</span> msg      输出信息 该参数必须判断对象是否为null,否则容易崩溃</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(<span class="keyword">int</span> priority, String tag, Object... msg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isLogEnable() &amp;&amp; msg != <span class="keyword">null</span>) &#123; <span class="comment">//判断是否打开LOG输出,是则输出,否则不输出</span></span><br><span class="line">            StringBuffer sb = <span class="keyword">new</span> StringBuffer(<span class="string">""</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; msg.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (msg[i] != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    sb.append(msg[i]);  <span class="comment">//将输出内容进行拼接</span></span><br><span class="line">                    sb.append(<span class="string">","</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            String str = Functions.replaceLastCharByEmpty(sb.toString(), <span class="string">","</span>);<span class="comment">//去除最后一个逗号</span></span><br><span class="line">            String result = LOG_RESOURCE + str; <span class="comment">//添加输出位置</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">switch</span> (priority) &#123;</span><br><span class="line">                <span class="keyword">case</span> Log.ERROR:</span><br><span class="line">                    Log.e(tag, result);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.WARN:</span><br><span class="line">                    Log.w(tag, result);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.INFO:</span><br><span class="line">                    Log.i(tag, result);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.DEBUG:</span><br><span class="line">                    Log.d(tag, result);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> Log.VERBOSE:</span><br><span class="line">                    Log.v(tag, result);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 封装输出方法</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> tag</span><br><span class="line">     * <span class="doctag">@param</span> msg</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.ERROR, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.WARN, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.INFO, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.DEBUG, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, Object... msg)</span> </span>&#123;</span><br><span class="line">        v(Log.VERBOSE, tag, msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="将LOG输出到文件"><a href="#将LOG输出到文件" class="headerlink" title="将LOG输出到文件"></a>将LOG输出到文件</h3><blockquote>
@@ -239,7 +240,7 @@
         <p><span>本文标题:</span><a href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年05月31日 - 10时20分</p>
-        <p><span>最后更新:</span>2016年08月04日 - 14时38分</p>
+        <p><span>最后更新:</span>2016年08月05日 - 09时44分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/31/LogTool/" title="工具类的编写 - Log的封装">http://TanJunDang.github.io/2016/05/31/LogTool/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/05/31/LogTool/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -252,11 +253,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/06/13/RxAndroid/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/31/GsonTool/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          RxJava、RxAndroid的理解
+          工具类的编写 - Gson的封装
         
       </div>
     </a>
@@ -274,7 +275,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#日志管理类LogTool-主要用于过滤日志和控制日志的开关。"><span class="toc-number">1.</span> <span class="toc-text">日志管理类LogTool:主要用于过滤日志和控制日志的开关。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将LOG输出到文件"><span class="toc-number">2.</span> <span class="toc-text">将LOG输出到文件</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#日志管理类LogTool"><span class="toc-number">1.</span> <span class="toc-text">日志管理类LogTool</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将LOG输出到文件"><span class="toc-number">2.</span> <span class="toc-text">将LOG输出到文件</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -349,7 +350,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/13/RxAndroid/" title="上一篇: RxJava、RxAndroid的理解">
+            <a href="/2016/05/31/GsonTool/" title="上一篇: 工具类的编写 - Gson的封装">
                 <i class="fa fa-angle-left"></i>
             </a>
         
