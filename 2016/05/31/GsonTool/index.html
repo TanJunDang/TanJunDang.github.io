@@ -3,38 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>EventBus基本使用 | TanJunDang</title>
+  <title>工具类的编写 - Gson的封装 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RxBus
-RxJava、RxAndroid
-事件总线
-EventBus是Android下高效的发布/订阅事件总线机制。作用是可以代替传统的Intent,Handler,Broadcast或接口函数在Fragment,Activity,Service,线程之间传递数据。特点是代码简洁,是一种发布订阅设计模式（Publish/Subsribe）,或称作观察者设计模式。
+  <meta name="description" content="Gradle导包compile ‘com.google.code.gson:gson:2.3.1’
 
-
-订阅的基本条件：订阅者、发">
+1234567891011121314151617181920212223242526272829303132333435public class GsonTool &amp;#123;    private static Gson gson = new Gson();    /**     * @pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EventBus基本使用">
-<meta property="og:url" content="TanJunDang.github.io/2016/04/05/EventBus/index.html">
+<meta property="og:title" content="工具类的编写 - Gson的封装">
+<meta property="og:url" content="TanJunDang.github.io/2016/05/31/GsonTool/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="RxBus
-RxJava、RxAndroid
-事件总线
-EventBus是Android下高效的发布/订阅事件总线机制。作用是可以代替传统的Intent,Handler,Broadcast或接口函数在Fragment,Activity,Service,线程之间传递数据。特点是代码简洁,是一种发布订阅设计模式（Publish/Subsribe）,或称作观察者设计模式。
+<meta property="og:description" content="Gradle导包compile ‘com.google.code.gson:gson:2.3.1’
 
-
-订阅的基本条件：订阅者、发">
-<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-06-12T08:05:45.008Z">
+1234567891011121314151617181920212223242526272829303132333435public class GsonTool &amp;#123;    private static Gson gson = new Gson();    /**     * @pa">
+<meta property="og:updated_time" content="2016-08-05T01:13:29.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EventBus基本使用">
-<meta name="twitter:description" content="RxBus
-RxJava、RxAndroid
-事件总线
-EventBus是Android下高效的发布/订阅事件总线机制。作用是可以代替传统的Intent,Handler,Broadcast或接口函数在Fragment,Activity,Service,线程之间传递数据。特点是代码简洁,是一种发布订阅设计模式（Publish/Subsribe）,或称作观察者设计模式。
+<meta name="twitter:title" content="工具类的编写 - Gson的封装">
+<meta name="twitter:description" content="Gradle导包compile ‘com.google.code.gson:gson:2.3.1’
 
-
-订阅的基本条件：订阅者、发">
-<meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+1234567891011121314151617181920212223242526272829303132333435public class GsonTool &amp;#123;    private static Gson gson = new Gson();    /**     * @pa">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -192,11 +178,11 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-EventBus" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/EventBus/" class="article-date">
-      <time datetime="2016-04-05T03:08:58.000Z" itemprop="datePublished">2016-04-05</time>
+      <a href="/2016/05/31/GsonTool/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
   
@@ -209,7 +195,7 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
         
   
     <h1 class="article-title" itemprop="name">
-      EventBus基本使用
+      工具类的编写 - Gson的封装
     </h1>
   
 
@@ -220,7 +206,7 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus基本使用/">EventBus基本使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -230,35 +216,10 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="/2016/05/05/RxBus/">RxBus</a></p>
-<p><a href="/2016/04/05/RxAndroid/">RxJava、RxAndroid</a></p>
-<h3 id="事件总线"><a href="#事件总线" class="headerlink" title="事件总线"></a>事件总线</h3><blockquote>
-<p>EventBus是Android下高效的发布/订阅事件总线机制。作用是可以代替传统的Intent,Handler,Broadcast或接口函数在Fragment,Activity,Service,线程之间传递数据。特点是代码简洁,是一种发布订阅设计模式（Publish/Subsribe）,或称作观察者设计模式。</p>
+        <blockquote>
+<p>Gradle导包<br>compile ‘com.google.code.gson:gson:2.3.1’</p>
 </blockquote>
-<ul>
-<li>订阅的基本条件：订阅者、发布者、绑定两者的方法。</li>
-</ul>
-<h3 id="EventBus的作用"><a href="#EventBus的作用" class="headerlink" title="EventBus的作用"></a>EventBus的作用</h3><ul>
-<li>同样能实现消息通信（线程间），代码比BroadCast少、简单。</li>
-<li>EventBus自定义消息类型。（创建Event）。</li>
-<li>EventBus一般不创建对象，直接调用default方法即可。</li>
-<li>发送者直接调用post方法即可。</li>
-<li><p>接收者需要在当前Activity注册并且反注册，并且重写接收方法。</p>
-<p>  <img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU9lcmF5ZEp5Nm1jcG5oQ3JMTUYwbmhVYXFpekVrWWZtVFgveDJGN1NQUGp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="EventBus使用"><a href="#EventBus使用" class="headerlink" title="EventBus使用"></a>EventBus使用</h3><ol>
-<li>定义事件类型（或者不定义）。例如：MsgBean等.</li>
-<li>接收页面定义事件处理方法。例如：onEvent等.</li>
-<li>接收页面注册/反注册订阅者。例如：EventBus.getDefault().register(this).</li>
-<li>发送事件。例如：EventBus.getDefault().post(new MyEvent()).</li>
-</ol>
-<p><a href="https://segmentfault.com/a/1190000004279679" target="_blank" rel="external">什么是EventBus</a><br><a href="http://www.mamicode.com/info-detail-626753.html" target="_blank" rel="external">参考</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义事件类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEvent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestEvent</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收页面添加处理方法</span></span><br><span class="line"><span class="meta">@Subscribe</span> <span class="comment">//要自行添加注解</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onEvent</span><span class="params">(TestEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//处理操作</span></span><br><span class="line">    tvSignature.setText(event.getMsg());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"><span class="comment">//在oncreate注册EventBUs 在onDestory反注册</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_modify_profile);</span><br><span class="line">    initViews();</span><br><span class="line">    initData();</span><br><span class="line">    EventBus.getDefault().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventBus.getDefault().unregister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">************************************************************************</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送事件</span></span><br><span class="line">EventBus.getDefault().post(<span class="keyword">new</span> TestEvent(<span class="string">"success"</span>));</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/hehonghui/AndroidEventBus/blob/master/README-ch.md" target="_blank" rel="external">AndroidEventBus参考</a></p>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> json</span><br><span class="line">     * <span class="doctag">@param</span> cls</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;  表示通用类型 后面接一个字母表示对象</span><br><span class="line">     * <span class="doctag">@return</span>将String类型转成对象</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getServerBean</span><span class="params">(String json, Class&lt;?&gt; cls)</span> </span>&#123;</span><br><span class="line">        T object = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        object = (T) gson.fromJson(json, cls);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> obj</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     * 将对象转成json（String）</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObjectToJson</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        String json = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        json = gson.toJson(obj);</span><br><span class="line">        <span class="keyword">return</span> json;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -266,13 +227,13 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/05/EventBus/">EventBus基本使用</a></p>
+        <p><span>本文标题:</span><a href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年04月05日 - 11时08分</p>
-        <p><span>最后更新:</span>2016年06月12日 - 16时05分</p>
+        <p><span>发布时间:</span>2016年05月31日 - 10时20分</p>
+        <p><span>最后更新:</span>2016年08月05日 - 09时13分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/05/EventBus/" title="EventBus基本使用">http://TanJunDang.github.io/2016/04/05/EventBus/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/04/05/EventBus/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/31/GsonTool/" title="工具类的编写 - Gson的封装">http://TanJunDang.github.io/2016/05/31/GsonTool/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/05/31/GsonTool/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -282,18 +243,18 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
 
 <nav id="article-nav">
   
-    <a href="/2016/04/06/CodeOptimize/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/31/Model/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android-代码优化技巧
+          Android项目架构-Model类编写
         
       </div>
     </a>
   
   
-    <a href="/2016/04/04/ProGuard/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ProGuard混淆</div>
+    <a href="/2016/05/25/CustomMenu/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义底部弹出菜单</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -304,7 +265,7 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件总线"><span class="toc-number">1.</span> <span class="toc-text">事件总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventBus的作用"><span class="toc-number">2.</span> <span class="toc-text">EventBus的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventBus使用"><span class="toc-number">3.</span> <span class="toc-text">EventBus使用</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -355,7 +316,7 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/05/EventBus/" data-title="EventBus基本使用" data-url="TanJunDang.github.io/2016/04/05/EventBus/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/31/GsonTool/" data-title="工具类的编写 - Gson的封装" data-url="TanJunDang.github.io/2016/05/31/GsonTool/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -379,13 +340,13 @@ EventBus是Android下高效的发布/订阅事件总线机制。作用是可以�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/06/CodeOptimize/" title="上一篇: Android-代码优化技巧">
+            <a href="/2016/05/31/Model/" title="上一篇: Android项目架构-Model类编写">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/04/04/ProGuard/" title="下一篇: ProGuard混淆">
+            <a href="/2016/05/25/CustomMenu/" title="下一篇: 自定义底部弹出菜单">
                 <i class="fa fa-angle-right"></i>
             </a>
         

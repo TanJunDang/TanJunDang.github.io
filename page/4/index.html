@@ -176,6 +176,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Notification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/03/Notification/" class="article-date">
+      <time datetime="2015-10-03T09:34:10.000Z" itemprop="datePublished">2015-10-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/03/Notification/">Notification实际开发</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h3><ul>
+<li>Notification.Builder类 用于设置消息的标题、内容、图标等信息。</li>
+<li><p>NotificationManager类 用于发送、取消通知。</p>
+<p>  <img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h3><ul>
+<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
+<li><p>通常Notification的用法如下：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">   Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">          .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">          .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">          .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">          .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">          .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">          .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">          .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">          .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification/">Notification</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/03/Notification/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-VersionUpdate" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -572,6 +645,73 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
 
   
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
+<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
+<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
+<li>支持图片下载过程的监听</li>
+<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
+</ol>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -617,73 +757,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoader" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoader/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoader/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
-<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
-<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
-<li>支持图片下载过程的监听</li>
-<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
-</ol>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader/">ImageLoader</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoader/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -818,68 +891,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
       
         <p class="article-more-link">
           <a  href="/2015/09/11/DrawerLayout/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/08/Git/" class="article-date">
-      <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished">2015-09-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/08/Git/">Git的学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Git的语法"><a href="#Git的语法" class="headerlink" title="Git的语法"></a>Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/08/Git/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

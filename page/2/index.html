@@ -176,6 +176,79 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-File" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/File/" class="article-date">
+      <time datetime="2016-05-05T02:21:17.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/File/">Android - 文件操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="所需权限"><a href="#所需权限" class="headerlink" title="所需权限"></a>所需权限</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一步就是添加权限,否则创建不了文件,并且不会提示。</p>
+</blockquote>
+<h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="red">文件的基础知识</font></h3><ul>
+<li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
+</ul>
+<blockquote>
+<p>创建文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br></pre></td></tr></table></figure></p>
+<p>创建文件夹<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br><span class="line">file.mkdirs();</span><br></pre></td></tr></table></figure></p>
+<p>删除文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.delete();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-文件操作/">Android - 文件操作</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/05/File/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Handler" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -832,68 +905,6 @@ adjustResize
       
         <p class="article-more-link">
           <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageUpload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/29/ImageUpload/" class="article-date">
-      <time datetime="2016-01-29T02:23:27.000Z" itemprop="datePublished">2016-01-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/29/ImageUpload/">图片增加、删除</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color = "red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/29/ImageUpload/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

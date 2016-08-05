@@ -176,6 +176,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ImageUpload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/29/ImageUpload/" class="article-date">
+      <time datetime="2016-01-29T02:23:27.000Z" itemprop="datePublished">2016-01-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/29/ImageUpload/">图片增加、删除</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color = "red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageUpload/">ImageUpload</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/29/ImageUpload/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -634,34 +696,36 @@ startActivity(it);
 <h3 id="项目架构基本目录"><a href="#项目架构基本目录" class="headerlink" title="项目架构基本目录"></a>项目架构基本目录</h3><blockquote>
 <p>思路 项目架构基本分为三种类别通用模块包、业务模块包、全局基础包。</p>
 </blockquote>
-<ul>
-<li><p>通用模块包（common） 包括工具包、实体包、控件包、网络包、数据库包等</p>
-<ul>
-<li><p>Broadcast(带接口的广播、EventBus事件)</p>
-</li>
-<li><p>Dao(数据库)</p>
-</li>
-<li><p>Entities(实体类)</p>
-</li>
-<li><p>Utils</p>
-<ul>
-<li><a href="/2016/05/31/FileUtil/">文件操作类封装</a></li>
-<li><a href="/2016/05/31/Function/">基础工具类Function的编写</a>（包括Toast封装、SD操作等基础功能）</li>
-<li><a href="/2016/05/31/LogUtil/">Log封装</a>（日志类的管理）</li>
-<li><a href="/2016/05/31/GsonUtil/">Gson封装</a></li>
-<li><a href="/2016/05/31/ImageLoaderUtil/">ImageLoader封装</a></li>
-<li><a href="/2016/05/31/SharePreUtil/">SharePreference封装</a></li>
-</ul>
-</li>
-<li><p><a href="/2016/05/31/Model/">Model</a> (用于缓存数据) </p>
-</li>
-<li><p>Network(protocol协议包、各种网络请求接口、CallBack)</p>
-</li>
-<li><p>View(各种自定义View)</p>
-</li>
-</ul>
-</li>
-</ul>
+<hr>
+<blockquote>
+<p>通用模块包（common）包括工具包、实体包、控件包、网络包、数据库包等</p>
+<p>1.Broadcast(带接口的广播、EventBus事件)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>2.Dao(数据库)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>3.Entities(实体类)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>4.Tools(工具包)</p>
+<p><a href="/2016/05/05/File/">文件操作类封装</a><br>基础工具类Function的编写（包括Toast封装、SD操作等基础功能）<br><a href="/2016/05/31/LogTool/">Log封装</a>（日志类的管理）<br><a href="/2016/05/31/GsonTool/">Gson封装</a><br><a href="/2015/09/17/ImageLoaderTool/">ImageLoader封装</a><br><a href="/2016/05/31/SharePreUtil/">SharePreference封装</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>5.<a href="/2016/05/31/Model/">Model</a> (用于缓存数据) </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>6.Network(protocol协议包、各种网络请求接口、CallBack)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>7.View(各种自定义View)</p>
+</blockquote>
 <hr>
 <ul>
 <li>业务模块包（以业务命名） 每个功能模块单独成包</li>
@@ -996,79 +1060,6 @@ startActivity(it);
       
         <p class="article-more-link">
           <a  href="/2015/10/03/InterView/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Notification" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/03/Notification/" class="article-date">
-      <time datetime="2015-10-03T09:34:10.000Z" itemprop="datePublished">2015-10-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/03/Notification/">Notification实际开发</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h3><ul>
-<li>Notification.Builder类 用于设置消息的标题、内容、图标等信息。</li>
-<li><p>NotificationManager类 用于发送、取消通知。</p>
-<p>  <img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h3><ul>
-<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
-<li><p>通常Notification的用法如下：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">   Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">          .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">          .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">          .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">          .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">          .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">          .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">          .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">          .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification/">Notification</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/03/Notification/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
