@@ -262,7 +262,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/Android-File/">File - 文件操作</a>
+      <a class="article-title" href="/2016/05/05/Android-File/">Android - File文件操作</a>
     </h1>
   
 
@@ -272,18 +272,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="所需权限"><a href="#所需权限" class="headerlink" title="所需权限"></a>所需权限</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span><br><span class="line">&lt;!-- 往SDCard写入数据权限 --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>第一步就是添加权限,否则创建不了文件,并且不会提示。</p>
+              <h1 id="Java文件的基础知识"><a href="#Java文件的基础知识" class="headerlink" title="Java文件的基础知识"></a><font color="#e74c3c">Java文件的基础知识</font></h1><blockquote>
+<p>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</p>
 </blockquote>
-<h3 id="文件的基础知识"><a href="#文件的基础知识" class="headerlink" title="文件的基础知识"></a><font color="#e74c3c">文件的基础知识</font></h3><ul>
-<li>理解 —— File是一个工具类,通过其对象来操作文件的增删改查</li>
-</ul>
-<blockquote>
-<p>创建文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br></pre></td></tr></table></figure></p>
-<p>创建文件夹<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);</span><br><span class="line">file.mkdirs();</span><br></pre></td></tr></table></figure></p>
-<p>删除文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.delete();</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//File基本使用</span></span><br><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);<span class="comment">//创建文件</span></span><br><span class="line"></span><br><span class="line">File file = <span class="keyword">new</span> File(路径,文件名);<span class="comment">//创建文件夹</span></span><br><span class="line">file.mkdirs();</span><br><span class="line"> </span><br><span class="line">file.delete();<span class="comment">//删除文件</span></span><br></pre></td></tr></table></figure>
           
       
     </div>
@@ -294,7 +287,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/File-文件操作/">File - 文件操作</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-File文件操作/">Android - File文件操作</a></li></ul>
     </div>
 
       
