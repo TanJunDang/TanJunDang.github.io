@@ -600,29 +600,15 @@ public View getView(int i , View view , ViewGroup parent)
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h3><ol>
-<li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
-<li><p>回调函数分成3部分</p>
-<ul>
-<li><p>回调接口 —— 数据提供者编写</p>
-</li>
-<li><p>数据提供者</p>
-<ul>
-<li>预留接口给他人实现(定义接口) OnItemListener</li>
-<li>创建接口引用 onItemListener listener</li>
-<li>提供注册接口的方法(注册接口) setonlistener</li>
-<li>在给数据的地方调用接口的方法(通过接口引用调用方法) listener.giveMsg();</li>
-</ul>
-</li>
-<li><p>数据获取者</p>
-<ul>
-<li>（实现回调接口） implements Callback</li>
-<li>注册回调函数</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+              <h1 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h1><blockquote>
+<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。</p>
+</blockquote>
+<h2 id="回调接口-——-数据提供者编写"><a href="#回调接口-——-数据提供者编写" class="headerlink" title="回调接口 —— 数据提供者编写"></a>回调接口 —— 数据提供者编写</h2><h3 id="数据提供者"><a href="#数据提供者" class="headerlink" title="数据提供者"></a>数据提供者</h3><blockquote>
+<p>1.预留接口给他人实现(定义接口) OnItemListener<br>2.创建接口引用 onItemListener listener<br>3.提供注册接口的方法(注册接口) setonlistener<br>4.在给数据的地方注册并调用接口的方法(通过接口引用调用方法) listener.giveMsg();</p>
+</blockquote>
+<h3 id="数据获取者"><a href="#数据获取者" class="headerlink" title="数据获取者"></a>数据获取者</h3><blockquote>
+<p>1.实现回调接口 implements Callback<br>2.注册回调函数</p>
+</blockquote>
           
       
     </div>

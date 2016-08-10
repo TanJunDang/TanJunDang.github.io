@@ -6,49 +6,28 @@
   <title>JAVASE基础 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="回调函数Callback的理解
-一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
-回调函数分成3部分
+A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。
 
-回调接口 —— 数据提供者编写
-
-数据提供者
-
-预留接口给他人实现(定义接口) OnItemListener
-创建接口引用 onItemListener listener
-提供注册接口的方法(注册接口) setonlistener
-在给数据的地方调用接口的方法(通过接口引用调用方法">
+回调接口 —— 数据提供者编写数据提供者
+1.预留接口给他人实现(定义接口) OnItemListener2.创建接口引用 onItemListener listener3.提供注册接口的方法(注册接口) setonlistener4.在给数据的地方注册并调用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVASE基础">
 <meta property="og:url" content="TanJunDang.github.io/2015/11/18/JAVASE/index.html">
 <meta property="og:site_name" content="TanJunDang">
 <meta property="og:description" content="回调函数Callback的理解
-一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
-回调函数分成3部分
+A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。
 
-回调接口 —— 数据提供者编写
-
-数据提供者
-
-预留接口给他人实现(定义接口) OnItemListener
-创建接口引用 onItemListener listener
-提供注册接口的方法(注册接口) setonlistener
-在给数据的地方调用接口的方法(通过接口引用调用方法">
+回调接口 —— 数据提供者编写数据提供者
+1.预留接口给他人实现(定义接口) OnItemListener2.创建接口引用 onItemListener listener3.提供注册接口的方法(注册接口) setonlistener4.在给数据的地方注册并调用">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBvNk5ORFJQUGFUclBoc2FqUVNzUk5xa2hiNXRvdW41OUN6QmY2S3ZGZ2FRPT0.jpg?imageView&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-05-31T08:01:56.764Z">
+<meta property="og:updated_time" content="2016-08-10T10:33:59.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVASE基础">
 <meta name="twitter:description" content="回调函数Callback的理解
-一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  
-回调函数分成3部分
+A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。
 
-回调接口 —— 数据提供者编写
-
-数据提供者
-
-预留接口给他人实现(定义接口) OnItemListener
-创建接口引用 onItemListener listener
-提供注册接口的方法(注册接口) setonlistener
-在给数据的地方调用接口的方法(通过接口引用调用方法">
+回调接口 —— 数据提供者编写数据提供者
+1.预留接口给他人实现(定义接口) OnItemListener2.创建接口引用 onItemListener listener3.提供注册接口的方法(注册接口) setonlistener4.在给数据的地方注册并调用">
 <meta name="twitter:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBvNk5ORFJQUGFUclBoc2FqUVNzUk5xa2hiNXRvdW41OUN6QmY2S3ZGZ2FRPT0.jpg?imageView&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -245,77 +224,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h3><ol>
-<li>一段程序代码块中，可设定一部分代码，该代码块在未来才实现。  </li>
-<li><p>回调函数分成3部分</p>
-<ul>
-<li><p>回调接口 —— 数据提供者编写</p>
-</li>
-<li><p>数据提供者</p>
-<ul>
-<li>预留接口给他人实现(定义接口) OnItemListener</li>
-<li>创建接口引用 onItemListener listener</li>
-<li>提供注册接口的方法(注册接口) setonlistener</li>
-<li>在给数据的地方调用接口的方法(通过接口引用调用方法) listener.giveMsg();</li>
-</ul>
-</li>
-<li><p>数据获取者</p>
-<ul>
-<li>（实现回调接口） implements Callback</li>
-<li>注册回调函数</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+        <h1 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h1><blockquote>
+<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。</p>
+</blockquote>
+<h2 id="回调接口-——-数据提供者编写"><a href="#回调接口-——-数据提供者编写" class="headerlink" title="回调接口 —— 数据提供者编写"></a>回调接口 —— 数据提供者编写</h2><h3 id="数据提供者"><a href="#数据提供者" class="headerlink" title="数据提供者"></a>数据提供者</h3><blockquote>
+<p>1.预留接口给他人实现(定义接口) OnItemListener<br>2.创建接口引用 onItemListener listener<br>3.提供注册接口的方法(注册接口) setonlistener<br>4.在给数据的地方注册并调用接口的方法(通过接口引用调用方法) listener.giveMsg();</p>
+</blockquote>
+<h3 id="数据获取者"><a href="#数据获取者" class="headerlink" title="数据获取者"></a>数据获取者</h3><blockquote>
+<p>1.实现回调接口 implements Callback<br>2.注册回调函数</p>
+</blockquote>
 <a id="more"></a>
-<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><blockquote>
-<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><blockquote>
+<p>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据<br>员工A 完成任务后 告知老板B</p>
+<p>回调接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Callback</span></span>&#123; <span class="comment">//接口返回something time等参数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(员工)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Callback callback; <span class="comment">//预留回调接口,方便他人调用</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		.</span><br><span class="line">		.    <span class="comment">//工作数小时</span></span><br><span class="line">		.</span><br><span class="line"></span><br><span class="line">		callback.execute(work,<span class="number">144000055</span>); <span class="comment">//告知老板</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">setUser</span><span class="params">(Callback callback)</span></span>&#123;<span class="comment">//提供注册回调函数的方法、还可以考虑通过构造函数注册</span></span><br><span class="line">		<span class="keyword">this</span>.callback = callback;    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(老板)</p>
 </blockquote>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><blockquote>
-<p>帮你教机构详情的数据需要到机构简介Fragment里请求，然后返回更新数据</p>
-<p>员工A 完成任务后 告知老板B</p>
-</blockquote>
-<ul>
-<li><p>回调接口  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Callback</span></span>&#123; <span class="comment">//接口返回something time等参数</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>(员工)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line"><span class="keyword">private</span> Callback callback; <span class="comment">//预留回调接口,方便他人调用</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		.</span><br><span class="line">		.    <span class="comment">//工作数小时</span></span><br><span class="line">		.</span><br><span class="line"></span><br><span class="line">		callback.execute(work,<span class="number">144000055</span>); <span class="comment">//告知老板</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">setUser</span><span class="params">(Callback callback)</span></span>&#123;<span class="comment">//提供注册回调函数的方法、还可以考虑通过构造函数注册</span></span><br><span class="line">		<span class="keyword">this</span>.callback = callback;    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>(老板)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">Callback</span></span>&#123;  <span class="comment">//实现回调接口</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(String something ，<span class="keyword">long</span> time)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"员工在"</span>+time+<span class="string">"做了"</span>+something);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>测试</p>
+<blockquote>
+<p>测试</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String args[])</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	A a = <span class="keyword">new</span> A();</span><br><span class="line">	a.setUser(<span class="keyword">new</span> B());<span class="comment">//注册接口</span></span><br><span class="line">	a.doSomething();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="通过文件保存、读取数据需要序列化"><a href="#通过文件保存、读取数据需要序列化" class="headerlink" title="通过文件保存、读取数据需要序列化"></a>通过文件保存、读取数据需要序列化</h3><h4 id="关于String的subString方法"><a href="#关于String的subString方法" class="headerlink" title="关于String的subString方法"></a>关于String的subString方法</h4><ul>
-<li>subString(int start,int end)中的start、end指的是第几位（从start开始,不算strat到end的字符）</li>
-</ul>
-<pre><code>String date =20151106
-year = date.subString(0,4);
-month = date.subString(4,6);
-day = date.subString(6,8);
-</code></pre><hr>
-<h1 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a><font color="red">陷阱</font></h1><h3 id="集合删除元素"><a href="#集合删除元素" class="headerlink" title="集合删除元素"></a>集合删除元素</h3><ul>
-<li>比较两段代码的不同</li>
-</ul>
-<p>示例一：Iterator删除</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;ShowInfo&gt; iterator = showList.iterator();</span><br><span class="line"><span class="keyword">if</span> (iterator.hasNext()) &#123;</span><br><span class="line">   ShowInfo delShow = iterator.next();</span><br><span class="line">    <span class="keyword">if</span> (delShow.isCheck() == <span class="keyword">true</span>) &#123;</span><br><span class="line">                iterator.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>示例二: for循环删除<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">	list.remove(i);</span><br><span class="line">	i--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="静态成员只初始化一次-创建第一个对象时"><a href="#静态成员只初始化一次-创建第一个对象时" class="headerlink" title="静态成员只初始化一次(创建第一个对象时)"></a>静态成员只初始化一次(创建第一个对象时)</h3><h3 id="必须同时重写equal跟hashCode方法"><a href="#必须同时重写equal跟hashCode方法" class="headerlink" title="必须同时重写equal跟hashCode方法"></a>必须同时重写equal跟hashCode方法</h3><ul>
-<li>如何重写equal方法？</li>
-</ul>
-<ol>
-<li>判断两个对象是否相等 if(this==obj)</li>
-<li>判断是否本类实例化的对象 if(obj instanceof Test)</li>
-<li>判断各种属性(将obj强转成本类)</li>
-</ol>
+<h3 id="通过文件保存、读取数据需要序列化"><a href="#通过文件保存、读取数据需要序列化" class="headerlink" title="通过文件保存、读取数据需要序列化"></a>通过文件保存、读取数据需要序列化</h3><h1 id="关于String的subString方法"><a href="#关于String的subString方法" class="headerlink" title="关于String的subString方法"></a>关于String的subString方法</h1><blockquote>
+<p>subString(int start,int end)中的start、end指的是第几位（从start开始,不算end-1到end的字符）</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String date =<span class="number">20151106</span></span><br><span class="line">year = date.subString(<span class="number">0</span>,<span class="number">4</span>);</span><br><span class="line">month = date.subString(<span class="number">4</span>,<span class="number">6</span>);</span><br><span class="line">day = date.subString(<span class="number">6</span>,<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="陷阱"><a href="#陷阱" class="headerlink" title="陷阱"></a><font color="red">陷阱</font></h1><h3 id="静态成员只初始化一次-创建第一个对象时"><a href="#静态成员只初始化一次-创建第一个对象时" class="headerlink" title="静态成员只初始化一次(创建第一个对象时)"></a>静态成员只初始化一次(创建第一个对象时)</h3><h3 id="必须同时重写equal跟hashCode方法"><a href="#必须同时重写equal跟hashCode方法" class="headerlink" title="必须同时重写equal跟hashCode方法"></a>必须同时重写equal跟hashCode方法</h3><blockquote>
+<p>何重写equal方法？</p>
+<p>判断两个对象是否相等 if(this==obj)<br>判断是否本类实例化的对象 if(obj instanceof Test)<br>判断各种属性(将obj强转成本类)</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123; <span class="comment">//此处必须是Object对象</span></span><br><span class="line">	</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;<span class="keyword">return</span> <span class="keyword">true</span>;&#125;</span><br><span class="line">		<span class="keyword">if</span>(!obj <span class="keyword">instanceof</span> Test)&#123;<span class="keyword">return</span> <span class="keyword">false</span>&#125; <span class="comment">//obj不是Test实例化的对象</span></span><br><span class="line">		Test test = (Test)obj;</span><br><span class="line">		<span class="comment">//判断各种属性</span></span><br><span class="line">		<span class="keyword">if</span>(name.equal(obj.getName()))&#123;<span class="keyword">return</span> <span class="keyword">true</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如何重写hashCode方法</li>
-</ul>
+<blockquote>
+<p>如何重写hashCode方法</p>
+</blockquote>
 <ol>
 <li>定义常量基数prime = 31</li>
 <li>定义存放散列值的变量 result = 1</li>
@@ -347,7 +289,7 @@ day = date.subString(6,8);
         <p><span>本文标题:</span><a href="/2015/11/18/JAVASE/">JAVASE基础</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年11月18日 - 15时03分</p>
-        <p><span>最后更新:</span>2016年05月31日 - 16时01分</p>
+        <p><span>最后更新:</span>2016年08月10日 - 18时33分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/11/18/JAVASE/" title="JAVASE基础">http://TanJunDang.github.io/2015/11/18/JAVASE/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/11/18/JAVASE/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -382,7 +324,7 @@ day = date.subString(6,8);
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.</span> <span class="toc-text">回调函数Callback的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特征"><span class="toc-number">1.1.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例："><span class="toc-number">1.2.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">2.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于String的subString方法"><span class="toc-number">2.1.</span> <span class="toc-text">关于String的subString方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#陷阱"><span class="toc-number"></span> <span class="toc-text">陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#集合删除元素"><span class="toc-number">1.</span> <span class="toc-text">集合删除元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="toc-number">2.</span> <span class="toc-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必须同时重写equal跟hashCode方法"><span class="toc-number">3.</span> <span class="toc-text">必须同时重写equal跟hashCode方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合按某个属性-时间-排序"><span class="toc-number">4.</span> <span class="toc-text">集合按某个属性(时间)排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#业务审核模块源码分析"><span class="toc-number">5.</span> <span class="toc-text">业务审核模块源码分析</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#回调函数Callback的理解"><span class="toc-number">1.</span> <span class="toc-text">回调函数Callback的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#回调接口-——-数据提供者编写"><span class="toc-number">1.1.</span> <span class="toc-text">回调接口 —— 数据提供者编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据提供者"><span class="toc-number">1.1.1.</span> <span class="toc-text">数据提供者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据获取者"><span class="toc-number">1.1.2.</span> <span class="toc-text">数据获取者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.1.3.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过文件保存、读取数据需要序列化"><span class="toc-number">1.1.4.</span> <span class="toc-text">通过文件保存、读取数据需要序列化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于String的subString方法"><span class="toc-number">2.</span> <span class="toc-text">关于String的subString方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#陷阱"><span class="toc-number">3.</span> <span class="toc-text">陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态成员只初始化一次-创建第一个对象时"><span class="toc-number">3.0.1.</span> <span class="toc-text">静态成员只初始化一次(创建第一个对象时)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必须同时重写equal跟hashCode方法"><span class="toc-number">3.0.2.</span> <span class="toc-text">必须同时重写equal跟hashCode方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集合按某个属性-时间-排序"><span class="toc-number">3.0.3.</span> <span class="toc-text">集合按某个属性(时间)排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#业务审核模块源码分析"><span class="toc-number">3.0.4.</span> <span class="toc-text">业务审核模块源码分析</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -468,7 +410,7 @@ day = date.subString(6,8);
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/RecyclerView/">RecyclerView笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
