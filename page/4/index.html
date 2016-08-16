@@ -176,6 +176,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-InterView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/03/InterView/" class="article-date">
+      <time datetime="2015-10-03T09:41:19.000Z" itemprop="datePublished">2015-10-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/03/InterView/">天工面试</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <ul>
+<li><p>如何检测手机内装了什么APP？</p>
+<p>  相关类</p>
+<ul>
+<li>PackageManager</li>
+<li>ApplicationInfo</li>
+<li>ResolveInfo</li>
+<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
+<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
+</li>
+</ul>
+</li>
+</ul>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/03/InterView/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Notification" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -825,72 +895,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
       
         <p class="article-more-link">
           <a  href="/2015/09/12/ViewPager_One/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DrawerLayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/11/DrawerLayout/" class="article-date">
-      <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished">2015-09-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/11/DrawerLayout/">DrawerLayout</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="DrawerLayout的简单使用"><a href="#DrawerLayout的简单使用" class="headerlink" title="DrawerLayout的简单使用"></a>DrawerLayout的简单使用</h3><p>实现效果如下：</p>
-<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
-<p>上述分别是左抽屉跟右抽屉。 </p>
-<p>1.创建布局文件</p>
-<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/11/DrawerLayout/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

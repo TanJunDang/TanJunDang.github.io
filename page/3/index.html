@@ -176,6 +176,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/02/Gradle/" class="article-date">
+      <time datetime="2016-02-02T06:13:06.000Z" itemprop="datePublished">2016-02-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/02/Gradle/">Gradle基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">MyApp</span><br><span class="line">├── build.gradle （ 可以查看Gradle的版本 ）</span><br><span class="line">├── settings.gradle（ include不同的模块）</span><br><span class="line">└── app</span><br><span class="line">    └── build.gradle（ 配置App模块的参数 ）</span><br></pre></td></tr></table></figure>
+<p><a href="/2016/04/04/ProGuard/">混淆</a></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle基础/">Gradle基础</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/02/Gradle/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -238,8 +301,10 @@
 <p><a href="/2016/02/01/Widgets/">EditText</a></p>
 <p>标题栏被顶走</p>
 <p>解决方法： </p>
-<pre><code>在activity设置windowSoftInputMode属性为adjustResize
-</code></pre><h2 id="如何防止ActionBar被软键盘顶走"><a href="#如何防止ActionBar被软键盘顶走" class="headerlink" title="如何防止ActionBar被软键盘顶走"></a>如何防止ActionBar被软键盘顶走</h2><p>在有Edittext的LinearLayout外添加一个ScrollView。</p>
+<blockquote>
+<p>在activity设置windowSoftInputMode属性为adjustResize</p>
+</blockquote>
+<h2 id="如何防止ActionBar被软键盘顶走"><a href="#如何防止ActionBar被软键盘顶走" class="headerlink" title="如何防止ActionBar被软键盘顶走"></a>如何防止ActionBar被软键盘顶走</h2><p>在有Edittext的LinearLayout外添加一个ScrollView。</p>
 <p><a href="http://2dxgujun.com/post/2014/10/23/Soft-Keyboard-Jacking-Control.html">EditText顶走ActionBar参考</a></p>
 <h1 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h1><p><a href="/2015/09/01/ListView/">ListView</a></p>
 <h1 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h1><p><a href="/2016/01/10/RecyclerView/">RecyclerView</a></p>
@@ -961,76 +1026,6 @@ startActivity(it);
       
         <p class="article-more-link">
           <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-InterView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/03/InterView/" class="article-date">
-      <time datetime="2015-10-03T09:41:19.000Z" itemprop="datePublished">2015-10-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/03/InterView/">天工面试</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <ul>
-<li><p>如何检测手机内装了什么APP？</p>
-<p>  相关类</p>
-<ul>
-<li>PackageManager</li>
-<li>ApplicationInfo</li>
-<li>ResolveInfo</li>
-<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
-</li>
-</ul>
-</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/03/InterView/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
