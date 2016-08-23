@@ -176,10 +176,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/31/LogTool/" class="article-date">
+      <a href="/2016/05/31/GsonTool/" class="article-date">
       <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
@@ -193,7 +193,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a>
+      <a class="article-title" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a>
     </h1>
   
 
@@ -203,10 +203,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="日志管理类LogTool"><a href="#日志管理类LogTool" class="headerlink" title="日志管理类LogTool"></a>日志管理类LogTool</h3><blockquote>
-<p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
+        <blockquote>
+<p>Gradle导包<br>compile ‘com.google.code.gson:gson:2.3.1’</p>
 </blockquote>
-          
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> json</span><br><span class="line">     * <span class="doctag">@param</span> cls</span><br><span class="line">     * <span class="doctag">@param</span> &lt;T&gt;  表示通用类型 后面接一个字母表示对象</span><br><span class="line">     * <span class="doctag">@return</span>将String类型转成对象</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getServerBean</span><span class="params">(String json, Class&lt;?&gt; cls)</span> </span>&#123;</span><br><span class="line">        T object = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        object = (T) gson.fromJson(json, cls);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> obj</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     * 将对象转成json（String）</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObjectToJson</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        String json = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        json = gson.toJson(obj);</span><br><span class="line">        <span class="keyword">return</span> json;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -216,13 +216,9 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -286,6 +282,70 @@
       
         <p class="article-more-link">
           <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/LogTool/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="日志管理类LogTool"><a href="#日志管理类LogTool" class="headerlink" title="日志管理类LogTool"></a>日志管理类LogTool</h3><blockquote>
+<p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -754,7 +814,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制</a>
+      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a>
     </h1>
   
 
@@ -764,12 +824,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h3><ul>
-<li><p>跟Touch相关的三个方法：</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev);    //用来分派event，一般不重写。
-public boolean onInterceptTouchEvent(MotionEvent ev); //用来拦截event
-public boolean nTouchEvent(MotionEvent ev);          //用来处理event 
-</code></pre>
+              <h1 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h1><blockquote>
+<p>跟Touch相关的三个方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatchTouchEvent</td>
+<td>用来传递触摸event，一般不重写。</td>
+</tr>
+<tr>
+<td>onInterceptTouchEvent</td>
+<td>用来拦截触摸event，在ViewGroup才有。</td>
+</tr>
+<tr>
+<td>onTouchEvent</td>
+<td>用来处理触摸event。</td>
+</tr>
+</tbody>
+</table>
           
       
     </div>
@@ -780,77 +859,12 @@ public boolean nTouchEvent(MotionEvent ev);          //用来处理event
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/onTouchEvent/">onTouchEvent</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件分发机制onTouchEvent笔记/">事件分发机制onTouchEvent笔记</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
           <a  href="/2016/03/31/OnTouchEvent/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/30/BNJSummarize/" class="article-date">
-      <time datetime="2016-03-30T02:22:24.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
-<li>定义一个全局变量isClick。</li>
-<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
-<li><p>重写Activity的onResume方法，设置isClick为true。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ项目学到的知识点/">BNJ项目学到的知识点</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/30/BNJSummarize/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

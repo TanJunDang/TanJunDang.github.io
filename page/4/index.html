@@ -176,6 +176,83 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/Volley/" class="article-date">
+      <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+</code></pre><ol>
+<li>Volley有get 、post等方式请求数据。</li>
+<li>Volley可以建立、取消请求队列。</li>
+<li>把请求加入请求队列即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求类，使请求代码量减少。</li>
+<li>大大提高性能（反正很厉害就对了）。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
+2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
+3. queue.add(jr);//加入到队列
+</code></pre>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Volley/">Volley</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-InterView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -398,7 +475,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/01/Fragment/">Fragment</a>
+      <a class="article-title" href="/2015/10/01/Fragment/">Fragment笔记</a>
     </h1>
   
 
@@ -408,89 +485,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="定义Fragment的方式"><a href="#定义Fragment的方式" class="headerlink" title="定义Fragment的方式"></a>定义Fragment的方式</h3><ul>
-<li>动态</li>
-<li>静态</li>
-</ul>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
-<li>在主布局文件中定义不同</li>
-</ul>
-<p>主Activity必须继承FragmentActivity</p>
-<ul>
-<li><p>静态：主布局文件里定义 一个fragment控件  </p>
-</li>
-<li><p>动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout</p>
-</li>
-</ul>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
-<li>标题栏通常用静态定义、 内容通常用动态定义</li>
-</ul>
-<h3 id="动态："><a href="#动态：" class="headerlink" title="动态："></a>动态：</h3><ol>
-<li>创建一个xml布局文件，里面包含Fragment要显示的控件  </li>
-<li><p>创建一个java文件 继承Fragment（导入V4包），重写onCreateView方法<br>（所有控件都在这使用，MainActivity就用来调用Fragment），加载上述xml文件<br>最后返回view，而不是返回之前的布局</p>
-</li>
-<li><p>Activity布局文件 创建一个LinearLayout，设置ID，用于装载Fragment，name属性是上述文件的路径名   </p>
-</li>
-<li><p>MainActivity文件里   </p>
-</li>
-</ol>
-<pre><code>A.通过getSupportFragmentManager()方法获得一个FragmentManager  
-B.用manager对象 通过beginTransaction方法开启事务，返回FragmentTransaction对象  
-C.创建一个MyFragment对象  MyFragment mFragment= new MyFragment(); (必须判断是否为空)  
-D.利用事务对象 跟上述定义个布局加载该Fragment transaction.add(Activity里布局的id，Fragment对象)  
-E.提交事务 transaction.commit();
-</code></pre><h3 id="静态："><a href="#静态：" class="headerlink" title="静态："></a>静态：</h3><p>定义好java文件，然后在主布局文件里 创建fragment控件即可，name属性是该java文件的路径名</p>
-<p>如何取得fragment里的控件？  </p>
-<ol>
-<li>在写好的java文件里 重写onActivityCreated  </li>
-<li>通过getActivity()方法获得上下文  </li>
-</ol>
-<h3 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h3><ol>
-<li><p>只要加入到回退栈就能回退，主显示Fragment不回退<br>addToBackTrack（null）  </p>
-</li>
-<li><p>事务的replace 会删除数据，若要保存上个Fragment的数据 ，先隐藏hide，再添加add</p>
-</li>
-<li><p>调用getFragmentManager.popBackStack()方法 可以返回上一个Fragment</p>
-</li>
-</ol>
-<h3 id="Fragment之间通信"><a href="#Fragment之间通信" class="headerlink" title="Fragment之间通信"></a>Fragment之间通信</h3><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
-<h3 id="Fragment-切换、嵌套则会报错"><a href="#Fragment-切换、嵌套则会报错" class="headerlink" title="Fragment 切换、嵌套则会报错"></a>Fragment 切换、嵌套则会报错</h3><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
-<p>解决方法：<br>onCreateView下面使用下列代码</p>
-<pre><code>if (view != null) {
-ViewGroup parent = (ViewGroup) view.getParent(); 
-if (parent != null)
-parent.removeView(view); 
-}else{
-    //数据初始化
-view = inflater(R.layout.xx,container,false);
-}
+              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"/><br></div>
 
-return view;
-</code></pre><h3 id="Activity传值给Fragment"><a href="#Activity传值给Fragment" class="headerlink" title="Activity传值给Fragment"></a>Activity传值给Fragment</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
-<li>在Activity中定义一个字段，生成get、set方法  </li>
-<li><p>在Fragment中通过get方法获取</p>
-<pre><code>private String mTitle;
-public String getmTitle() {
-return mTitle;
-}
-
-public void setmTitle(String title) {
-this.mTitle = title;
-}
-((DemoActivity)getActivity()).getmTitle();
-</code></pre></li>
-</ol>
-<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><ul>
-<li>通过构造函数传递值</li>
-</ul>
-<h3 id="Activity与-ViewPager-里Fragment的交互"><a href="#Activity与-ViewPager-里Fragment的交互" class="headerlink" title="Activity与 ViewPager 里Fragment的交互"></a>Activity与 ViewPager 里Fragment的交互</h3><ol>
-<li>在创建Fragment的Adapter里 获取该Fragment的控件</li>
-<li>通过Fragment实例的getView和findViewById获取控件  </li>
-</ol>
-<pre><code>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent); 
-tv.setText(schoolBasicInfo.getIntroduct());
-</code></pre><p>参考TrainingAgencyAdapter</p>
-
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。</p>
+<p>onAttached()<br>当fragment被加入到activity时调用（在这个方法中可以获得所在的activity）</p>
+<p>onCreateView()<br>当activity要得到fragment的layout时，调用此方法，fragment在其中创建自己的layout(界面)。</p>
+<p>onActivityCreated()<br>当activity的onCreated()方法返回后调用此方法。</p>
+<p>onDestroyView()<br>当fragment中的视图被移除的时候，调用这个方法。</p>
+<p>onDetach()<br>当fragment和activity分离的时候，调用这个方法。</p>
+<p>一旦activity进入resumed状态（也就是running状态），fragment的生命周期才能独<br>立的运转，才可以自由地添加和删除fragment了。其它时候是依赖于activity的生命周期变化的。</p>
+<h1 id="加载Fragment的方式"><a href="#加载Fragment的方式" class="headerlink" title="加载Fragment的方式"></a>加载Fragment的方式</h1><table>
+<thead>
+<tr>
+<th>加载方式</th>
+<th>布局</th>
+<th>特点</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动态</td>
+<td>在xml里定义一个Layout，用于加载不同Fragment，可结合FragmentPagerAdapter使用</td>
+<td>灵活性高</td>
+<td>主流Tab切换布局</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>在xml理定义一个fragment控件</td>
+<td>灵活性低</td>
+<td>制作标题栏</td>
+</tr>
+</tbody>
+</table>
+          
       
     </div>
     
@@ -500,9 +528,13 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fragment/">Fragment</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fragment笔记/">Fragment笔记</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/01/Fragment/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -715,73 +747,6 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
 
   
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
-<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
-<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
-<li>支持图片下载过程的监听</li>
-<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
-</ol>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -845,11 +810,11 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
 
   
-    <article id="post-ViewPager_One" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/12/ViewPager_One/" class="article-date">
-      <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished">2015-09-12</time>
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
 </a>
     </div>
   
@@ -862,7 +827,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a>
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
     </h1>
   
 
@@ -872,12 +837,11 @@ tv.setText(schoolBasicInfo.getIntroduct());
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="主界面的知识点分析"><a href="#主界面的知识点分析" class="headerlink" title="主界面的知识点分析"></a>主界面的知识点分析</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MM2ovTXU1dmlIM0dFZlQ0TTJMVnNoSWdXT1hKQUo0dkV3PT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
-<p>根据上图分析可得有下列知识点  </p>
-<ol>
-<li>底部tab的实现  </li>
-<li>Viewpager的实现  </li>
-<li>PopupWindow的实现  </li>
+              <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
+<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
+<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
+<li>支持图片下载过程的监听</li>
+<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
 </ol>
           
       
@@ -889,12 +853,12 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2015/09/12/ViewPager_One/#more">阅读全文 >></a>
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

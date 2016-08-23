@@ -176,6 +176,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ViewPager_One" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/12/ViewPager_One/" class="article-date">
+      <time datetime="2015-09-11T16:00:00.000Z" itemprop="datePublished">2015-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="主界面的知识点分析"><a href="#主界面的知识点分析" class="headerlink" title="主界面的知识点分析"></a>主界面的知识点分析</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MM2ovTXU1dmlIM0dFZlQ0TTJMVnNoSWdXT1hKQUo0dkV3PT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
+<p>根据上图分析可得有下列知识点  </p>
+<ol>
+<li>底部tab的实现  </li>
+<li>Viewpager的实现  </li>
+<li>PopupWindow的实现  </li>
+</ol>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager-One/">ViewPager_One</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/12/ViewPager_One/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-DrawerLayout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -286,79 +354,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/08/Git/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CustomView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/07/CustomView/" class="article-date">
-      <time datetime="2015-09-06T16:00:00.000Z" itemprop="datePublished">2015-09-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/07/CustomView/">自定义View基本知识</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><a href="http://blog.csdn.net/column/details/androidcustomview.html">自定义View专栏</a></p>
-<h3 id="自定义View的基础知识"><a href="#自定义View的基础知识" class="headerlink" title="自定义View的基础知识"></a>自定义View的基础知识</h3><ul>
-<li>getWidth()、getHeight()指的是xml文件中该View指定的width，height。</li>
-<li>onMeasure、onLayout、onDraw先后执行顺序。</li>
-<li>获取屏幕宽高</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">height = wm.getDefaultDisplay().getHeight();</span><br></pre></td></tr></table></figure>
-<h3 id="实现自定义控件有3种方式："><a href="#实现自定义控件有3种方式：" class="headerlink" title="实现自定义控件有3种方式："></a>实现自定义控件有3种方式：</h3><ol>
-<li>继承一个控件 （继承已有控件）  </li>
-<li>继承一个布局（继承已有布局）  </li>
-<li>组合View （布局根标签应该设置成warp_content，保证各个控件的高宽属性正常。）</li>
-</ol>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义View基本知识/">自定义View基本知识</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/07/CustomView/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

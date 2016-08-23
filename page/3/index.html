@@ -176,6 +176,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/30/BNJSummarize/" class="article-date">
+      <time datetime="2016-03-30T02:22:24.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="如何解决多个按钮同时点击的bug"><a href="#如何解决多个按钮同时点击的bug" class="headerlink" title="如何解决多个按钮同时点击的bug"></a>如何解决多个按钮同时点击的bug</h3><ol>
+<li>定义一个全局变量isClick。</li>
+<li>在switch的每个case里判断isClick，执行完 设置isClick为false。</li>
+<li><p>重写Activity的onResume方法，设置isClick为true。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BNJ项目学到的知识点/">BNJ项目学到的知识点</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Check/">Check</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScanCode/">ScanCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/屏幕宽高/">屏幕宽高</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/30/BNJSummarize/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -950,83 +1015,6 @@ startActivity(it);
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/29/Volley/" class="article-date">
-      <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished">2015-10-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
-</code></pre><ol>
-<li>Volley有get 、post等方式请求数据。</li>
-<li>Volley可以建立、取消请求队列。</li>
-<li>把请求加入请求队列即可完成请求。</li>
-</ol>
-<p>作用：</p>
-<ul>
-<li>封装网络请求类，使请求代码量减少。</li>
-<li>大大提高性能（反正很厉害就对了）。</li>
-</ul>
-<p>使用示例：</p>
-<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
-2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
-3. queue.add(jr);//加入到队列
-</code></pre>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Volley/">Volley</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

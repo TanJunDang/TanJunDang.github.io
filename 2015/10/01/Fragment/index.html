@@ -3,72 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Fragment | TanJunDang</title>
+  <title>Fragment笔记 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义Fragment的方式
-动态
-静态
+  <meta name="description" content="Fragment的基本架构
 
-区别
-在主布局文件中定义不同
-
-主Activity必须继承FragmentActivity
-
-静态：主布局文件里定义 一个fragment控件  
-
-动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout
-
-
-应用
-标题栏通常用静态定义、 内容通常用动态定义
-
-动态：
-创建一个xml布局文件，里面包含Fragment要">
+生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
+onAttached()当fragment被加入到activity时调用（在这个方法中可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fragment">
+<meta property="og:title" content="Fragment笔记">
 <meta property="og:url" content="TanJunDang.github.io/2015/10/01/Fragment/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="定义Fragment的方式
-动态
-静态
+<meta property="og:description" content="Fragment的基本架构
 
-区别
-在主布局文件中定义不同
-
-主Activity必须继承FragmentActivity
-
-静态：主布局文件里定义 一个fragment控件  
-
-动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout
-
-
-应用
-标题栏通常用静态定义、 内容通常用动态定义
-
-动态：
-创建一个xml布局文件，里面包含Fragment要">
-<meta property="og:updated_time" content="2016-05-03T09:21:34.591Z">
+生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
+onAttached()当fragment被加入到activity时调用（在这个方法中可以">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSnFEbVVhNEkyRlBGak4yTlZIMVd6UU9maDhVMW5Eb3dRPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+<meta property="og:updated_time" content="2016-08-23T03:16:01.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fragment">
-<meta name="twitter:description" content="定义Fragment的方式
-动态
-静态
+<meta name="twitter:title" content="Fragment笔记">
+<meta name="twitter:description" content="Fragment的基本架构
 
-区别
-在主布局文件中定义不同
-
-主Activity必须继承FragmentActivity
-
-静态：主布局文件里定义 一个fragment控件  
-
-动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout
-
-
-应用
-标题栏通常用静态定义、 内容通常用动态定义
-
-动态：
-创建一个xml布局文件，里面包含Fragment要">
+生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
+onAttached()当fragment被加入到activity时调用（在这个方法中可以">
+<meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -243,7 +203,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Fragment
+      Fragment笔记
     </h1>
   
 
@@ -254,7 +214,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fragment/">Fragment</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fragment笔记/">Fragment笔记</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -264,43 +224,61 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="定义Fragment的方式"><a href="#定义Fragment的方式" class="headerlink" title="定义Fragment的方式"></a>定义Fragment的方式</h3><ul>
-<li>动态</li>
-<li>静态</li>
-</ul>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
-<li>在主布局文件中定义不同</li>
-</ul>
-<p>主Activity必须继承FragmentActivity</p>
-<ul>
-<li><p>静态：主布局文件里定义 一个fragment控件  </p>
-</li>
-<li><p>动态：主布局文件里定义一个布局（用来装Fragment的容器），例如LinearLayout</p>
-</li>
-</ul>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
-<li>标题栏通常用静态定义、 内容通常用动态定义</li>
-</ul>
-<h3 id="动态："><a href="#动态：" class="headerlink" title="动态："></a>动态：</h3><ol>
-<li>创建一个xml布局文件，里面包含Fragment要显示的控件  </li>
-<li><p>创建一个java文件 继承Fragment（导入V4包），重写onCreateView方法<br>（所有控件都在这使用，MainActivity就用来调用Fragment），加载上述xml文件<br>最后返回view，而不是返回之前的布局</p>
-</li>
-<li><p>Activity布局文件 创建一个LinearLayout，设置ID，用于装载Fragment，name属性是上述文件的路径名   </p>
-</li>
-<li><p>MainActivity文件里   </p>
-</li>
-</ol>
-<pre><code>A.通过getSupportFragmentManager()方法获得一个FragmentManager  
-B.用manager对象 通过beginTransaction方法开启事务，返回FragmentTransaction对象  
-C.创建一个MyFragment对象  MyFragment mFragment= new MyFragment(); (必须判断是否为空)  
-D.利用事务对象 跟上述定义个布局加载该Fragment transaction.add(Activity里布局的id，Fragment对象)  
-E.提交事务 transaction.commit();
-</code></pre><h3 id="静态："><a href="#静态：" class="headerlink" title="静态："></a>静态：</h3><p>定义好java文件，然后在主布局文件里 创建fragment控件即可，name属性是该java文件的路径名</p>
-<p>如何取得fragment里的控件？  </p>
-<ol>
-<li>在写好的java文件里 重写onActivityCreated  </li>
-<li>通过getActivity()方法获得上下文  </li>
-</ol>
+        <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"><br></div>
+
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。</p>
+<p>onAttached()<br>当fragment被加入到activity时调用（在这个方法中可以获得所在的activity）</p>
+<p>onCreateView()<br>当activity要得到fragment的layout时，调用此方法，fragment在其中创建自己的layout(界面)。</p>
+<p>onActivityCreated()<br>当activity的onCreated()方法返回后调用此方法。</p>
+<p>onDestroyView()<br>当fragment中的视图被移除的时候，调用这个方法。</p>
+<p>onDetach()<br>当fragment和activity分离的时候，调用这个方法。</p>
+<p>一旦activity进入resumed状态（也就是running状态），fragment的生命周期才能独<br>立的运转，才可以自由地添加和删除fragment了。其它时候是依赖于activity的生命周期变化的。</p>
+<h1 id="加载Fragment的方式"><a href="#加载Fragment的方式" class="headerlink" title="加载Fragment的方式"></a>加载Fragment的方式</h1><table>
+<thead>
+<tr>
+<th>加载方式</th>
+<th>布局</th>
+<th>特点</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动态</td>
+<td>在xml里定义一个Layout，用于加载不同Fragment，可结合FragmentPagerAdapter使用</td>
+<td>灵活性高</td>
+<td>主流Tab切换布局</td>
+</tr>
+<tr>
+<td>静态</td>
+<td>在xml理定义一个fragment控件</td>
+<td>灵活性低</td>
+<td>制作标题栏</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="动态加载使用步骤"><a href="#动态加载使用步骤" class="headerlink" title="动态加载使用步骤"></a>动态加载使用步骤</h2><blockquote>
+<p>1.在Activity里创建一个布局，定义好切换按钮，定义一个FrameLayout，用于fragment切换。<br>2.创建两个Fragment类，继承Fragment（导入V4包），重写onCreateView方法，加载各自的布局。<br>3.MainActivity文件里，使用Fragment相关API。<br>A.通过getSupportFragmentManager()方法获得一个FragmentManager。<br>B.用manager对象，通过beginTransaction方法开启事务，返回FragmentTransaction对象。<br>C.创建一个MyFragment对象  MyFragment mFragment= new MyFragment(); (必须判断是否为空)<br>D.利用事务对象，调用replace方法进行布局切换。<br>E.提交事务 transaction.commit();</p>
+<p>主Activity的XML布局代码如下</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_frag_test"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.movies.test.FragTestAct"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">RadioGroup</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/rgTest"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"200dp"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"@dimen/layout_size_44dp"</span></span><br><span class="line">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></span><br><span class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"@dimen/layout_size_10dp"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">RadioButton</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/rbOne"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@drawable/common_bg_shape_green"</span></span><br><span class="line">            <span class="attr">android:button</span>=<span class="string">"@null"</span></span><br><span class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"One"</span></span><br><span class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/white"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">RadioButton</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/rbTwo"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@drawable/common_bg_shape_green_disable"</span></span><br><span class="line">            <span class="attr">android:button</span>=<span class="string">"@null"</span></span><br><span class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"Two"</span></span><br><span class="line">            <span class="attr">android:textColor</span>=<span class="string">"#27ae06"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">--</span> 这里还可以定义成<span class="attr">ViewPager--</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/llContainer"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@+id/rgTest"</span></span><br><span class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"@dimen/layout_size_10dp"</span></span><br><span class="line">        <span class="attr">android:background</span>=<span class="string">"#2ecc71"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"><br></div>
+
+
+
+<blockquote>
+<p>MainActivity代码如下</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(RadioGroup radioGroup, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == rbOne.getId()) &#123;</span><br><span class="line">        FragmentTwo fragmentTwo = <span class="keyword">new</span> FragmentTwo();</span><br><span class="line">        FragmentManager manager = getSupportFragmentManager();</span><br><span class="line">        FragmentTransaction transaction = manager.beginTransaction();</span><br><span class="line">        transaction.replace(llContainer.getId(), fragmentTwo);</span><br><span class="line">        transaction.commit();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == rbTwo.getId()) &#123;</span><br><span class="line">        FragmentOne fragmentOne = <span class="keyword">new</span> FragmentOne();</span><br><span class="line">        FragmentManager manager = getSupportFragmentManager();</span><br><span class="line">        FragmentTransaction transaction = manager.beginTransaction();</span><br><span class="line">        transaction.replace(llContainer.getId(), fragmentOne);</span><br><span class="line">        transaction.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="静态加载使用"><a href="#静态加载使用" class="headerlink" title="静态加载使用"></a>静态加载使用</h2><blockquote>
+<p>你该不会真让我写的fragment制作标题栏的示例出来吧？年青人，消停一会吧。由于fragment制作标题栏灵活性差，所以一般是不用fragment来做标题栏的，通常都是自定义标题栏比较多。如果还是要抓牛角尖，你可以看这个<a href="http://www.cnblogs.com/linfenghp/p/5560015.html" target="_blank" rel="external">fragment制作标题栏</a>或者看我另一篇文章吧<a href="/2016/08/18/CustomView/">CustomActionBar</a></p>
+</blockquote>
+<h2 id="实例-onAttach的应用"><a href="#实例-onAttach的应用" class="headerlink" title="实例 - onAttach的应用"></a>实例 - onAttach的应用</h2><blockquote>
+<p>当Fragment被加入到Activity中时，就会调用该方法<br>该方法</p>
+</blockquote>
+<hr>
+<p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt="">    <img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSnFEbVVhNEkyRlBGak4yTlZIMVd6UU9maDhVMW5Eb3dRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt=""></p>
 <h3 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h3><ol>
 <li><p>只要加入到回退栈就能回退，主显示Fragment不回退<br>addToBackTrack（null）  </p>
 </li>
@@ -309,33 +287,15 @@ E.提交事务 transaction.commit();
 <li><p>调用getFragmentManager.popBackStack()方法 可以返回上一个Fragment</p>
 </li>
 </ol>
-<h3 id="Fragment之间通信"><a href="#Fragment之间通信" class="headerlink" title="Fragment之间通信"></a>Fragment之间通信</h3><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
-<h3 id="Fragment-切换、嵌套则会报错"><a href="#Fragment-切换、嵌套则会报错" class="headerlink" title="Fragment 切换、嵌套则会报错"></a>Fragment 切换、嵌套则会报错</h3><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
+<h3 id="Fragment通信"><a href="#Fragment通信" class="headerlink" title="Fragment通信"></a>Fragment通信</h3><p>通过getActivity()方法获取Fragment对应Activity里的控件的ID。</p>
+<h3 id="Fragment切换、嵌套则会报错"><a href="#Fragment切换、嵌套则会报错" class="headerlink" title="Fragment切换、嵌套则会报错"></a>Fragment切换、嵌套则会报错</h3><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
 <p>解决方法：<br>onCreateView下面使用下列代码</p>
-<pre><code>if (view != null) {
-ViewGroup parent = (ViewGroup) view.getParent(); 
-if (parent != null)
-parent.removeView(view); 
-}else{
-    //数据初始化
-view = inflater(R.layout.xx,container,false);
-}
-
-return view;
-</code></pre><h3 id="Activity传值给Fragment"><a href="#Activity传值给Fragment" class="headerlink" title="Activity传值给Fragment"></a>Activity传值给Fragment</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</span><br><span class="line">ViewGroup parent = (ViewGroup) view.getParent(); </span><br><span class="line"><span class="keyword">if</span> (parent != <span class="keyword">null</span>)</span><br><span class="line">parent.removeView(view); </span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="comment">//数据初始化</span></span><br><span class="line">view = inflater(R.layout.xx,container,<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> view;</span><br></pre></td></tr></table></figure>
+<h3 id="Activity传值给Fragment"><a href="#Activity传值给Fragment" class="headerlink" title="Activity传值给Fragment"></a>Activity传值给Fragment</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ol>
 <li>在Activity中定义一个字段，生成get、set方法  </li>
-<li><p>在Fragment中通过get方法获取</p>
-<pre><code>private String mTitle;
-public String getmTitle() {
-return mTitle;
-}
-
-public void setmTitle(String title) {
-this.mTitle = title;
-}
-((DemoActivity)getActivity()).getmTitle();
-</code></pre></li>
+<li>在Fragment中通过get方法获取</li>
 </ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String mTitle;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getmTitle</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> mTitle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setmTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.mTitle = title;</span><br><span class="line">&#125;</span><br><span class="line">((DemoActivity)getActivity()).getmTitle();</span><br></pre></td></tr></table></figure>
 <h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><ul>
 <li>通过构造函数传递值</li>
 </ul>
@@ -343,9 +303,8 @@ this.mTitle = title;
 <li>在创建Fragment的Adapter里 获取该Fragment的控件</li>
 <li>通过Fragment实例的getView和findViewById获取控件  </li>
 </ol>
-<pre><code>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent); 
-tv.setText(schoolBasicInfo.getIntroduct());
-</code></pre><p>参考TrainingAgencyAdapter</p>
+<p>TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent);<br>tv.setText(schoolBasicInfo.getIntroduct());</p>
+<p>参考TrainingAgencyAdapter</p>
 
       
     </div>
@@ -354,12 +313,12 @@ tv.setText(schoolBasicInfo.getIntroduct());
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/10/01/Fragment/">Fragment</a></p>
+        <p><span>本文标题:</span><a href="/2015/10/01/Fragment/">Fragment笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年10月01日 - 16时52分</p>
-        <p><span>最后更新:</span>2016年05月03日 - 17时21分</p>
+        <p><span>最后更新:</span>2016年08月23日 - 11时16分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/10/01/Fragment/" title="Fragment">http://TanJunDang.github.io/2015/10/01/Fragment/</a>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/01/Fragment/" title="Fragment笔记">http://TanJunDang.github.io/2015/10/01/Fragment/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/10/01/Fragment/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -392,7 +351,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义Fragment的方式"><span class="toc-number">1.</span> <span class="toc-text">定义Fragment的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用"><span class="toc-number">3.</span> <span class="toc-text">应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态："><span class="toc-number">4.</span> <span class="toc-text">动态：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态："><span class="toc-number">5.</span> <span class="toc-text">静态：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Fragment的回退栈"><span class="toc-number">6.</span> <span class="toc-text">关于Fragment的回退栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment之间通信"><span class="toc-number">7.</span> <span class="toc-text">Fragment之间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment-切换、嵌套则会报错"><span class="toc-number">8.</span> <span class="toc-text">Fragment 切换、嵌套则会报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity传值给Fragment"><span class="toc-number">9.</span> <span class="toc-text">Activity传值给Fragment</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一"><span class="toc-number">9.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二"><span class="toc-number">9.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity与-ViewPager-里Fragment的交互"><span class="toc-number">10.</span> <span class="toc-text">Activity与 ViewPager 里Fragment的交互</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment的基本架构"><span class="toc-number">1.</span> <span class="toc-text">Fragment的基本架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">1.1.</span> <span class="toc-text">生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载Fragment的方式"><span class="toc-number">2.</span> <span class="toc-text">加载Fragment的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动态加载使用步骤"><span class="toc-number">2.1.</span> <span class="toc-text">动态加载使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态加载使用"><span class="toc-number">2.2.</span> <span class="toc-text">静态加载使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例-onAttach的应用"><span class="toc-number">2.3.</span> <span class="toc-text">实例 - onAttach的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Fragment的回退栈"><span class="toc-number">2.3.1.</span> <span class="toc-text">关于Fragment的回退栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment通信"><span class="toc-number">2.3.2.</span> <span class="toc-text">Fragment通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment切换、嵌套则会报错"><span class="toc-number">2.3.3.</span> <span class="toc-text">Fragment切换、嵌套则会报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity传值给Fragment"><span class="toc-number">2.3.4.</span> <span class="toc-text">Activity传值给Fragment</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一"><span class="toc-number">2.3.4.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二"><span class="toc-number">2.3.4.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity与-ViewPager-里Fragment的交互"><span class="toc-number">2.3.5.</span> <span class="toc-text">Activity与 ViewPager 里Fragment的交互</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -443,7 +402,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/10/01/Fragment/" data-title="Fragment" data-url="TanJunDang.github.io/2015/10/01/Fragment/"></div>
+    <div class="ds-thread" data-thread-key="2015/10/01/Fragment/" data-title="Fragment笔记" data-url="TanJunDang.github.io/2015/10/01/Fragment/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -478,7 +437,7 @@ tv.setText(schoolBasicInfo.getIntroduct());
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">布局常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/07/CustomView/">自定义View基本知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/SystemService/">系统服务使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/12/ViewPager_One/">Viewpager (一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
