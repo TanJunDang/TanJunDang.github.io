@@ -3211,7 +3211,7 @@ color
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #002b36;
+  background: #34495e;
   margin: 10px 0;
   padding: 10px 10px;
   overflow: auto;
@@ -3220,7 +3220,7 @@ color
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
-  color: #999;
+  color: #e74c3c;
 }
 .article-entry pre,
 .article-entry code {
@@ -3231,7 +3231,7 @@ color
   padding: 10px 15px;
   word-break: break-word;
   margin: 10px 0px;
-  border-left: 4px solid #2f2f2f;
+  border-left: 4px solid #e74c3c;
   border-top: 1px dashed #000;
   border-right: 1px dashed #000;
   border-bottom: 1px dashed #000;
@@ -3295,6 +3295,8 @@ color
 .article-entry h1 {
   font-size: 1.5em;
   margin-top: 30px;
+  text-align: left;
+  color: #2ecc71;
 }
 .article-entry h2 {
   font-size: 1.3em;
@@ -3303,13 +3305,13 @@ color
   padding-bottom: 5px;
   margin: 0.5em auto;
   font-weight: 700;
-  color: #999;
+  color: #27ae60;
   padding-bottom: 5px;
-  text-align: center;
+  text-align: left;
 }
 .article-entry h2::after,
 .article-entry h2::before {
-  content: " —— ";
+  content: " — ";
 }
 .article-entry h3 {
   margin: 0.5em auto;
@@ -3389,7 +3391,7 @@ color
 .article-entry .highlight::before {
   content: attr(data-lang) " code";
   display: block;
-  background-color: #0083a0;
+  background-color: #2c3e50;
   margin: 0 -16px 16px -16px;
   padding: 8px 16px;
   color: #efefef;
@@ -3460,7 +3462,7 @@ color
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #002b36;
+  background: #34495e;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -3486,7 +3488,7 @@ color
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #002b36;
+  background: #34495e;
   color: highlight-comment;
   font: 0.85em "Lucida Grande", Verdana, "Helvetica Neue", Arial, sans-serif;
   text-shadow: 0 0;
@@ -3505,7 +3507,7 @@ pre .doctype {
   color: #586e75;
 }
 pre .tag {
-  color: #839496;
+  color: #1abc9c;
 }
 pre .title {
   color: #66d9ef;
@@ -3522,10 +3524,10 @@ pre .command {
   color: #258fb8;
 }
 pre .comment {
-  color: #75715e;
+  color: #2ecc71;
 }
 pre .keyword {
-  color: #66d9ef;
+  color: #e74c3c;
 }
 pre .function,
 pre .class .params {
@@ -3539,7 +3541,7 @@ pre .css .value {
 pre .css ~ * .tag,
 pre .at_rule,
 pre .preprocessor {
-  color: #f92672;
+  color: #ff7676;
 }
 pre .built_in,
 pre .class,
