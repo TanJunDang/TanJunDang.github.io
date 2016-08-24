@@ -3541,7 +3541,7 @@ pre .css .value {
 pre .css ~ * .tag,
 pre .at_rule,
 pre .preprocessor {
-  color: #ff7676;
+  color: #1abc9c;
 }
 pre .built_in,
 pre .class,
