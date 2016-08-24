@@ -3507,7 +3507,7 @@ pre .doctype {
   color: #586e75;
 }
 pre .tag {
-  color: #1abc9c;
+  color: #ff7676;
 }
 pre .title {
   color: #66d9ef;
@@ -3541,7 +3541,7 @@ pre .css .value {
 pre .css ~ * .tag,
 pre .at_rule,
 pre .preprocessor {
-  color: #1abc9c;
+  color: #ff7676;
 }
 pre .built_in,
 pre .class,
