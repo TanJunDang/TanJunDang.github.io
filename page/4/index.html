@@ -774,8 +774,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h3><h3 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
-<p>错误原因： 不能把int的值传给String类型的方法.<br>
+              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><p>1.复制布局文件时，有自定义view，要注意改其包名。</p>
+<p>2.String类型方法传非String类型的值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>错误原因： 不能把int的值传给String类型的方法.<br>解决办法：加一个空字符””  </p>
+</blockquote>
           
       
     </div>
