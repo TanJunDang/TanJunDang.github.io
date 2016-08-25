@@ -176,83 +176,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/29/Volley/" class="article-date">
-      <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished">2015-10-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
-</code></pre><ol>
-<li>Volley有get 、post等方式请求数据。</li>
-<li>Volley可以建立、取消请求队列。</li>
-<li>把请求加入请求队列即可完成请求。</li>
-</ol>
-<p>作用：</p>
-<ul>
-<li>封装网络请求类，使请求代码量减少。</li>
-<li>大大提高性能（反正很厉害就对了）。</li>
-</ul>
-<p>使用示例：</p>
-<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
-2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
-3. queue.add(jr);//加入到队列
-</code></pre>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Volley/">Volley</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-InterView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -685,68 +608,6 @@
 
 
   
-    <article id="post-ViewPager_Two" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/ViewPager_Two/" class="article-date">
-      <time datetime="2015-09-20T01:30:02.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/ViewPager_Two/">ViewPager（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="ViewPager实现方法"><a href="#ViewPager实现方法" class="headerlink" title="ViewPager实现方法"></a>ViewPager实现方法</h3><h4 id="传统ViewPager实现"><a href="#传统ViewPager实现" class="headerlink" title="传统ViewPager实现"></a>传统ViewPager实现</h4><p><a href="/2015/09/12/ViewPager_One/">ViewPager（一）</a><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager-Two/">ViewPager_Two</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/20/ViewPager_Two/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -863,6 +724,134 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Bug/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-DrawerLayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/11/DrawerLayout/" class="article-date">
+      <time datetime="2015-09-10T16:00:00.000Z" itemprop="datePublished">2015-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/11/DrawerLayout/">DrawerLayout</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="DrawerLayout的简单使用"><a href="#DrawerLayout的简单使用" class="headerlink" title="DrawerLayout的简单使用"></a>DrawerLayout的简单使用</h3><p>实现效果如下：</p>
+<p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
+<p>上述分别是左抽屉跟右抽屉。 </p>
+<p>1.创建布局文件</p>
+<p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DrawerLayout/">DrawerLayout</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/11/DrawerLayout/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/08/Git/" class="article-date">
+      <time datetime="2015-09-07T16:00:00.000Z" itemprop="datePublished">2015-09-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/08/Git/">Git的学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="Git的语法"><a href="#Git的语法" class="headerlink" title="Git的语法"></a>Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/08/Git/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -3,6 +3,40 @@
 
 
     
+  <url>
+    <loc>TanJunDang.github.io/2015/08/16/ViewPager_Two/</loc>
+    <lastmod>2016-08-25T07:28:07.899Z</lastmod>
+    <data>
+        <display>
+        <title>ViewPager笔记（二）</title>
+        <pubTime>2015-08-15T16:00:00.000Z</pubTime>
+        
+        <tag>ViewPager笔记（二）</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/08/15/ViewPager_One/</loc>
+    <lastmod>2016-08-25T07:21:19.066Z</lastmod>
+    <data>
+        <display>
+        <title>Viewpager笔记(一)</title>
+        <pubTime>2015-08-14T16:00:00.000Z</pubTime>
+        
+        <tag>Viewpager笔记(一)</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -455,23 +489,6 @@
     
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/12/ViewPager_One/</loc>
-    <lastmod>2016-07-05T08:44:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Viewpager (一)</title>
-        <pubTime>2015-09-11T16:00:00.000Z</pubTime>
-        
-        <tag>ViewPager_One</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/11/19/Android-Broadcast/</loc>
     <lastmod>2016-06-17T06:26:44.000Z</lastmod>
     <data>
@@ -669,40 +686,6 @@
         <pubTime>2015-10-03T09:34:10.000Z</pubTime>
         
         <tag>Notification</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/20/ViewPager_Two/</loc>
-    <lastmod>2016-04-05T09:05:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>ViewPager（二）</title>
-        <pubTime>2015-09-20T01:30:02.000Z</pubTime>
-        
-        <tag>ViewPager_Two</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/11/18/SystemService/</loc>
-    <lastmod>2016-04-05T09:05:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>系统服务使用记录</title>
-        <pubTime>2015-11-18T02:11:13.000Z</pubTime>
-        
-        <tag>SystemService</tag>
          
          
            

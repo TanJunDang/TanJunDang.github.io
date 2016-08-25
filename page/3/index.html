@@ -774,101 +774,6 @@ public View getView(int i , View view , ViewGroup parent)
 
 
   
-    <article id="post-SystemService" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/18/SystemService/" class="article-date">
-      <time datetime="2015-11-18T02:11:13.000Z" itemprop="datePublished">2015-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/18/SystemService/">系统服务使用记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="Wifi服务"><a href="#Wifi服务" class="headerlink" title="Wifi服务"></a>Wifi服务</h3><ul>
-<li>WifiManager</li>
-<li>Context.WIFI_SERVICE</li>
-</ul>
-<pre><code>WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-</code></pre><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>isWifiEnable 判断wifi是否开启</li>
-<li>setWifiEnable 可以设置wifi开启or关闭</li>
-<li>getConnectionInfo 可以获取mac地址、连接速率等信息</li>
-<li>getScanResults 可以获取扫描到的wifi</li>
-</ul>
-<h3 id="常用的Action"><a href="#常用的Action" class="headerlink" title="常用的Action"></a>常用的Action</h3><ul>
-<li><p>程序的开始（Intent.Action_MAIN）</p>
-<pre><code>android.intent.action.MAIN
-</code></pre></li>
-</ul>
-<ul>
-<li><p>拨号界面 （Intent.Action_DIAL）</p>
-<pre><code>action.intent.action.DIAL
-</code></pre></li>
-</ul>
-<ul>
-<li><p>网络状态变化（广播）</p>
-<pre><code>android.net.conn.CONNECTIVITY_CHANGE
-</code></pre></li>
-</ul>
-<ul>
-<li><p>跟根据用户数据打开相应界面（Intent.ACTION_VIEW）</p>
-<pre><code>android.intent.action.VIEW
-
-Uri uri = Uri.parse(&quot;http://www.google.com&quot;); //浏览器 
-Uri uri =Uri.parse(&quot;tel:1232333&quot;); //拨号程序 
-Uri uri=Uri.parse(&quot;geo:39.899533,116.036476&quot;); //打开地图定位 
-Intent it = new Intent(Intent.ACTION_VIEW,uri); 
-startActivity(it); 
-</code></pre></li>
-</ul>
-<hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemService/">SystemService</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Android-Activity" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1015,6 +920,83 @@ startActivity(it);
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li></ul>
     </div>
 
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/Volley/" class="article-date">
+      <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
+</code></pre><ol>
+<li>Volley有get 、post等方式请求数据。</li>
+<li>Volley可以建立、取消请求队列。</li>
+<li>把请求加入请求队列即可完成请求。</li>
+</ol>
+<p>作用：</p>
+<ul>
+<li>封装网络请求类，使请求代码量减少。</li>
+<li>大大提高性能（反正很厉害就对了）。</li>
+</ul>
+<p>使用示例：</p>
+<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
+2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
+3. queue.add(jr);//加入到队列
+</code></pre>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Volley/">Volley</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
