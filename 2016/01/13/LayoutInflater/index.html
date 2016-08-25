@@ -5,25 +5,16 @@
   
   <title>LayoutInflater的理解 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LayoutInflater的inflate方法分析inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_la">
+  <meta name="description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LayoutInflater的理解">
 <meta property="og:url" content="TanJunDang.github.io/2016/01/13/LayoutInflater/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="LayoutInflater的inflate方法分析inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_la">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+<meta property="og:description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
+<meta property="og:updated_time" content="2016-08-25T10:12:22.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LayoutInflater的理解">
-<meta name="twitter:description" content="LayoutInflater的inflate方法分析inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_la">
+<meta name="twitter:description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -219,31 +210,13 @@ View view = inflater.inflate(R.layout.button_layout, main_la">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_layout,true);
-//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
-
-View view = inflater.inflate(R.layout.button_layout, main_layout,false);
-//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
-
-View view = inflater.inflate(R.layout.button_layout, null,true);
-父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
-
-//父布局为null,后面的参数无效
-</code></pre><p>自定义View</p>
+        <h1 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);</span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout);</span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">false</span>);</span><br><span class="line"><span class="comment">//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, <span class="keyword">null</span>,<span class="keyword">true</span>);</span><br><span class="line">父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。</span><br><span class="line"></span><br><span class="line"><span class="comment">//父布局为null,后面的参数无效</span></span><br></pre></td></tr></table></figure>
+<p>自定义View</p>
 <p>分析Adatper里的一句代码</p>
-<pre><code>@Override
-public View getView(int i , View view , ViewGroup parent)
-{
-    view = inflater.inflate(R.layout.list_item, parent);
-}
-</code></pre><ul>
-<li>view 是指list_item里面的根标签</li>
-<li>parent 是指外部使用该Item的控件，即ListView</li>
-<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i , View view , ViewGroup parent)</span></span>&#123;</span><br><span class="line">	view = inflater.inflate(R.layout.list_item, parent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.view 是指list_item里面的根标签<br>2.parent 是指外部使用该Item的控件，即ListView<br>3.由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</p>
+</blockquote>
 
       
     </div>
@@ -255,7 +228,7 @@ public View getView(int i , View view , ViewGroup parent)
         <p><span>本文标题:</span><a href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年01月13日 - 16时19分</p>
-        <p><span>最后更新:</span>2016年04月05日 - 17时05分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 18时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/01/13/LayoutInflater/" title="LayoutInflater的理解">http://TanJunDang.github.io/2016/01/13/LayoutInflater/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/01/13/LayoutInflater/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -290,7 +263,7 @@ public View getView(int i , View view , ViewGroup parent)
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#LayoutInflater的inflate方法分析"><span class="toc-number">1.</span> <span class="toc-text">LayoutInflater的inflate方法分析</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LayoutInflater的inflate方法分析"><span class="toc-number">1.</span> <span class="toc-text">LayoutInflater的inflate方法分析</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -376,7 +349,7 @@ public View getView(int i , View view , ViewGroup parent)
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

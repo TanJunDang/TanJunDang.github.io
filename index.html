@@ -465,15 +465,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="括号含义"><a href="#括号含义" class="headerlink" title="括号含义"></a>括号含义</h3><ul>
+              <h1 id="括号含义"><a href="#括号含义" class="headerlink" title="括号含义"></a>括号含义</h1><blockquote>
+<ul>
 <li>{}一般用来表示匹配的长度</li>
 <li>[]匹配的字符范围</li>
 <li>()提取匹配的字符串</li>
 </ul>
-<h3 id="基本字符"><a href="#基本字符" class="headerlink" title="基本字符"></a>基本字符</h3><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
-<ul>
-<li>‘.’ 表示匹配除了换行符之外的任何字符</li>
-<li>‘*’ 表示匹配除了换行符之外任意数量的字符
+</blockquote>
+<h1 id="基本字符"><a href="#基本字符" class="headerlink" title="基本字符"></a>基本字符</h1><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
+<blockquote>
+<p>‘.’ 表示匹配除了换行符之外的任何字符<br>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
+</blockquote>
           
       
     </div>
@@ -524,20 +526,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h3 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h3><ul>
-<li>如何实现一个启动界面，例如微信、网易新闻。  <blockquote>
-<p>1.创建一个布局文件，里面放一张图。<br>2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面</p>
+              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h2><blockquote>
+<p>如何实现一个启动界面，例如微信、网易新闻。<br>1.创建一个布局文件，里面放一张图。<br>2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面</p>
 </blockquote>
-</li>
-</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Intent intent = <span class="keyword">new</span> Intent(Appstart.<span class="keyword">this</span>, Welcome.class);</span><br><span class="line">  startActivity(intent);</span><br><span class="line">  Appstart.<span class="keyword">this</span>.finish();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>解决启动界面瞬间白屏的问题</li>
-</ul>
-<blockquote>
-<p>Mainfest的主题使用@android:style/Theme.Translucent”<br>StartActivity继承Activity</p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><blockquote>
+<p>解决启动界面瞬间白屏的问题<br>Mainfest的主题使用@android:style/Theme.Translucent”<br>StartActivity继承Activity</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">      &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">      &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">	&lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
           
       
     </div>
@@ -666,7 +662,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="推荐博客"><a href="#推荐博客" class="headerlink" title="推荐博客"></a>推荐博客</h3><p><a href="https://developer.android.com/index.html">Android官方网站</a></p>
+              <h1 id="推荐博客"><a href="#推荐博客" class="headerlink" title="推荐博客"></a>推荐博客</h1><p><a href="https://developer.android.com/index.html">Android官方网站</a></p>
 <p><a href="http://chinagdg.org/">谷歌中国开发者社区</a></p>
 <p><a href="http://androiddoc.qiniudn.com/index.html">Android官方网站镜像</a></p>
 <p><a href="http://stormzhang.com/">stormzhang博客</a></p>
@@ -732,7 +728,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="用RxJava实现EventBus"><a href="#用RxJava实现EventBus" class="headerlink" title="用RxJava实现EventBus"></a>用RxJava实现EventBus</h3>
+              <h1 id="用RxJava封装成RxBus"><a href="#用RxJava封装成RxBus" class="headerlink" title="用RxJava封装成RxBus"></a>用RxJava封装成RxBus</h1>
           
       
     </div>

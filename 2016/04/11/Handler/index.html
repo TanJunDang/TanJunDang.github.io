@@ -21,7 +21,7 @@ Handler的作用
 Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。">
 <meta property="og:image" content="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGM1cvc043YXM3bUsxUlgrNXhwYnZPMzY1L1NMcldXUG5nPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-11T06:10:32.000Z">
+<meta property="og:updated_time" content="2016-08-25T09:44:56.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handler机制">
 <meta name="twitter:description" content="Handler的理解
@@ -225,42 +225,32 @@ Handler机制主要用于解决多线程并发操作UI可能导致的安全问�
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h3><ul>
-<li>多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。</li>
-</ul>
-<h3 id="Handler的作用"><a href="#Handler的作用" class="headerlink" title="Handler的作用"></a>Handler的作用</h3><ul>
-<li>Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。</li>
-</ul>
+        <h1 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h1><blockquote>
+<p>多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。</p>
+</blockquote>
+<h2 id="Handler的作用"><a href="#Handler的作用" class="headerlink" title="Handler的作用"></a>Handler的作用</h2><blockquote>
+<p>Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。</p>
+</blockquote>
 <a id="more"></a>
-<h3 id="Handler内部原理"><a href="#Handler内部原理" class="headerlink" title="Handler内部原理"></a>Handler内部原理</h3><ul>
-<li>UI线程,UI线程初始化,提供消息传送的环境.(创建一个Looper对象和MessageQueue队列)</li>
-<li>Handler,主要用于发送消息和处理消息。</li>
-<li>MessageQueue,消息队列，先进先出的方式管理Message。伴随Looper的初始化而创建。</li>
-<li>Message,消息的载体,Handler处理的对象。</li>
-<li><p>Looper,管理MessageQueue,从队列中取出Message分发给Handler。</p>
-<p>  <img src="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
-<li>子线程修改UI-&gt;Handler发送消息(sendEmptyMessage等方法)-&gt;Message存入到MessageQueue队列-&gt;Looper取出Message分发给Handler-&gt;Handler处理消息(handleMessage方法)</li>
-</ul>
-<h3 id="Handler在主线程、子线程中的区别"><a href="#Handler在主线程、子线程中的区别" class="headerlink" title="Handler在主线程、子线程中的区别"></a>Handler在主线程、子线程中的区别</h3><ul>
-<li><p>主线程中</p>
-<ul>
-<li>直接创建Handler，重写HandlerMessage方法，发送消息即可。</li>
-</ul>
-</li>
-</ul>
+<h2 id="Handler内部原理"><a href="#Handler内部原理" class="headerlink" title="Handler内部原理"></a>Handler内部原理</h2><blockquote>
+<p>UI线程,UI线程初始化,提供消息传送的环境.(创建一个Looper对象和MessageQueue队列)</p>
+<p>Handler,主要用于发送消息和处理消息。</p>
+<p>MessageQueue,消息队列，先进先出的方式管理Message。伴随Looper的初始化而创建。</p>
+<p>Message,消息的载体,Handler处理的对象。</p>
+<p>Looper,管理MessageQueue,从队列中取出Message分发给Handler。</p>
+</blockquote>
+<p><img src="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h2 id="Handler流程"><a href="#Handler流程" class="headerlink" title="Handler流程"></a>Handler流程</h2><blockquote>
+<p>子线程修改UI-&gt;Handler发送消息(sendEmptyMessage等方法)-&gt;Message存入到MessageQueue队列-&gt;Looper取出Message分发给Handler-&gt;Handler处理消息(handleMessage方法)</p>
+</blockquote>
+<h2 id="Handler在主线程、子线程中的区别"><a href="#Handler在主线程、子线程中的区别" class="headerlink" title="Handler在主线程、子线程中的区别"></a>Handler在主线程、子线程中的区别</h2><blockquote>
+<p>主线程中<br>直接创建Handler，重写HandlerMessage方法，发送消息即可。</p>
+</blockquote>
 <hr>
-<ul>
-<li><p>子线程中</p>
-<ul>
-<li><p>需要进行Looper初始化。</p>
+<blockquote>
+<p>子线程中<br>需要进行Looper初始化。</p>
+</blockquote>
 <p><img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGM1cvc043YXM3bUsxUlgrNXhwYnZPMzY1L1NMcldXUG5nPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-</li>
-</ul>
 <p><a href="http://www.runoob.com/w3cnote/android-tutorial-handler-message.html" target="_blank" rel="external">菜鸟参考</a></p>
 
       
@@ -273,7 +263,7 @@ Handler机制主要用于解决多线程并发操作UI可能导致的安全问�
         <p><span>本文标题:</span><a href="/2016/04/11/Handler/">Handler机制</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年04月11日 - 09时58分</p>
-        <p><span>最后更新:</span>2016年04月11日 - 14时10分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 17时44分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/11/Handler/" title="Handler机制">http://TanJunDang.github.io/2016/04/11/Handler/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/04/11/Handler/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -308,7 +298,7 @@ Handler机制主要用于解决多线程并发操作UI可能导致的安全问�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler的理解"><span class="toc-number">1.</span> <span class="toc-text">Handler的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler的作用"><span class="toc-number">2.</span> <span class="toc-text">Handler的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler内部原理"><span class="toc-number">3.</span> <span class="toc-text">Handler内部原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-number">4.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler在主线程、子线程中的区别"><span class="toc-number">5.</span> <span class="toc-text">Handler在主线程、子线程中的区别</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Handler的理解"><span class="toc-number">1.</span> <span class="toc-text">Handler的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler的作用"><span class="toc-number">1.1.</span> <span class="toc-text">Handler的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler内部原理"><span class="toc-number">1.2.</span> <span class="toc-text">Handler内部原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler流程"><span class="toc-number">1.3.</span> <span class="toc-text">Handler流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler在主线程、子线程中的区别"><span class="toc-number">1.4.</span> <span class="toc-text">Handler在主线程、子线程中的区别</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -394,7 +384,7 @@ Handler机制主要用于解决多线程并发操作UI可能导致的安全问�
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

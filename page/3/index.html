@@ -434,7 +434,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color = "red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+              <h1 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a>利用RecyclerView实现图片新增、删除</h1><h2 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除 新增"></a>删除 新增</h2><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">    <img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
           
       
     </div>
@@ -496,31 +496,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h3><pre><code>inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);
-
-View view = inflater.inflate(R.layout.button_layout, main_layout);
-View view = inflater.inflate(R.layout.button_layout, main_layout,true);
-//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样
-
-View view = inflater.inflate(R.layout.button_layout, main_layout,false);
-//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载
-
-View view = inflater.inflate(R.layout.button_layout, null,true);
-父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。
-
-//父布局为null,后面的参数无效
-</code></pre><p>自定义View</p>
+        <h1 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);</span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout);</span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">false</span>);</span><br><span class="line"><span class="comment">//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, <span class="keyword">null</span>,<span class="keyword">true</span>);</span><br><span class="line">父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。</span><br><span class="line"></span><br><span class="line"><span class="comment">//父布局为null,后面的参数无效</span></span><br></pre></td></tr></table></figure>
+<p>自定义View</p>
 <p>分析Adatper里的一句代码</p>
-<pre><code>@Override
-public View getView(int i , View view , ViewGroup parent)
-{
-    view = inflater.inflate(R.layout.list_item, parent);
-}
-</code></pre><ul>
-<li>view 是指list_item里面的根标签</li>
-<li>parent 是指外部使用该Item的控件，即ListView</li>
-<li>由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i , View view , ViewGroup parent)</span></span>&#123;</span><br><span class="line">	view = inflater.inflate(R.layout.list_item, parent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>1.view 是指list_item里面的根标签<br>2.parent 是指外部使用该Item的控件，即ListView<br>3.由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</p>
+</blockquote>
 
       
     </div>
@@ -750,7 +732,7 @@ public View getView(int i , View view , ViewGroup parent)
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVASE/">JAVASE</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础知识/">JAVA基础知识</a></li></ul>
     </div>
 
       

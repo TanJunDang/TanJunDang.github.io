@@ -6,39 +6,42 @@
   <title>正则表达式的总结 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="括号含义
+
 {}一般用来表示匹配的长度
 []匹配的字符范围
 ()提取匹配的字符串
 
+
 基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
-‘.’ 表示匹配除了换行符之外的任何字符
-‘*’ 表示匹配除了换行符之外任意数量的字符">
+‘.’ 表示匹配除了换行符之外的任何字符‘*’ 表示匹配除了换行符之外任意数量的字符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式的总结">
 <meta property="og:url" content="TanJunDang.github.io/2016/07/13/RegEx/index.html">
 <meta property="og:site_name" content="TanJunDang">
 <meta property="og:description" content="括号含义
+
 {}一般用来表示匹配的长度
 []匹配的字符范围
 ()提取匹配的字符串
 
+
 基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
-‘.’ 表示匹配除了换行符之外的任何字符
-‘*’ 表示匹配除了换行符之外任意数量的字符">
-<meta property="og:updated_time" content="2016-07-13T01:30:48.000Z">
+‘.’ 表示匹配除了换行符之外的任何字符‘*’ 表示匹配除了换行符之外任意数量的字符">
+<meta property="og:updated_time" content="2016-08-25T10:29:18.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式的总结">
 <meta name="twitter:description" content="括号含义
+
 {}一般用来表示匹配的长度
 []匹配的字符范围
 ()提取匹配的字符串
 
+
 基本字符（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）
 
-‘.’ 表示匹配除了换行符之外的任何字符
-‘*’ 表示匹配除了换行符之外任意数量的字符">
+‘.’ 表示匹配除了换行符之外的任何字符‘*’ 表示匹配除了换行符之外任意数量的字符">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -234,87 +237,55 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="括号含义"><a href="#括号含义" class="headerlink" title="括号含义"></a>括号含义</h3><ul>
+        <h1 id="括号含义"><a href="#括号含义" class="headerlink" title="括号含义"></a>括号含义</h1><blockquote>
+<ul>
 <li>{}一般用来表示匹配的长度</li>
 <li>[]匹配的字符范围</li>
 <li>()提取匹配的字符串</li>
 </ul>
-<h3 id="基本字符"><a href="#基本字符" class="headerlink" title="基本字符"></a>基本字符</h3><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
-<ul>
-<li>‘.’ 表示匹配除了换行符之外的任何字符</li>
-<li>‘*’ 表示匹配除了换行符之外任意数量的字符<a id="more"></a>
-</li>
-</ul>
+</blockquote>
+<h1 id="基本字符"><a href="#基本字符" class="headerlink" title="基本字符"></a>基本字符</h1><p>（一个元字符替代一个字符 例如 \w 可以表示 2或者s或者’_’）</p>
 <blockquote>
-<p>例子：Erintrus后面有PROG </p>
+<p>‘.’ 表示匹配除了换行符之外的任何字符<br>‘*’ 表示匹配除了换行符之外任意数量的字符</p>
 </blockquote>
-<ul>
-<li>\bErintrus\b.*\bProg\b</li>
-<li>如果要匹配 ‘.’ 和’*’的话，就必须加转义字符<blockquote>
-<p>例子：匹配erintrus.github.io 和c:/erintrus </p>
+<a id="more"></a>
+<h2 id="示例-b使用"><a href="#示例-b使用" class="headerlink" title="示例 - \b使用"></a>示例 - \b使用</h2><blockquote>
+<p>含义 - 字母的开始或者结束</p>
+<p>需求 - Erintrus后面有PROG<br>\bErintrus\b.*\bProg\b</p>
+<p>需求 - 限制输入只能为Erintrus<br>\bErintrus\b</p>
 </blockquote>
-</li>
-<li>erintrus.github.com 和c://erintrus</li>
-</ul>
+<h2 id="示例-转义字符需要加”-“"><a href="#示例-转义字符需要加”-“" class="headerlink" title="示例 - 转义字符需要加”/“"></a>示例 - 转义字符需要加”/“</h2><blockquote>
+<p>使用 - 匹配 ‘.’ 和’*’的话，就必须加转义字符</p>
+<p>需求 - 匹配erintrus.github.io 和c:/erintrus<br>erintrus.github.com 和c://erintrus</p>
+</blockquote>
 <hr>
-<h3 id="字符的开始、结束"><a href="#字符的开始、结束" class="headerlink" title="字符的开始、结束"></a>字符的开始、结束</h3><ul>
-<li>‘^’表示匹配字符串的开始(在字母前，若放在非字母前面表示非)</li>
-<li>‘$’表示匹配字符串的结束<blockquote>
-<p>例子：输入5-12位QQ号码</p>
+<h2 id="示例-字符的开始、结束"><a href="#示例-字符的开始、结束" class="headerlink" title="示例 - 字符的开始、结束"></a>示例 - 字符的开始、结束</h2><blockquote>
+<p>‘^’表示匹配字符串的开始(在字母前，若放在非字母前面表示非)<br>‘$’表示匹配字符串的结束</p>
+<p>需求 - 输入5-12位QQ号码<br>^\d{5,12}$</p>
 </blockquote>
-</li>
-</ul>
-<ul>
-<li>^\d{5,12}$</li>
-</ul>
 <hr>
-<h3 id="字母的开始或者结束-b"><a href="#字母的开始或者结束-b" class="headerlink" title="字母的开始或者结束 \b"></a>字母的开始或者结束 \b</h3><ul>
-<li>\b表示英文单词的开始或者结束 （\b标签囊括的是一个单词）<blockquote>
-<p>例子: 限制输入只能为Erintrus     </p>
+<h2 id="匹配数字-d"><a href="#匹配数字-d" class="headerlink" title="匹配数字 \d"></a>匹配数字 \d</h2><blockquote>
+<p>含义 - \d表示匹配0-9的任意字符（即数字）</p>
+<p>需求 - 区号的电话  如 010-2254789</p>
+<p>A. \d\d\d-\d\d\d\d\d\d\d\d<br>B. \d{2}-\d{8} {n}表示前面连续重复匹配N次<br>\d+ 跟\d* 的区别<br>前者匹配1-n个数字，后者匹配0-n个数字</p>
 </blockquote>
-</li>
-</ul>
-<ul>
-<li>\bErintrus\b</li>
-</ul>
 <hr>
-<h3 id="匹配数字-d"><a href="#匹配数字-d" class="headerlink" title="匹配数字 \d"></a>匹配数字 \d</h3><ul>
-<li>\d表示匹配0-9的任意字符（即数字）<blockquote>
-<p>例子：区号的电话  如 010-2254789</p>
+<h2 id="空格-s"><a href="#空格-s" class="headerlink" title="空格\s"></a>空格\s</h2><blockquote>
+<p>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</p>
 </blockquote>
-</li>
-</ul>
-<ul>
-<li>A. \d\d\d-\d\d\d\d\d\d\d\d</li>
-<li>B. \d{2}-\d{8} {n}表示前面连续重复匹配N次</li>
-</ul>
-<ul>
-<li>\d+ 跟\d* 的区别<blockquote>
-<p>前者匹配1-n个数字，后者匹配0-n个数字</p>
-</blockquote>
-</li>
-</ul>
 <hr>
-<h3 id="空格-s"><a href="#空格-s" class="headerlink" title="空格\s"></a>空格\s</h3><ul>
-<li>\s匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格</li>
-</ul>
-<hr>
-<h3 id="匹配字母或数字或下划线-w"><a href="#匹配字母或数字或下划线-w" class="headerlink" title="匹配字母或数字或下划线\w"></a>匹配字母或数字或下划线\w</h3><ul>
-<li>\w匹配字母或数字或下划线(可以理解为表示字母)<blockquote>
-<p>例子：匹配以a开头的单词</p>
-</blockquote>
-</li>
-<li>\ba\w*\b （因为\b里面必须是单词，所以这里\w不会表示下划线或者数字）</li>
-</ul>
-<hr>
-<h3 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h3><p>(用于限定某个字符重复次数)</p>
-<p>例如上面的的 \d+ 表示匹配1-n个数字</p>
-<blockquote>
+<h2 id="匹配字母或数字或下划线-w"><a href="#匹配字母或数字或下划线-w" class="headerlink" title="匹配字母或数字或下划线\w"></a>匹配字母或数字或下划线\w</h2><blockquote>
+<p>含义 - \w匹配字母或数字或下划线(可以理解为表示字母)</p>
+<p>需求 - 匹配以a开头的单词</p>
+<h2 id="ba-w-b-（因为-b里面必须是单词，所以这里-w不会表示下划线或者数字）"><a href="#ba-w-b-（因为-b里面必须是单词，所以这里-w不会表示下划线或者数字）" class="headerlink" title="\ba\w*\b （因为\b里面必须是单词，所以这里\w不会表示下划线或者数字）"></a>\ba\w*\b （因为\b里面必须是单词，所以这里\w不会表示下划线或者数字）</h2></blockquote>
+<h1 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h1><blockquote>
+<p>含义 - 用于限定某个字符重复次数</p>
+<p>示例 - 上面的的 \d+ 表示匹配1-n个数字</p>
 <p>即\d+ 可以表示成 2 或者 2356</p>
 </blockquote>
-<h3 id="正则表达式用在程序中"><a href="#正则表达式用在程序中" class="headerlink" title="正则表达式用在程序中"></a>正则表达式用在程序中</h3><ul>
-<li>涉及相关类包括Pattern、Matcher</li>
-</ul>
+<h1 id="正则表达式用在程序中"><a href="#正则表达式用在程序中" class="headerlink" title="正则表达式用在程序中"></a>正则表达式用在程序中</h1><blockquote>
+<p>涉及相关类包括Pattern、Matcher</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">stringFilter</span><span class="params">(String str)</span> <span class="keyword">throws</span> PatternSyntaxException </span>&#123;</span><br><span class="line"><span class="comment">// 只允许字母和数字</span></span><br><span class="line">	String regEx = <span class="string">"[^a-zA-Z0-9_]"</span>;</span><br><span class="line">	Pattern p = Pattern.compile(regEx);</span><br><span class="line">	Matcher m = p.matcher(str);</span><br><span class="line">	<span class="keyword">return</span> m.replaceAll(<span class="string">""</span>).trim();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -326,7 +297,7 @@
         <p><span>本文标题:</span><a href="/2016/07/13/RegEx/">正则表达式的总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年07月13日 - 09时05分</p>
-        <p><span>最后更新:</span>2016年07月13日 - 09时30分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 18时29分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/13/RegEx/" title="正则表达式的总结">http://TanJunDang.github.io/2016/07/13/RegEx/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/07/13/RegEx/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -361,7 +332,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#括号含义"><span class="toc-number">1.</span> <span class="toc-text">括号含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本字符"><span class="toc-number">2.</span> <span class="toc-text">基本字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符的开始、结束"><span class="toc-number">3.</span> <span class="toc-text">字符的开始、结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字母的开始或者结束-b"><span class="toc-number">4.</span> <span class="toc-text">字母的开始或者结束 \b</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配数字-d"><span class="toc-number">5.</span> <span class="toc-text">匹配数字 \d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空格-s"><span class="toc-number">6.</span> <span class="toc-text">空格\s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配字母或数字或下划线-w"><span class="toc-number">7.</span> <span class="toc-text">匹配字母或数字或下划线\w</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#限定符"><span class="toc-number">8.</span> <span class="toc-text">限定符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">9.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#括号含义"><span class="toc-number">1.</span> <span class="toc-text">括号含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本字符"><span class="toc-number">2.</span> <span class="toc-text">基本字符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-b使用"><span class="toc-number">2.1.</span> <span class="toc-text">示例 - \b使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-转义字符需要加”-“"><span class="toc-number">2.2.</span> <span class="toc-text">示例 - 转义字符需要加”/“</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-字符的开始、结束"><span class="toc-number">2.3.</span> <span class="toc-text">示例 - 字符的开始、结束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配数字-d"><span class="toc-number">2.4.</span> <span class="toc-text">匹配数字 \d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空格-s"><span class="toc-number">2.5.</span> <span class="toc-text">空格\s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配字母或数字或下划线-w"><span class="toc-number">2.6.</span> <span class="toc-text">匹配字母或数字或下划线\w</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ba-w-b-（因为-b里面必须是单词，所以这里-w不会表示下划线或者数字）"><span class="toc-number">2.7.</span> <span class="toc-text">\ba\w*\b （因为\b里面必须是单词，所以这里\w不会表示下划线或者数字）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#限定符"><span class="toc-number">3.</span> <span class="toc-text">限定符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式用在程序中"><span class="toc-number">4.</span> <span class="toc-text">正则表达式用在程序中</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -447,7 +418,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

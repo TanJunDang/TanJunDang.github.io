@@ -5,28 +5,22 @@
   
   <title>PopupWindow | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PopupWindow 基本用法(View加载、计算宽度、参考显示)
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置，">
+  <meta name="description" content="PopupWindow 基本用法
+　View加载、计算宽度、参考显示
+1.用一个View加载要显示的布局。2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))3.设置PopupWindow的背景。(setBackgroundDrawable)4.设置PopupWindow的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PopupWindow">
 <meta property="og:url" content="TanJunDang.github.io/2015/09/22/PopupWindow/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="PopupWindow 基本用法(View加载、计算宽度、参考显示)
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置，">
-<meta property="og:updated_time" content="2016-04-05T09:05:06.000Z">
+<meta property="og:description" content="PopupWindow 基本用法
+　View加载、计算宽度、参考显示
+1.用一个View加载要显示的布局。2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))3.设置PopupWindow的背景。(setBackgroundDrawable)4.设置PopupWindow的">
+<meta property="og:updated_time" content="2016-08-25T09:12:29.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PopupWindow">
-<meta name="twitter:description" content="PopupWindow 基本用法(View加载、计算宽度、参考显示)
-用一个View加载要显示的布局。
-创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))
-设置PopupWindow的背景。(setBackgroundDrawable)
-设置PopupWindow的显示位置，">
+<meta name="twitter:description" content="PopupWindow 基本用法
+　View加载、计算宽度、参考显示
+1.用一个View加载要显示的布局。2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))3.设置PopupWindow的背景。(setBackgroundDrawable)4.设置PopupWindow的">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -222,59 +216,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="PopupWindow-基本用法-View加载、计算宽度、参考显示"><a href="#PopupWindow-基本用法-View加载、计算宽度、参考显示" class="headerlink" title="PopupWindow 基本用法(View加载、计算宽度、参考显示)"></a>PopupWindow 基本用法(View加载、计算宽度、参考显示)</h3><ol>
-<li>用一个View加载要显示的布局。</li>
-<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
-<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
-<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
-<li>popupWindow.setFocusable(true);</li>
-<li>popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</li>
-</ol>
+        <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>　View加载、计算宽度、参考显示</p>
+<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+</blockquote>
 <a id="more"></a>
 <ul>
-<li><p>(showAsDropDown) 相对某个view的位置</p>
-<pre><code>public void showAsDropDown(View anchor)
-
-public void showAsDropDown(View anchor, int xoff, int yoff)
-
-public void showAsDropDown(View anchor, int xoff, int yoff, int gravity)
-</code></pre></li>
-<li><p>(showAsLocation)相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移</p>
-<pre><code>public void showAtLocation(View parent, int gravity, int x, int y)
-
-public void showAtLocation(IBinder token, int gravity, int x, int y)
-</code></pre></li>
+<li>(showAsDropDown) 相对某个view的位置</li>
 </ul>
-<p>下述是示例代码：  </p>
-<pre><code>View view = View.inflate(this,R.layout.Erintrus,null);
-
-PopupWindow pop = new PopupWindow(view,300,300, true); //设置宽高
-//如果设置为自适应LinearLayout.LayoutParams.WRAP_CONTENT，则其宽高为背景图片的宽高
-
-pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));//必须设置，否则点击不能取消，并且卡死屏幕
-
-int width = context.getResources().getDisplayMetrics().widthPixels;//获取屏幕宽
-
-int menuWidth = pop.getWidth();//获取popupWindow的宽度，由于上述设置了300px,所以这的值是300
-
-int menuShowXoff = (width-menuWidth)/2; //设置其显示位置的横坐标
-
-pop.showAsDropDown(actionBar, menuShowXoff, 0); //以actionbar为参考，的位置。
-
-pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, 0, 50);
-</code></pre><h4 id="BadToken错误，popWindow的getWidth是0、-2"><a href="#BadToken错误，popWindow的getWidth是0、-2" class="headerlink" title="BadToken错误，popWindow的getWidth是0、-2"></a>BadToken错误，popWindow的getWidth是0、-2</h4><ul>
-<li>Bad Token showAsDropDown、showAtLocation方法不能放在OnCreate</li>
-</ul>
-<p>解决办法： 放在点击事件里</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAsDropDown</span><span class="params">(View anchor)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAsDropDown</span><span class="params">(View anchor, <span class="keyword">int</span> xoff, <span class="keyword">int</span> yoff)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAsDropDown</span><span class="params">(View anchor, <span class="keyword">int</span> xoff, <span class="keyword">int</span> yoff, <span class="keyword">int</span> gravity)</span></span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>popWindow的getWidth是0、-2的原因是设置了宽高设置了Warp_content</p>
-<pre><code>PopupWindow pop = new PopupWindow(view,LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT, true); //设置宽高
-</code></pre></li>
+<li>(showAsLocation)相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移</li>
 </ul>
-<p>解决办法：添加如下代码</p>
-<pre><code>popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAtLocation</span><span class="params">(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAtLocation</span><span class="params">(IBinder token, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">View view = View.inflate(<span class="keyword">this</span>,R.layout.Erintrus,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,<span class="number">300</span>,<span class="number">300</span>, <span class="keyword">true</span>); <span class="comment">//设置宽高</span></span><br><span class="line"><span class="comment">//如果设置为自适应LinearLayout.LayoutParams.WRAP_CONTENT，则其宽高为背景图片的宽高</span></span><br><span class="line"></span><br><span class="line">pop.setBackgroundDrawable(context.getResource().getDrawable(R.drawable.test));<span class="comment">//必须设置，否则点击不能取消，并且卡死屏幕</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> width = context.getResources().getDisplayMetrics().widthPixels;<span class="comment">//获取屏幕宽</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> menuWidth = pop.getWidth();<span class="comment">//获取popupWindow的宽度，由于上述设置了300px,所以这的值是300</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> menuShowXoff = (width-menuWidth)/<span class="number">2</span>; <span class="comment">//设置其显示位置的横坐标</span></span><br><span class="line"></span><br><span class="line">pop.showAsDropDown(actionBar, menuShowXoff, <span class="number">0</span>); <span class="comment">//以actionbar为参考，的位置。</span></span><br><span class="line"></span><br><span class="line">pw.showAtLocation(actionBar, Gravity.CENTER_HORIZONTAL|Gravity.TOP, <span class="number">0</span>, <span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h1><blockquote>
+<p>BadToken错误，popWindow的getWidth是0、-2</p>
+<p>原因<br>Bad Token showAsDropDown、showAtLocation方法不能放在OnCreate</p>
+<p>解决办法<br>放在点击事件里</p>
+<p>popWindow的getWidth是0、-2的原因是设置了宽高设置了Warp_content</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PopupWindow pop = <span class="keyword">new</span> PopupWindow(view,LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT, <span class="keyword">true</span>); <span class="comment">//设置宽高</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);</span><br><span class="line">popWidth = popupWindow.getContentView().getMeasuredWidth();<span class="comment">//获取宽度</span></span><br></pre></td></tr></table></figure>
+<h1 id="利用PopupWindow制作弹出菜单"><a href="#利用PopupWindow制作弹出菜单" class="headerlink" title="利用PopupWindow制作弹出菜单"></a>利用PopupWindow制作弹出菜单</h1><p><a href="/2016/05/25/CustomMenu/">自定义弹出菜单</a></p>
+
       
     </div>
     
@@ -285,7 +253,7 @@ popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
         <p><span>本文标题:</span><a href="/2015/09/22/PopupWindow/">PopupWindow</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年09月22日 - 09时10分</p>
-        <p><span>最后更新:</span>2016年04月05日 - 17时05分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 17时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/09/22/PopupWindow/" title="PopupWindow">http://TanJunDang.github.io/2015/09/22/PopupWindow/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/09/22/PopupWindow/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -298,11 +266,11 @@ popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
 
 <nav id="article-nav">
   
-    <a href="/2015/09/17/ImageLoaderTool/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/17/Bug/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          ImageLoader的理解
+          开发中常见的Error、Bug
         
       </div>
     </a>
@@ -320,7 +288,7 @@ popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PopupWindow-基本用法-View加载、计算宽度、参考显示"><span class="toc-number">1.</span> <span class="toc-text">PopupWindow 基本用法(View加载、计算宽度、参考显示)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BadToken错误，popWindow的getWidth是0、-2"><span class="toc-number">1.1.</span> <span class="toc-text">BadToken错误，popWindow的getWidth是0、-2</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PopupWindow-基本用法"><span class="toc-number">1.</span> <span class="toc-text">PopupWindow 基本用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#遇到的错误"><span class="toc-number">3.</span> <span class="toc-text">遇到的错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#利用PopupWindow制作弹出菜单"><span class="toc-number">4.</span> <span class="toc-text">利用PopupWindow制作弹出菜单</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -395,7 +363,7 @@ popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/09/17/ImageLoaderTool/" title="上一篇: ImageLoader的理解">
+            <a href="/2015/09/17/Bug/" title="上一篇: 开发中常见的Error、Bug">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -406,7 +374,7 @@ popWidth = popupWindow.getContentView().getMeasuredWidth();//获取宽度
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

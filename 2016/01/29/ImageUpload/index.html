@@ -5,18 +5,18 @@
   
   <title>图片增加、删除 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用RecyclerView实现图片新增、删除删除**  新增">
+  <meta name="description" content="利用RecyclerView实现图片新增、删除删除 新增">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图片增加、删除">
 <meta property="og:url" content="TanJunDang.github.io/2016/01/29/ImageUpload/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="利用RecyclerView实现图片新增、删除删除**  新增">
+<meta property="og:description" content="利用RecyclerView实现图片新增、删除删除 新增">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-05-03T09:16:24.000Z">
+<meta property="og:updated_time" content="2016-08-25T10:00:31.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片增加、删除">
-<meta name="twitter:description" content="利用RecyclerView实现图片新增、删除删除**  新增">
+<meta name="twitter:description" content="利用RecyclerView实现图片新增、删除删除 新增">
 <meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -213,169 +213,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a><font color="red">利用RecyclerView实现图片新增、删除</font></h2><h3 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除**  新增"></a>删除<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>  新增</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+        <h1 id="利用RecyclerView实现图片新增、删除"><a href="#利用RecyclerView实现图片新增、删除" class="headerlink" title="利用RecyclerView实现图片新增、删除"></a>利用RecyclerView实现图片新增、删除</h1><h2 id="删除-新增"><a href="#删除-新增" class="headerlink" title="删除 新增"></a>删除 新增</h2><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnRElIK2RMZVRrcVVUYkVUcnozM09VYXVlTXhHMWNLay9BPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">    <img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNVBPVkk0UDFXOXdnUExxVlY3cTlvZW1PT2h2U1lJWW9uK0RPdHc0dlFWR2lBPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <a id="more"></a>
-<ul>
-<li><p>思路：</p>
-<ol>
-<li>由于新增跟删除只是一个添加按钮跟CheckBox的区别，所以我们可以将两种情况分别用Adapter表示。</li>
-<li>先定义删除的Adapter ， 重写getItemViewType方法，返回该Adapter的标识。</li>
-<li>定义新增的Adapter，继承删除的Adapter，其布局只有一个ImageView（添加按钮）。</li>
-<li>然后通过是否编辑模式，决定设置那种Adapter。</li>
-</ol>
-</li>
-</ul>
-<pre><code>下面给出部分代码
-
-
-  public class BaseHolder extends RecyclerView.ViewHolder {
-  public View rootView;
-
-      public BaseHolder(View itemView) {
-          super(itemView);
-          rootView = itemView;
-      }
-  }
-
-
-  class PicAdapter extends RecyclerView.Adapter&lt;BaseHolder&gt; {
-  private final int TYPE_ITEM = 0x00; //定义标识，标识是普通Item
-  @Override
-  public BaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-      View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pic_album_item_view, parent, false);
-      return new PicHolder(view);
-  }
-
-  @Override
-  public void onBindViewHolder(final BaseHolder holder, int position) {
-      holder.rootView.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              //这里实现的是点击Item的处理逻辑
-              Functions.toast(getApplicationContext(), holder.getLayoutPosition() + &quot;&quot;);
-          }
-      });
-      String image = images.get(position).getPicurl();
-      PicHolder picHolder = (PicHolder) holder;
-      picHolder.ivPicture.setImageResource(Functions.getResourceIdByString(image));
-      if (isEditMode) {
-          picHolder.cbSelectImg.setVisibility(View.VISIBLE);
-      } else {
-          picHolder.cbSelectImg.setVisibility(View.GONE);
-      }
-  }
-
-  @Override
-  public int getItemCount() {
-      return images.size(); //返回集合size
-  }
-
-      @Override
-      public int getItemViewType(int position) {
-          return TYPE_ITEM; //返回普通Item的类型
-      }
-
-      class PicHolder extends BaseHolder {
-          private ImageView ivPicture;
-          private View view;
-          private CheckBox cbSelectImg;
-
-          public PicHolder(View itemView) {
-              super(itemView);
-              view = itemView;
-              ivPicture = (ImageView) view.findViewById(R.id.ivPicture);
-              cbSelectImg = (CheckBox) view.findViewById(R.id.cbSelectImg);
-          }
-      }
-    }
-
-
-  class AddPicAdapter extends PicAdapter {
-  public final static int TYPE_ADD = 0x11; //定义添加Item的标识
-
-  @Override
-  public BaseHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
-      BaseHolder holder;
-      //通过viewType判断加载那种布局
-      if (viewType == TYPE_ADD) {
-          View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pic_album_add_item_view, parent, false);
-          view.setOnClickListener(new View.OnClickListener() {
-
-              //点击添加按钮的处理逻辑
-              @Override
-              public void onClick(View v) {
-                  MovieMsgInfo info = new MovieMsgInfo();
-                  Random random = new Random();
-                  int result = random.nextInt(11) + 1;
-                  info.setPicurl(PREIFX_DRAWABLE + result);
-                  images.add(info);
-                  mAdapter.notifyDataSetChanged();
-              }
-          });
-          holder = new AddPicHolder(view);
-          return holder;
-      } else {
-          return super.onCreateViewHolder(parent, viewType);
-      }
-  }
-
-    @Override
-    public void onBindViewHolder(BaseHolder holder, int position) {
-        //通过判断是否点击最后一个Item
-        if (position == getItemCount() - 1) {
-            holder.rootView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //点击最后添加按钮的处理逻辑
-                }
-            });
-
-        } else {
-            super.onBindViewHolder(holder, position);
-        }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        //根据position判断加载类型
-        if (position == getItemCount() - 1) {
-            return TYPE_ADD;
-        }
-        return super.getItemViewType(position);
-    }
-
-
-    @Override
-    public int getItemCount() {
-        //重中之重，返回Item数量为父类总数+1（+1是添加按钮）
-        return super.getItemCount() + 1;
-    }
-
-    public class AddPicHolder extends BaseHolder {
-
-        private ImageView ivPicture;
-
-        public AddPicHolder(View itemView) {
-            super(itemView);
-            ivPicture = (ImageView) itemView.findViewById(R.id.ivPicture);
-        }
-    }
-
-    }
-</code></pre><h2 id="HashSet控制集合选中以及取消"><a href="#HashSet控制集合选中以及取消" class="headerlink" title="HashSet控制集合选中以及取消"></a><font red="red">HashSet控制集合选中以及取消</font></h2><ul>
-<li>选中：点击的时候，将id加入到集合中</li>
-<li>取消选择：判断是否包含该元素，是则删除，没有则添加。</li>
-</ul>
-<pre><code>onlick(){
-
-  if(set.contain(user.getID())){
-      set.remove(user.getID());
-  }else{
-      set.add(user.getId());
-  }
-
-}
-</code></pre>
+<blockquote>
+<p>思路</p>
+<p>1.由于新增跟删除只是一个添加按钮跟CheckBox的区别，所以我们可以将两种情况分别用Adapter表示。<br>2.先定义删除的Adapter ， 重写getItemViewType方法，返回该Adapter的标识。<br>3.定义新增的Adapter，继承删除的Adapter，其布局只有一个ImageView（添加按钮）。<br>4.然后通过是否编辑模式，决定设置那种Adapter。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span> View rootView;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootView = itemView;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PicAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">BaseHolder</span>&gt; </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_ITEM = <span class="number">0x00</span>; <span class="comment">//定义标识，标识是普通Item</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> BaseHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pic_album_item_view, parent, <span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PicHolder(view);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(<span class="keyword">final</span> BaseHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    holder.rootView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//这里实现的是点击Item的处理逻辑</span></span><br><span class="line">            Functions.toast(getApplicationContext(), holder.getLayoutPosition() + <span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    String image = images.get(position).getPicurl();</span><br><span class="line">    PicHolder picHolder = (PicHolder) holder;</span><br><span class="line">    picHolder.ivPicture.setImageResource(Functions.getResourceIdByString(image));</span><br><span class="line">    <span class="keyword">if</span> (isEditMode) &#123;</span><br><span class="line">        picHolder.cbSelectImg.setVisibility(View.VISIBLE);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        picHolder.cbSelectImg.setVisibility(View.GONE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> images.size(); <span class="comment">//返回集合size</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> TYPE_ITEM; <span class="comment">//返回普通Item的类型</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">PicHolder</span> <span class="keyword">extends</span> <span class="title">BaseHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> ImageView ivPicture;</span><br><span class="line">        <span class="keyword">private</span> View view;</span><br><span class="line">        <span class="keyword">private</span> CheckBox cbSelectImg;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">PicHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            view = itemView;</span><br><span class="line">            ivPicture = (ImageView) view.findViewById(R.id.ivPicture);</span><br><span class="line">            cbSelectImg = (CheckBox) view.findViewById(R.id.cbSelectImg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddPicAdapter</span> <span class="keyword">extends</span> <span class="title">PicAdapter</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> TYPE_ADD = <span class="number">0x11</span>; <span class="comment">//定义添加Item的标识</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> BaseHolder <span class="title">onCreateViewHolder</span><span class="params">(<span class="keyword">final</span> ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">    BaseHolder holder;</span><br><span class="line">    <span class="comment">//通过viewType判断加载那种布局</span></span><br><span class="line">    <span class="keyword">if</span> (viewType == TYPE_ADD) &#123;</span><br><span class="line">        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pic_album_add_item_view, parent, <span class="keyword">false</span>);</span><br><span class="line">        view.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//点击添加按钮的处理逻辑</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                MovieMsgInfo info = <span class="keyword">new</span> MovieMsgInfo();</span><br><span class="line">                Random random = <span class="keyword">new</span> Random();</span><br><span class="line">                <span class="keyword">int</span> result = random.nextInt(<span class="number">11</span>) + <span class="number">1</span>;</span><br><span class="line">                info.setPicurl(PREIFX_DRAWABLE + result);</span><br><span class="line">                images.add(info);</span><br><span class="line">                mAdapter.notifyDataSetChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        holder = <span class="keyword">new</span> AddPicHolder(view);</span><br><span class="line">        <span class="keyword">return</span> holder;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onCreateViewHolder(parent, viewType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(BaseHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//通过判断是否点击最后一个Item</span></span><br><span class="line">      <span class="keyword">if</span> (position == getItemCount() - <span class="number">1</span>) &#123;</span><br><span class="line">          holder.rootView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">              <span class="meta">@Override</span></span><br><span class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                  <span class="comment">//点击最后添加按钮的处理逻辑</span></span><br><span class="line">              &#125;</span><br><span class="line">          &#125;);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">super</span>.onBindViewHolder(holder, position);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//根据position判断加载类型</span></span><br><span class="line">      <span class="keyword">if</span> (position == getItemCount() - <span class="number">1</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> TYPE_ADD;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">super</span>.getItemViewType(position);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">//重中之重，返回Item数量为父类总数+1（+1是添加按钮）</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">super</span>.getItemCount() + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddPicHolder</span> <span class="keyword">extends</span> <span class="title">BaseHolder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">private</span> ImageView ivPicture;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">AddPicHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">super</span>(itemView);</span><br><span class="line">          ivPicture = (ImageView) itemView.findViewById(R.id.ivPicture);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HashSet控制集合选中以及取消"><a href="#HashSet控制集合选中以及取消" class="headerlink" title="HashSet控制集合选中以及取消"></a>HashSet控制集合选中以及取消</h2><blockquote>
+<p>选中：点击的时候，将id加入到集合中<br>取消选择：判断是否包含该元素，是则删除，没有则添加。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">onlick()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(set.contain(user.getID()))&#123;</span><br><span class="line">        set.remove(user.getID());</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        set.add(user.getId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -386,7 +234,7 @@
         <p><span>本文标题:</span><a href="/2016/01/29/ImageUpload/">图片增加、删除</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年01月29日 - 10时23分</p>
-        <p><span>最后更新:</span>2016年05月03日 - 17时16分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 18时00分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/01/29/ImageUpload/" title="图片增加、删除">http://TanJunDang.github.io/2016/01/29/ImageUpload/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/01/29/ImageUpload/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -421,7 +269,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用RecyclerView实现图片新增、删除"><span class="toc-number">1.</span> <span class="toc-text">利用RecyclerView实现图片新增、删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除-新增"><span class="toc-number">1.1.</span> <span class="toc-text">删除**  新增</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashSet控制集合选中以及取消"><span class="toc-number">2.</span> <span class="toc-text">HashSet控制集合选中以及取消</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#利用RecyclerView实现图片新增、删除"><span class="toc-number">1.</span> <span class="toc-text">利用RecyclerView实现图片新增、删除</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#删除-新增"><span class="toc-number">1.1.</span> <span class="toc-text">删除 新增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashSet控制集合选中以及取消"><span class="toc-number">1.2.</span> <span class="toc-text">HashSet控制集合选中以及取消</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -507,7 +355,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

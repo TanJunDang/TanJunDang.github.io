@@ -203,19 +203,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <ul>
-<li><p>如何检测手机内装了什么APP？</p>
-<p>  相关类</p>
+              <h1 id="PackageManager的基本理解"><a href="#PackageManager的基本理解" class="headerlink" title="PackageManager的基本理解"></a>PackageManager的基本理解</h1><blockquote>
+<p>1.如何检测手机内装了什么APP？<br>相关API<br>PackageManager</p>
 <ul>
-<li>PackageManager</li>
-<li>ApplicationInfo</li>
-<li>ResolveInfo</li>
-<li><p>ApplicationInfo与ResolveInfo区别：<br>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。<br>前者得到的Label 包括Server、provider等。</p>
-<p>1.PackageManager 获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>2.ApplicationInfo 通过配置文件里</application>标签 得到应用的信息。<br>3.ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。  </p>
-</li>
+<li>PackageManager获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>ApplicationInfo</li>
+<li>ApplicationInfo通过配置文件里</application>标签 得到应用的信息。<br>ResolveInfo</li>
+<li>ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。</li>
 </ul>
-</li>
+</blockquote>
+<hr>
+<blockquote>
+<p>ApplicationInfo与ResolveInfo区别</p>
+<ul>
+<li>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。  </li>
+<li>前者得到的Label 包括Server、provider等。</li>
 </ul>
+</blockquote>
           
       
     </div>
@@ -225,6 +228,10 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/天工面试/">天工面试</a></li></ul>
+    </div>
+
       
         <p class="article-more-link">
           <a  href="/2015/10/03/InterView/#more">阅读全文 >></a>
@@ -263,7 +270,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/03/Notification/">Notification实际开发</a>
+      <a class="article-title" href="/2015/10/03/Notification/">Notification笔记</a>
     </h1>
   
 
@@ -273,18 +280,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h3><ul>
-<li>Notification.Builder类 用于设置消息的标题、内容、图标等信息。</li>
-<li><p>NotificationManager类 用于发送、取消通知。</p>
-<p>  <img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="自定义Notification"><a href="#自定义Notification" class="headerlink" title="自定义Notification"></a>自定义Notification</h3><ul>
-<li>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。</li>
-<li><p>通常Notification的用法如下：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">   Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">          .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">          .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">          .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">          .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">          .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">          .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">          .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">          .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+              <h1 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h1><blockquote>
+<p>Notification.Builder类 用于设置消息的标题、内容、图标等信息。<br>NotificationManager类 用于发送、取消通知。</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="示例-Notification基本使用"><a href="#示例-Notification基本使用" class="headerlink" title="示例 - Notification基本使用"></a>示例 - Notification基本使用</h1><blockquote>
+<p>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。<br>示例代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">       .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">       .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">       .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">       .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">       .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">       .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">       .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">       .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
           
       
     </div>
@@ -295,7 +298,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification/">Notification</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification笔记/">Notification笔记</a></li></ul>
     </div>
 
       
@@ -566,14 +569,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="PopupWindow-基本用法-View加载、计算宽度、参考显示"><a href="#PopupWindow-基本用法-View加载、计算宽度、参考显示" class="headerlink" title="PopupWindow 基本用法(View加载、计算宽度、参考显示)"></a>PopupWindow 基本用法(View加载、计算宽度、参考显示)</h3><ol>
-<li>用一个View加载要显示的布局。</li>
-<li>创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))</li>
-<li>设置PopupWindow的背景。(setBackgroundDrawable)</li>
-<li>设置PopupWindow的显示位置，并且将其显示。(两种方法)  </li>
-<li>popupWindow.setFocusable(true);</li>
-<li>popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</li>
-</ol>
+              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>　View加载、计算宽度、参考显示</p>
+<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+</blockquote>
           
       
     </div>
@@ -590,73 +589,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h3><ol>
-<li>多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中</li>
-<li>支持图片的内存缓存，文件系统缓存或者SD卡缓存</li>
-<li>支持图片下载过程的监听</li>
-<li>根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</li>
-</ol>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -742,6 +674,70 @@
 
 
   
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
+<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-DrawerLayout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -769,10 +765,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="DrawerLayout的简单使用"><a href="#DrawerLayout的简单使用" class="headerlink" title="DrawerLayout的简单使用"></a>DrawerLayout的简单使用</h3><p>实现效果如下：</p>
+              <h1 id="DrawerLayout的简单使用"><a href="#DrawerLayout的简单使用" class="headerlink" title="DrawerLayout的简单使用"></a>DrawerLayout的简单使用</h1><p>实现效果如下</p>
 <p><img src="http://www.mincoder.com/images/201448/2_5QlXvecEWQPhN1Pi.png" alt=""><img src="http://www.mincoder.com/images/201448/2_LEQTuZktJNwWilfS.png" alt=""></p>
 <p>上述分别是左抽屉跟右抽屉。 </p>
+<blockquote>
 <p>1.创建布局文件</p>
+</blockquote>
 <p>DrawerLayout 里面有最多有三个节点(子布局)<br>分别是主内容、左抽屉内容、右抽屉内容。<br>
           
       
@@ -835,7 +833,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="Git的语法"><a href="#Git的语法" class="headerlink" title="Git的语法"></a>Git的语法</h3><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
+              <h1 id="Git的语法"><a href="#Git的语法" class="headerlink" title="Git的语法"></a>Git的语法</h1><p>Git是对整个目录进行版本控制（有.git的目录）<br>常用命令：<br>
           
       
     </div>
@@ -846,7 +844,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git的学习/">Git的学习</a></li></ul>
     </div>
 
       

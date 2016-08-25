@@ -7,23 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
 
-Canvas 决定画什么（简称View）
-Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
+Canvas 决定画什么（简称View）Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="绘图总结">
 <meta property="og:url" content="TanJunDang.github.io/2015/09/01/Draw/index.html">
 <meta property="og:site_name" content="TanJunDang">
 <meta property="og:description" content="对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
 
-Canvas 决定画什么（简称View）
-Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
-<meta property="og:updated_time" content="2016-05-03T09:35:02.000Z">
+Canvas 决定画什么（简称View）Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
+<meta property="og:updated_time" content="2016-08-25T09:25:37.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="绘图总结">
 <meta name="twitter:description" content="对绘图的基本理解绘图的两个基本工具是Paint跟Canvas  
 
-Canvas 决定画什么（简称View）
-Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
+Canvas 决定画什么（简称View）Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -219,57 +216,18 @@ Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="对绘图的基本理解"><a href="#对绘图的基本理解" class="headerlink" title="对绘图的基本理解"></a>对绘图的基本理解</h2><p>绘图的两个基本工具是Paint跟Canvas  </p>
-<ul>
-<li>Canvas 决定画什么（简称View）</li>
-<li>Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。 <a id="more"></a>
-</li>
-</ul>
+        <h1 id="对绘图的基本理解"><a href="#对绘图的基本理解" class="headerlink" title="对绘图的基本理解"></a>对绘图的基本理解</h1><p>绘图的两个基本工具是Paint跟Canvas  </p>
+<blockquote>
+<p>Canvas 决定画什么（简称View）<br>Paint 决定View的画风（简称Style） 例如 颜色、线条粗细等。 </p>
+ <a id="more"></a>
+</blockquote>
 <p>下面是Paint的基本用法</p>
-<pre><code>void  setARGB(int a, int r, int g, int b)  设置Paint对象颜色，参数一为alpha透明通道
-
-void  setAlpha(int a)  设置alpha不透明度，范围为0~255
-
-void  setAntiAlias(boolean aa)  //是否抗锯齿
-
-void  setColor(int color)  //设置颜色，这里Android内部定义的有Color类包含了一些常见颜色定义
- . 
-void  setFakeBoldText(boolean fakeBoldText)  //设置伪粗体文本
-
-void  setLinearText(boolean linearText)  //设置线性文本
-
-PathEffect  setPathEffect(PathEffect effect)  //设置路径效果
-
-Rasterizer  setRasterizer(Rasterizer rasterizer) //设置光栅化
-
-Shader  setShader(Shader shader)  //设置阴影 
-
-void  setTextAlign(Paint.Align align)  //设置文本对齐
-
-void  setTextScaleX(float scaleX)  //设置文本缩放倍数，1.0f为原始
-
-void  setTextSize(float textSize)  //设置字体大小
-
-Typeface  setTypeface(Typeface typeface)  //设置字体，Typeface包含了字体的类型，粗细，还有倾斜、颜色等。
-
- void  setUnderlineText(boolean underlineText)  //设置下划线
-
-Paint paint = new Paint();
-paint.setAntiAlias(true);          //防锯齿
-paint.setDither(true);            //防抖动
-paint.setStyle(Paint.Style.STROKE); //画笔类型 STROKE空心 FILL 实心
-</code></pre><ul>
-<li><p>如果要绘制多边形，可以通过Path类 ，然后通过drawPath方法来画出该形状。  </p>
-<p>例如要绘制一个三角形，可以这样做：</p>
-</li>
-</ul>
-<pre><code>Path path = new Path();
-path.moveTo(10,340); //设置起始位置坐标  
-path.lineTo(70,340);//画底部的线  
-path.lineTo(35,290);//画另外一条边、最后一条自动连接 不需再画  
-path.close();  
-canvas.drawPath(path,p);
-</code></pre><p><a href="http://blog.csdn.net/iispring/article/details/49770651" target="_blank" rel="external">优秀文章参考</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">setARGB</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> r, <span class="keyword">int</span> g, <span class="keyword">int</span> b)</span>  <span class="comment">//设置Paint对象颜色，参数一为alpha透明通道</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setAlpha</span><span class="params">(<span class="keyword">int</span> a)</span>  <span class="comment">//设置alpha不透明度，范围为0~255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setAntiAlias</span><span class="params">(<span class="keyword">boolean</span> aa)</span>  <span class="comment">//是否抗锯齿</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setColor</span><span class="params">(<span class="keyword">int</span> color)</span>  <span class="comment">//设置颜色，这里Android内部定义的有Color类包含了一些常见颜色定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setFakeBoldText</span><span class="params">(<span class="keyword">boolean</span> fakeBoldText)</span>  <span class="comment">//设置伪粗体文本</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">void</span>  <span class="title">setLinearText</span><span class="params">(<span class="keyword">boolean</span> linearText)</span>  <span class="comment">//设置线性文本</span></span><br><span class="line"> </span><br><span class="line">PathEffect  <span class="title">setPathEffect</span><span class="params">(PathEffect effect)</span>  <span class="comment">//设置路径效果</span></span><br><span class="line"> </span><br><span class="line">Rasterizer  <span class="title">setRasterizer</span><span class="params">(Rasterizer rasterizer)</span> <span class="comment">//设置光栅化</span></span><br><span class="line"> </span><br><span class="line">Shader  <span class="title">setShader</span><span class="params">(Shader shader)</span>  <span class="comment">//设置阴影 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setTextAlign</span><span class="params">(Paint.Align align)</span>  <span class="comment">//设置文本对齐</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>  <span class="title">setTextScaleX</span><span class="params">(<span class="keyword">float</span> scaleX)</span>  <span class="comment">//设置文本缩放倍数，1.0f为原始</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">void</span>  <span class="title">setTextSize</span><span class="params">(<span class="keyword">float</span> textSize)</span>  <span class="comment">//设置字体大小</span></span><br><span class="line"> </span><br><span class="line">Typeface  <span class="title">setTypeface</span><span class="params">(Typeface typeface)</span>  <span class="comment">//设置字体，Typeface包含了字体的类型，粗细，还有倾斜、颜色等。</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">void</span>  <span class="title">setUnderlineText</span><span class="params">(<span class="keyword">boolean</span> underlineText)</span>  <span class="comment">//设置下划线</span></span><br><span class="line"></span><br><span class="line">Paint paint </span>= <span class="keyword">new</span> Paint();</span><br><span class="line">paint.setAntiAlias(<span class="keyword">true</span>);  <span class="comment">//防锯齿</span></span><br><span class="line">paint.setDither(<span class="keyword">true</span>); <span class="comment">//防抖动</span></span><br><span class="line">paint.setStyle(Paint.Style.STROKE); <span class="comment">//画笔类型 STROKE空心 FILL 实心</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果要绘制多边形，可以通过Path类 ，然后通过drawPath方法来画出该形状。  </p>
+</blockquote>
+<h1 id="示例-绘制三角形"><a href="#示例-绘制三角形" class="headerlink" title="示例 - 绘制三角形"></a>示例 - 绘制三角形</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">path.moveTo(<span class="number">10</span>,<span class="number">340</span>); <span class="comment">//设置起始位置坐标  </span></span><br><span class="line">path.lineTo(<span class="number">70</span>,<span class="number">340</span>);<span class="comment">//画底部的线  </span></span><br><span class="line">path.lineTo(<span class="number">35</span>,<span class="number">290</span>);<span class="comment">//画另外一条边、最后一条自动连接 不需再画  </span></span><br><span class="line">path.close();  </span><br><span class="line">canvas.drawPath(path,p);</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/iispring/article/details/49770651" target="_blank" rel="external">优秀文章参考</a></p>
 
       
     </div>
@@ -281,7 +239,7 @@ canvas.drawPath(path,p);
         <p><span>本文标题:</span><a href="/2015/09/01/Draw/">绘图总结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年09月01日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年05月03日 - 17时35分</p>
+        <p><span>最后更新:</span>2016年08月25日 - 17时25分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/09/01/Draw/" title="绘图总结">http://TanJunDang.github.io/2015/09/01/Draw/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/09/01/Draw/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -316,7 +274,7 @@ canvas.drawPath(path,p);
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对绘图的基本理解"><span class="toc-number">1.</span> <span class="toc-text">对绘图的基本理解</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#对绘图的基本理解"><span class="toc-number">1.</span> <span class="toc-text">对绘图的基本理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-绘制三角形"><span class="toc-number">2.</span> <span class="toc-text">示例 - 绘制三角形</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -402,7 +360,7 @@ canvas.drawPath(path,p);
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification实际开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
