@@ -5,30 +5,21 @@
   
   <title>时间戳 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间戳的总结
-时间戳的理解
-
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
+  <meta name="description" content="时间戳的基本知识
+理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间戳">
 <meta property="og:url" content="TanJunDang.github.io/2016/07/08/Timestamp/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="时间戳的总结
-时间戳的理解
-
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
+<meta property="og:description" content="时间戳的基本知识
+理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-07-21T03:33:18.000Z">
+<meta property="og:updated_time" content="2016-08-26T00:59:02.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间戳">
-<meta name="twitter:description" content="时间戳的总结
-时间戳的理解
-
-
-时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
+<meta name="twitter:description" content="时间戳的基本知识
+理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
 <meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -225,58 +216,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="时间戳的总结"><a href="#时间戳的总结" class="headerlink" title="时间戳的总结"></a>时间戳的总结</h3><ul>
-<li>时间戳的理解</li>
-</ul>
-<blockquote>
-<p>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
+        <h1 id="时间戳的基本知识"><a href="#时间戳的基本知识" class="headerlink" title="时间戳的基本知识"></a>时间戳的基本知识</h1><blockquote>
+<p>理解<br>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
 </blockquote>
 <a id="more"></a>
-<ul>
-<li>格式</li>
-</ul>
 <blockquote>
-<p>EEEE表示星期几、E表示周几<br>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</p>
+<p>格式<br>EEEE表示星期几、E表示周几<br>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</p>
 </blockquote>
 <div align="center"><br><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br></div>
 
-
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;         时间戳       &gt;</span><br><span class="line">────├─────────────────────├────</span><br><span class="line"></span><br><span class="line"><span class="number">1970</span>-<span class="number">1</span>-<span class="number">1</span>                 now</span><br></pre></td></tr></table></figure>
-<h4 id="时间戳的转换"><a href="#时间戳的转换" class="headerlink" title="时间戳的转换"></a>时间戳的转换</h4><ul>
-<li>时间戳转String</li>
-</ul>
-<blockquote>
+<h1 id="时间戳的转换"><a href="#时间戳的转换" class="headerlink" title="时间戳的转换"></a>时间戳的转换</h1><h2 id="时间戳转String"><a href="#时间戳转String" class="headerlink" title="时间戳转String"></a>时间戳转String</h2><blockquote>
 <p>涉及Date、SimpleDateFormat的format方法</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Long date = <span class="keyword">new</span> Long(<span class="string">"1467607128000"</span>))；</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">String date = sdf.format(<span class="keyword">new</span> Date(<span class="keyword">long</span>));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>String转时间戳</li>
-</ul>
-<blockquote>
+<h2 id="String转时间戳"><a href="#String转时间戳" class="headerlink" title="String转时间戳"></a>String转时间戳</h2><blockquote>
 <p>涉及SimpleDateFormat的parse方法、Date的getTime方法</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String strDate = dpBirth.getYear() + <span class="string">"-"</span> + (dpBirth.getMonth() + <span class="number">1</span>) + <span class="string">"-"</span> + dpBirth.getDayOfMonth() + <span class="string">""</span>;</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">Date date = sdf.parse(strDate);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取时间戳</span></span><br><span class="line">birthday = date.getTime();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>年月日转时间戳</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getTimestampByDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	String strDate = year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day;</span><br><span class="line">	Date date = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">	    date = sdf.parse(strDate);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">	    e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> date.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="年月日转时间戳"><a href="#年月日转时间戳" class="headerlink" title="年月日转时间戳"></a>年月日转时间戳</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getTimestampByDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	String strDate = year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day;</span><br><span class="line">	Date date = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">	    date = sdf.parse(strDate);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">	    e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> date.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div align="center"><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" align="center"><br></div>
 
-<h4 id="时间戳实际开发"><a href="#时间戳实际开发" class="headerlink" title="时间戳实际开发"></a>时间戳实际开发</h4><ul>
-<li>服务器下发一串String的日期 例如 20151106 ，要显示成2015年11月06日</li>
-</ul>
-<p>思路：将String转成Date，再用date转成其他</p>
-<ol>
-<li>将String转Date </li>
-</ol>
+<h1 id="示例-时间戳"><a href="#示例-时间戳" class="headerlink" title="示例 - 时间戳"></a>示例 - 时间戳</h1><blockquote>
+<p>需求<br>服务器下发一串String的日期20151106，要显示成2015年11月06日</p>
+<p>思路<br>将String转成Date，再用date转成其他</p>
+<p>1.将String转Date </p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyyMMdd"</span>).parse(<span class="string">"20151106"</span>);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>再用Date转成自己想要的格式</li>
-</ol>
+<blockquote>
+<p>2.再用Date转成自己想要的格式</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String msg = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyy年MM月dd日"</span>).format(date.getTime());</span><br></pre></td></tr></table></figure>
-<h3 id="DatePicker-初始化日期"><a href="#DatePicker-初始化日期" class="headerlink" title="DatePicker 初始化日期"></a>DatePicker 初始化日期</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.init(<span class="number">2015</span>,<span class="number">09</span>,<span class="number">11</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="DatePicker-初始化日期"><a href="#DatePicker-初始化日期" class="headerlink" title="DatePicker 初始化日期"></a>DatePicker 初始化日期</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.init(<span class="number">2015</span>,<span class="number">09</span>,<span class="number">11</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -288,7 +259,7 @@
         <p><span>本文标题:</span><a href="/2016/07/08/Timestamp/">时间戳</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年07月08日 - 15时10分</p>
-        <p><span>最后更新:</span>2016年07月21日 - 11时33分</p>
+        <p><span>最后更新:</span>2016年08月26日 - 08时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/08/Timestamp/" title="时间戳">http://TanJunDang.github.io/2016/07/08/Timestamp/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/07/08/Timestamp/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -323,7 +294,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间戳的总结"><span class="toc-number">1.</span> <span class="toc-text">时间戳的总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳的转换"><span class="toc-number">1.1.</span> <span class="toc-text">时间戳的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时间戳实际开发"><span class="toc-number">1.2.</span> <span class="toc-text">时间戳实际开发</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DatePicker-初始化日期"><span class="toc-number">2.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间戳的基本知识"><span class="toc-number">1.</span> <span class="toc-text">时间戳的基本知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#时间戳的转换"><span class="toc-number">2.</span> <span class="toc-text">时间戳的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间戳转String"><span class="toc-number">2.1.</span> <span class="toc-text">时间戳转String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String转时间戳"><span class="toc-number">2.2.</span> <span class="toc-text">String转时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#年月日转时间戳"><span class="toc-number">2.3.</span> <span class="toc-text">年月日转时间戳</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-时间戳"><span class="toc-number">3.</span> <span class="toc-text">示例 - 时间戳</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DatePicker-初始化日期"><span class="toc-number">4.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 

@@ -4,8 +4,63 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/10/29/Volley/</loc>
+    <lastmod>2016-08-26T01:16:03.295Z</lastmod>
+    <data>
+        <display>
+        <title>Volley跟Async-http的封装</title>
+        <pubTime>2015-10-29T07:29:10.000Z</pubTime>
+        
+        <tag>Volley</tag>
+         
+        <tag>Async-http</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/02/VersionUpdate/</loc>
+    <lastmod>2016-08-26T01:01:59.084Z</lastmod>
+    <data>
+        <display>
+        <title>版本更新</title>
+        <pubTime>2015-10-02T07:41:04.000Z</pubTime>
+        
+        <tag>版本更新</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Timestamp/</loc>
+    <lastmod>2016-08-26T00:59:02.941Z</lastmod>
+    <data>
+        <display>
+        <title>时间戳</title>
+        <pubTime>2016-07-08T07:10:32.000Z</pubTime>
+        
+        <tag>时间戳</tag>
+         
+        <tag>时间工具类</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2016-08-25T10:38:08.803Z</lastmod>
+    <lastmod>2016-08-26T00:55:14.268Z</lastmod>
     <data>
         <display>
         <title></title>
@@ -26,7 +81,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
-    <lastmod>2016-08-25T10:32:50.930Z</lastmod>
+    <lastmod>2016-08-26T00:44:24.877Z</lastmod>
     <data>
         <display>
         <title>常用开发工具、框架、网站</title>
@@ -639,25 +694,6 @@
     
     
   <url>
-    <loc>TanJunDang.github.io/2016/07/08/Timestamp/</loc>
-    <lastmod>2016-07-21T03:33:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>时间戳</title>
-        <pubTime>2016-07-08T07:10:32.000Z</pubTime>
-        
-        <tag>时间戳</tag>
-         
-        <tag>时间工具类</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
     <lastmod>2016-07-07T09:34:20.000Z</lastmod>
     <data>
@@ -712,23 +748,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/10/02/VersionUpdate/</loc>
-    <lastmod>2016-06-03T06:26:32.000Z</lastmod>
-    <data>
-        <display>
-        <title>版本更新</title>
-        <pubTime>2015-10-02T07:41:04.000Z</pubTime>
-        
-        <tag>版本更新</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
     <lastmod>2016-04-13T08:09:20.000Z</lastmod>
     <data>
@@ -737,25 +756,6 @@
         <pubTime>2015-10-30T07:42:08.000Z</pubTime>
         
         <tag>Activity</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/29/Volley/</loc>
-    <lastmod>2016-04-05T09:05:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Volley跟Async-http的封装</title>
-        <pubTime>2015-10-29T07:29:10.000Z</pubTime>
-        
-        <tag>Volley</tag>
-         
-        <tag>Async-http</tag>
          
          
            

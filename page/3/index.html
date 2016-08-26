@@ -946,22 +946,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h4 id="Volley的基础"><a href="#Volley的基础" class="headerlink" title="Volley的基础"></a>Volley的基础</h4><pre><code>compile &apos;com.mcxiaoke.volley:library:1.0.19&apos;
-</code></pre><ol>
-<li>Volley有get 、post等方式请求数据。</li>
-<li>Volley可以建立、取消请求队列。</li>
-<li>把请求加入请求队列即可完成请求。</li>
-</ol>
-<p>作用：</p>
-<ul>
-<li>封装网络请求类，使请求代码量减少。</li>
-<li>大大提高性能（反正很厉害就对了）。</li>
-</ul>
-<p>使用示例：</p>
-<pre><code>1. RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列
-2. StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式
-3. queue.add(jr);//加入到队列
-</code></pre>
+              <h1 id="Volley基础"><a href="#Volley基础" class="headerlink" title="Volley基础"></a>Volley基础</h1><blockquote>
+<p>Gradle代码<br>compile ‘com.mcxiaoke.volley:library:1.0.19’</p>
+<p>理解<br>1.Volley有get 、post等方式请求数据。<br>2.Volley可以建立、取消请求队列。<br>3.把请求加入请求队列即可完成请求。</p>
+<p>作用<br>封装网络请求类，使请求代码量减少。<br>大大提高性能（反正很厉害就对了）。</p>
+</blockquote>
+<h2 id="示例-Volley使用"><a href="#示例-Volley使用" class="headerlink" title="示例 - Volley使用"></a>示例 - Volley使用</h2><blockquote>
+<p>RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列<br>StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式<br>queue.add(jr);//加入到队列</p>
+</blockquote>
           
       
     </div>

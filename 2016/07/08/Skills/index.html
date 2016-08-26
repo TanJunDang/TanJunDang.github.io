@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5TVZ1bFluWDhkNlRBejczdXI5VFRXVjh1bkRHeGJOYjJBPT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-08-25T10:38:08.803Z">
+<meta property="og:updated_time" content="2016-08-26T00:55:14.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TanJunDang">
 <meta name="twitter:description" content="开发中常用的技巧启动界面
@@ -255,31 +255,23 @@
 <p>用TreeMap</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, ArrayList&lt;User&gt;&gt; map = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例</li>
-</ul>
-<p>BNJ中联系人列表</p>
-<h3 id="aligntop没效果"><a href="#aligntop没效果" class="headerlink" title="aligntop没效果"></a>aligntop没效果</h3><ul>
-<li>没有设置父布局的高度</li>
-</ul>
-<h3 id="minHeight的作用"><a href="#minHeight的作用" class="headerlink" title="minHeight的作用"></a>minHeight的作用</h3><ul>
-<li>设置warp_content可实现根据文本自动改变控件的高度</li>
-</ul>
-<h3 id="android-alpha属性"><a href="#android-alpha属性" class="headerlink" title="android:alpha属性"></a>android:alpha属性</h3><ul>
-<li>设置透明度 值是 0（透明） - 1（不透明）范围</li>
-</ul>
-<p>实战：</p>
-<p>BNJ实现%50黑的图片</p>
-<ol>
-<li>FramLayout 里面放一个ImageView</li>
-<li>Framlayout 设置背景为黑色</li>
-<li>ImageView设置alpha=0.5</li>
-</ol>
-<h4 id="透明度计算"><a href="#透明度计算" class="headerlink" title="透明度计算"></a>透明度计算</h4><blockquote>
+<h2 id="aligntop没效果"><a href="#aligntop没效果" class="headerlink" title="aligntop没效果"></a>aligntop没效果</h2><blockquote>
+<p>没有设置父布局的高度</p>
+</blockquote>
+<h2 id="minHeight的作用"><a href="#minHeight的作用" class="headerlink" title="minHeight的作用"></a>minHeight的作用</h2><blockquote>
+<p>设置warp_content可实现根据文本自动改变控件的高度</p>
+</blockquote>
+<h2 id="android-alpha属性"><a href="#android-alpha属性" class="headerlink" title="android:alpha属性"></a>android:alpha属性</h2><blockquote>
+<p>设置透明度 值是 0（透明） - 1（不透明）范围</p>
+</blockquote>
+<h3 id="示例-BNJ实现-50黑的图片"><a href="#示例-BNJ实现-50黑的图片" class="headerlink" title="示例 - BNJ实现%50黑的图片"></a>示例 - BNJ实现%50黑的图片</h3><blockquote>
+<p>1.FramLayout 里面放一个ImageView<br>2.Framlayout 设置背景为黑色<br>3.ImageView设置alpha=0.5</p>
+</blockquote>
+<h3 id="透明度理解"><a href="#透明度理解" class="headerlink" title="透明度理解"></a>透明度理解</h3><blockquote>
 <p>透明色的值也是0~255,0表示全透明,255表示不透明,数值越小,透明的越明显。</p>
 <p>例如要设置60%透明的黑色 那么黑色的RGB = “#000000” ，那么不透明为40%,可计算出不透明度40%的值是0.4*255=102,然后再将102转成16进制即可（66）。 所以最终结果是#66000000</p>
 </blockquote>
-<h3 id="String-Format"><a href="#String-Format" class="headerlink" title="String.Format"></a>String.Format</h3><blockquote>
+<h2 id="String-Format"><a href="#String-Format" class="headerlink" title="String.Format"></a>String.Format</h2><blockquote>
 <p>设置浮点数显示一位小数</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//score是浮点数,%.2f表示只显示两位小数</span></span><br><span class="line">String.format(<span class="string">"%.2f"</span>,score);</span><br></pre></td></tr></table></figure>
@@ -290,64 +282,72 @@
 <blockquote>
 <p>%1$表示格式化第一个字符,%2$表示格式化第二个字符</p>
 </blockquote>
-<h3 id="mipmap尺寸"><a href="#mipmap尺寸" class="headerlink" title="mipmap尺寸"></a>mipmap尺寸</h3><p>mipmap - mdpi 48<br>mipmap - hdpi 72<br>mipmap - xhdpi 96<br>mipmap - xxhpi 144  </p>
+<h2 id="适配屏幕分辨率"><a href="#适配屏幕分辨率" class="headerlink" title="适配屏幕分辨率"></a>适配屏幕分辨率</h2><p>mipmap - mdpi 48<br>mipmap - hdpi 72<br>mipmap - xhdpi 96<br>mipmap - xxhpi 144  </p>
 <p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0RvdkZUNnJSWnRGZmM0VndNZ3hVVjNkSm9YU2N6cGMwNDV5YUpCSXpxUndBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt=""></p>
-<h3 id="include包括的布局不能使用below等属性"><a href="#include包括的布局不能使用below等属性" class="headerlink" title="include包括的布局不能使用below等属性"></a>include包括的布局不能使用below等属性</h3><ul>
-<li>错误示例</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">include</span></span><br><span class="line">	<span class="attr">android:layout_below</span>=<span class="string">"@+id/llContainer"</span> //这里会报错</span><br><span class="line">	<span class="attr">layout</span>=<span class="string">"@layout/activity_mani"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：其他控件要相对该layout进行布局，必须使用layout里面的根布局的id来实现。</li>
-</ul>
-<h3 id="高度布局-实现下列效果"><a href="#高度布局-实现下列效果" class="headerlink" title="高度布局(实现下列效果)"></a>高度布局(实现下列效果)</h3><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<ul>
-<li>布局技巧</li>
-</ul>
+<h2 id="include包括的布局不能使用below等属性"><a href="#include包括的布局不能使用below等属性" class="headerlink" title="include包括的布局不能使用below等属性"></a>include包括的布局不能使用below等属性</h2><blockquote>
+<p>错误示例代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">include</span></span><br><span class="line">	<span class="attr">android:layout_below</span>=<span class="string">"@+id/llContainer"</span> //这里会报错</span><br><span class="line">	<span class="attr">layout</span>=<span class="string">"@layout/activity_main/&gt;</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
+<p>总结：其他控件要相对该layout进行布局，必须使用layout里面的根布局的id来实现。</p>
+</blockquote>
+<h2 id="高度布局-实现下列效果"><a href="#高度布局-实现下列效果" class="headerlink" title="高度布局(实现下列效果)"></a>高度布局(实现下列效果)</h2><p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBXdGdlRmRVWENXYUxhaFRXdDllS2lPbG9kRHZHVW8veG9pbUpuWFRndDB3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>布局技巧</p>
 <p>RelativeLayout为自适应、设置最小高度</p>
 <p>tvTitle为margin_top= 15</p>
 <p>tvValue 为margin_top = 15 、margin_bottom = 15</p>
+<p>参考机构端事项内容</p>
 </blockquote>
-<ul>
-<li>参考机构端事项内容</li>
-</ul>
-<h3 id="ScrollView与Edittext冲突"><a href="#ScrollView与Edittext冲突" class="headerlink" title="ScrollView与Edittext冲突"></a>ScrollView与Edittext冲突</h3><ul>
-<li>Scrollview 里面加有edittext，由于Edittext会自动获取焦点，会导致界面向Edittext方向移动。（如下）</li>
-</ul>
+<h2 id="ScrollView与Edittext冲突"><a href="#ScrollView与Edittext冲突" class="headerlink" title="ScrollView与Edittext冲突"></a>ScrollView与Edittext冲突</h2><blockquote>
+<p>Scrollview 里面加有edittext，由于Edittext会自动获取焦点，会导致界面向Edittext方向移动。（如下）</p>
+</blockquote>
 <p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU4xMmZkb1NrTDUxcXhVb3pvVzl6SFhhbEJYZmpnMldsejZqMHl0ZzViZkt3PT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  </p>
-<ul>
-<li>解决办法:Edittext的父布局加入下面代码</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:focusable=<span class="string">"true"</span>  </span><br><span class="line">android:focusableInTouchMode=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
-<h3 id="如何直接使用某个类的静态方法而不用类名调用"><a href="#如何直接使用某个类的静态方法而不用类名调用" class="headerlink" title="如何直接使用某个类的静态方法而不用类名调用"></a>如何直接使用某个类的静态方法而不用类名调用</h3><pre><code>//在导包的时候,加入static 关键字即可在代码中直接调用initItemView方法
-import static io.github.movie.initItemView;
-</code></pre><h3 id="实现输入完整才激活按钮的功能"><a href="#实现输入完整才激活按钮的功能" class="headerlink" title="实现输入完整才激活按钮的功能"></a>实现输入完整才激活按钮的功能</h3><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p>示例分析：</p>
-<p>为前三个Item设置布尔类型标识flag campusFlag、personFlag、themeFlag，为Edittext设置表示contentFlag</p>
-<ul>
-<li>前三个Item在onActivityResult里判断是否有值，有则修改标识的值。</li>
-<li>在Edittext的TextChange监听器里判断是所有flag都成立</li>
-<li>在onActivityResult最后判断是否flag都成立，是则激活按钮。</li>
-</ul>
-<h3 id="LinearLayout实现分割线"><a href="#LinearLayout实现分割线" class="headerlink" title="LinearLayout实现分割线"></a>LinearLayout实现分割线</h3><p>LinearLayout 有三个Divider的属性</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">android:divider=<span class="string">"@drawable/shape"</span>&lt;!--分割线图片--&gt; 可以在shape里调整divider的高度</span><br><span class="line">android:showDividers=<span class="string">"middle|beginning|end"</span> &lt;!--分割线位置--&gt;  </span><br><span class="line">android:dividerPadding=<span class="string">"15dp"</span>&lt;!--左右边距--&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示例代码 (设置了dividerPadding的效果如下)</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(common_divider_line.xml)</span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;shape xmlns:android="http://schemas.android.com/apk/res/android"&gt;</span><br><span class="line">    &lt;solid android:color="@color/common_divider_gray" /&gt;  &lt;!--设置颜色--&gt;</span><br><span class="line">    &lt;size android:height="1px"/&gt; &lt;!--设置divider高度--&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5TVZ1bFluWDhkNlRBejczdXI5VFRXVjh1bkRHeGJOYjJBPT0.png?imageView&amp;thumbnail=400x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<ul>
-<li>那如果只想设置左边距为15dp，那用dividerPadding就无效了。需要用到inset标签</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(common_divider_margin_left.xml) 在LinearLayout的divider属性设置这个文件即可</span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;inset xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:drawable="@drawable/common_divider_line" //加载divider Shape</span><br><span class="line">    android:insetLeft="@dimen/common_layout_margin_15dp"&gt; //设置左边距</span><br><span class="line">&lt;/inset&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>属性解释：<br>android:insetTop：图像距离上边的距离。</p>
-<p>android:insetRight：图像距离右侧的距离。</p>
-<p>android:insetBottom：图像距离底边的距离。</p>
-<p>android:insetLeft：图像距离左侧的距离。</p>
+<p>解决办法:Edittext的父布局加入下面代码</p>
 </blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:focusable=<span class="string">"true"</span>  </span><br><span class="line">android:focusableInTouchMode=<span class="string">"true"</span></span><br></pre></td></tr></table></figure>
+<h2 id="如何直接使用某个类的静态方法而不用类名调用"><a href="#如何直接使用某个类的静态方法而不用类名调用" class="headerlink" title="如何直接使用某个类的静态方法而不用类名调用"></a>如何直接使用某个类的静态方法而不用类名调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在导包的时候,加入static 关键字即可在代码中直接调用initItemView方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> io.github.movie.initItemView;</span><br></pre></td></tr></table></figure>
+<h2 id="实现输入完整才激活按钮的功能"><a href="#实现输入完整才激活按钮的功能" class="headerlink" title="实现输入完整才激活按钮的功能"></a>实现输入完整才激活按钮的功能</h2><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU12ZUFjcDJseFhvOGtPQ0tWSzEyNDlkMUxGdXQrR0JkQmpwQlR1cE1DN0t3PT0.png?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>分析<br>为前三个Item设置布尔类型标识flag campusFlag、personFlag、themeFlag，为Edittext设置表示contentFlag</p>
+<p>前三个Item在onActivityResult里判断是否有值，有则修改标识的值。<br>在Edittext的TextChange监听器里判断是所有flag都成立<br>在onActivityResult最后判断是否flag都成立，是则激活按钮。</p>
+</blockquote>
+<h2 id="LinearLayout实现分割线"><a href="#LinearLayout实现分割线" class="headerlink" title="LinearLayout实现分割线"></a>LinearLayout实现分割线</h2><h3 id="LinearLayout的Divider的属性"><a href="#LinearLayout的Divider的属性" class="headerlink" title="LinearLayout的Divider的属性"></a>LinearLayout的Divider的属性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">android:divider=<span class="string">"@drawable/shape"</span>&lt;!--分割线图片--&gt; 可以在shape里调整divider的高度</span><br><span class="line">android:showDividers=<span class="string">"middle|beginning|end"</span> &lt;!--分割线位置--&gt;  </span><br><span class="line">android:dividerPadding=<span class="string">"15dp"</span>&lt;!--左右边距--&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="示例-左右padding的Divider"><a href="#示例-左右padding的Divider" class="headerlink" title="示例 - 左右padding的Divider"></a>示例 - 左右padding的Divider</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(common_divider_line.xml)</span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;shape xmlns:android="http://schemas.android.com/apk/res/android"&gt;</span><br><span class="line">    &lt;solid android:color="@color/common_divider_gray" /&gt;  &lt;!--设置颜色--&gt;</span><br><span class="line">    &lt;size android:height="1px"/&gt; &lt;!--设置divider高度--&gt;</span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5TVZ1bFluWDhkNlRBejczdXI5VFRXVjh1bkRHeGJOYjJBPT0.png?imageView&amp;thumbnail=400x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h3 id="示例-单边padding的Divider"><a href="#示例-单边padding的Divider" class="headerlink" title="示例 - 单边padding的Divider"></a>示例 - 单边padding的Divider</h3><blockquote>
+<p>使用inset标签</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(common_divider_margin_left.xml) 在LinearLayout的divider属性设置这个文件即可</span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;inset xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:drawable="@drawable/common_divider_line" //加载divider Shape</span><br><span class="line">    android:insetLeft="@dimen/common_layout_margin_15dp"&gt; //设置左边距</span><br><span class="line">&lt;/inset&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&amp;thumbnail=400x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h3 id="Android4-4沉浸式状态栏"><a href="#Android4-4沉浸式状态栏" class="headerlink" title="Android4.4沉浸式状态栏"></a>Android4.4沉浸式状态栏</h3><blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:insetTop</td>
+<td>图像距离上边的距离</td>
+</tr>
+<tr>
+<td>android:insetRight</td>
+<td>图像距离右侧的距离</td>
+</tr>
+<tr>
+<td>android:insetBottom</td>
+<td>图像距离底边的距离</td>
+</tr>
+<tr>
+<td>android:insetLeft</td>
+<td>图像距离左侧的距离</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Android4-4沉浸式状态栏"><a href="#Android4-4沉浸式状态栏" class="headerlink" title="Android4.4沉浸式状态栏"></a>Android4.4沉浸式状态栏</h2><blockquote>
 <p>在Application Style里使用statusbar属性即可修改状态栏颜色。要实现沉浸式状态栏只需要将ActionBar跟StatusBar的颜色设置一样即可。</p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"&gt;</span><br><span class="line">    &lt;item name="android:statusBarColor"&gt;@color/status_bar_color&lt;/item&gt;</span><br><span class="line">    &lt;item name="android:windowDrawsSystemBarBackgrounds"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
@@ -362,7 +362,7 @@ import static io.github.movie.initItemView;
         <p><span>本文标题:</span><a href="/2016/07/08/Skills/"></a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年07月08日 - 15时40分</p>
-        <p><span>最后更新:</span>2016年08月25日 - 18时38分</p>
+        <p><span>最后更新:</span>2016年08月26日 - 08时55分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/07/08/Skills/" title="">http://TanJunDang.github.io/2016/07/08/Skills/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/07/08/Skills/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -397,7 +397,7 @@ import static io.github.movie.initItemView;
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开发中常用的技巧"><span class="toc-number">1.</span> <span class="toc-text">开发中常用的技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动界面"><span class="toc-number">1.1.</span> <span class="toc-text">启动界面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义ActionBar"><span class="toc-number">1.2.</span> <span class="toc-text">自定义ActionBar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">1.3.</span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量将相同UI的Activity做成一个Activity"><span class="toc-number">1.4.</span> <span class="toc-text">尽量将相同UI的Activity做成一个Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdown引用其他文件"><span class="toc-number">1.5.</span> <span class="toc-text">markdown引用其他文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#退出整个程序的代码"><span class="toc-number">1.6.</span> <span class="toc-text">退出整个程序的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断是否第一进入本界面"><span class="toc-number">1.7.</span> <span class="toc-text">如何判断是否第一进入本界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selector在Button里无效的原因"><span class="toc-number">1.8.</span> <span class="toc-text">Selector在Button里无效的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何导入so文件"><span class="toc-number">1.9.</span> <span class="toc-text">如何导入so文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-png"><span class="toc-number">1.10.</span> <span class="toc-text">.9.png</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合按key排序"><span class="toc-number">1.11.</span> <span class="toc-text">集合按key排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aligntop没效果"><span class="toc-number">1.11.1.</span> <span class="toc-text">aligntop没效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#minHeight的作用"><span class="toc-number">1.11.2.</span> <span class="toc-text">minHeight的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android-alpha属性"><span class="toc-number">1.11.3.</span> <span class="toc-text">android:alpha属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#透明度计算"><span class="toc-number">1.11.3.1.</span> <span class="toc-text">透明度计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-Format"><span class="toc-number">1.11.4.</span> <span class="toc-text">String.Format</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mipmap尺寸"><span class="toc-number">1.11.5.</span> <span class="toc-text">mipmap尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include包括的布局不能使用below等属性"><span class="toc-number">1.11.6.</span> <span class="toc-text">include包括的布局不能使用below等属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高度布局-实现下列效果"><span class="toc-number">1.11.7.</span> <span class="toc-text">高度布局(实现下列效果)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ScrollView与Edittext冲突"><span class="toc-number">1.11.8.</span> <span class="toc-text">ScrollView与Edittext冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何直接使用某个类的静态方法而不用类名调用"><span class="toc-number">1.11.9.</span> <span class="toc-text">如何直接使用某个类的静态方法而不用类名调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现输入完整才激活按钮的功能"><span class="toc-number">1.11.10.</span> <span class="toc-text">实现输入完整才激活按钮的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinearLayout实现分割线"><span class="toc-number">1.11.11.</span> <span class="toc-text">LinearLayout实现分割线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android4-4沉浸式状态栏"><span class="toc-number">1.11.12.</span> <span class="toc-text">Android4.4沉浸式状态栏</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开发中常用的技巧"><span class="toc-number">1.</span> <span class="toc-text">开发中常用的技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动界面"><span class="toc-number">1.1.</span> <span class="toc-text">启动界面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义ActionBar"><span class="toc-number">1.2.</span> <span class="toc-text">自定义ActionBar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EditText、TextView"><span class="toc-number">1.3.</span> <span class="toc-text">EditText、TextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量将相同UI的Activity做成一个Activity"><span class="toc-number">1.4.</span> <span class="toc-text">尽量将相同UI的Activity做成一个Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdown引用其他文件"><span class="toc-number">1.5.</span> <span class="toc-text">markdown引用其他文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#退出整个程序的代码"><span class="toc-number">1.6.</span> <span class="toc-text">退出整个程序的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断是否第一进入本界面"><span class="toc-number">1.7.</span> <span class="toc-text">如何判断是否第一进入本界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selector在Button里无效的原因"><span class="toc-number">1.8.</span> <span class="toc-text">Selector在Button里无效的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何导入so文件"><span class="toc-number">1.9.</span> <span class="toc-text">如何导入so文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-png"><span class="toc-number">1.10.</span> <span class="toc-text">.9.png</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合按key排序"><span class="toc-number">1.11.</span> <span class="toc-text">集合按key排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aligntop没效果"><span class="toc-number">1.12.</span> <span class="toc-text">aligntop没效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#minHeight的作用"><span class="toc-number">1.13.</span> <span class="toc-text">minHeight的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android-alpha属性"><span class="toc-number">1.14.</span> <span class="toc-text">android:alpha属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#示例-BNJ实现-50黑的图片"><span class="toc-number">1.14.1.</span> <span class="toc-text">示例 - BNJ实现%50黑的图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#透明度理解"><span class="toc-number">1.14.2.</span> <span class="toc-text">透明度理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Format"><span class="toc-number">1.15.</span> <span class="toc-text">String.Format</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#适配屏幕分辨率"><span class="toc-number">1.16.</span> <span class="toc-text">适配屏幕分辨率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#include包括的布局不能使用below等属性"><span class="toc-number">1.17.</span> <span class="toc-text">include包括的布局不能使用below等属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高度布局-实现下列效果"><span class="toc-number">1.18.</span> <span class="toc-text">高度布局(实现下列效果)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ScrollView与Edittext冲突"><span class="toc-number">1.19.</span> <span class="toc-text">ScrollView与Edittext冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何直接使用某个类的静态方法而不用类名调用"><span class="toc-number">1.20.</span> <span class="toc-text">如何直接使用某个类的静态方法而不用类名调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现输入完整才激活按钮的功能"><span class="toc-number">1.21.</span> <span class="toc-text">实现输入完整才激活按钮的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinearLayout实现分割线"><span class="toc-number">1.22.</span> <span class="toc-text">LinearLayout实现分割线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LinearLayout的Divider的属性"><span class="toc-number">1.22.1.</span> <span class="toc-text">LinearLayout的Divider的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例-左右padding的Divider"><span class="toc-number">1.22.2.</span> <span class="toc-text">示例 - 左右padding的Divider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例-单边padding的Divider"><span class="toc-number">1.22.3.</span> <span class="toc-text">示例 - 单边padding的Divider</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android4-4沉浸式状态栏"><span class="toc-number">1.23.</span> <span class="toc-text">Android4.4沉浸式状态栏</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
