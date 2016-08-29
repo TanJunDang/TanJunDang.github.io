@@ -5,23 +5,23 @@
   
   <title>Android动画 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本知识
-在res目录创建anim目录
-创建标签为set的xml文件">
+  <meta name="description" content="基础知识
+1.在res目录创建anim目录2.创建标签为set的xml文件
+动画坐标图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android动画">
 <meta property="og:url" content="TanJunDang.github.io/2016/01/01/Animation/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="基本知识
-在res目录创建anim目录
-创建标签为set的xml文件">
+<meta property="og:description" content="基础知识
+1.在res目录创建anim目录2.创建标签为set的xml文件
+动画坐标图">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-07-07T09:34:20.000Z">
+<meta property="og:updated_time" content="2016-08-29T09:46:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android动画">
-<meta name="twitter:description" content="基本知识
-在res目录创建anim目录
-创建标签为set的xml文件">
+<meta name="twitter:description" content="基础知识
+1.在res目录创建anim目录2.创建标签为set的xml文件
+动画坐标图">
 <meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -218,134 +218,76 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><ul>
-<li>在res目录创建anim目录</li>
-<li>创建标签为set的xml文件</li>
-</ul>
+        <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
+<p>1.在res目录创建anim目录<br>2.创建标签为set的xml文件</p>
+<p>动画坐标图</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <a id="more"></a>
-<h3 id="Style中有-跟无"><a href="#Style中有-跟无" class="headerlink" title="Style中有@跟无@"></a>Style中有@跟无@</h3><ul>
-<li><p>无@</p>
-<pre><code>android:Animation
-</code></pre></li>
-<li><p>有@</p>
-<pre><code>@android:style/Animation
-</code></pre></li>
-</ul>
-<p>上述两者等价</p>
-<h3 id="平移动画的理解-translate"><a href="#平移动画的理解-translate" class="headerlink" title="平移动画的理解(translate)"></a>平移动画的理解(translate)</h3><p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<ul>
-<li><p>平移动画的属性</p>
-<pre><code>&lt;translate
-android:duration=&quot;250&quot; //时间
-android:fromYDelta=&quot;100%p&quot;//开始Y轴的位置
-android:fromXDelta=&quot;-100%p&quot;//开始X轴的位置
-android:toXDelta=&quot;0&quot; //结束轴X的位置
-android:toYDelta=&quot;0%p&quot; /&gt;
-
-//上述代码实现activity 从左下到中间的过程动画
-</code></pre></li>
-</ul>
-<h3 id="透明动画的理解"><a href="#透明动画的理解" class="headerlink" title="透明动画的理解"></a>透明动画的理解</h3><ul>
-<li><p>透明动画的属性</p>
-<pre><code> &lt;alpha
-android:fromAlpha=&quot;0.0&quot;//开始透明度
-android:toAlpha=&quot;1.0&quot;//结束透明度
-android:duration=&quot;200&quot;/&gt;
-</code></pre></li>
-</ul>
-<h4 id="如何将activity变成透明Activity"><a href="#如何将activity变成透明Activity" class="headerlink" title="如何将activity变成透明Activity"></a>如何将activity变成透明Activity</h4><ol>
+<h2 id="Style的写法"><a href="#Style的写法" class="headerlink" title="Style的写法"></a>Style的写法</h2><table>
+<thead>
+<tr>
+<th>是否有@</th>
+<th>写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无@</td>
+<td>android:Animation</td>
+</tr>
+<tr>
+<td>有@</td>
+<td>@android:style/Animation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="平移动画的理解-translate"><a href="#平移动画的理解-translate" class="headerlink" title="平移动画的理解(translate)"></a>平移动画的理解(translate)</h2><blockquote>
+<p>平移动画的属性</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;translate</span><br><span class="line">    android:duration=<span class="string">"250"</span> <span class="comment">//时间</span></span><br><span class="line">    android:fromYDelta=<span class="string">"100%p"</span><span class="comment">//开始Y轴的位置</span></span><br><span class="line">    android:fromXDelta=<span class="string">"-100%p"</span><span class="comment">//开始X轴的位置</span></span><br><span class="line">    android:toXDelta=<span class="string">"0"</span> <span class="comment">//结束轴X的位置</span></span><br><span class="line">    android:toYDelta=<span class="string">"0%p"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//上述代码实现activity 从左下到中间的过程动画</span></span><br></pre></td></tr></table></figure>
+<h2 id="透明动画的理解"><a href="#透明动画的理解" class="headerlink" title="透明动画的理解"></a>透明动画的理解</h2><blockquote>
+<p>透明动画的属性</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;alpha</span><br><span class="line">    android:fromAlpha=<span class="string">"0.0"</span><span class="comment">//开始透明度</span></span><br><span class="line">    android:toAlpha=<span class="string">"1.0"</span><span class="comment">//结束透明度</span></span><br><span class="line">    android:duration=<span class="string">"200"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="示例-如何将activity变成透明Activity"><a href="#示例-如何将activity变成透明Activity" class="headerlink" title="示例 - 如何将activity变成透明Activity"></a>示例 - 如何将activity变成透明Activity</h2><blockquote>
+<ol>
 <li>在布局里定义好自己的样式。</li>
 <li>创建一个Activity绑定该布局(setContentView)。</li>
-<li><p>在styles里创建一个style。</p>
-<pre><code>&lt;style name=&quot;ErinStyle&quot; &gt;
-    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;&lt;!--无标题栏--&gt;
-    &lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/transparent&lt;/item&gt; &lt;!--背景透明--&gt;
-    &lt;item name=&quot;android:windowIsTranslucent&quot;&gt;true&lt;/item&gt;&lt;!--去除启动activity黑屏--&gt;
-    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;&lt;!--设置前个activity变暗--&gt;
-    （另外还可以加入动画，默认是右边飞出 通过windowEnterAnimation、windowExitAnimation、windowAnimationStyle属性设置）
-    目前测试 前两者 无法直接设置在上述style  需要引用style才可以实现
-    &lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/ErinAnim&lt;/item&gt;
-&lt;/style&gt; 
-</code></pre><p> 下面给出上下滑动式动画的配置（必须在style里声明 parent是animation）</p>
-<pre><code>&lt;style name=&quot;ErinAnim&quot; parent=&quot;@android:style/Animation&quot;&gt;  
-    &lt;item name=&quot;android:windowEnterAnimation&quot;&gt;@anim/push_top_in&lt;/item&gt;
-    &lt;item name=&quot;android:windowExitAnimation&quot;&gt;@anim/push_top_out&lt;/item&gt;
-&lt;/style&gt;
-</code></pre></li>
+<li>在styles里创建一个style。</li>
 </ol>
-<pre><code>//这个是弹出 push_top_in  
-
-    &lt;scale xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-        android:interpolator=&quot;@android:anim/accelerate_decelerate_interpolator&quot;  
-        android:fromXScale=&quot;1.0&quot;   
-        android:toXScale=&quot;1.0&quot;   
-        android:fromYScale=&quot;0&quot;   
-        android:toYScale=&quot;1.0&quot;   
-        android:pivotX=&quot;0&quot;  
-        android:pivotY=&quot;10%&quot;  
-        android:duration=&quot;200&quot;  &lt;/scale&gt;
-
-
-//这个是消失 push_top_out  
-
-    &lt;scale xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-        android:interpolator=&quot;@android:anim/accelerate_decelerate_interpolator&quot;  
-        android:fromXScale=&quot;1.0&quot;   
-        android:toXScale=&quot;1.0&quot;   
-        android:fromYScale=&quot;1.0&quot;   
-        android:toYScale=&quot;0&quot;   
-        android:pivotX=&quot;0&quot;  
-        android:pivotY=&quot;10%&quot;  
-        android:duration=&quot;200&quot; /&gt; 
-</code></pre><p>4.在配置文件里找到该activity 加入style属性即可。</p>
-<pre><code>android:theme=&quot;@style/ErinStyle&quot;        
-</code></pre><h3 id="如何实现一个对话框Activity-上面右图"><a href="#如何实现一个对话框Activity-上面右图" class="headerlink" title="如何实现一个对话框Activity(上面右图)"></a>如何实现一个对话框Activity(上面右图)</h3><ol>
-<li>写好布局文件 绑定Activity</li>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"TJDStyle"</span>&gt;</span><span class="xml"></span><br><span class="line">		<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span><span class="comment">&lt;!--无标题栏--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@android:color/transparent<span class="tag">&lt;/<span class="name">item</span>&gt;</span> <span class="comment">&lt;!--背景透明--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span><span class="comment">&lt;!--去除启动activity黑屏--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:backgroundDimEnabled"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span><span class="comment">&lt;!--设置前个activity变暗--&gt;</span></span><br><span class="line">		（另外还可以加入动画，默认是右边飞出 通过windowEnterAnimation、windowExitAnimation、windowAnimationStyle属性设置）</span><br><span class="line">		目前测试 前两者 无法直接设置在上述style 需要引用style才可以实现</span><br><span class="line">		<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowAnimationStyle"</span>&gt;</span>@style/TjdAnim<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上下滑动式动画的配置（必须在style里声明 parent是animation）</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"ErinAnim"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Animation"</span>&gt;</span><span class="xml">  </span><br><span class="line">  	<span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;</span>@anim/push_top_in<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;</span>@anim/push_top_out<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>弹出动画</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scale</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">      <span class="attr">android:interpolator</span>=<span class="string">"@android:anim/accelerate_decelerate_interpolato"</span>  </span><br><span class="line">      <span class="attr">android:fromXScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:toXScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:fromYScale</span>=<span class="string">"0"</span>   </span><br><span class="line">      <span class="attr">android:toYScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:pivotX</span>=<span class="string">"0"</span>  </span><br><span class="line">      <span class="attr">android:pivotY</span>=<span class="string">"10%"</span>  </span><br><span class="line">      <span class="attr">android:duration</span>=<span class="string">"200"</span><span class="string">&lt;</span>/<span class="attr">scale</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>消失动画</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scale</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">      <span class="attr">android:interpolator</span>=<span class="string">"@android:anim/accelerate_decelerate_interpolato"</span>  </span><br><span class="line">      <span class="attr">android:fromXScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:toXScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:fromYScale</span>=<span class="string">"1.0"</span>   </span><br><span class="line">      <span class="attr">android:toYScale</span>=<span class="string">"0"</span>   </span><br><span class="line">      <span class="attr">android:pivotX</span>=<span class="string">"0"</span>  </span><br><span class="line">      <span class="attr">android:pivotY</span>=<span class="string">"10%"</span>  </span><br><span class="line">      <span class="attr">android:duration</span>=<span class="string">"200"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>4.在配置文件里找到该activity 加入style属性即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:theme=<span class="string">"@style/TjdStyle"</span></span><br></pre></td></tr></table></figure>
+<h1 id="Style学习"><a href="#Style学习" class="headerlink" title="Style学习"></a>Style学习</h1><h2 id="示例-如何实现一个对话框Activity"><a href="#示例-如何实现一个对话框Activity" class="headerlink" title="示例 - 如何实现一个对话框Activity"></a>示例 - 如何实现一个对话框Activity</h2><blockquote>
+<p>步骤</p>
+<ol>
+<li>写好布局文件，绑定Activity</li>
 <li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
-<li><p>然后设置其不显示标题、透明背景即可(相对于上述 代码简化了很多)</p>
-<pre><code>this.setFinishOnTouchOutside(false); //设置对话框activity点击外部不消失
-</code></pre></li>
+<li>然后设置其不显示标题、透明背景即可</li>
 </ol>
-<pre><code>android:theme=&quot;@android:style/Theme.Dialog&quot; : Activity显示为对话框模式
-
-android:theme=&quot;@android:style/Theme.NoTitleBar&quot; : 不显示应用程序标题栏
-
-android:theme=&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot; : 不显示应用程序标题栏，并全屏
-
-android:theme=&quot;Theme.Light &quot;: 背景为白色
-
-android:theme=&quot;Theme.Light.NoTitleBar&quot; : 白色背景并无标题栏
-
-android:theme=&quot;Theme.Light.NoTitleBar.Fullscreen&quot; : 白色背景，无标题栏，全屏
-
-android:theme=&quot;Theme.Black&quot; : 背景黑色
-
-android:theme=&quot;Theme.Black.NoTitleBar&quot; : 黑色背景并无标题栏
-
-android:theme=&quot;Theme.Black.NoTitleBar.Fullscreen&quot; : 黑色背景，无标题栏，全屏
-
-android:theme=&quot;Theme.Wallpaper&quot; : 用系统桌面为应用程序背景
-
-android:theme=&quot;Theme.Wallpaper.NoTitleBar&quot; : 用系统桌面为应用程序背景，且无标题栏
-
-android:theme=&quot;Theme.Wallpaper.NoTitleBar.Fullscreen&quot; : 用系统桌面为应用程序背景，无标题栏，全屏
-
-android:theme=&quot;Theme.Translucent : 透明背景
-
-android:theme=&quot;Theme.Translucent.NoTitleBar&quot; : 透明背景并无标题
-
-android:theme=&quot;Theme.Translucent.NoTitleBar.Fullscreen&quot; : 透明背景并无标题，全屏
-
-android:theme=&quot;Theme.Panel &quot;: 面板风格显示
-
-android:theme=&quot;Theme.Light.Panel&quot; : 平板风格显示
-</code></pre><h4 id="ActivityDialog的总结"><a href="#ActivityDialog的总结" class="headerlink" title="ActivityDialog的总结"></a>ActivityDialog的总结</h4><p>经过上述两个透明Activity的实现，可得出总结如下：</p>
-<ul>
-<li><p>如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。  </p>
-</li>
-<li><p>透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗</p>
-</li>
-</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setFinishOnTouchOutside(<span class="keyword">false</span>); <span class="comment">//设置对话框activity点击外部不消失</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">android:theme="@android:style/Theme.Dialog" : Activity显示为对话框模式</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar" : 不显示应用程序标题栏</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar.Fullscreen" : 不显示应用程序题栏，并全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light ": 背景为白色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar" : 白色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar.Fullscreen" : 白色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black" : 背景黑色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar" : 黑色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar.Fullscreen" : 黑色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper" : 用系统桌面为应用程序背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar" : 用系统桌面为应用程序背景，且无标栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar.Fullscreen" : 用系统桌面为应用程序景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent : 透明背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar" : 透明背景并无标题</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar.Fullscreen" : 透明背景并无标题，屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Panel ": 面板风格显示</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.Panel" : 平板风格显示</span><br></pre></td></tr></table></figure>
+<h2 id="ActivityDialog的总结"><a href="#ActivityDialog的总结" class="headerlink" title="ActivityDialog的总结"></a>ActivityDialog的总结</h2><blockquote>
+<p>总结<br>1.如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。</p>
+<p>2.透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗。</p>
+</blockquote>
 
       
     </div>
@@ -357,7 +299,7 @@ android:theme=&quot;Theme.Light.Panel&quot; : 平板风格显示
         <p><span>本文标题:</span><a href="/2016/01/01/Animation/">Android动画</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年01月01日 - 20时20分</p>
-        <p><span>最后更新:</span>2016年07月07日 - 17时34分</p>
+        <p><span>最后更新:</span>2016年08月29日 - 17时46分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/01/01/Animation/" title="Android动画">http://TanJunDang.github.io/2016/01/01/Animation/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/01/01/Animation/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -392,7 +334,7 @@ android:theme=&quot;Theme.Light.Panel&quot; : 平板风格显示
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本知识"><span class="toc-number">1.</span> <span class="toc-text">基本知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Style中有-跟无"><span class="toc-number">2.</span> <span class="toc-text">Style中有@跟无@</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平移动画的理解-translate"><span class="toc-number">3.</span> <span class="toc-text">平移动画的理解(translate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#透明动画的理解"><span class="toc-number">4.</span> <span class="toc-text">透明动画的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何将activity变成透明Activity"><span class="toc-number">4.1.</span> <span class="toc-text">如何将activity变成透明Activity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现一个对话框Activity-上面右图"><span class="toc-number">5.</span> <span class="toc-text">如何实现一个对话框Activity(上面右图)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">5.1.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Style的写法"><span class="toc-number">1.1.</span> <span class="toc-text">Style的写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平移动画的理解-translate"><span class="toc-number">1.2.</span> <span class="toc-text">平移动画的理解(translate)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明动画的理解"><span class="toc-number">1.3.</span> <span class="toc-text">透明动画的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-如何将activity变成透明Activity"><span class="toc-number">1.4.</span> <span class="toc-text">示例 - 如何将activity变成透明Activity</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Style学习"><span class="toc-number">2.</span> <span class="toc-text">Style学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-如何实现一个对话框Activity"><span class="toc-number">2.1.</span> <span class="toc-text">示例 - 如何实现一个对话框Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">2.2.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -478,7 +420,7 @@ android:theme=&quot;Theme.Light.Panel&quot; : 平板风格显示
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

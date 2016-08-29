@@ -176,6 +176,92 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-OnTouchEvent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/31/OnTouchEvent/" class="article-date">
+      <time datetime="2016-03-31T02:44:19.000Z" itemprop="datePublished">2016-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h1><blockquote>
+<p>跟Touch相关的三个方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatchTouchEvent</td>
+<td>用来传递触摸event，一般不重写。</td>
+</tr>
+<tr>
+<td>onInterceptTouchEvent</td>
+<td>用来拦截触摸event，在ViewGroup才有。</td>
+</tr>
+<tr>
+<td>onTouchEvent</td>
+<td>用来处理触摸event。</td>
+</tr>
+</tbody>
+</table>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件分发机制onTouchEvent笔记/">事件分发机制onTouchEvent笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/31/OnTouchEvent/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -560,10 +646,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><ul>
-<li>在res目录创建anim目录</li>
-<li>创建标签为set的xml文件</li>
-</ul>
+              <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
+<p>1.在res目录创建anim目录<br>2.创建标签为set的xml文件</p>
+<p>动画坐标图</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
           
       
     </div>
@@ -902,75 +989,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activity/">Activity</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/29/Volley/" class="article-date">
-      <time datetime="2015-10-29T07:29:10.000Z" itemprop="datePublished">2015-10-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Volley基础"><a href="#Volley基础" class="headerlink" title="Volley基础"></a>Volley基础</h1><blockquote>
-<p>Gradle代码<br>compile ‘com.mcxiaoke.volley:library:1.0.19’</p>
-<p>理解<br>1.Volley有get 、post等方式请求数据。<br>2.Volley可以建立、取消请求队列。<br>3.把请求加入请求队列即可完成请求。</p>
-<p>作用<br>封装网络请求类，使请求代码量减少。<br>大大提高性能（反正很厉害就对了）。</p>
-</blockquote>
-<h2 id="示例-Volley使用"><a href="#示例-Volley使用" class="headerlink" title="示例 - Volley使用"></a>示例 - Volley使用</h2><blockquote>
-<p>RequestQueue queue = Volley.newRequestQueue(context)//创建一个队列<br>StringRequest jr  = new StringRequest(请求方式get/post，请求url，成功监听器，失败监听器)//创建一种请求方式<br>queue.add(jr);//加入到队列</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Async-http/">Async-http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Volley/">Volley</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

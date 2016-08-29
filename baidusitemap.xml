@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/10/01/DemoOne/</loc>
-    <lastmod>2016-08-26T10:36:46.618Z</lastmod>
+    <loc>TanJunDang.github.io/2016/08/29/DemoOne/</loc>
+    <lastmod>2016-08-29T10:19:10.000Z</lastmod>
     <data>
         <display>
         <title>项目源码分析(一)</title>
-        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
+        <pubTime>2016-08-29T10:05:10.000Z</pubTime>
         
         <tag>项目源码分析(一)</tag>
          
@@ -21,8 +21,44 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
+    <lastmod>2016-08-29T09:57:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Fragment笔记</title>
+        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
+        
+        <tag>Fragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
+    <lastmod>2016-08-29T09:46:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android动画</title>
+        <pubTime>2016-01-01T12:20:39.000Z</pubTime>
+        
+        <tag>Android动画</tag>
+         
+        <tag>Style</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2015/09/11/DrawerLayout/</loc>
-    <lastmod>2016-08-26T09:59:16.351Z</lastmod>
+    <lastmod>2016-08-29T08:27:08.000Z</lastmod>
     <data>
         <display>
         <title>DrawerLayout的使用</title>
@@ -38,82 +74,8 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
-    <lastmod>2016-08-26T09:36:58.628Z</lastmod>
-    <data>
-        <display>
-        <title>代码分析 - ItemBean</title>
-        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
-        
-        <tag>代码分析 - ItemBean</tag>
-         
-        <tag>工厂模式</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/29/Volley/</loc>
-    <lastmod>2016-08-26T01:16:03.295Z</lastmod>
-    <data>
-        <display>
-        <title>Volley跟Async-http的封装</title>
-        <pubTime>2015-10-29T07:29:10.000Z</pubTime>
-        
-        <tag>Volley</tag>
-         
-        <tag>Async-http</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/02/VersionUpdate/</loc>
-    <lastmod>2016-08-26T01:01:59.084Z</lastmod>
-    <data>
-        <display>
-        <title>版本更新</title>
-        <pubTime>2015-10-02T07:41:04.000Z</pubTime>
-        
-        <tag>版本更新</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Timestamp/</loc>
-    <lastmod>2016-08-26T00:59:02.941Z</lastmod>
-    <data>
-        <display>
-        <title>时间戳</title>
-        <pubTime>2016-07-08T07:10:32.000Z</pubTime>
-        
-        <tag>时间戳</tag>
-         
-        <tag>时间工具类</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2016-08-26T00:55:14.268Z</lastmod>
+    <lastmod>2016-08-29T01:59:48.000Z</lastmod>
     <data>
         <display>
         <title></title>
@@ -133,8 +95,82 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
+    <lastmod>2016-08-26T09:37:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>代码分析 - ItemBean</title>
+        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
+        
+        <tag>代码分析 - ItemBean</tag>
+         
+        <tag>工厂模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/29/Volley/</loc>
+    <lastmod>2016-08-26T01:16:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Volley跟Async-http的封装</title>
+        <pubTime>2015-10-29T07:29:10.000Z</pubTime>
+        
+        <tag>Volley</tag>
+         
+        <tag>Async-http</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/02/VersionUpdate/</loc>
+    <lastmod>2016-08-26T01:02:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>版本更新</title>
+        <pubTime>2015-10-02T07:41:04.000Z</pubTime>
+        
+        <tag>版本更新</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Timestamp/</loc>
+    <lastmod>2016-08-26T00:59:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>时间戳</title>
+        <pubTime>2016-07-08T07:10:32.000Z</pubTime>
+        
+        <tag>时间戳</tag>
+         
+        <tag>时间工具类</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
-    <lastmod>2016-08-26T00:44:24.877Z</lastmod>
+    <lastmod>2016-08-26T00:44:26.000Z</lastmod>
     <data>
         <display>
         <title>常用开发工具、框架、网站</title>
@@ -151,7 +187,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/06/13/RxBus/</loc>
-    <lastmod>2016-08-25T10:30:59.331Z</lastmod>
+    <lastmod>2016-08-25T10:31:00.000Z</lastmod>
     <data>
         <display>
         <title>RxBus</title>
@@ -168,7 +204,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/07/13/RegEx/</loc>
-    <lastmod>2016-08-25T10:29:18.039Z</lastmod>
+    <lastmod>2016-08-25T10:29:20.000Z</lastmod>
     <data>
         <display>
         <title>正则表达式的总结</title>
@@ -185,7 +221,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/04/04/ProGuard/</loc>
-    <lastmod>2016-08-25T10:20:57.091Z</lastmod>
+    <lastmod>2016-08-25T10:20:58.000Z</lastmod>
     <data>
         <display>
         <title>混淆</title>
@@ -202,7 +238,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/10/03/Notification/</loc>
-    <lastmod>2016-08-25T10:18:15.280Z</lastmod>
+    <lastmod>2016-08-25T10:18:16.000Z</lastmod>
     <data>
         <display>
         <title>Notification笔记</title>
@@ -219,7 +255,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/05/31/LogTool/</loc>
-    <lastmod>2016-08-25T10:13:02.208Z</lastmod>
+    <lastmod>2016-08-25T10:13:04.000Z</lastmod>
     <data>
         <display>
         <title>工具类的编写 - Log的封装</title>
@@ -236,7 +272,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/01/13/LayoutInflater/</loc>
-    <lastmod>2016-08-25T10:12:22.193Z</lastmod>
+    <lastmod>2016-08-25T10:12:24.000Z</lastmod>
     <data>
         <display>
         <title>LayoutInflater的理解</title>
@@ -253,7 +289,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
-    <lastmod>2016-08-25T10:11:20.706Z</lastmod>
+    <lastmod>2016-08-25T10:11:22.000Z</lastmod>
     <data>
         <display>
         <title>JAVASE基础</title>
@@ -272,7 +308,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/10/03/InterView/</loc>
-    <lastmod>2016-08-25T10:06:43.650Z</lastmod>
+    <lastmod>2016-08-25T10:06:44.000Z</lastmod>
     <data>
         <display>
         <title>天工面试</title>
@@ -289,7 +325,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/01/29/ImageUpload/</loc>
-    <lastmod>2016-08-25T10:00:31.803Z</lastmod>
+    <lastmod>2016-08-25T10:00:32.000Z</lastmod>
     <data>
         <display>
         <title>图片增加、删除</title>
@@ -308,7 +344,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/09/17/ImageLoaderTool/</loc>
-    <lastmod>2016-08-25T09:54:52.911Z</lastmod>
+    <lastmod>2016-08-25T09:54:54.000Z</lastmod>
     <data>
         <display>
         <title>ImageLoader的理解</title>
@@ -325,7 +361,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/04/11/Handler/</loc>
-    <lastmod>2016-08-25T09:44:56.512Z</lastmod>
+    <lastmod>2016-08-25T09:44:58.000Z</lastmod>
     <data>
         <display>
         <title>Handler机制</title>
@@ -342,7 +378,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/05/31/GsonTool/</loc>
-    <lastmod>2016-08-25T09:42:31.360Z</lastmod>
+    <lastmod>2016-08-25T09:42:32.000Z</lastmod>
     <data>
         <display>
         <title>工具类的编写 - Gson的封装</title>
@@ -359,7 +395,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
-    <lastmod>2016-08-25T09:41:09.424Z</lastmod>
+    <lastmod>2016-08-25T09:41:10.000Z</lastmod>
     <data>
         <display>
         <title>Git的学习</title>
@@ -376,7 +412,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/04/05/EventBus/</loc>
-    <lastmod>2016-08-25T09:31:32.048Z</lastmod>
+    <lastmod>2016-08-25T09:31:34.000Z</lastmod>
     <data>
         <display>
         <title>EventBus学习笔记</title>
@@ -393,7 +429,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/09/01/Draw/</loc>
-    <lastmod>2016-08-25T09:25:37.697Z</lastmod>
+    <lastmod>2016-08-25T09:25:38.000Z</lastmod>
     <data>
         <display>
         <title>绘图总结</title>
@@ -410,7 +446,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/05/25/CustomMenu/</loc>
-    <lastmod>2016-08-25T09:22:56.637Z</lastmod>
+    <lastmod>2016-08-25T09:22:58.000Z</lastmod>
     <data>
         <display>
         <title>自定义底部弹出菜单</title>
@@ -427,7 +463,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/08/16/ViewPager_One/</loc>
-    <lastmod>2016-08-25T09:12:48.654Z</lastmod>
+    <lastmod>2016-08-25T09:12:50.000Z</lastmod>
     <data>
         <display>
         <title>ViewPager笔记（一）</title>
@@ -444,7 +480,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
-    <lastmod>2016-08-25T09:12:29.727Z</lastmod>
+    <lastmod>2016-08-25T09:12:30.000Z</lastmod>
     <data>
         <display>
         <title>PopupWindow</title>
@@ -461,7 +497,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/08/16/ViewPager_Two/</loc>
-    <lastmod>2016-08-25T08:36:55.837Z</lastmod>
+    <lastmod>2016-08-25T08:36:56.000Z</lastmod>
     <data>
         <display>
         <title>ViewPager笔记（二）</title>
@@ -480,7 +516,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2016-08-24T06:31:38.394Z</lastmod>
+    <lastmod>2016-08-24T06:31:40.000Z</lastmod>
     <data>
         <display>
         <title>自定义View笔记</title>
@@ -497,30 +533,13 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
-    <lastmod>2016-08-24T01:56:48.909Z</lastmod>
+    <lastmod>2016-08-24T01:56:50.000Z</lastmod>
     <data>
         <display>
         <title>RxJava、RxAndroid的理解</title>
         <pubTime>2016-06-13T00:52:28.000Z</pubTime>
         
         <tag>RxJava、RxAndroid的理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
-    <lastmod>2016-08-23T10:12:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Fragment笔记</title>
-        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
-        
-        <tag>Fragment笔记</tag>
          
          
            
@@ -709,25 +728,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
-    <lastmod>2016-07-07T09:34:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android动画</title>
-        <pubTime>2016-01-01T12:20:39.000Z</pubTime>
-        
-        <tag>Android动画</tag>
-         
-        <tag>Style</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
     
   <url>
