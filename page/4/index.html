@@ -480,75 +480,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0RhLzJoYjVKOFN0RXdNcW9ONzZEUDJmc2ZBcUxwNlUxdDBwQXIxOWtubi9RPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="">  <img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0RhLzJoYjVKOFN0R2ZNSHU2T21hV3ZpbjFrNzRyaTQ0VjV3bWtBSzA4anRBPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<blockquote>
-<p>理解<br>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>何时调用</th>
-<th>主要应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>onAttached</td>
-<td>当fragment被加入到activity时</td>
-<td>获取Activity对象</td>
-</tr>
-<tr>
-<td>onCreate</td>
-<td>系统在创建Fragment时</td>
-<td>实例化一些Fragment暂停时需要保存的变量</td>
-</tr>
-<tr>
-<td>onCreateView</td>
-<td>系统绘制Fragment界面时</td>
-<td>加载Fragment的布局</td>
-</tr>
-<tr>
-<td>onActivityCreated</td>
-<td>当Activity执行完onCreate方法时</td>
-<td>与Activity的交互操作在这完成（初始化数据）</td>
-</tr>
-<tr>
-<td>onDestroyView</td>
-<td>Fragment中的布局被移除时</td>
-<td>清除所有跟视图相关的资源</td>
-</tr>
-<tr>
-<td>onDetach</td>
-<td>Fragment和Activity解除关联的时</td>
-<td>解决ViewPager+Fragment重复加载</td>
-</tr>
-</tbody>
-</table>
-<h1 id="加载Fragment的方式"><a href="#加载Fragment的方式" class="headerlink" title="加载Fragment的方式"></a>加载Fragment的方式</h1><table>
-<thead>
-<tr>
-<th>加载方式</th>
-<th>布局</th>
-<th>特点</th>
-<th>应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>动态</td>
-<td>在xml里定义一个Layout，用于加载不同Fragment，可结合FragmentPagerAdapter使用</td>
-<td>灵活性高</td>
-<td>主流Tab切换布局</td>
-</tr>
-<tr>
-<td>静态</td>
-<td>在xml理定义一个fragment控件</td>
-<td>灵活性低</td>
-<td>制作标题栏</td>
-</tr>
-</tbody>
-</table>
+              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1>
           
       
     </div>
@@ -712,6 +644,70 @@
 
 
   
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
+<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -761,70 +757,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
-<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
