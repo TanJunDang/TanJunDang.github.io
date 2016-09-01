@@ -5,30 +5,67 @@
   
   <title>Fragment笔记 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Fragment的基本架构
+  <meta name="description" content="Fragment的基本架构Fragment的生命周期  
 
-生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
-onAttached()当fragment被加入到activity时调用（在这个方法中可以">
+理解因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。
+
+
+
+
+方法
+何时调用
+主要应用
+
+
+
+
+onAttached
+当f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fragment笔记">
 <meta property="og:url" content="TanJunDang.github.io/2015/10/01/Fragment/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="Fragment的基本架构
+<meta property="og:description" content="Fragment的基本架构Fragment的生命周期  
 
-生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
-onAttached()当fragment被加入到activity时调用（在这个方法中可以">
-<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+理解因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。
+
+
+
+
+方法
+何时调用
+主要应用
+
+
+
+
+onAttached
+当f">
+<meta property="og:image" content="https://developer.android.com/images/fragment_lifecycle.png">
+<meta property="og:image" content="https://developer.android.com/images/activity_fragment_lifecycle.png">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
 <meta property="og:image" content="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSnFEbVVhNEkyRlBGak4yTlZIMVd6UU9maDhVMW5Eb3dRPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
-<meta property="og:updated_time" content="2016-08-29T09:57:06.000Z">
+<meta property="og:updated_time" content="2016-09-01T10:35:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragment笔记">
-<meta name="twitter:description" content="Fragment的基本架构
+<meta name="twitter:description" content="Fragment的基本架构Fragment的生命周期  
 
-生命周期因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。
-onAttached()当fragment被加入到activity时调用（在这个方法中可以">
-<meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0">
+理解因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。
+
+
+
+
+方法
+何时调用
+主要应用
+
+
+
+
+onAttached
+当f">
+<meta name="twitter:image" content="https://developer.android.com/images/fragment_lifecycle.png">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -224,15 +261,51 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"><br></div>
-
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。</p>
-<p>onAttached()<br>当fragment被加入到activity时调用（在这个方法中可以获得所在的activity）</p>
-<p>onCreateView()<br>当activity要得到fragment的layout时，调用此方法，fragment在其中创建自己的layout(界面)。</p>
-<p>onActivityCreated()<br>当activity的onCreated()方法返回后调用此方法。</p>
-<p>onDestroyView()<br>当fragment中的视图被移除的时候，调用这个方法。</p>
-<p>onDetach()<br>当fragment和activity分离的时候，调用这个方法。</p>
-<p>一旦activity进入resumed状态（也就是running状态），fragment的生命周期才能独<br>立的运转，才可以自由地添加和删除fragment了。其它时候是依赖于activity的生命周期变化的。</p>
+        <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p><img src="https://developer.android.com/images/fragment_lifecycle.png" alt="">  <img src="https://developer.android.com/images/activity_fragment_lifecycle.png" alt=""></p>
+<blockquote>
+<p>理解<br>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>何时调用</th>
+<th>主要应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onAttached</td>
+<td>当fragment被加入到activity时</td>
+<td>获取Activity对象</td>
+</tr>
+<tr>
+<td>onCreate</td>
+<td>系统在创建Fragment时</td>
+<td>实例化一些Fragment暂停时需要保存的变量</td>
+</tr>
+<tr>
+<td>onCreateView</td>
+<td>系统绘制Fragment界面时</td>
+<td>加载Fragment的布局</td>
+</tr>
+<tr>
+<td>onActivityCreated</td>
+<td>当Activity执行完onCreate方法时</td>
+<td>与Activity的交互操作在这完成（初始化数据）</td>
+</tr>
+<tr>
+<td>onDestroyView</td>
+<td>Fragment中的布局被移除时</td>
+<td>清除所有跟视图相关的资源</td>
+</tr>
+<tr>
+<td>onDetach</td>
+<td>Fragment和Activity解除关联的时</td>
+<td>解决ViewPager+Fragment重复加载</td>
+</tr>
+</tbody>
+</table>
 <h1 id="加载Fragment的方式"><a href="#加载Fragment的方式" class="headerlink" title="加载Fragment的方式"></a>加载Fragment的方式</h1><table>
 <thead>
 <tr>
@@ -266,7 +339,6 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
 <div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"><br></div>
 
 
-
 <blockquote>
 <p>MainActivity代码如下</p>
 </blockquote>
@@ -274,11 +346,9 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
 <h2 id="静态加载使用"><a href="#静态加载使用" class="headerlink" title="静态加载使用"></a>静态加载使用</h2><blockquote>
 <p>你该不会真让我写的fragment制作标题栏的示例出来吧？年青人，消停一会吧。由于fragment制作标题栏灵活性差，所以一般是不用fragment来做标题栏的，通常都是自定义标题栏比较多。如果还是要抓牛角尖，你可以看这个<a href="http://www.cnblogs.com/linfenghp/p/5560015.html" target="_blank" rel="external">fragment制作标题栏</a>或者看我另一篇文章吧<a href="/2016/08/18/CustomView/">CustomActionBar</a></p>
 </blockquote>
-<h1 id="Fragment、Activity间的通信"><a href="#Fragment、Activity间的通信" class="headerlink" title="Fragment、Activity间的通信"></a>Fragment、Activity间的通信</h1><h2 id="Fragment传递数据给Activity"><a href="#Fragment传递数据给Activity" class="headerlink" title="Fragment传递数据给Activity"></a>Fragment传递数据给Activity</h2><blockquote>
-<p>实际开发中，在Fragment中做请求，Activity中获取数据。</p>
-<p>调用时间<br>当Fragment被加入到Activity中时，就会调用该方法</p>
-<p>作用<br>该方法主要用于Fragment跟Activity间的数据传递</p>
-<p>示例<br>点击TextView（FragmentOne），Activity中的ActionBar显示FragmentOne</p>
+<h1 id="Fragment、Activity间的通信"><a href="#Fragment、Activity间的通信" class="headerlink" title="Fragment、Activity间的通信"></a>Fragment、Activity间的通信</h1><h2 id="示例-Fragment传递数据给Activity"><a href="#示例-Fragment传递数据给Activity" class="headerlink" title="示例 - Fragment传递数据给Activity"></a>示例 - Fragment传递数据给Activity</h2><blockquote>
+<p>总结<br>实际开发中，在Fragment中做请求，Activity中获取数据。<br>重写onAttach方法，获取Activity对象</p>
+<p>示例<br>点击TextView（FragmentOne），Activity中的ActionBar显示Fragment中的数据FragmentOne</p>
 <p>思路<br>1.在Fragment中定义一个接口MsgListener，里面包含一个update方法。<br>2.在onAttach方法里将接口初始化。<br>3.Activity中实现该接口即可。</p>
 </blockquote>
 <p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSy9MZXVHT0F0MlZzNyszUkpUVzhaN0NMQlAySGlDTCtnPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt="">    <img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FwekRkVThHakNaSnFEbVVhNEkyRlBGak4yTlZIMVd6UU9maDhVMW5Eb3dRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt=""></p>
@@ -288,7 +358,7 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Fragment中的主要代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentTwo</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    MsgListener listener;</span><br><span class="line">    TextView tvMsg;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAttach</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//instance的用法</span></span><br><span class="line">        <span class="keyword">if</span> (context <span class="keyword">instanceof</span> MsgListener) &#123;</span><br><span class="line">            listener = (MsgListener) context;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(context.toString() + <span class="string">" must implement MsgListener"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">super</span>.onAttach(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(view.equals(tvMsg))&#123;</span><br><span class="line">			<span class="comment">//发送数据</span></span><br><span class="line">            listener.update(tvMsg.getText().toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MsgListener</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(String msg)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Activity中的主要代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FragTestAct</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">FragmentTwo</span>.<span class="title">MsgListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    CustomActionBar action_bar;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        action_bar.getTvTitle().setText(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Activity传递数据给Fragment"><a href="#Activity传递数据给Fragment" class="headerlink" title="Activity传递数据给Fragment"></a>Activity传递数据给Fragment</h2><blockquote>
+<h2 id="示例-Activity传递数据给Fragment"><a href="#示例-Activity传递数据给Fragment" class="headerlink" title="示例 - Activity传递数据给Fragment"></a>示例 - Activity传递数据给Fragment</h2><blockquote>
 <p>利用Fragment的setArguments、getArguments方法传递和接收数据。</p>
 <p>思路<br>Activity中通过setArguments方法传递数据。<br>Fragment中通过getArguments方法接收数据。</p>
 <p>代码</p>
@@ -299,18 +369,17 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
 <h1 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h1><h2 id="Fragment切换、嵌套则会报错"><a href="#Fragment切换、嵌套则会报错" class="headerlink" title="Fragment切换、嵌套则会报错"></a>Fragment切换、嵌套则会报错</h2><p>Duplicate id 0x7f0c0069, tag null, or parent id 0x0 with another fragment for gdpc.erintrus.bnj_project.TitleFoundFragment</p>
 <p>解决方法：<br>onCreateView下面使用下列代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</span><br><span class="line">ViewGroup parent = (ViewGroup) view.getParent();</span><br><span class="line"><span class="keyword">if</span> (parent != <span class="keyword">null</span>)</span><br><span class="line">parent.removeView(view);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="comment">//数据初始化</span></span><br><span class="line">view = inflater(R.layout.xx,container,<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> view;</span><br></pre></td></tr></table></figure>
-<h2 id="Activity与-ViewPager-里Fragment的交互"><a href="#Activity与-ViewPager-里Fragment的交互" class="headerlink" title="Activity与 ViewPager 里Fragment的交互"></a>Activity与 ViewPager 里Fragment的交互</h2><ol>
-<li>在创建Fragment的Adapter里 获取该Fragment的控件</li>
-<li>通过Fragment实例的getView和findViewById获取控件  </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextView tv = (TextView) introductionFragment.getView().findViewById(R.id.tvIntroductionContent);</span><br><span class="line">tv.setText(schoolBasicInfo.getIntroduct());</span><br></pre></td></tr></table></figure>
-<p>参考TrainingAgencyAdapter</p>
 <h1 id="关于Fragment的回退栈"><a href="#关于Fragment的回退栈" class="headerlink" title="关于Fragment的回退栈"></a>关于Fragment的回退栈</h1><p>1.只要加入到回退栈就能回退，主显示Fragment不回退addToBackTrack（null）  </p>
 <p>2.事务的replace会删除数据，若要保存上个Fragment的数据 ，先隐藏hide，再添加add</p>
 <p>3.调用getFragmentManager.popBackStack()方法，可以返回上一个Fragment</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<p>1.onAttach中instanceof的使用<br>instanceof用于判断左边的对象是否右边的实例 - <a href="http://www.jb51.net/article/42276.htm" target="_blank" rel="external">参考</a></p>
+<p>1.onAttach的实际应用<br>2.instanceof用于判断左边的对象是否右边的实例<br>3.Activity、Fragment之间的数据传递</p>
+<ul>
+<li>Activity传递数据到Fragment用传递Bundle的方式</li>
+<li>Fragment传递数据到Activity用接口的方式</li>
+</ul>
 </blockquote>
+<p><a href="http://www.jb51.net/article/42276.htm" target="_blank" rel="external">instanceof使用</a><br><a href="http://blog.csdn.net/wanghao200906/article/details/45561385" target="_blank" rel="external">Fragment方法应用</a><br><a href="http://www.apkbus.com/forum.php?mod=viewthread&amp;tid=245035&amp;highlight=Fragment%2B%E6%B1%87%E6%80%BB" target="_blank" rel="external"></a></p>
 
       
     </div>
@@ -322,7 +391,7 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
         <p><span>本文标题:</span><a href="/2015/10/01/Fragment/">Fragment笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年10月01日 - 16时52分</p>
-        <p><span>最后更新:</span>2016年08月29日 - 17时57分</p>
+        <p><span>最后更新:</span>2016年09月01日 - 18时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/10/01/Fragment/" title="Fragment笔记">http://TanJunDang.github.io/2015/10/01/Fragment/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/10/01/Fragment/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -357,7 +426,7 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment的基本架构"><span class="toc-number">1.</span> <span class="toc-text">Fragment的基本架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">1.1.</span> <span class="toc-text">生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载Fragment的方式"><span class="toc-number">2.</span> <span class="toc-text">加载Fragment的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动态加载使用步骤"><span class="toc-number">2.1.</span> <span class="toc-text">动态加载使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态加载使用"><span class="toc-number">2.2.</span> <span class="toc-text">静态加载使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment、Activity间的通信"><span class="toc-number">3.</span> <span class="toc-text">Fragment、Activity间的通信</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment传递数据给Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Fragment传递数据给Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity传递数据给Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Activity传递数据给Fragment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-number">4.</span> <span class="toc-text">可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment切换、嵌套则会报错"><span class="toc-number">4.1.</span> <span class="toc-text">Fragment切换、嵌套则会报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity与-ViewPager-里Fragment的交互"><span class="toc-number">4.2.</span> <span class="toc-text">Activity与 ViewPager 里Fragment的交互</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于Fragment的回退栈"><span class="toc-number">5.</span> <span class="toc-text">关于Fragment的回退栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment的基本架构"><span class="toc-number">1.</span> <span class="toc-text">Fragment的基本架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment的生命周期"><span class="toc-number">1.1.</span> <span class="toc-text">Fragment的生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载Fragment的方式"><span class="toc-number">2.</span> <span class="toc-text">加载Fragment的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动态加载使用步骤"><span class="toc-number">2.1.</span> <span class="toc-text">动态加载使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态加载使用"><span class="toc-number">2.2.</span> <span class="toc-text">静态加载使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment、Activity间的通信"><span class="toc-number">3.</span> <span class="toc-text">Fragment、Activity间的通信</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-Fragment传递数据给Activity"><span class="toc-number">3.1.</span> <span class="toc-text">示例 - Fragment传递数据给Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-Activity传递数据给Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">示例 - Activity传递数据给Fragment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-number">4.</span> <span class="toc-text">可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment切换、嵌套则会报错"><span class="toc-number">4.1.</span> <span class="toc-text">Fragment切换、嵌套则会报错</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于Fragment的回退栈"><span class="toc-number">5.</span> <span class="toc-text">关于Fragment的回退栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -443,7 +512,7 @@ onAttached()当fragment被加入到activity时调用（在这个方法中可以"
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets(View)学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

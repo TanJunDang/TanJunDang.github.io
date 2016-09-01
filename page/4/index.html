@@ -480,15 +480,51 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><div align="center"><br><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FnVEFYZGNwdC81TDRWSi85UWFIWFVTY0h4WVFQZzBqaWZqWEpIWVlLQS9nPT0.png?imageView&thumbnail=200x0&quality=96&stripmeta=0&type=jpg%7Cwatermark&type=2&text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&font=bXN5aA==&gravity=southwest&dissolve=30&fontsize=240&dx=8&dy=10&stripmeta=0"/><br></div>
-
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate.这样的和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法：onCreateView和onDestoryView。</p>
-<p>onAttached()<br>当fragment被加入到activity时调用（在这个方法中可以获得所在的activity）</p>
-<p>onCreateView()<br>当activity要得到fragment的layout时，调用此方法，fragment在其中创建自己的layout(界面)。</p>
-<p>onActivityCreated()<br>当activity的onCreated()方法返回后调用此方法。</p>
-<p>onDestroyView()<br>当fragment中的视图被移除的时候，调用这个方法。</p>
-<p>onDetach()<br>当fragment和activity分离的时候，调用这个方法。</p>
-<p>一旦activity进入resumed状态（也就是running状态），fragment的生命周期才能独<br>立的运转，才可以自由地添加和删除fragment了。其它时候是依赖于activity的生命周期变化的。</p>
+              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1><h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p><img src="https://developer.android.com/images/fragment_lifecycle.png" alt="">  <img src="https://developer.android.com/images/activity_fragment_lifecycle.png" alt=""></p>
+<blockquote>
+<p>理解<br>因为Fragment是依赖与Activity的。所以会有onAttach，和onDetach,onActivityCreate这些和Activity相关的方法。另外Fragment也有自己的创建和销毁视图的方法。onCreateView和onDestoryView。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>何时调用</th>
+<th>主要应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onAttached</td>
+<td>当fragment被加入到activity时</td>
+<td>获取Activity对象</td>
+</tr>
+<tr>
+<td>onCreate</td>
+<td>系统在创建Fragment时</td>
+<td>实例化一些Fragment暂停时需要保存的变量</td>
+</tr>
+<tr>
+<td>onCreateView</td>
+<td>系统绘制Fragment界面时</td>
+<td>加载Fragment的布局</td>
+</tr>
+<tr>
+<td>onActivityCreated</td>
+<td>当Activity执行完onCreate方法时</td>
+<td>与Activity的交互操作在这完成（初始化数据）</td>
+</tr>
+<tr>
+<td>onDestroyView</td>
+<td>Fragment中的布局被移除时</td>
+<td>清除所有跟视图相关的资源</td>
+</tr>
+<tr>
+<td>onDetach</td>
+<td>Fragment和Activity解除关联的时</td>
+<td>解决ViewPager+Fragment重复加载</td>
+</tr>
+</tbody>
+</table>
 <h1 id="加载Fragment的方式"><a href="#加载Fragment的方式" class="headerlink" title="加载Fragment的方式"></a>加载Fragment的方式</h1><table>
 <thead>
 <tr>
@@ -676,6 +712,70 @@
 
 
   
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
+<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -725,70 +825,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
-<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
