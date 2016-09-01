@@ -3,23 +3,132 @@
 <head>
   <meta charset="utf-8">
   
-  <title>自定义控件显示形状(Shape) | TanJunDang</title>
+  <title>Shape、Selector、Layer-list、Inset | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="shape改变控件的背景shape自定义控件形状，改变背景就无效了  
-标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小corners：主要属性radius">
+  <meta name="description" content="Shape
+理解用于设置ViewGroup的形状
+
+
+
+
+标签
+意义
+属性
+值
+
+
+
+
+Shape
+设置Shape的基础形状
+android:Shape
+“rectangle”(矩形)、”oval”(椭圆)、”line”(直线)、”ring”(环形)
+
+
+
+
+
+
+子标签
+意义
+属性
+
+
+
+
+solid
+设置填充Drawable的颜色
+android:color
+
+
+stroke
+设置Drawabl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义控件显示形状(Shape)">
+<meta property="og:title" content="Shape、Selector、Layer-list、Inset">
 <meta property="og:url" content="TanJunDang.github.io/2015/09/30/Shape/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="shape改变控件的背景shape自定义控件形状，改变背景就无效了  
-标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小corners：主要属性radius">
+<meta property="og:description" content="Shape
+理解用于设置ViewGroup的形状
+
+
+
+
+标签
+意义
+属性
+值
+
+
+
+
+Shape
+设置Shape的基础形状
+android:Shape
+“rectangle”(矩形)、”oval”(椭圆)、”line”(直线)、”ring”(环形)
+
+
+
+
+
+
+子标签
+意义
+属性
+
+
+
+
+solid
+设置填充Drawable的颜色
+android:color
+
+
+stroke
+设置Drawabl">
 <meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmcxc3lld0F1b1Joa29tZENGREdMUUVGZlNZS3U5ejd3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&thumbnail=400x0&quality=96&stripmeta=0&type=jpg">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNzZzckhXanJIdjVOMTRhN25WNlRvcFgrS0Fody96eGxnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-04-05T09:05:08.000Z">
+<meta property="og:updated_time" content="2016-09-01T17:53:09.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义控件显示形状(Shape)">
-<meta name="twitter:description" content="shape改变控件的背景shape自定义控件形状，改变背景就无效了  
-标签为shape主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）solid：主要属性 color填充整个控件的颜色stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小corners：主要属性radius">
+<meta name="twitter:title" content="Shape、Selector、Layer-list、Inset">
+<meta name="twitter:description" content="Shape
+理解用于设置ViewGroup的形状
+
+
+
+
+标签
+意义
+属性
+值
+
+
+
+
+Shape
+设置Shape的基础形状
+android:Shape
+“rectangle”(矩形)、”oval”(椭圆)、”line”(直线)、”ring”(环形)
+
+
+
+
+
+
+子标签
+意义
+属性
+
+
+
+
+solid
+设置填充Drawable的颜色
+android:color
+
+
+stroke
+设置Drawabl">
 <meta name="twitter:image" content="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmcxc3lld0F1b1Joa29tZENGREdMUUVGZlNZS3U5ejd3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -195,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      自定义控件显示形状(Shape)
+      Shape、Selector、Layer-list、Inset
     </h1>
   
 
@@ -206,7 +315,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shape/">shape</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shape、Selector、Layer-list、Inset/">Shape、Selector、Layer-list、Inset</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -216,46 +325,102 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4 id="shape改变控件的背景"><a href="#shape改变控件的背景" class="headerlink" title="shape改变控件的背景"></a>shape改变控件的背景</h4><p>shape自定义控件形状，改变背景就无效了  </p>
-<p>标签为shape<br>主要子标签：solid（填充颜色）、stroke（描边）、corners（弧度）、gradient（渐变）、size（大小、可以设置成圆）<br>solid：主要属性 color填充整个控件的颜色<br>stroke：主要属性color 设置描边的颜色、width=”3dip” 设置描边大小<br>corners：主要属性radius 设置弧度<br>size：主要属性width、height 设置宽高，相同为圆<br>gradient：主要属性是startcolor endcolor</p>
+        <h1 id="Shape"><a href="#Shape" class="headerlink" title="Shape"></a>Shape</h1><blockquote>
+<p>理解<br>用于设置ViewGroup的形状</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>意义</th>
+<th>属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td>设置Shape的基础形状</td>
+<td>android:Shape</td>
+<td>“rectangle”(矩形)、”oval”(椭圆)、”line”(直线)、”ring”(环形)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>子标签</th>
+<th>意义</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>solid</td>
+<td>设置填充Drawable的颜色</td>
+<td>android:color</td>
+</tr>
+<tr>
+<td>stroke</td>
+<td>设置Drawable描边的颜色</td>
+<td>android:color、width</td>
+</tr>
+<tr>
+<td>corners</td>
+<td>设置弧度</td>
+<td>android:radius</td>
+</tr>
+<tr>
+<td>size</td>
+<td>设置宽高</td>
+<td>android:width、height</td>
+</tr>
+<tr>
+<td>gradient</td>
+<td>设置渐变颜色</td>
+<td>android:startColor、endColor</td>
+</tr>
+</tbody>
+</table>
 <p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNmcxc3lld0F1b1Joa29tZENGREdMUUVGZlNZS3U5ejd3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <a id="more"></a>
-<p>主要用在 设置父布局的形状（LinearLayout等） 通过background来设置</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot;&gt;
-
-    &lt;item&gt;
-        &lt;shape android:shape=&quot;oval&quot; &gt;
-            &lt;corners android:radius=&quot;90dip&quot;/&gt;
-            &lt;solid android:color=&quot;#55ff44&quot; /&gt;
-            &lt;size android:width=&quot;170dp&quot; android:height=&quot;170dp&quot;/&gt;
-        &lt;/shape&gt;
-    &lt;/item&gt;
-
-    &lt;item android:bottom=&quot;8dp&quot; android:right=&quot;8dp&quot; android:top=&quot;8dp&quot; android:left=&quot;8dp&quot; &gt;
-        &lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-            &lt;item android:state_pressed=&quot;true&quot;&gt;
-                &lt;shape android:shape=&quot;oval&quot; &gt;
-                    &lt;corners android:radius=&quot;90dip&quot;/&gt;
-                    &lt;solid android:color=&quot;#e66b4f&quot; /&gt;
-                    &lt;size android:width=&quot;162dp&quot; android:height=&quot;162dp&quot;/&gt;
-                &lt;/shape&gt;
-            &lt;/item&gt;
-
-            &lt;item&gt;
-                &lt;shape android:shape=&quot;oval&quot; &gt;
-                    &lt;corners android:radius=&quot;90dip&quot;/&gt;
-                    &lt;solid android:color=&quot;#f3876f&quot; /&gt;
-                    &lt;size android:width=&quot;162dp&quot; android:height=&quot;162dp&quot;/&gt;
-                &lt;/shape&gt;
-            &lt;/item&gt;
-
-        &lt;/selector&gt;
-    &lt;/item&gt;
-
-&lt;/layer-list&gt;
-</code></pre><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNzZzckhXanJIdjVOMTRhN25WNlRvcFgrS0Fody96eGxnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h1><h2 id="Selector在Button里无效的原因"><a href="#Selector在Button里无效的原因" class="headerlink" title="Selector在Button里无效的原因"></a>Selector在Button里无效的原因</h2><blockquote>
+<p>默认图必须放在最后面<br>示例代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/common_icon_gray_tab"</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/common_icon_red_tab"</span>&gt;</span><span class="tag">&lt;/<span class="name">item</span>&gt;</span> //默认图必须放在最下面</span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="示例-TextView点击Selector"><a href="#示例-TextView点击Selector" class="headerlink" title="示例 - TextView点击Selector"></a>示例 - TextView点击Selector</h2><h1 id="Inset"><a href="#Inset" class="headerlink" title="Inset"></a>Inset</h1><h2 id="示例-单边padding的Divider"><a href="#示例-单边padding的Divider" class="headerlink" title="示例 - 单边padding的Divider"></a>示例 - 单边padding的Divider</h2><blockquote>
+<p>使用inset标签</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:insetTop</td>
+<td>图像距离上边的距离</td>
+</tr>
+<tr>
+<td>android:insetRight</td>
+<td>图像距离右侧的距离</td>
+</tr>
+<tr>
+<td>android:insetBottom</td>
+<td>图像距离底边的距离</td>
+</tr>
+<tr>
+<td>android:insetLeft</td>
+<td>图像距离左侧的距离</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(common_divider_margin_left.xml) 在LinearLayout的divider属性设置这个文件即可</span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;inset xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">    android:drawable="@drawable/common_divider_line" //加载divider Shape</span><br><span class="line">    android:insetLeft="@dimen/common_layout_margin_15dp"&gt; //设置左边距</span><br><span class="line">&lt;/inset&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="http://imglf0.nosdn.127.net/img/U05xRllGZk4zNVBvazRaeG01U3Y5S0dVWnE2LzRIekRQM1pLU3lPWXlMcVM1M3dmR2NrOE53PT0.png?imageView&amp;thumbnail=400x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="Layer-list"><a href="#Layer-list" class="headerlink" title="Layer-list"></a>Layer-list</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shape</span> <span class="attr">android:shape</span>=<span class="string">"oval"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"90dip"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#55ff44"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">size</span></span><br><span class="line">                <span class="attr">android:width</span>=<span class="string">"170dp"</span></span><br><span class="line">                <span class="attr">android:height</span>=<span class="string">"170dp"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span><br><span class="line">        <span class="attr">android:bottom</span>=<span class="string">"8dp"</span></span><br><span class="line">        <span class="attr">android:left</span>=<span class="string">"8dp"</span></span><br><span class="line">        <span class="attr">android:right</span>=<span class="string">"8dp"</span></span><br><span class="line">        <span class="attr">android:top</span>=<span class="string">"8dp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shape</span> <span class="attr">android:shape</span>=<span class="string">"oval"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"90dip"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#e66b4f"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">size</span></span><br><span class="line">                        <span class="attr">android:width</span>=<span class="string">"162dp"</span></span><br><span class="line">                        <span class="attr">android:height</span>=<span class="string">"162dp"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shape</span> <span class="attr">android:shape</span>=<span class="string">"oval"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"90dip"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#f3876f"</span> /&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">size</span></span><br><span class="line">                        <span class="attr">android:width</span>=<span class="string">"162dp"</span></span><br><span class="line">                        <span class="attr">android:height</span>=<span class="string">"162dp"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1jZmNQMC9SK29MNzZzckhXanJIdjVOMTRhN25WNlRvcFgrS0Fody96eGxnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 
       
     </div>
@@ -264,12 +429,12 @@ android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></p>
+        <p><span>本文标题:</span><a href="/2015/09/30/Shape/">Shape、Selector、Layer-list、Inset</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年09月30日 - 17时44分</p>
-        <p><span>最后更新:</span>2016年04月05日 - 17时05分</p>
+        <p><span>最后更新:</span>2016年09月02日 - 01时53分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/09/30/Shape/" title="自定义控件显示形状(Shape)">http://TanJunDang.github.io/2015/09/30/Shape/</a>
+            <span>原始链接:</span><a class="post-url" href="/2015/09/30/Shape/" title="Shape、Selector、Layer-list、Inset">http://TanJunDang.github.io/2015/09/30/Shape/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/09/30/Shape/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -302,7 +467,7 @@ android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#shape改变控件的背景"><span class="toc-number">1.</span> <span class="toc-text">shape改变控件的背景</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shape"><span class="toc-number">1.</span> <span class="toc-text">Shape</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Selector"><span class="toc-number">2.</span> <span class="toc-text">Selector</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Selector在Button里无效的原因"><span class="toc-number">2.1.</span> <span class="toc-text">Selector在Button里无效的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-TextView点击Selector"><span class="toc-number">2.2.</span> <span class="toc-text">示例 - TextView点击Selector</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Inset"><span class="toc-number">3.</span> <span class="toc-text">Inset</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-单边padding的Divider"><span class="toc-number">3.1.</span> <span class="toc-text">示例 - 单边padding的Divider</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Layer-list"><span class="toc-number">4.</span> <span class="toc-text">Layer-list</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -353,7 +518,7 @@ android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/09/30/Shape/" data-title="自定义控件显示形状(Shape)" data-url="TanJunDang.github.io/2015/09/30/Shape/"></div>
+    <div class="ds-thread" data-thread-key="2015/09/30/Shape/" data-title="Shape、Selector、Layer-list、Inset" data-url="TanJunDang.github.io/2015/09/30/Shape/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -388,7 +553,7 @@ android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">自定义控件显示形状(Shape)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Layer-list、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

@@ -3,60 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>四大组件之Broadcast | TanJunDang</title>
+  <title>Android - Theme(Style) | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+  <meta name="description" content="Style学习示例 - 如何实现一个对话框Activity
+步骤
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
+写好布局文件，绑定Activity
+创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）
+然后设置其不显示标题、透明背景即可
 
 
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
+1this.setFinishOnTouchOutside(false); //设置对话框activity点击外部不消失
+123456789101">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="TanJunDang.github.io/2015/11/19/Android-Broadcast/index.html">
+<meta property="og:title" content="Android - Theme(Style)">
+<meta property="og:url" content="TanJunDang.github.io/2016/01/01/Style/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+<meta property="og:description" content="Style学习示例 - 如何实现一个对话框Activity
+步骤
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
+写好布局文件，绑定Activity
+创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）
+然后设置其不显示标题、透明背景即可
 
 
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
-<meta property="og:updated_time" content="2016-06-17T06:26:44.000Z">
+1this.setFinishOnTouchOutside(false); //设置对话框activity点击外部不消失
+123456789101">
+<meta property="og:updated_time" content="2016-09-01T17:10:40.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
-<meta name="twitter:description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+<meta name="twitter:title" content="Android - Theme(Style)">
+<meta name="twitter:description" content="Style学习示例 - 如何实现一个对话框Activity
+步骤
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
+写好布局文件，绑定Activity
+创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）
+然后设置其不显示标题、透明背景即可
 
 
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
+1this.setFinishOnTouchOutside(false); //设置对话框activity点击外部不消失
+123456789101">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -214,11 +199,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Style" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/19/Android-Broadcast/" class="article-date">
-      <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished">2015-11-19</time>
+      <a href="/2016/01/01/Style/" class="article-date">
+      <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished">2016-01-01</time>
 </a>
     </div>
   
@@ -231,7 +216,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      四大组件之Broadcast
+      Android - Theme(Style)
     </h1>
   
 
@@ -242,7 +227,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Broadcast/">Broadcast</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Theme-Style/">Android - Theme(Style)</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -252,37 +237,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
-<li>当收到某系统消息时，可以做相应的处理。</li>
-<li>动态注册：程序启动后才有效。</li>
-<li>静态注册：不需要启动程序就有效。</li>
-</ul>
-<h3 id="动态广播实际开发"><a href="#动态广播实际开发" class="headerlink" title="动态广播实际开发"></a>动态广播实际开发</h3><ul>
-<li>服务器下发新消息时，通知MainActivity更改UI</li>
-</ul>
+        <h1 id="Style学习"><a href="#Style学习" class="headerlink" title="Style学习"></a>Style学习</h1><h2 id="示例-如何实现一个对话框Activity"><a href="#示例-如何实现一个对话框Activity" class="headerlink" title="示例 - 如何实现一个对话框Activity"></a>示例 - 如何实现一个对话框Activity</h2><blockquote>
+<p>步骤</p>
 <ol>
-<li>继承BroadcastReceiver</li>
-<li>定义过滤的Action</li>
-<li>添加回调接口</li>
-<li>构造函数初始化接口</li>
-<li>重写onReceive方法(调用接口的方法)</li>
-<li>实现接口、动态注册接口(LocalBroadcastManager类)</li>
-<li>在获取到服务器数据的地方发送广播</li>
-<li>在ondestory里取消广播</li>
+<li>写好布局文件，绑定Activity</li>
+<li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
+<li>然后设置其不显示标题、透明背景即可</li>
 </ol>
-<h4 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"Sam-Tam"</span>);</span><br><span class="line">	sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="静态广播实际开发"><a href="#静态广播实际开发" class="headerlink" title="静态广播实际开发"></a>静态广播实际开发</h3><ul>
-<li>监听系统网络状态改变,从而做相应的处理。</li>
-</ul>
-<p>同上,注册的时候用registerReceiver、unregisterReceiver,用LocalBroadcastManager无效。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//定义Broadcast</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetworkChangeReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义过滤系统action</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String NETWORK_ACTION = ConnectivityManager.CONNECTIVITY_ACTION;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> NetworkChangeCallback callback;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">(NetworkChangeCallback callback)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.callback = callback;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callback != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callback.refresh();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 网络状态变化的回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetworkChangeCallback</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//activity的onCreate方法里注册Receiver</span></span><br><span class="line"></span><br><span class="line">receiver = <span class="keyword">new</span> NetworkChangeReceiver(<span class="keyword">this</span>);</span><br><span class="line">registerReceiver(receiver, <span class="keyword">new</span> IntentFilter(NetworkChangeReceiver.NETWORK_ACTION));</span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line"></span><br><span class="line">unregisterReceiver(receiver);</span><br></pre></td></tr></table></figure>
-<h3 id="Fragment里注册广播注意事项"><a href="#Fragment里注册广播注意事项" class="headerlink" title="Fragment里注册广播注意事项"></a>Fragment里注册广播注意事项</h3><ul>
-<li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
-<li>记得在ondestory方法里注销广播</li>
-</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setFinishOnTouchOutside(<span class="keyword">false</span>); <span class="comment">//设置对话框activity点击外部不消失</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">android:theme="@android:style/Theme.Dialog" : Activity显示为对话框模式</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar" : 不显示应用程序标题栏</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar.Fullscreen" : 不显示应用程序题栏，并全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light ": 背景为白色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar" : 白色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar.Fullscreen" : 白色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black" : 背景黑色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar" : 黑色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar.Fullscreen" : 黑色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper" : 用系统桌面为应用程序背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar" : 用系统桌面为应用程序背景，且无标栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar.Fullscreen" : 用系统桌面为应用程序景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent : 透明背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar" : 透明背景并无标题</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar.Fullscreen" : 透明背景并无标题，屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Panel ": 面板风格显示</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.Panel" : 平板风格显示</span><br></pre></td></tr></table></figure>
+<h2 id="ActivityDialog的总结"><a href="#ActivityDialog的总结" class="headerlink" title="ActivityDialog的总结"></a>ActivityDialog的总结</h2><blockquote>
+<p>总结<br>1.如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。</p>
+<p>2.透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗。</p>
+</blockquote>
 
       
     </div>
@@ -291,13 +259,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/01/Style/">Android - Theme(Style)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2015年11月19日 - 15时43分</p>
-        <p><span>最后更新:</span>2016年06月17日 - 14时26分</p>
+        <p><span>发布时间:</span>2016年01月01日 - 20时20分</p>
+        <p><span>最后更新:</span>2016年09月02日 - 01时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/11/19/Android-Broadcast/" title="四大组件之Broadcast">http://TanJunDang.github.io/2015/11/19/Android-Broadcast/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/11/19/Android-Broadcast/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/01/Style/" title="Android - Theme(Style)">http://TanJunDang.github.io/2016/01/01/Style/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/01/01/Style/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -307,18 +275,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/11/18/JAVASE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/19/Android-Broadcast/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          JAVASE基础
+          四大组件之Broadcast
         
       </div>
     </a>
   
   
-    <a href="/2016/01/01/Style/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android - Theme(Style)</div>
+    <a href="/2016/01/01/Animation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android动画</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -329,7 +297,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态广播实际开发"><span class="toc-number">2.</span> <span class="toc-text">动态广播实际开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态广播实际开发"><span class="toc-number">3.</span> <span class="toc-text">静态广播实际开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播注意事项"><span class="toc-number">4.</span> <span class="toc-text">Fragment里注册广播注意事项</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Style学习"><span class="toc-number">1.</span> <span class="toc-text">Style学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-如何实现一个对话框Activity"><span class="toc-number">1.1.</span> <span class="toc-text">示例 - 如何实现一个对话框Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ActivityDialog的总结"><span class="toc-number">1.2.</span> <span class="toc-text">ActivityDialog的总结</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -380,7 +348,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/11/19/Android-Broadcast/" data-title="四大组件之Broadcast" data-url="TanJunDang.github.io/2015/11/19/Android-Broadcast/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/01/Style/" data-title="Android - Theme(Style)" data-url="TanJunDang.github.io/2016/01/01/Style/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -404,13 +372,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/11/18/JAVASE/" title="上一篇: JAVASE基础">
+            <a href="/2015/11/19/Android-Broadcast/" title="上一篇: 四大组件之Broadcast">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/01/01/Style/" title="下一篇: Android - Theme(Style)">
+            <a href="/2016/01/01/Animation/" title="下一篇: Android动画">
                 <i class="fa fa-angle-right"></i>
             </a>
         
