@@ -4,14 +4,48 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/30/Shape/</loc>
-    <lastmod>2016-09-05T10:24:16.000Z</lastmod>
+    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
+    <lastmod>2016-09-06T10:08:10.000Z</lastmod>
     <data>
         <display>
-        <title>Shape、Selector、Layer-list、Inset</title>
+        <title>Fragment笔记</title>
+        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
+        
+        <tag>Fragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    <lastmod>2016-09-06T09:15:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义View笔记</title>
+        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
+        
+        <tag>自定义View笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/30/Shape/</loc>
+    <lastmod>2016-09-06T08:59:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Shape、Selector、Inset</title>
         <pubTime>2015-09-30T09:44:56.000Z</pubTime>
         
-        <tag>Shape、Selector、Layer-list、Inset</tag>
+        <tag>Shape、Selector、Inset</tag>
          
          
            
@@ -116,23 +150,6 @@
         <pubTime>2016-02-01T14:05:41.000Z</pubTime>
         
         <tag>Widgets学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
-    <lastmod>2016-09-01T13:10:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>Fragment笔记</title>
-        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
-        
-        <tag>Fragment笔记</tag>
          
          
            
@@ -577,23 +594,6 @@
 
     
     
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2016-08-24T06:31:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义View笔记</title>
-        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
-        
-        <tag>自定义View笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
