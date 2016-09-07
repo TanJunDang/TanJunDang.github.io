@@ -176,6 +176,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JAVASE" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/JAVASE/" class="article-date">
+      <time datetime="2015-11-18T07:03:37.000Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/18/JAVASE/">JAVASE基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h1><blockquote>
+<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。</p>
+</blockquote>
+<h2 id="回调接口-——-数据提供者编写"><a href="#回调接口-——-数据提供者编写" class="headerlink" title="回调接口 —— 数据提供者编写"></a>回调接口 —— 数据提供者编写</h2><h3 id="数据提供者"><a href="#数据提供者" class="headerlink" title="数据提供者"></a>数据提供者</h3><blockquote>
+<p>1.预留接口给他人实现(定义接口) OnItemListener<br>2.创建接口引用 onItemListener listener<br>3.提供注册接口的方法(注册接口) setonlistener<br>4.在给数据的地方注册并调用接口的方法(通过接口引用调用方法) listener.giveMsg();</p>
+</blockquote>
+<h3 id="数据获取者"><a href="#数据获取者" class="headerlink" title="数据获取者"></a>数据获取者</h3><blockquote>
+<p>1.实现回调接口 implements Callback<br>2.注册回调函数</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Callback接口/">Callback接口</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA基础知识/">JAVA基础知识</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/18/JAVASE/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android-Activity" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -874,73 +944,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Bug" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/Bug/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><p>1.复制布局文件时，有自定义view，要注意改其包名。</p>
-<p>2.String类型方法传非String类型的值</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>错误原因： 不能把int的值传给String类型的方法.<br>解决办法：加一个空字符””  </p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/Bug/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
