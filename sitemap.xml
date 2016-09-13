@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>TanJunDang.github.io/2016/09/13/Actionbar/</loc>
+    <loc>TanJunDang.github.io/2016/03/30/BNJSummarize/</loc>
     
-    <lastmod>2016-09-13T13:00:20.785Z</lastmod>
+    <lastmod>2016-09-13T13:07:52.849Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/09/13/ActionBar/</loc>
+    
+    <lastmod>2016-09-13T13:07:05.789Z</lastmod>
     
   </url>
   
@@ -299,13 +306,6 @@
     <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
     
     <lastmod>2016-08-17T10:00:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/03/30/BNJSummarize/</loc>
-    
-    <lastmod>2016-08-09T03:11:56.000Z</lastmod>
     
   </url>
   
