@@ -244,6 +244,94 @@
 
 
   
+    <article id="post-Actionbar" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/Actionbar/" class="article-date">
+      <time datetime="2016-09-12T16:00:00.000Z" itemprop="datePublished">2016-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/13/Actionbar/">ActionBar笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="ActionBar基本知识"><a href="#ActionBar基本知识" class="headerlink" title="ActionBar基本知识"></a>ActionBar基本知识</h1><blockquote>
+<p>1.Android 3.0(API level 11)版本之后，所有使用默认主题的Activity都包含有Actionbar。<br>2.如果需要支持Android 2.0(API level 7)版本，需要修改mainfest中的minSdkVersion版本。<br>3.如果需要自定义ActionBar，则先设置Activity的Theme为NoActionBar(需要设置name/parent)，然后通过添加ToolBar来实现。<br>4.values、values-xx的理解。</p>
+<ul>
+<li>values表示所有API使用该文件。</li>
+<li>values-xx表示XXAPI起，使用该文件。</li>
+</ul>
+</blockquote>
+<h2 id="示例-创建一个APP-SupportActionBar"><a href="#示例-创建一个APP-SupportActionBar" class="headerlink" title="示例 - 创建一个APP SupportActionBar"></a>示例 - 创建一个APP SupportActionBar</h2><blockquote>
+<p>步骤<br>1.继承AppCompatActivity。<br>2.XML布局中添加ToolBar控件。<br>3.在Mainfest文件设置Activity的theme属性为NoActionBar。<br>4.在Activity中调用setSupportActionBar方法设置ActionBar。</p>
+</blockquote>
+<h3 id="步骤1"><a href="#步骤1" class="headerlink" title="步骤1"></a>步骤1</h3><blockquote>
+<p>继承AppCompatActivity</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MActionBarActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="步骤2"><a href="#步骤2" class="headerlink" title="步骤2"></a>步骤2</h3><blockquote>
+<p>xml添加ToolBar</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span></span><br><span class="line"> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:background</span>=<span class="string">"@color/white"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:background</span>=<span class="string">"@color/blue"</span></span><br><span class="line">        <span class="attr">android:elevation</span>=<span class="string">"8dp"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="步骤3"><a href="#步骤3" class="headerlink" title="步骤3"></a>步骤3</h3><blockquote>
+<p>设置Activity的Theme属性</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//Mainfest文件</span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span></span><br><span class="line">    <span class="attr">android:name</span>=<span class="string">".test.actionbar.MActionBarActivity"</span></span><br><span class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//style文件</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowActionBar"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span>//关闭默认的actionbar</span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>//关闭默认的Title</span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:statusBarColor"</span>&gt;</span>@android:color/holo_red_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowDrawsSystemBarBackgrounds"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="/2016/01/01/Style/">Style的基础知识</a></p>
+<h3 id="步骤四"><a href="#步骤四" class="headerlink" title="步骤四"></a>步骤四</h3><blockquote>
+<p>设置ActionBar</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MActionBarActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Toolbar toolbar;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_maction_bar);</span><br><span class="line">        toolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">        toolbar.setTitleTextColor(Color.WHITE);</span><br><span class="line">        setSupportActionBar(toolbar);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>效果</p>
+</blockquote>
+<p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0J6NExJMG1TVGg3RnVqQy9yTlZ5Z3dRQS9vanZXcHdPWGg5WG1FN21NRG53PT0.gif" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ActionBar笔记/">ActionBar笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Preference" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -647,6 +735,17 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Skills/">开发中常用的技巧</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -668,7 +767,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0-9/">0.9</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局常用的技巧/">布局常用的技巧</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沉浸式状态栏/">沉浸式状态栏</a></li></ul>
     </div>
 
       
@@ -738,75 +837,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/08/Timestamp/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Share" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/05/Share/" class="article-date">
-      <time datetime="2016-07-05T09:00:41.000Z" itemprop="datePublished">2016-07-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/Share/">常用开发工具、框架、网站</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="推荐博客"><a href="#推荐博客" class="headerlink" title="推荐博客"></a>推荐博客</h1><blockquote>
-<p><a href="https://developer.android.com/index.html">Android官方网站</a></p>
-<p><a href="http://hukai.me/android-training-course-in-chinese/ux/implement-nav/ancestral.html">国内大神翻译官方的例子</a></p>
-<p><a href="http://chinagdg.org/">谷歌中国开发者社区</a></p>
-<p><a href="http://androiddoc.qiniudn.com/index.html">Android官方网站镜像</a></p>
-<p><a href="http://stormzhang.com/">stormzhang博客</a></p>
-<p><a href="http://blog.csdn.net/loongggdroid">非著名程序猿</a></p>
-<p><a href="https://www.google.com/chrome/browser/desktop/index.html?standalone=1&amp;platform=win64">64bit谷歌浏览器</a><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用开发工具、框架、网站/">常用开发工具、框架、网站</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/05/Share/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
