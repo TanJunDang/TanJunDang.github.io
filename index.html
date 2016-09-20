@@ -244,6 +244,162 @@
 
 
   
+    <article id="post-Intent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/20/Intent/" class="article-date">
+      <time datetime="2016-09-19T16:00:00.000Z" itemprop="datePublished">2016-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/20/Intent/">Android基础之Intent</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Intent的基础知识"><a href="#Intent的基础知识" class="headerlink" title="Intent的基础知识"></a>Intent的基础知识</h1><h2 id="Intent的作用"><a href="#Intent的作用" class="headerlink" title="Intent的作用"></a>Intent的作用</h2><table>
+<thead>
+<tr>
+<th>Intent的作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动Activity</td>
+</tr>
+<tr>
+<td>启动Service</td>
+</tr>
+<tr>
+<td>启动Broadcast</td>
+</tr>
+<tr>
+<td>启动满足条件的应用</td>
+</tr>
+<tr>
+<td>实现应用间数据交互</td>
+</tr>
+</tbody>
+</table>
+<h2 id="显示Intent与隐式Intent的区别"><a href="#显示Intent与隐式Intent的区别" class="headerlink" title="显示Intent与隐式Intent的区别"></a>显示Intent与隐式Intent的区别</h2><table>
+<thead>
+<tr>
+<th>Intent类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示Intent</td>
+<td>需要指定待启动的组件,常用的跳转页面方式</td>
+</tr>
+<tr>
+<td>隐式Intent</td>
+<td>不需要指定待启动的组件,通过应用启动器启动满足Action、Category、DATA三个条件的应用</td>
+</tr>
+</tbody>
+</table>
+<h2 id="显式Intent"><a href="#显式Intent" class="headerlink" title="显式Intent"></a>显式Intent</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(当前上下文，待跳转类);<span class="comment">//指定待跳转类</span></span><br><span class="line">intent.putExtra(DATA_KEY,DATA);<span class="comment">//将数据传给待跳转类。</span></span><br><span class="line">startActivity(intent);<span class="comment">//同理startService等。</span></span><br></pre></td></tr></table></figure>
+<h2 id="隐式Intent-IntentFilter"><a href="#隐式Intent-IntentFilter" class="headerlink" title="隐式Intent - IntentFilter"></a>隐式Intent - IntentFilter</h2><blockquote>
+<p>理解<br>不需要指定待启动的组件，需要通过设置Action、Category等操作来启动满足条件的组件（应用）。<br>与IntentFilter结合使用</p>
+</blockquote>
+<h3 id="Intent的属性"><a href="#Intent的属性" class="headerlink" title="Intent的属性"></a>Intent的属性</h3><table>
+<thead>
+<tr>
+<th>Intent的属性</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACTION</td>
+<td>Intent将要执行的动作</td>
+<td>ACTION_MAIN - APP的程序入口,每个程序必须包含这个ACTION<br> ACTION_VIEW - 调用其它应用查询某些信息(使用图库查看图片、使用地图查找地址)<br> ACTION_SEND - 用户指定发送方式，发送信息到其他应用(发送信息到QQ)<br> ACTION_DIAL - 打开系统默认的拨号程序 <br> ACTION_CALL - 直接拨打DATA中设置的电话 <br> ACTION_ANSWER - 接听来电 <br> ACTION_SENDTO - 根据DATA类型进行发送操作</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>用于设置数据的Uri、mimeType <br> 不同的ACTION对应不同的DATA</td>
+<td>tel:// - 号码数据格式，后跟电话号码<br> mailto:// - 邮件数据格式，后跟邮件收件人地址 <br> smsto:// - 短息数据格式，后跟短信接收号码 <br> content:// - 内容数据格式，后跟需要读取的内容 <br> file:// - 文件数据格式，后跟文件路径 <br> market://search?q=pname:pkgname - 市场数据格式,在Google Market里搜索包名为pkgname的应用 <br> geo://latitude, longitude - 经纬数据格式，在地图上显示经纬度所指定的位置<br></td>
+</tr>
+<tr>
+<td>CATEGORY</td>
+<td>为Action提供附加信息，两者结合使用</td>
+<td>CATEGORY_DEFAULT - 要想接收隐式Intent必须添加此项 <br> CATEGORY_LAUNCHER - 决定应用最先加载哪个Activity，跟ACTION_MAIN联合使用 <br> CATEGORY_BROWSABLE - 设置该组件可以使用浏览器启动 <br> CATEGORY_HOME - 设置该组件为Home Activity</td>
+</tr>
+<tr>
+<td>EXTRA</td>
+<td>接收Intent的key</td>
+<td>EXTRA_BCC：存放邮件密送人地址的字符串数组。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mimeType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text/plain（纯文本）<br> text/html（HTML文档）<br> application/xhtml+xml（XHTML文档 <br> image/gif（GIF图像）<br> image/jpeg（JPEG图像）<br>image/png（PNG图像）<br> image/* （所有图像）<br> video/mpeg（MPEG动画）<br> application/octet-stream（任意的二进制数据）<br> application/pdf（PDF文档） <br> application/msword（Microsoft Word文件）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-发送信息到电脑"><a href="#示例-发送信息到电脑" class="headerlink" title="示例 - 发送信息到电脑"></a>示例 - 发送信息到电脑</h4><blockquote>
+<p>知识点<br>利用Intent的关键字EXTRA_TEXT做传递</p>
+</blockquote>
+<p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif" alt=""></p>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line"><span class="comment">//设置发送Action</span></span><br><span class="line">intent.setAction(Intent.ACTION_SEND);</span><br><span class="line"><span class="comment">//利用Intent的KEY EXTRA_TEXT来传递数据</span></span><br><span class="line">intent.putExtra(Intent.EXTRA_TEXT, <span class="string">"This is my Share text."</span>);</span><br><span class="line">intent.setType(<span class="string">"text/*"</span>);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.android.com/guide/components/intents-filters.html" target="_blank" rel="external">官方文档</a></p>
+<p>[])(<a href="http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html" target="_blank" rel="external">http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html</a>)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Intent/">Android基础之Intent</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ActionBar" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -753,70 +909,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/08/Skills/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Timestamp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/Timestamp/" class="article-date">
-      <time datetime="2016-07-08T07:10:32.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/Timestamp/">时间戳</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="时间戳的基本知识"><a href="#时间戳的基本知识" class="headerlink" title="时间戳的基本知识"></a>时间戳的基本知识</h1><blockquote>
-<p>理解<br>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间工具类/">时间工具类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/08/Timestamp/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

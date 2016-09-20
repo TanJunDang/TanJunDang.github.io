@@ -3,24 +3,134 @@
 <head>
   <meta charset="utf-8">
   
-  <title>时间戳 | TanJunDang</title>
+  <title>Android基础之Intent | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间戳的基本知识
-理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
+  <meta name="description" content="Intent的基础知识Intent的作用
+
+
+Intent的作用
+
+
+
+
+启动Activity
+
+
+启动Service
+
+
+启动Broadcast
+
+
+启动满足条件的应用
+
+
+实现应用间数据交互
+
+
+
+显示Intent与隐式Intent的区别
+
+
+Intent类型
+说明
+
+
+
+
+显示Intent
+需要指定待启动的组件,常用的跳转页面方式
+
+
+隐式Intent
+不需要指定待启动的组件,通过应用启动器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时间戳">
-<meta property="og:url" content="TanJunDang.github.io/2016/07/08/Timestamp/index.html">
+<meta property="og:title" content="Android基础之Intent">
+<meta property="og:url" content="TanJunDang.github.io/2016/09/20/Intent/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="时间戳的基本知识
-理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
-<meta property="og:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:image" content="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-08-26T00:59:04.000Z">
+<meta property="og:description" content="Intent的基础知识Intent的作用
+
+
+Intent的作用
+
+
+
+
+启动Activity
+
+
+启动Service
+
+
+启动Broadcast
+
+
+启动满足条件的应用
+
+
+实现应用间数据交互
+
+
+
+显示Intent与隐式Intent的区别
+
+
+Intent类型
+说明
+
+
+
+
+显示Intent
+需要指定待启动的组件,常用的跳转页面方式
+
+
+隐式Intent
+不需要指定待启动的组件,通过应用启动器">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif">
+<meta property="og:updated_time" content="2016-09-20T17:16:52.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时间戳">
-<meta name="twitter:description" content="时间戳的基本知识
-理解时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。">
-<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="Android基础之Intent">
+<meta name="twitter:description" content="Intent的基础知识Intent的作用
+
+
+Intent的作用
+
+
+
+
+启动Activity
+
+
+启动Service
+
+
+启动Broadcast
+
+
+启动满足条件的应用
+
+
+实现应用间数据交互
+
+
+
+显示Intent与隐式Intent的区别
+
+
+Intent类型
+说明
+
+
+
+
+显示Intent
+需要指定待启动的组件,常用的跳转页面方式
+
+
+隐式Intent
+不需要指定待启动的组件,通过应用启动器">
+<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -178,11 +288,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Timestamp" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Intent" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/08/Timestamp/" class="article-date">
-      <time datetime="2016-07-08T07:10:32.000Z" itemprop="datePublished">2016-07-08</time>
+      <a href="/2016/09/20/Intent/" class="article-date">
+      <time datetime="2016-09-19T16:00:00.000Z" itemprop="datePublished">2016-09-20</time>
 </a>
     </div>
   
@@ -195,7 +305,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      时间戳
+      Android基础之Intent
     </h1>
   
 
@@ -206,7 +316,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间工具类/">时间工具类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Intent/">Android基础之Intent</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -216,38 +326,105 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="时间戳的基本知识"><a href="#时间戳的基本知识" class="headerlink" title="时间戳的基本知识"></a>时间戳的基本知识</h1><blockquote>
-<p>理解<br>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
+        <h1 id="Intent的基础知识"><a href="#Intent的基础知识" class="headerlink" title="Intent的基础知识"></a>Intent的基础知识</h1><h2 id="Intent的作用"><a href="#Intent的作用" class="headerlink" title="Intent的作用"></a>Intent的作用</h2><table>
+<thead>
+<tr>
+<th>Intent的作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动Activity</td>
+</tr>
+<tr>
+<td>启动Service</td>
+</tr>
+<tr>
+<td>启动Broadcast</td>
+</tr>
+<tr>
+<td>启动满足条件的应用</td>
+</tr>
+<tr>
+<td>实现应用间数据交互</td>
+</tr>
+</tbody>
+</table>
+<h2 id="显示Intent与隐式Intent的区别"><a href="#显示Intent与隐式Intent的区别" class="headerlink" title="显示Intent与隐式Intent的区别"></a>显示Intent与隐式Intent的区别</h2><table>
+<thead>
+<tr>
+<th>Intent类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示Intent</td>
+<td>需要指定待启动的组件,常用的跳转页面方式</td>
+</tr>
+<tr>
+<td>隐式Intent</td>
+<td>不需要指定待启动的组件,通过应用启动器启动满足Action、Category、DATA三个条件的应用</td>
+</tr>
+</tbody>
+</table>
+<h2 id="显式Intent"><a href="#显式Intent" class="headerlink" title="显式Intent"></a>显式Intent</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(当前上下文，待跳转类);<span class="comment">//指定待跳转类</span></span><br><span class="line">intent.putExtra(DATA_KEY,DATA);<span class="comment">//将数据传给待跳转类。</span></span><br><span class="line">startActivity(intent);<span class="comment">//同理startService等。</span></span><br></pre></td></tr></table></figure>
+<h2 id="隐式Intent-IntentFilter"><a href="#隐式Intent-IntentFilter" class="headerlink" title="隐式Intent - IntentFilter"></a>隐式Intent - IntentFilter</h2><blockquote>
+<p>理解<br>不需要指定待启动的组件，需要通过设置Action、Category等操作来启动满足条件的组件（应用）。<br>与IntentFilter结合使用</p>
 </blockquote>
-<a id="more"></a>
+<h3 id="Intent的属性"><a href="#Intent的属性" class="headerlink" title="Intent的属性"></a>Intent的属性</h3><table>
+<thead>
+<tr>
+<th>Intent的属性</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACTION</td>
+<td>Intent将要执行的动作</td>
+<td>ACTION_MAIN - APP的程序入口,每个程序必须包含这个ACTION<br> ACTION_VIEW - 调用其它应用查询某些信息(使用图库查看图片、使用地图查找地址)<br> ACTION_SEND - 用户指定发送方式，发送信息到其他应用(发送信息到QQ)<br> ACTION_DIAL - 打开系统默认的拨号程序 <br> ACTION_CALL - 直接拨打DATA中设置的电话 <br> ACTION_ANSWER - 接听来电 <br> ACTION_SENDTO - 根据DATA类型进行发送操作</td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>用于设置数据的Uri、mimeType <br> 不同的ACTION对应不同的DATA</td>
+<td>tel:// - 号码数据格式，后跟电话号码<br> mailto:// - 邮件数据格式，后跟邮件收件人地址 <br> smsto:// - 短息数据格式，后跟短信接收号码 <br> content:// - 内容数据格式，后跟需要读取的内容 <br> file:// - 文件数据格式，后跟文件路径 <br> market://search?q=pname:pkgname - 市场数据格式,在Google Market里搜索包名为pkgname的应用 <br> geo://latitude, longitude - 经纬数据格式，在地图上显示经纬度所指定的位置<br></td>
+</tr>
+<tr>
+<td>CATEGORY</td>
+<td>为Action提供附加信息，两者结合使用</td>
+<td>CATEGORY_DEFAULT - 要想接收隐式Intent必须添加此项 <br> CATEGORY_LAUNCHER - 决定应用最先加载哪个Activity，跟ACTION_MAIN联合使用 <br> CATEGORY_BROWSABLE - 设置该组件可以使用浏览器启动 <br> CATEGORY_HOME - 设置该组件为Home Activity</td>
+</tr>
+<tr>
+<td>EXTRA</td>
+<td>接收Intent的key</td>
+<td>EXTRA_BCC：存放邮件密送人地址的字符串数组。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>mimeType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text/plain（纯文本）<br> text/html（HTML文档）<br> application/xhtml+xml（XHTML文档 <br> image/gif（GIF图像）<br> image/jpeg（JPEG图像）<br>image/png（PNG图像）<br> image/* （所有图像）<br> video/mpeg（MPEG动画）<br> application/octet-stream（任意的二进制数据）<br> application/pdf（PDF文档） <br> application/msword（Microsoft Word文件）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-发送信息到电脑"><a href="#示例-发送信息到电脑" class="headerlink" title="示例 - 发送信息到电脑"></a>示例 - 发送信息到电脑</h4><blockquote>
+<p>知识点<br>利用Intent的关键字EXTRA_TEXT做传递</p>
+</blockquote>
+<p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif" alt=""></p>
 <blockquote>
-<p>格式<br>EEEE表示星期几、E表示周几<br>HH表示导0(01:10),H表示不导(1:10) 推荐使用H</p>
+<p>代码</p>
 </blockquote>
-<div align="center"><br><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU9SeFJYc0tTK2dMR2xFZkdmN3ZKN1plL0tzUUJLNnMyQkF1T0J1U0ZhZytBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""><br></div>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    &lt;         时间戳       &gt;</span><br><span class="line">────├─────────────────────├────</span><br><span class="line"></span><br><span class="line"><span class="number">1970</span>-<span class="number">1</span>-<span class="number">1</span>                 now</span><br></pre></td></tr></table></figure>
-<h1 id="时间戳的转换"><a href="#时间戳的转换" class="headerlink" title="时间戳的转换"></a>时间戳的转换</h1><h2 id="时间戳转String"><a href="#时间戳转String" class="headerlink" title="时间戳转String"></a>时间戳转String</h2><blockquote>
-<p>涉及Date、SimpleDateFormat的format方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Long date = <span class="keyword">new</span> Long(<span class="string">"1467607128000"</span>))；</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">String date = sdf.format(<span class="keyword">new</span> Date(<span class="keyword">long</span>));</span><br></pre></td></tr></table></figure>
-<h2 id="String转时间戳"><a href="#String转时间戳" class="headerlink" title="String转时间戳"></a>String转时间戳</h2><blockquote>
-<p>涉及SimpleDateFormat的parse方法、Date的getTime方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String strDate = dpBirth.getYear() + <span class="string">"-"</span> + (dpBirth.getMonth() + <span class="number">1</span>) + <span class="string">"-"</span> + dpBirth.getDayOfMonth() + <span class="string">""</span>;</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">Date date = sdf.parse(strDate);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取时间戳</span></span><br><span class="line">birthday = date.getTime();</span><br></pre></td></tr></table></figure>
-<h2 id="年月日转时间戳"><a href="#年月日转时间戳" class="headerlink" title="年月日转时间戳"></a>年月日转时间戳</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getTimestampByDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">	String strDate = year + <span class="string">"-"</span> + month + <span class="string">"-"</span> + day;</span><br><span class="line">	Date date = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">	    date = sdf.parse(strDate);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">	    e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> date.getTime();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div align="center"><br><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5rT0hNL2tIc1BUR3pYalVQSVdPeU9tOGN0dkw2UDdWWVpwWmx5bUdyaHlRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" align="center"><br></div>
-
-<h1 id="示例-时间戳"><a href="#示例-时间戳" class="headerlink" title="示例 - 时间戳"></a>示例 - 时间戳</h1><blockquote>
-<p>需求<br>服务器下发一串String的日期20151106，要显示成2015年11月06日</p>
-<p>思路<br>将String转成Date，再用date转成其他</p>
-<p>1.将String转Date </p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyyMMdd"</span>).parse(<span class="string">"20151106"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.再用Date转成自己想要的格式</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String msg = <span class="keyword">new</span> SimpleDateFormate(<span class="string">"yyyy年MM月dd日"</span>).format(date.getTime());</span><br></pre></td></tr></table></figure>
-<h1 id="DatePicker-初始化日期"><a href="#DatePicker-初始化日期" class="headerlink" title="DatePicker 初始化日期"></a>DatePicker 初始化日期</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp.init(<span class="number">2015</span>,<span class="number">09</span>,<span class="number">11</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line"><span class="comment">//设置发送Action</span></span><br><span class="line">intent.setAction(Intent.ACTION_SEND);</span><br><span class="line"><span class="comment">//利用Intent的KEY EXTRA_TEXT来传递数据</span></span><br><span class="line">intent.putExtra(Intent.EXTRA_TEXT, <span class="string">"This is my Share text."</span>);</span><br><span class="line">intent.setType(<span class="string">"text/*"</span>);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.android.com/guide/components/intents-filters.html" target="_blank" rel="external">官方文档</a></p>
+<p>[])(<a href="http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html" target="_blank" rel="external">http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html</a>)</p>
 
       
     </div>
@@ -256,13 +433,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/07/08/Timestamp/">时间戳</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/20/Intent/">Android基础之Intent</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年07月08日 - 15时10分</p>
-        <p><span>最后更新:</span>2016年08月26日 - 08时59分</p>
+        <p><span>发布时间:</span>2016年09月20日 - 00时00分</p>
+        <p><span>最后更新:</span>2016年09月21日 - 01时16分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/07/08/Timestamp/" title="时间戳">http://TanJunDang.github.io/2016/07/08/Timestamp/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/07/08/Timestamp/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/20/Intent/" title="Android基础之Intent">http://TanJunDang.github.io/2016/09/20/Intent/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/09/20/Intent/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -272,20 +449,15 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/07/05/Share/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/14/ActionBar/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          常用开发工具、框架、网站
+          ActionBar笔记
         
       </div>
     </a>
   
-  
-    <a href="/2016/07/08/Skills/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">开发中常用的技巧</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -294,7 +466,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间戳的基本知识"><span class="toc-number">1.</span> <span class="toc-text">时间戳的基本知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#时间戳的转换"><span class="toc-number">2.</span> <span class="toc-text">时间戳的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间戳转String"><span class="toc-number">2.1.</span> <span class="toc-text">时间戳转String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String转时间戳"><span class="toc-number">2.2.</span> <span class="toc-text">String转时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#年月日转时间戳"><span class="toc-number">2.3.</span> <span class="toc-text">年月日转时间戳</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-时间戳"><span class="toc-number">3.</span> <span class="toc-text">示例 - 时间戳</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DatePicker-初始化日期"><span class="toc-number">4.</span> <span class="toc-text">DatePicker 初始化日期</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intent的基础知识"><span class="toc-number">1.</span> <span class="toc-text">Intent的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent的作用"><span class="toc-number">1.1.</span> <span class="toc-text">Intent的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示Intent与隐式Intent的区别"><span class="toc-number">1.2.</span> <span class="toc-text">显示Intent与隐式Intent的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式Intent"><span class="toc-number">1.3.</span> <span class="toc-text">显式Intent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式Intent-IntentFilter"><span class="toc-number">1.4.</span> <span class="toc-text">隐式Intent - IntentFilter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intent的属性"><span class="toc-number">1.4.1.</span> <span class="toc-text">Intent的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-发送信息到电脑"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">示例 - 发送信息到电脑</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -345,7 +517,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/07/08/Timestamp/" data-title="时间戳" data-url="TanJunDang.github.io/2016/07/08/Timestamp/"></div>
+    <div class="ds-thread" data-thread-key="2016/09/20/Intent/" data-title="Android基础之Intent" data-url="TanJunDang.github.io/2016/09/20/Intent/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -369,15 +541,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/05/Share/" title="上一篇: 常用开发工具、框架、网站">
+            <a href="/2016/09/14/ActionBar/" title="上一篇: ActionBar笔记">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/07/08/Skills/" title="下一篇: 开发中常用的技巧">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
