@@ -4,8 +4,44 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2016-09-21T12:39:56.331Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
+    <lastmod>2016-09-21T10:27:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Activity</title>
+        <pubTime>2015-10-30T07:42:08.000Z</pubTime>
+        
+        <tag>Android基础之Activity</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/09/20/Intent/</loc>
-    <lastmod>2016-09-20T17:25:11.010Z</lastmod>
+    <lastmod>2016-09-21T06:26:46.000Z</lastmod>
     <data>
         <display>
         <title>Android基础之Intent</title>
@@ -22,7 +58,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
-    <lastmod>2016-09-19T12:53:58.913Z</lastmod>
+    <lastmod>2016-09-19T12:54:00.000Z</lastmod>
     <data>
         <display>
         <title>ListView的理解</title>
@@ -39,7 +75,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/09/14/ActionBar/</loc>
-    <lastmod>2016-09-18T14:38:00.244Z</lastmod>
+    <lastmod>2016-09-18T14:38:02.000Z</lastmod>
     <data>
         <display>
         <title>ActionBar笔记</title>
@@ -86,25 +122,6 @@
         <pubTime>2016-01-01T12:20:39.000Z</pubTime>
         
         <tag>Android - Theme(Style)</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2016-09-13T03:33:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
-        
-        <tag>开发中常用的技巧</tag>
-         
-        <tag>沉浸式状态栏</tag>
          
          
            
@@ -833,23 +850,6 @@
         <pubTime>2016-04-06T10:13:44.000Z</pubTime>
         
         <tag>Android-代码优化技巧</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
-    <lastmod>2016-04-13T08:09:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>四大组件之Activity</title>
-        <pubTime>2015-10-30T07:42:08.000Z</pubTime>
-        
-        <tag>Activity</tag>
          
          
            

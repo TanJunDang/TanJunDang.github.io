@@ -25,25 +25,7 @@ Intent的作用
 启动满足条件的应用
 
 
-实现应用间数据交互
-
-
-
-显示Intent与隐式Intent的区别
-
-
-Intent类型
-说明
-
-
-
-
-显示Intent
-需要指定待启动的组件,常用的跳转页面方式
-
-
-隐式Intent
-不需要指定待启动的组件,通过应用启动器">
+实现应用间数据交互">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础之Intent">
 <meta property="og:url" content="TanJunDang.github.io/2016/09/20/Intent/index.html">
@@ -68,27 +50,10 @@ Intent的作用
 启动满足条件的应用
 
 
-实现应用间数据交互
-
-
-
-显示Intent与隐式Intent的区别
-
-
-Intent类型
-说明
-
-
-
-
-显示Intent
-需要指定待启动的组件,常用的跳转页面方式
-
-
-隐式Intent
-不需要指定待启动的组件,通过应用启动器">
+实现应用间数据交互">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif">
-<meta property="og:updated_time" content="2016-09-20T17:25:11.010Z">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FISjNZZVdLL1RVdGNRWVFpYUZRZVQ0RjhaNzltL0EvazgrblNPRHo2bW13PT0.gif">
+<meta property="og:updated_time" content="2016-09-21T06:26:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础之Intent">
 <meta name="twitter:description" content="Intent的基础知识Intent的作用
@@ -111,25 +76,7 @@ Intent的作用
 启动满足条件的应用
 
 
-实现应用间数据交互
-
-
-
-显示Intent与隐式Intent的区别
-
-
-Intent类型
-说明
-
-
-
-
-显示Intent
-需要指定待启动的组件,常用的跳转页面方式
-
-
-隐式Intent
-不需要指定待启动的组件,通过应用启动器">
+实现应用间数据交互">
 <meta name="twitter:image" content="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
@@ -350,6 +297,7 @@ Intent类型
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h2 id="显示Intent与隐式Intent的区别"><a href="#显示Intent与隐式Intent的区别" class="headerlink" title="显示Intent与隐式Intent的区别"></a>显示Intent与隐式Intent的区别</h2><table>
 <thead>
 <tr>
@@ -370,7 +318,13 @@ Intent类型
 </table>
 <h2 id="显式Intent"><a href="#显式Intent" class="headerlink" title="显式Intent"></a>显式Intent</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(当前上下文，待跳转类);<span class="comment">//指定待跳转类</span></span><br><span class="line">intent.putExtra(DATA_KEY,DATA);<span class="comment">//将数据传给待跳转类。</span></span><br><span class="line">startActivity(intent);<span class="comment">//同理startService等。</span></span><br></pre></td></tr></table></figure>
 <h2 id="隐式Intent-IntentFilter"><a href="#隐式Intent-IntentFilter" class="headerlink" title="隐式Intent - IntentFilter"></a>隐式Intent - IntentFilter</h2><blockquote>
-<p>理解<br>不需要指定待启动的组件，需要通过设置Action、Category等操作来启动满足条件的组件（应用）。<br>与IntentFilter结合使用</p>
+<p>理解<br>1.不需要指定待启动的组件，需要通过设置Action、Category等操作来启动满足条件的组件（应用）。</p>
+<p>2.startActivity()和startActivityForResult()方法默认为将所有intent设置类型CATEGORY_DEFAULT。如果未在IntentFilter中声明此类别，则隐式Intent不会解析为您的组件。</p>
+<p>启动第三方程序的Activity之前，需要调用resolveActivity，查看是否有可启动的Activity，防止Crash。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (sendIntent.resolveActivity(getPackageManager()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">    startActivity(chooser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>startActivityForResult的返回值<br>不同的API返回不同类型的数据。例如联系人程序总是返回URI来指定选中的联系人，相册程序总是返回BitMap来指定选中的图片。</p>
 </blockquote>
 <h3 id="Intent的属性"><a href="#Intent的属性" class="headerlink" title="Intent的属性"></a>Intent的属性</h3><table>
 <thead>
@@ -383,13 +337,13 @@ Intent类型
 <tbody>
 <tr>
 <td>ACTION</td>
-<td>Intent将要执行的动作</td>
-<td>ACTION_MAIN - APP的程序入口,每个程序必须包含这个ACTION<br> ACTION_VIEW - 调用其它应用查询某些信息(使用图库查看图片、使用地图查找地址)<br> ACTION_SEND - 用户指定发送方式，发送信息到其他应用(发送信息到QQ)<br> ACTION_DIAL - 打开系统默认的拨号程序 <br> ACTION_CALL - 直接拨打DATA中设置的电话 <br> ACTION_ANSWER - 接听来电 <br> ACTION_SENDTO - 根据DATA类型进行发送操作</td>
+<td>Intent将要执行的动作，IntentFilter会筛选出满足条件的Intent对象</td>
+<td>ACTION_MAIN - APP的程序入口,每个程序必须包含这个ACTION<br> ACTION_VIEW - 结合Uri使用，调用其它应用查询某些信息(使用图库查看图片、使用地图查找地址)<br> ACTION_SEND - 结合mimeType使用，用户指定发送方式，发送信息到其他应用(发送信息到QQ)<br> ACTION_DIAL - 结合Uri使用，打开系统默认的拨号程序 <br> ACTION_CALL - 结合Uri使用，直接拨打DATA中设置的电话 <br> ACTION_ANSWER - 接听来电 <br> ACTION_SENDTO - 结合Uri使用，根据DATA类型进行发送操作 <br> ACTION_GET_CONTENT、ACTION_PICK - 结合mimeType使用，调用其他应用程序，选择一个Item并返回处理</td>
 </tr>
 <tr>
 <td>DATA</td>
-<td>用于设置数据的Uri、mimeType <br> 不同的ACTION对应不同的DATA</td>
-<td>tel:// - 号码数据格式，后跟电话号码<br> mailto:// - 邮件数据格式，后跟邮件收件人地址 <br> smsto:// - 短息数据格式，后跟短信接收号码 <br> content:// - 内容数据格式，后跟需要读取的内容 <br> file:// - 文件数据格式，后跟文件路径 <br> market://search?q=pname:pkgname - 市场数据格式,在Google Market里搜索包名为pkgname的应用 <br> geo://latitude, longitude - 经纬数据格式，在地图上显示经纬度所指定的位置<br></td>
+<td>Intent附带的数据，用于设置数据的Uri、mimeType <br> 不同的ACTION对应不同的DATA <br></td>
+<td>ACTION_SEND对应使用setType(mimeType) <br> ACTION_DIAL对应使用setData(Uri) <br> 详情见示例</td>
 </tr>
 <tr>
 <td>CATEGORY</td>
@@ -398,33 +352,67 @@ Intent类型
 </tr>
 <tr>
 <td>EXTRA</td>
-<td>接收Intent的key</td>
-<td>EXTRA_BCC：存放邮件密送人地址的字符串数组。</td>
+<td>接收隐式Intent的KEY <br> 不同的mimeType对应不同的EXTRA</td>
+<td>mimeType: message/rfc822 <br> 『 <br> EXTRA_EMAIL：存放邮件地址的字符串数组。<br>     EXTRA_SUBJECT：存放邮件主题字符串。<br> EXTRA_TEXT：存放邮件内容/普通文本。<br> EXTRA_BCC：存放邮件密送人地址的字符串数组。<br> EXTRA_CC：存放邮件抄送人地址的字符串数组。<br> 』 <br> other: <br> 『 <br>  EXTRA_KEY_EVENT：以KeyEvent对象方式存放触发Intent的按键。<br> EXTRA_PHONE_NUMBER：存放调用ACTION_CALL时的电话号码。<br> 』</td>
+</tr>
+<tr>
+<td>FLAG</td>
+<td>用于设置启动Activity的方式</td>
+<td>FLAG_ACTIVITY_NEW_TASK - 开启新的栈存放Activity <br> FLAG_ACTIVITY_CLEAR_TOP - 弹出Task中Activity上方所有Activity <br> FLAG_ACTIVITY_SINGLE_TOP - 复用原有实例 <br> <a href="/2015/10/30/Android-Activity/">Android基础之Activity</a></td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th>mimeType</th>
+<th>mimeType - 用于筛选可处理这些类型的应用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>text/plain（纯文本）<br> text/html（HTML文档）<br> application/xhtml+xml（XHTML文档 <br> image/gif（GIF图像）<br> image/jpeg（JPEG图像）<br>image/png（PNG图像）<br> image/* （所有图像）<br> video/mpeg（MPEG动画）<br> application/octet-stream（任意的二进制数据）<br> application/pdf（PDF文档） <br> application/msword（Microsoft Word文件）</td>
+<td>text/plain（纯文本）<br> text/html（HTML文档）<br> application/xhtml+xml（XHTML文档 <br> image/gif（GIF图像）<br> image/jpeg（JPEG图像）<br>image/png（PNG图像）<br> image/* （所有图像）<br> video/mpeg（MPEG动画）<br> application/octet-stream（任意的二进制数据）<br> application/pdf（PDF文档） <br> application/msword（Microsoft Word文件）<br> message/rfc822（发送邮件）<br> multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示）<br> application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单）<br> multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合）<br></td>
 </tr>
 </tbody>
 </table>
-<h4 id="示例-发送信息到电脑"><a href="#示例-发送信息到电脑" class="headerlink" title="示例 - 发送信息到电脑"></a>示例 - 发送信息到电脑</h4><blockquote>
-<p>知识点<br>利用Intent的关键字EXTRA_TEXT做传递</p>
+<table>
+<thead>
+<tr>
+<th>Uri- 用于筛选可处理这些类型的应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tel:// - 号码数据格式，后跟电话号码<br> mailto:// - 邮件数据格式，后跟邮件收件人地址 <br> smsto:// - 短息数据格式，后跟短信接收号码 <br> content:// - 内容数据格式，后跟需要读取的内容 <br> file:// - 文件数据格式，后跟文件路径 <br> market://search?q=pname:pkgname - 市场数据格式,在Google Market里搜索包名为pkgname的应用 <br> geo://latitude, longitude - 经纬数据格式，在地图上显示经纬度所指定的位置<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例-发送信息到QQ"><a href="#示例-发送信息到QQ" class="headerlink" title="示例 - 发送信息到QQ"></a>示例 - 发送信息到QQ</h4><blockquote>
+<p>理解<br>ACTION_SEND的使用<br>利用Intent的关键字EXTRA_TEXT做传递</p>
 </blockquote>
 <p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0NWbVpzN2R0TDZPcVM2MXZFNlRIK1NmMnNzRThKRHdzcWRJRlFxKzRBUHF3PT0.gif" alt=""></p>
-<blockquote>
-<p>代码</p>
-</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line"><span class="comment">//设置发送Action</span></span><br><span class="line">intent.setAction(Intent.ACTION_SEND);</span><br><span class="line"><span class="comment">//利用Intent的KEY EXTRA_TEXT来传递数据</span></span><br><span class="line">intent.putExtra(Intent.EXTRA_TEXT, <span class="string">"This is my Share text."</span>);</span><br><span class="line">intent.setType(<span class="string">"text/*"</span>);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h4 id="示例-发送邮件"><a href="#示例-发送邮件" class="headerlink" title="示例 - 发送邮件"></a>示例 - 发送邮件</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setAction(Intent.ACTION_SEND);</span><br><span class="line">intent.setType(<span class="string">"message/rfc822"</span>);</span><br><span class="line">intent.putExtra(Intent.EXTRA_EMAIL, <span class="keyword">new</span> String[]&#123;<span class="string">"TanJunDang@126.com"</span>&#125;);</span><br><span class="line">intent.putExtra(Intent.EXTRA_SUBJECT, <span class="string">"Email subject"</span>);</span><br><span class="line">intent.putExtra(Intent.EXTRA_TEXT, <span class="string">"Email message text"</span>);</span><br><span class="line">intent.putExtra(Intent.EXTRA_STREAM, Uri.parse(<span class="string">"content://path/to/email/attachment"</span>));</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h4 id="示例-查看网页"><a href="#示例-查看网页" class="headerlink" title="示例 - 查看网页"></a>示例 - 查看网页</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(<span class="string">"http://www.baidu.com"</span>);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, uri);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h4 id="示例-拨打电话"><a href="#示例-拨打电话" class="headerlink" title="示例 - 拨打电话"></a>示例 - 拨打电话</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setAction(Intent.ACTION_DIAL);</span><br><span class="line">Uri uri = Uri.parse(<span class="string">"tel:10000000"</span>);</span><br><span class="line">intent.setData(uri);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h4 id="示例-从图库选择图片并返回处理"><a href="#示例-从图库选择图片并返回处理" class="headerlink" title="示例 - 从图库选择图片并返回处理"></a>示例 - 从图库选择图片并返回处理</h4><blockquote>
+<p>理解<br>ACTION_GET_CONTENT常跟CATEGORY_OPENABLE结合使用获取设备上的数据。</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FISjNZZVdLL1RVdGNRWVFpYUZRZVQ0RjhaNzltL0EvazgrblNPRHo2bW13PT0.gif" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">intent.addCategory(Intent.CATEGORY_OPENABLE);</span><br><span class="line">intent.setType(<span class="string">"image/*"</span>);</span><br><span class="line">startActivityForResult(Intent.createChooser(intent, <span class="string">"选择"</span>), <span class="number">666</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (requestCode == <span class="number">666</span>) &#123;</span><br><span class="line">        Uri uri = data.getData();</span><br><span class="line">        ContentResolver cr = <span class="keyword">this</span>.getContentResolver();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));</span><br><span class="line">            ImageView imageView = (ImageView) findViewById(R.id.imageView);</span><br><span class="line">            <span class="comment">/* 将Bitmap设定到ImageView */</span></span><br><span class="line">            imageView.setImageBitmap(bitmap);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            LogTool.e(getClass().getName(), e.getMessage().toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="应用启动器的勾选默认功能"><a href="#应用启动器的勾选默认功能" class="headerlink" title="应用启动器的勾选默认功能"></a>应用启动器的勾选默认功能</h3><blockquote>
+<p>理解<br>1.默认情况下，当应用启动器弹出时，是带有勾选默认的功能的。<br>2.有些情况下，用户可能希望每次使用不同的应用，则不能使用勾选默认功能。<br>3.使用createChooser(intent,标题) 方法将Intent转换成无勾选默认功能的Intent，这样的Intent就不会有勾选默认的功能。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送消息到QQ改成无勾选默认功能</span></span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line"><span class="comment">//设置发送Action</span></span><br><span class="line">intent.setAction(Intent.ACTION_SEND);</span><br><span class="line"><span class="comment">//利用Intent的KEY EXTRA_TEXT来传递数据</span></span><br><span class="line">intent.putExtra(Intent.EXTRA_TEXT, <span class="string">"This is my Share text."</span>);</span><br><span class="line">intent.setType(<span class="string">"text/*"</span>);</span><br><span class="line">Intent chooser = Intent.createChooser(intent, “发送到”);</span><br><span class="line"><span class="keyword">if</span> (intent.resolveActivity(getPackageManager()) != <span class="keyword">null</span>) &#123; <span class="comment">//防止Crash</span></span><br><span class="line">    startActivity(chooser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="如何启动另外一个程序里的Activity"><a href="#如何启动另外一个程序里的Activity" class="headerlink" title="如何启动另外一个程序里的Activity"></a>如何启动另外一个程序里的Activity</h1><h2 id="通过设置Action"><a href="#通过设置Action" class="headerlink" title="通过设置Action"></a>通过设置Action</h2><blockquote>
+<p>步骤<br>1.被启动的Activity在AndroidMainfest里设置Action<br>2.将上述Action作为Intent的参数启动Activity</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 步骤1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span>  //此处一个Activity可以有多个intent-filter 但一个intent-filter不能有多个Action</span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span> //跳转其他程序Activity必备两句代码</span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"io.tanjundang.test.AActivity"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 步骤2</span></span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"io.tanjundang.test.AActivity"</span>);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h1 id="其他常用Intent-Action"><a href="#其他常用Intent-Action" class="headerlink" title="其他常用Intent-Action"></a>其他常用Intent-Action</h1><p>//2.发送短信<br>// 给10086发送内容为“Hello”的短信<br>Uri uri = Uri.parse(“smsto:10086”);<br>Intent intent = new Intent(Intent.ACTION_SENDTO, uri);<br>intent.putExtra(“sms_body”, “Hello”);<br>startActivity(intent);<br>//3.发送彩信（相当于发送带附件的短信）<br>Intent intent = new Intent(Intent.ACTION_SEND);<br>intent.putExtra(“sms_body”, “Hello”);<br>Uri uri = Uri.parse(“content://media/external/images/media/23”);<br>intent.putExtra(Intent.EXTRA_STREAM, uri);<br>intent.setType(“image/png”);<br>startActivity(intent);<br>//4.打开浏览器:<br>// 打开Google主页<br>Uri uri = Uri.parse(“<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“);<br>Intent intent  = new Intent(Intent.ACTION_VIEW, uri);<br>startActivity(intent);<br>//5.发送电子邮件:(阉割了Google服务的没戏!!!!)<br>// 给someone@domain.com发邮件<br>Uri uri = Uri.parse(“mailto:someone@domain.com”);<br>Intent intent = new Intent(Intent.ACTION_SENDTO, uri);<br>startActivity(intent);<br>// 给someone@domain.com发邮件发送内容为“Hello”的邮件<br>Intent intent = new Intent(Intent.ACTION_SEND);<br>intent.putExtra(Intent.EXTRA_EMAIL, “someone@domain.com”);<br>intent.putExtra(Intent.EXTRA_SUBJECT, “Subject”);<br>intent.putExtra(Intent.EXTRA_TEXT, “Hello”);<br>intent.setType(“text/plain”);<br>startActivity(intent);<br>// 给多人发邮件<br>Intent intent=new Intent(Intent.ACTION_SEND);<br>String[] tos = {“1@abc.com”, “2@abc.com”}; // 收件人<br>String[] ccs = {“3@abc.com”, “4@abc.com”}; // 抄送<br>String[] bccs = {“5@abc.com”, “6@abc.com”}; // 密送<br>intent.putExtra(Intent.EXTRA_EMAIL, tos);<br>intent.putExtra(Intent.EXTRA_CC, ccs);<br>intent.putExtra(Intent.EXTRA_BCC, bccs);<br>intent.putExtra(Intent.EXTRA_SUBJECT, “Subject”);<br>intent.putExtra(Intent.EXTRA_TEXT, “Hello”);<br>intent.setType(“message/rfc822”);<br>startActivity(intent);<br>//6.显示地图:<br>// 打开Google地图中国北京位置（北纬39.9，东经116.3）<br>Uri uri = Uri.parse(“geo:39.9,116.3”);<br>Intent intent = new Intent(Intent.ACTION_VIEW, uri);<br>startActivity(intent);<br>//7.路径规划<br>// 路径规划：从北京某地（北纬39.9，东经116.3）到上海某地（北纬31.2，东经121.4）<br>Uri uri = Uri.parse(“<a href="http://maps.google.com/maps?f=d&amp;saddr=39.9" target="_blank" rel="external">http://maps.google.com/maps?f=d&amp;saddr=39.9</a> 116.3&amp;daddr=31.2 121.4”);<br>Intent intent = new Intent(Intent.ACTION_VIEW, uri);<br>startActivity(intent);<br>//8.多媒体播放:<br>Intent intent = new Intent(Intent.ACTION_VIEW);<br>Uri uri = Uri.parse(“file:///sdcard/foo.mp3”);<br>intent.setDataAndType(uri, “audio/mp3”);<br>startActivity(intent);<br>//获取SD卡下所有音频文件,然后播放第一首=-=<br>Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, “1”);<br>Intent intent = new Intent(Intent.ACTION_VIEW, uri);<br>startActivity(intent);<br>//9.打开摄像头拍照:<br>// 打开拍照程序<br>Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);<br>startActivityForResult(intent, 0);<br>// 取出照片数据<br>Bundle extras = intent.getExtras();<br>Bitmap bitmap = (Bitmap) extras.get(“data”);<br>//另一种:<br>//调用系统相机应用程序，并存储拍下来的照片<br>Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);<br>time = Calendar.getInstance().getTimeInMillis();<br>intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment<br>.getExternalStorageDirectory().getAbsolutePath()+”/tucue”, time + “.jpg”)));<br>startActivityForResult(intent, ACTIVITY_GET_CAMERA_IMAGE);<br>//10.获取并剪切图片<br>// 获取并剪切图片<br>Intent intent = new Intent(Intent.ACTION_GET_CONTENT);<br>intent.setType(“image/*”);<br>intent.putExtra(“crop”, “true”); // 开启剪切<br>intent.putExtra(“aspectX”, 1); // 剪切的宽高比为1：2<br>intent.putExtra(“aspectY”, 2);<br>intent.putExtra(“outputX”, 20); // 保存图片的宽和高<br>intent.putExtra(“outputY”, 40);<br>intent.putExtra(“output”, Uri.fromFile(new File(“/mnt/sdcard/temp”))); // 保存路径<br>intent.putExtra(“outputFormat”, “JPEG”);// 返回格式<br>startActivityForResult(intent, 0);<br>// 剪切特定图片<br>Intent intent = new Intent(“com.android.camera.action.CROP”);<br>intent.setClassName(“com.android.camera”, “com.android.camera.CropImage”);<br>intent.setData(Uri.fromFile(new File(“/mnt/sdcard/temp”)));<br>intent.putExtra(“outputX”, 1); // 剪切的宽高比为1：2<br>intent.putExtra(“outputY”, 2);<br>intent.putExtra(“aspectX”, 20); // 保存图片的宽和高<br>intent.putExtra(“aspectY”, 40);<br>intent.putExtra(“scale”, true);<br>intent.putExtra(“noFaceDetection”, true);<br>intent.putExtra(“output”, Uri.parse(“file:///mnt/sdcard/temp”));<br>startActivityForResult(intent, 0);<br>//11.打开Google Market<br>// 打开Google Market直接进入该程序的详细页面<br>Uri uri = Uri.parse(“market://details?id=” + “com.demo.app”);<br>Intent intent = new Intent(Intent.ACTION_VIEW, uri);<br>startActivity(intent);<br>//12.进入手机设置界面:<br>// 进入无线网络设置界面（其它可以举一反三）<br>Intent intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);<br>startActivityForResult(intent, 0);<br>//13.安装apk:<br>Uri installUri = Uri.fromParts(“package”, “xxx”, null);<br>returnIt = new Intent(Intent.ACTION_PACKAGE_ADDED, installUri);<br>//14.卸载apk:<br>Uri uri = Uri.fromParts(“package”, strPackageName, null);<br>Intent it = new Intent(Intent.ACTION_DELETE, uri);<br>startActivity(it);<br>//15.发送附件:<br>Intent it = new Intent(Intent.ACTION_SEND);<br>it.putExtra(Intent.EXTRA_SUBJECT, “The email subject text”);<br>it.putExtra(Intent.EXTRA_STREAM, “file:///sdcard/eoe.mp3”);<br>sendIntent.setType(“audio/mp3”);<br>startActivity(Intent.createChooser(it, “Choose Email Client”));<br>//16.进入联系人页面:<br>Intent intent = new Intent();<br>intent.setAction(Intent.ACTION_VIEW);<br>intent.setData(People.CONTENT_URI);<br>startActivity(intent);<br>//17.查看指定联系人:<br>Uri personUri = ContentUris.withAppendedId(People.CONTENT_URI, info.id);//info.id联系人ID<br>Intent intent = new Intent();<br>intent.setAction(Intent.ACTION_VIEW);<br>intent.setData(personUri);<br>startActivity(intent);</p>
 <p><a href="https://developer.android.com/guide/components/intents-filters.html" target="_blank" rel="external">官方文档</a></p>
-<p>[ACTION])(<a href="http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html" target="_blank" rel="external">http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html</a>)<br><a href="http://blog.csdn.net/chenqian_lj/article/details/24179461" target="_blank" rel="external">MIMETYPE</a></p>
+<p><a href="http://www.cnblogs.com/liuhongzhe-5240/archive/2012/07/27/2612313.html" target="_blank" rel="external">ACTION参考</a></p>
+<p><a href="http://blog.csdn.net/chenqian_lj/article/details/24179461" target="_blank" rel="external">MIMETYPE</a></p>
+<p><a href="http://www.360doc.com/content/16/0113/16/21667250_527629373.shtml" target="_blank" rel="external">Action大全</a></p>
 
       
     </div>
@@ -436,7 +424,7 @@ Intent类型
         <p><span>本文标题:</span><a href="/2016/09/20/Intent/">Android基础之Intent</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年09月20日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年09月21日 - 01时25分</p>
+        <p><span>最后更新:</span>2016年09月21日 - 14时26分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/20/Intent/" title="Android基础之Intent">http://TanJunDang.github.io/2016/09/20/Intent/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/09/20/Intent/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -466,7 +454,7 @@ Intent类型
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intent的基础知识"><span class="toc-number">1.</span> <span class="toc-text">Intent的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent的作用"><span class="toc-number">1.1.</span> <span class="toc-text">Intent的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示Intent与隐式Intent的区别"><span class="toc-number">1.2.</span> <span class="toc-text">显示Intent与隐式Intent的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式Intent"><span class="toc-number">1.3.</span> <span class="toc-text">显式Intent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式Intent-IntentFilter"><span class="toc-number">1.4.</span> <span class="toc-text">隐式Intent - IntentFilter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intent的属性"><span class="toc-number">1.4.1.</span> <span class="toc-text">Intent的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-发送信息到电脑"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">示例 - 发送信息到电脑</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Intent的基础知识"><span class="toc-number">1.</span> <span class="toc-text">Intent的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent的作用"><span class="toc-number">1.1.</span> <span class="toc-text">Intent的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示Intent与隐式Intent的区别"><span class="toc-number">1.2.</span> <span class="toc-text">显示Intent与隐式Intent的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式Intent"><span class="toc-number">1.3.</span> <span class="toc-text">显式Intent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式Intent-IntentFilter"><span class="toc-number">1.4.</span> <span class="toc-text">隐式Intent - IntentFilter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intent的属性"><span class="toc-number">1.4.1.</span> <span class="toc-text">Intent的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-发送信息到QQ"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">示例 - 发送信息到QQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-发送邮件"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">示例 - 发送邮件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-查看网页"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">示例 - 查看网页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-拨打电话"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">示例 - 拨打电话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-从图库选择图片并返回处理"><span class="toc-number">1.4.1.5.</span> <span class="toc-text">示例 - 从图库选择图片并返回处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用启动器的勾选默认功能"><span class="toc-number">1.4.2.</span> <span class="toc-text">应用启动器的勾选默认功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何启动另外一个程序里的Activity"><span class="toc-number">2.</span> <span class="toc-text">如何启动另外一个程序里的Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通过设置Action"><span class="toc-number">2.1.</span> <span class="toc-text">通过设置Action</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他常用Intent-Action"><span class="toc-number">3.</span> <span class="toc-text">其他常用Intent-Action</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -550,7 +538,7 @@ Intent类型
             <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">四大组件之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
