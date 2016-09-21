@@ -427,29 +427,41 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Activity的理解"><a href="#Activity的理解" class="headerlink" title="Activity的理解"></a>Activity的理解</h1><h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlFBTUhuTTY2K2J6OHB4WEo2ZCthRzFkcElsaUswdzBRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+        <h1 id="Activity的理解"><a href="#Activity的理解" class="headerlink" title="Activity的理解"></a>Activity的理解</h1><blockquote>
+<p>Activity是一种应用组件，用于创建与用户交互的界面。提供用户操作。</p>
+</blockquote>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><blockquote>
+<p>当Activity被加载时，首先执行onCreate、onStart、onResume这三个方法。<br>当前界面被遮挡但还能看见的时候，则会执行onPause方法。<br>当界面被遮挡完全看不见的时候，则会执行onStop方法。<br>当界面又重新显示时，便会执行onResume方法。<br>最后Activity将会执行onDestory方法。</p>
+</blockquote>
+<p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlFBTUhuTTY2K2J6OHB4WEo2ZCthRzFkcElsaUswdzBRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <h1 id="如何理解Task？"><a href="#如何理解Task？" class="headerlink" title="如何理解Task？"></a>如何理解Task？</h1><blockquote>
 <p><font color="#1abc9c">Task类似一个栈,他是跨应用的,即Task可以存放不同程序的Activity。</font>例如我们的程序中Activity A有发送短信的功能,点击按钮后，便会启动发短信的程序里的Activity B。发完短信后，按返回键，便回到原来的Activity A中。从而确保了用户体验.</p>
 </blockquote>
-<h1 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h1><table>
+<h1 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h1><blockquote>
+<p>理解<br>使用各种模式主要是为了判断是否需要创建Activity的实例。<br>不复用Activity实例时，跟普通跳转Activity无区别，都是创建新的Activity实例。所以需要讨论的何时复用Activity实例。<br>onNewIntent何时调用？有什么作用？<br>复用Activity实例的时候调用，接收跳转过来的Intent。</p>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>Activity启动模式</th>
-<th>说明</th>
+<th>文档</th>
+<th>理解</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Standard</td>
-<td>每次启动Activity都在栈中创建一个实例。</td>
+<td>每次启动Activity都在栈中创建一个实例。默认</td>
+<td>每次跳转页面都会创建Activity实例</td>
 </tr>
 <tr>
 <td>SingleTop</td>
-<td>启动的Activity位于栈顶，则直接复用该Activity，并且会调用onNewIntent方法,然后将Intent传到实例中。(当前Activity跳当前Activity不创建实例),否则还是会创建实例。</td>
+<td>启动的Activity若位于栈顶，则直接复用该Activity，并且会调用onNewIntent方法,然后将Intent传到实例中。)，否则创建Activity实例。</td>
+<td>当前Activity跳转到当前Activity不创建实例，其余情况都创建Activity实例</td>
 </tr>
 <tr>
 <td>SingleTask</td>
-<td>如果待启动的Activity已存在栈中，则把待启动Activity之前的所有Activity弹出。然后复用旧的Activity</td>
+<td>判断是否存在设置了taskAffinity属性的Activity <br> &lt; <br> 存在 - 将该Activity的栈作为待跳转Activity的栈。判断是否存在实例？ <br> 『 <br> 存在 - 调用onNewIntent并处理传入的Intent <br> 不存在 - 创建新的Activity实例 <br> 』 <br> 不存在 - 启动新的T栈，并启动该Activity <br> &gt;</td>
 </tr>
 <tr>
 <td>SingleInstance</td>
@@ -457,9 +469,6 @@
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>onNewIntent何时调用？ <font color="#1abc9c">复用Activity的时候</font></p>
-</blockquote>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
 <p>新建三个Activity 里面包含一个跳转Button、一个改值Button、一个TextView。A跳B跳C再返回，观察TextView值的变化。</p>
 <p>Standard：由A跳到C再返回，结果：一层层返回。</p>
