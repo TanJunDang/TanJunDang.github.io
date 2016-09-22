@@ -20,8 +20,12 @@ Activity是一种应用组件，用于创建与用户交互的界面。提供用
 Activity的生命周期
 当Activity被加载时，首先执行onCreate、onStart、onResume这三个方法。当前界面被遮挡但还能看见的时候，则会执行onPause方法。当界面被遮挡完全看不见的时候，则会执行onStop方法。当界面又重新显示时，便会执行onResume方法。最后Ac">
 <meta property="og:image" content="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlFBTUhuTTY2K2J6OHB4WEo2ZCthRzFkcElsaUswdzBRPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wQ2JsRjkzb2lGeGdOeHRhQldWc3ZzUEU1a2FIUWVmdGtnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wUGkvbHgvY3dwTmRURllYd1Fwd2pNM0dPUTVPbTVhNUlRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6L3E5a0gyUmZ3WUo3SE1zNGdsb3dkZXErODltNlppUnNRPT0.gif">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6eE51ZXU3T0gzb1VZeEd3N0Iwb0JVN3JxU09DbWFMaC9nPT0.gif">
 <meta property="og:image" content="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlpiVlA3bGJ2eTVYeE9NUk9GT0xHbHlveTVweVJ2blZnPT0.png?imageView&thumbnail=300x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-09-21T17:20:13.160Z">
+<meta property="og:updated_time" content="2016-09-22T07:41:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础之Activity">
 <meta name="twitter:description" content="Activity的理解
@@ -233,7 +237,7 @@ Activity的生命周期
 </blockquote>
 <p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlFBTUhuTTY2K2J6OHB4WEo2ZCthRzFkcElsaUswdzBRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <h1 id="如何理解Task？"><a href="#如何理解Task？" class="headerlink" title="如何理解Task？"></a>如何理解Task？</h1><blockquote>
-<p><font color="#1abc9c">Task类似一个栈,他是跨应用的,即Task可以存放不同程序的Activity。</font>例如我们的程序中Activity A有发送短信的功能,点击按钮后，便会启动发短信的程序里的Activity B。发完短信后，按返回键，便回到原来的Activity A中。从而确保了用户体验.</p>
+<p><font color="#1abc9c">Task类似一个任务栈,他是跨应用的,即Task可以存放不同程序的Activity。</font>例如我们的程序中Activity A有发送短信的功能,点击按钮后，便会启动发短信的程序里的Activity B。发完短信后，按返回键，便回到原来的Activity A中。从而确保了用户体验.</p>
 </blockquote>
 <h1 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h1><blockquote>
 <p>理解<br>使用各种模式主要是为了判断是否需要创建Activity的实例。<br>不复用Activity实例时，跟普通跳转Activity无区别，都是创建新的Activity实例。所以需要讨论的何时复用Activity实例。<br>onNewIntent何时调用？有什么作用？<br>复用Activity实例的时候调用，接收跳转过来的Intent。</p>
@@ -241,38 +245,55 @@ Activity的生命周期
 <table>
 <thead>
 <tr>
-<th>Activity启动模式</th>
+<th>启动模式</th>
 <th>文档</th>
 <th>理解</th>
+<th>应用场景</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Standard</td>
 <td>每次启动Activity都在栈中创建一个实例。默认</td>
-<td>每次跳转页面都会创建Activity实例</td>
+<td>每次跳转页面都会创建Activity实例，需要一次次返回。</td>
+<td>常用跳转页面</td>
 </tr>
 <tr>
 <td>SingleTop</td>
 <td>启动的Activity若位于栈顶，则直接复用该Activity，并且会调用onNewIntent方法,然后将Intent传到实例中。)，否则创建Activity实例。</td>
-<td>当前Activity跳转到当前Activity不创建实例，其余情况都创建Activity实例</td>
+<td>当前Activity跳转到当前Activity不创建实例，其余情况都创建Activity实例。 <br> <font color="#1abc9c">只用于自己跳转自己的情况。</font></td>
+<td>头条APP推送多个消息</td>
 </tr>
 <tr>
 <td>SingleTask</td>
-<td>判断是否存在设置了taskAffinity属性的Activity <br> &lt; <br> 存在 - 将该Activity的栈作为待跳转Activity的栈。判断是否存在实例？ <br> 『 <br> 存在 - 调用onNewIntent并处理传入的Intent <br> 不存在 - 创建新的Activity实例 <br> 』 <br> 不存在 - 启动新的T栈，并启动该Activity <br> &gt;</td>
+<td>判断是否存在与taskAffinity属性的相符合的Activity <br> &lt; <br> 存在 - 将该Activity的栈作为待跳转Activity的栈。判断是否存在实例？ <br> 『 <br> 存在 - 调用onNewIntent并处理传入的Intent <br> 不存在 - 创建新的Activity实例 <br> 』 <br> 不存在 - 启动新的Task栈，并启动该Activity <br> &gt; <br> <font color="#1abc9c"> taskAffinity默认为当前包名 ，不设置该属性将会在同一Task中启动 </font></td>
+<td>当某个Activity设置launchMode为singleTask时，当Activity实例不存时，创建一个实例，其余情况都是复用该Activity的实例。 <br> <font color="#1abc9c"> 多次进入相同的界面，不想一次次返回的情况 </font></td>
+<td>BNJ联系人详情 <br> 见下图</td>
 </tr>
 <tr>
 <td>SingleInstance</td>
-<td><font color="#1abc9c">跨应用的SingleTask模式。且每个Task有且仅有一个Activity</font></td>
+<td><font color="#1abc9c">跟SingleTask一样。只是每个Task有且仅有一个Activity</font></td>
+<td>设置了SingleInstance的Activity在单独的栈中，从该Activity跳转的Activity也在单独的栈中 <br>  <font color="#1abc9c"> 被跳(B)和待跳转的Activity(C)都是在单独的栈中(A-&gt;B、B-&gt;C) </font></td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Standard流程</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wQ2JsRjkzb2lGeGdOeHRhQldWc3ZzUEU1a2FIUWVmdGtnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>SingleTask流程</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wUGkvbHgvY3dwTmRURllYd1Fwd2pNM0dPUTVPbTVhNUlRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>新建三个Activity 里面包含一个跳转Button、一个改值Button、一个TextView。A跳B跳C再返回，观察TextView值的变化。</p>
-<p>Standard：由A跳到C再返回，结果：一层层返回。</p>
-<p>SingleTop：将A设置为SingleTop模式,改值,由A-B-&gt;C-&gt;A再返回。结果：未改值,说明新建了A实例。同样是一层层返回。</p>
-<p>SingleTask：将A设置为SingleTask模式,改值,由A-&gt;B-&gt;C-&gt;A再返回。结果：改了值(说明直接复用旧的Activity)，A返回则直接结束程序。</p>
-<p>SingleInstance：<br>1.程序1中的A设置成SingleInstance模式,改值，程序2中启动程序1中的A.结果：改了值(说明直接复用旧的Activity)<br>2.程序1中的A设置成SingleInstance模式,改值由A-&gt;B-&gt;C-&gt;A再返回。结果：A返回C，C返回B，B结束程序。(说明A是在单独的一个Task中，BC在同一个Task中)</p>
+<p>操作流程<br>点击学生(查看学生详情)-&gt;发送消息-&gt;点击右上角图标(查看学生详情)-&gt;一层层返回</p>
+</blockquote>
+<h3 id="Standard模式-默认"><a href="#Standard模式-默认" class="headerlink" title="Standard模式(默认)"></a>Standard模式(默认)</h3><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6L3E5a0gyUmZ3WUo3SE1zNGdsb3dkZXErODltNlppUnNRPT0.gif" alt=""></p>
+<h3 id="SingleTop模式"><a href="#SingleTop模式" class="headerlink" title="SingleTop模式"></a>SingleTop模式</h3><p>跟Standard模式一样，因为不是跳转当前Activity，所以会创建Activity实例。</p>
+<h3 id="SingleTask模式"><a href="#SingleTask模式" class="headerlink" title="SingleTask模式"></a>SingleTask模式</h3><p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6eE51ZXU3T0gzb1VZeEd3N0Iwb0JVN3JxU09DbWFMaC9nPT0.gif" alt=""></p>
+<h3 id="SingleInstance模式"><a href="#SingleInstance模式" class="headerlink" title="SingleInstance模式"></a>SingleInstance模式</h3><blockquote>
+<p>背景<br>BActivity设置了singleInstance<br>三个ActivityA、B、C。分别有一个按钮进行跳转，跳转顺序A-&gt;B-&gt;C。</p>
+<p>不设置taskAffinity时，A跳B开启新的TASK，B跳C，回到原来的栈中，即AC同栈，B单独一个栈。<br>设置taskAffinity时，A跳B开启新的TASK，B跳C，开启新的TASK,三个Activity都在独立栈中。</p>
 </blockquote>
 <p>参考文献</p>
 <blockquote>
@@ -280,6 +301,7 @@ Activity的生命周期
 <p><a href="http://blog.csdn.net/infsafe/article/details/5666964" target="_blank" rel="external">Android的Activity和Tasks详解</a></p>
 <p><a href="http://www.runoob.com/w3cnote/android-tutorial-activity-intro.html" target="_blank" rel="external">菜鸟教程-Activity登堂入室</a></p>
 </blockquote>
+<p><a href="http://blog.csdn.net/linmiansheng/article/details/24297375" target="_blank" rel="external">持剑博客</a></p>
 <h2 id="示例-实际开发"><a href="#示例-实际开发" class="headerlink" title="示例 - 实际开发"></a>示例 - 实际开发</h2><ul>
 <li>SingleTask</li>
 </ul>
@@ -336,7 +358,7 @@ Activity的生命周期
         <p><span>本文标题:</span><a href="/2015/10/30/Android-Activity/">Android基础之Activity</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年10月30日 - 15时42分</p>
-        <p><span>最后更新:</span>2016年09月22日 - 01时20分</p>
+        <p><span>最后更新:</span>2016年09月22日 - 15时41分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2015/10/30/Android-Activity/" title="Android基础之Activity">http://TanJunDang.github.io/2015/10/30/Android-Activity/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/10/30/Android-Activity/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -359,8 +381,8 @@ Activity的生命周期
     </a>
   
   
-    <a href="/2015/11/02/Project-Build/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android项目架构</div>
+    <a href="/2015/10/31/Android-Broadcast/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础之Broadcast</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -371,7 +393,7 @@ Activity的生命周期
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity的理解"><span class="toc-number">1.</span> <span class="toc-text">Activity的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity的生命周期"><span class="toc-number">1.1.</span> <span class="toc-text">Activity的生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何理解Task？"><span class="toc-number">2.</span> <span class="toc-text">如何理解Task？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity启动模式"><span class="toc-number">3.</span> <span class="toc-text">Activity启动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-number">3.1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-实际开发"><span class="toc-number">3.2.</span> <span class="toc-text">示例 - 实际开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#onSaveInstanceState的理解"><span class="toc-number">4.</span> <span class="toc-text">onSaveInstanceState的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#onSaveInstanceState的作用"><span class="toc-number">4.1.</span> <span class="toc-text">onSaveInstanceState的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onSaveInstanceState何时调用"><span class="toc-number">4.2.</span> <span class="toc-text">onSaveInstanceState何时调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-测试两个方法的执行"><span class="toc-number">4.3.</span> <span class="toc-text">示例 - 测试两个方法的执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认状态"><span class="toc-number">4.4.</span> <span class="toc-text">默认状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#暂离状态保存数据的选择"><span class="toc-number">4.5.</span> <span class="toc-text">暂离状态保存数据的选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#横竖屏相关知识"><span class="toc-number">5.</span> <span class="toc-text">横竖屏相关知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件里配置"><span class="toc-number">5.1.</span> <span class="toc-text">配置文件里配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#横竖屏加载不同布局"><span class="toc-number">5.1.0.1.</span> <span class="toc-text">横竖屏加载不同布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置全屏方法"><span class="toc-number">5.1.1.</span> <span class="toc-text">设置全屏方法</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity的理解"><span class="toc-number">1.</span> <span class="toc-text">Activity的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity的生命周期"><span class="toc-number">1.1.</span> <span class="toc-text">Activity的生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何理解Task？"><span class="toc-number">2.</span> <span class="toc-text">如何理解Task？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Activity启动模式"><span class="toc-number">3.</span> <span class="toc-text">Activity启动模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-number">3.1.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Standard模式-默认"><span class="toc-number">3.1.1.</span> <span class="toc-text">Standard模式(默认)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SingleTop模式"><span class="toc-number">3.1.2.</span> <span class="toc-text">SingleTop模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SingleTask模式"><span class="toc-number">3.1.3.</span> <span class="toc-text">SingleTask模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SingleInstance模式"><span class="toc-number">3.1.4.</span> <span class="toc-text">SingleInstance模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-实际开发"><span class="toc-number">3.2.</span> <span class="toc-text">示例 - 实际开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#onSaveInstanceState的理解"><span class="toc-number">4.</span> <span class="toc-text">onSaveInstanceState的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#onSaveInstanceState的作用"><span class="toc-number">4.1.</span> <span class="toc-text">onSaveInstanceState的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onSaveInstanceState何时调用"><span class="toc-number">4.2.</span> <span class="toc-text">onSaveInstanceState何时调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-测试两个方法的执行"><span class="toc-number">4.3.</span> <span class="toc-text">示例 - 测试两个方法的执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认状态"><span class="toc-number">4.4.</span> <span class="toc-text">默认状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#暂离状态保存数据的选择"><span class="toc-number">4.5.</span> <span class="toc-text">暂离状态保存数据的选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#横竖屏相关知识"><span class="toc-number">5.</span> <span class="toc-text">横竖屏相关知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件里配置"><span class="toc-number">5.1.</span> <span class="toc-text">配置文件里配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#横竖屏加载不同布局"><span class="toc-number">5.1.0.1.</span> <span class="toc-text">横竖屏加载不同布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置全屏方法"><span class="toc-number">5.1.1.</span> <span class="toc-text">设置全屏方法</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -452,12 +474,12 @@ Activity的生命周期
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/11/02/Project-Build/" title="下一篇: Android项目架构">
+            <a href="/2015/10/31/Android-Broadcast/" title="下一篇: Android基础之Broadcast">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

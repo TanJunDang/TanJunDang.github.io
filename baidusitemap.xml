@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
+    <lastmod>2016-09-22T09:09:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Broadcast</title>
+        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
+        
+        <tag>Android基础之Broadcast</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
-    <lastmod>2016-09-21T17:20:13.160Z</lastmod>
+    <lastmod>2016-09-22T07:41:44.000Z</lastmod>
     <data>
         <display>
         <title>Android基础之Activity</title>
@@ -22,7 +39,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2016-09-21T12:39:56.331Z</lastmod>
+    <lastmod>2016-09-21T12:39:58.000Z</lastmod>
     <data>
         <display>
         <title>开发中常用的技巧</title>
@@ -823,23 +840,6 @@
 
     
     
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/11/19/Android-Broadcast/</loc>
-    <lastmod>2016-06-17T06:26:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>四大组件之Broadcast</title>
-        <pubTime>2015-11-19T07:43:42.000Z</pubTime>
-        
-        <tag>Broadcast</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>

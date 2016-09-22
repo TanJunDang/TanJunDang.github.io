@@ -3,60 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>四大组件之Broadcast | TanJunDang</title>
+  <title>Android基础之Broadcast | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
+示例 - 动态注册广播
+背景服务器下发新消息时，通知MainActivity更改UI操作1.继承BroadcastReceiver2.定义过滤的Action">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四大组件之Broadcast">
-<meta property="og:url" content="TanJunDang.github.io/2015/11/19/Android-Broadcast/index.html">
+<meta property="og:title" content="Android基础之Broadcast">
+<meta property="og:url" content="TanJunDang.github.io/2015/10/31/Android-Broadcast/index.html">
 <meta property="og:site_name" content="TanJunDang">
 <meta property="og:description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
-<meta property="og:updated_time" content="2016-06-17T06:26:44.000Z">
+示例 - 动态注册广播
+背景服务器下发新消息时，通知MainActivity更改UI操作1.继承BroadcastReceiver2.定义过滤的Action">
+<meta property="og:updated_time" content="2016-09-22T09:09:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四大组件之Broadcast">
+<meta name="twitter:title" content="Android基础之Broadcast">
 <meta name="twitter:description" content="Broadcast的理解
-当收到某系统消息时，可以做相应的处理。
-动态注册：程序启动后才有效。
-静态注册：不需要启动程序就有效。
+当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。
 
-动态广播实际开发
-服务器下发新消息时，通知MainActivity更改UI
-
-
-继承BroadcastReceiver
-定义过滤的Action
-添加回调接口
-构造函数初始化接口
-重写onReceive方法(调用接口的方法)
-实现接口、动态注册接口(LocalBroad">
+示例 - 动态注册广播
+背景服务器下发新消息时，通知MainActivity更改UI操作1.继承BroadcastReceiver2.定义过滤的Action">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -217,8 +187,8 @@
       <div class="body-wrap"><article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/19/Android-Broadcast/" class="article-date">
-      <time datetime="2015-11-19T07:43:42.000Z" itemprop="datePublished">2015-11-19</time>
+      <a href="/2015/10/31/Android-Broadcast/" class="article-date">
+      <time datetime="2015-10-31T07:43:42.000Z" itemprop="datePublished">2015-10-31</time>
 </a>
     </div>
   
@@ -231,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      四大组件之Broadcast
+      Android基础之Broadcast
     </h1>
   
 
@@ -242,7 +212,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Broadcast/">Broadcast</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Broadcast/">Android基础之Broadcast</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -252,37 +222,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h3><ul>
-<li>当收到某系统消息时，可以做相应的处理。</li>
-<li>动态注册：程序启动后才有效。</li>
-<li>静态注册：不需要启动程序就有效。</li>
-</ul>
-<h3 id="动态广播实际开发"><a href="#动态广播实际开发" class="headerlink" title="动态广播实际开发"></a>动态广播实际开发</h3><ul>
-<li>服务器下发新消息时，通知MainActivity更改UI</li>
-</ul>
-<ol>
-<li>继承BroadcastReceiver</li>
-<li>定义过滤的Action</li>
-<li>添加回调接口</li>
-<li>构造函数初始化接口</li>
-<li>重写onReceive方法(调用接口的方法)</li>
-<li>实现接口、动态注册接口(LocalBroadcastManager类)</li>
-<li>在获取到服务器数据的地方发送广播</li>
-<li>在ondestory里取消广播</li>
-</ol>
-<h4 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h1><blockquote>
+<p>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。</p>
+</blockquote>
+<h1 id="示例-动态注册广播"><a href="#示例-动态注册广播" class="headerlink" title="示例 - 动态注册广播"></a>示例 - 动态注册广播</h1><blockquote>
+<p>背景<br>服务器下发新消息时，通知MainActivity更改UI<br>操作<br>1.继承BroadcastReceiver<br>2.定义过滤的Action<br>3.添加回调接口<br>5.构造函数初始化接口<br>6.重写onReceive方法(调用接口的方法)<br>7.实现接口、动态注册接口(LocalBroadcastManager类)<br>8.在获取到服务器数据的地方发送广播<br>9.在ondestory里取消广播</p>
+</blockquote>
+<h2 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"Sam-Tam"</span>);</span><br><span class="line">	sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="静态广播实际开发"><a href="#静态广播实际开发" class="headerlink" title="静态广播实际开发"></a>静态广播实际开发</h3><ul>
-<li>监听系统网络状态改变,从而做相应的处理。</li>
-</ul>
+<h2 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"Sam-Tam"</span>);</span><br><span class="line">	sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="示例-静态广播"><a href="#示例-静态广播" class="headerlink" title="示例 - 静态广播"></a>示例 - 静态广播</h1><blockquote>
+<p>背景<br>监听系统网络状态改变,从而做相应的处理。</p>
+</blockquote>
 <p>同上,注册的时候用registerReceiver、unregisterReceiver,用LocalBroadcastManager无效。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//定义Broadcast</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetworkChangeReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义过滤系统action</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String NETWORK_ACTION = ConnectivityManager.CONNECTIVITY_ACTION;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> NetworkChangeCallback callback;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">(NetworkChangeCallback callback)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.callback = callback;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callback != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callback.refresh();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 网络状态变化的回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetworkChangeCallback</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//activity的onCreate方法里注册Receiver</span></span><br><span class="line"></span><br><span class="line">receiver = <span class="keyword">new</span> NetworkChangeReceiver(<span class="keyword">this</span>);</span><br><span class="line">registerReceiver(receiver, <span class="keyword">new</span> IntentFilter(NetworkChangeReceiver.NETWORK_ACTION));</span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line"></span><br><span class="line">unregisterReceiver(receiver);</span><br></pre></td></tr></table></figure>
-<h3 id="Fragment里注册广播注意事项"><a href="#Fragment里注册广播注意事项" class="headerlink" title="Fragment里注册广播注意事项"></a>Fragment里注册广播注意事项</h3><ul>
-<li>不能在OnCreateView里面注册,要在onCreate方法里面注册</li>
-<li>记得在ondestory方法里注销广播</li>
-</ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><blockquote>
+<p>Fragment里注册广播<br>不能在OnCreateView里面注册,要在onCreate方法里面注册<br>记得在ondestory方法里注销广播</p>
+</blockquote>
 
       
     </div>
@@ -291,13 +248,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></p>
+        <p><span>本文标题:</span><a href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2015年11月19日 - 15时43分</p>
-        <p><span>最后更新:</span>2016年06月17日 - 14时26分</p>
+        <p><span>发布时间:</span>2015年10月31日 - 15时43分</p>
+        <p><span>最后更新:</span>2016年09月22日 - 17时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/11/19/Android-Broadcast/" title="四大组件之Broadcast">http://TanJunDang.github.io/2015/11/19/Android-Broadcast/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/11/19/Android-Broadcast/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/31/Android-Broadcast/" title="Android基础之Broadcast">http://TanJunDang.github.io/2015/10/31/Android-Broadcast/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/10/31/Android-Broadcast/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -307,18 +264,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/11/18/JAVASE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/30/Android-Activity/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          JAVASE基础
+          Android基础之Activity
         
       </div>
     </a>
   
   
-    <a href="/2016/01/01/Animation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android动画</div>
+    <a href="/2015/11/02/Project-Build/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android项目架构</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -329,7 +286,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态广播实际开发"><span class="toc-number">2.</span> <span class="toc-text">动态广播实际开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态广播实际开发"><span class="toc-number">3.</span> <span class="toc-text">静态广播实际开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment里注册广播注意事项"><span class="toc-number">4.</span> <span class="toc-text">Fragment里注册广播注意事项</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-动态注册广播"><span class="toc-number">2.</span> <span class="toc-text">示例 - 动态注册广播</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-静态广播"><span class="toc-number">3.</span> <span class="toc-text">示例 - 静态广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -380,7 +337,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/11/19/Android-Broadcast/" data-title="四大组件之Broadcast" data-url="TanJunDang.github.io/2015/11/19/Android-Broadcast/"></div>
+    <div class="ds-thread" data-thread-key="2015/10/31/Android-Broadcast/" data-title="Android基础之Broadcast" data-url="TanJunDang.github.io/2015/10/31/Android-Broadcast/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -404,18 +361,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/11/18/JAVASE/" title="上一篇: JAVASE基础">
+            <a href="/2015/10/30/Android-Activity/" title="上一篇: Android基础之Activity">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/01/01/Animation/" title="下一篇: Android动画">
+            <a href="/2015/11/02/Project-Build/" title="下一篇: Android项目架构">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/19/Android-Broadcast/">四大组件之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Draw/">绘图总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
