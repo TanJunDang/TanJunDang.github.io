@@ -176,107 +176,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Style" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/Style/" class="article-date">
-      <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/Style/">Android - Theme(Style)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Style基础知识"><a href="#Style基础知识" class="headerlink" title="Style基础知识"></a>Style基础知识</h1><h2 id="示例-如何实现一个对话框Activity"><a href="#示例-如何实现一个对话框Activity" class="headerlink" title="示例 - 如何实现一个对话框Activity"></a>示例 - 如何实现一个对话框Activity</h2><blockquote>
-<p>步骤</p>
-<ol>
-<li>写好布局文件，绑定Activity</li>
-<li>创建style 设置属性parent属性为android:Theme.Dialog（使其默认显示为屏幕中部）</li>
-<li>然后设置其不显示标题、透明背景即可</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setFinishOnTouchOutside(<span class="keyword">false</span>); <span class="comment">//设置对话框activity点击外部不消失</span></span><br></pre></td></tr></table></figure>
-<h2 id="Style-Theme属性"><a href="#Style-Theme属性" class="headerlink" title="Style - Theme属性"></a>Style - Theme属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">android:theme="@android:style/Theme.Dialog" : Activity显示为对话框模式</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar" : 不显示应用程序标题栏</span><br><span class="line"></span><br><span class="line">android:theme="@android:style/Theme.NoTitleBar.Fullscreen" : 不显示应用程序题栏，并全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light ": 背景为白色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar" : 白色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.NoTitleBar.Fullscreen" : 白色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black" : 背景黑色</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar" : 黑色背景并无标题栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Black.NoTitleBar.Fullscreen" : 黑色背景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper" : 用系统桌面为应用程序背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar" : 用系统桌面为应用程序背景，且无标栏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Wallpaper.NoTitleBar.Fullscreen" : 用系统桌面为应用程序景，无标题栏，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent : 透明背景</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar" : 透明背景并无标题</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Translucent.NoTitleBar.Fullscreen" : 透明背景并无标题，全屏</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Panel ": 面板风格显示</span><br><span class="line"></span><br><span class="line">android:theme="Theme.Light.Panel" : 平板风格显示</span><br></pre></td></tr></table></figure>
-<h2 id="Style-item常用属性"><a href="#Style-item常用属性" class="headerlink" title="Style - item常用属性"></a>Style - item常用属性</h2><table>
-<thead>
-<tr>
-<th>Style标签下的Item属性</th>
-<th>说明</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>windowTranslucentStatus</td>
-<td>是否使用在statusBar下一层View的颜色作为statusBar的颜色，不能与statusBar同时使用</td>
-<td>boolean类型</td>
-</tr>
-<tr>
-<td>statusBarColor</td>
-<td>设置statusBar的颜色</td>
-<td>引用类型</td>
-</tr>
-<tr>
-<td>windowDrawsSystemBarBackgrounds</td>
-<td>设置statusBarColor属性是否生效</td>
-<td>boolean类型</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>设置windowTranslucentStatus属性的前后</p>
-</blockquote>
-<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0J6NExJMG1TVGg3RE9VeVIvb29XVERmL083TE40UnJZUENlR0RRU3BUYkRnPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""> <img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0J6NExJMG1TVGg3Q3l1RWZiS3pDUzQzMjNMeWlQSGdSdkY5QU9adVQvc0dBPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h1 id="ActivityDialog的总结"><a href="#ActivityDialog的总结" class="headerlink" title="ActivityDialog的总结"></a>ActivityDialog的总结</h1><blockquote>
-<p>总结<br>1.如果style设置了parent的属性、则默认布局会显示在中部，并且自动去除进入Activity的黑色界面，如果没有设置，则要在布局文件里设置显示的位置。</p>
-<p>2.透明Activity的Style基本设置是 无标题、透明背景、前一个Activity变暗。</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Theme-Style/">Android - Theme(Style)</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-JAVASE" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1003,6 +902,71 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/30/Shape/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PopupWindow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/22/PopupWindow/" class="article-date">
+      <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished">2015-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>　View加载、计算宽度、参考显示</p>
+<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

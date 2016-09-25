@@ -4,8 +4,76 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
+    <lastmod>2016-09-25T01:39:55.626Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Intent</title>
+        <pubTime>2015-09-19T16:00:00.000Z</pubTime>
+        
+        <tag>Android基础之Intent</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/01/Draw/</loc>
+    <lastmod>2016-09-24T10:29:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>绘图总结</title>
+        <pubTime>2015-08-31T16:00:00.000Z</pubTime>
+        
+        <tag>Draw</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    <lastmod>2016-09-24T08:17:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义View笔记</title>
+        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
+        
+        <tag>自定义View笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2016-09-24T01:17:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>开发中常见的Error、Bug</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
-    <lastmod>2016-09-22T14:49:06.480Z</lastmod>
+    <lastmod>2016-09-22T14:49:08.000Z</lastmod>
     <data>
         <display>
         <title>Android基础之Activity</title>
@@ -48,23 +116,6 @@
         <tag>开发中常用的技巧</tag>
          
         <tag>沉浸式状态栏</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/09/20/Intent/</loc>
-    <lastmod>2016-09-21T06:26:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Intent</title>
-        <pubTime>2016-09-19T16:00:00.000Z</pubTime>
-        
-        <tag>Android基础之Intent</tag>
          
          
            
@@ -199,23 +250,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2016-09-06T09:15:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义View笔记</title>
-        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
-        
-        <tag>自定义View笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/09/30/Shape/</loc>
     <lastmod>2016-09-06T08:59:04.000Z</lastmod>
     <data>
@@ -275,23 +309,6 @@
         <pubTime>2016-02-01T14:05:41.000Z</pubTime>
         
         <tag>Widgets学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Bug/</loc>
-    <lastmod>2016-09-01T10:35:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>开发中常见的Error、Bug</tag>
          
          
            
@@ -625,23 +642,6 @@
         <pubTime>2016-04-05T03:08:58.000Z</pubTime>
         
         <tag>EventBus学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/01/Draw/</loc>
-    <lastmod>2016-08-25T09:25:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>绘图总结</title>
-        <pubTime>2015-08-31T16:00:00.000Z</pubTime>
-        
-        <tag>Draw</tag>
          
          
            
