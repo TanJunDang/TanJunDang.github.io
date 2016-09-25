@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
+    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
     
-    <lastmod>2016-09-25T01:39:55.626Z</lastmod>
+    <lastmod>2016-09-25T15:21:04.620Z</lastmod>
     
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2015/09/01/Draw/</loc>
+    <loc>TanJunDang.github.io/2015/09/01/Canvas/</loc>
     
-    <lastmod>2016-09-24T10:29:58.000Z</lastmod>
+    <lastmod>2016-09-25T05:20:34.381Z</lastmod>
     
   </url>
   
   <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
     
-    <lastmod>2016-09-24T08:17:24.000Z</lastmod>
+    <lastmod>2016-09-25T04:38:07.785Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
+    
+    <lastmod>2016-09-25T01:39:55.626Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
     
     <lastmod>2016-09-22T14:49:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
-    
-    <lastmod>2016-09-22T09:09:58.000Z</lastmod>
     
   </url>
   

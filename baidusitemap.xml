@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
-    <lastmod>2016-09-25T01:39:55.626Z</lastmod>
+    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
+    <lastmod>2016-09-25T15:21:04.620Z</lastmod>
     <data>
         <display>
-        <title>Android基础之Intent</title>
-        <pubTime>2015-09-19T16:00:00.000Z</pubTime>
+        <title>Android基础之Broadcast</title>
+        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
         
-        <tag>Android基础之Intent</tag>
+        <tag>Android基础之Broadcast</tag>
          
          
            
@@ -21,14 +21,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/01/Draw/</loc>
-    <lastmod>2016-09-24T10:29:58.000Z</lastmod>
+    <loc>TanJunDang.github.io/2015/09/01/Canvas/</loc>
+    <lastmod>2016-09-25T05:20:34.381Z</lastmod>
     <data>
         <display>
-        <title>绘图总结</title>
+        <title>Canvas笔记</title>
         <pubTime>2015-08-31T16:00:00.000Z</pubTime>
         
-        <tag>Draw</tag>
+        <tag>Canvas笔记</tag>
          
          
            
@@ -39,13 +39,30 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2016-09-24T08:17:24.000Z</lastmod>
+    <lastmod>2016-09-25T04:38:07.785Z</lastmod>
     <data>
         <display>
         <title>自定义View笔记</title>
         <pubTime>2016-08-18T07:01:20.000Z</pubTime>
         
         <tag>自定义View笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
+    <lastmod>2016-09-25T01:39:55.626Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Intent</title>
+        <pubTime>2015-09-19T16:00:00.000Z</pubTime>
+        
+        <tag>Android基础之Intent</tag>
          
          
            
@@ -80,23 +97,6 @@
         <pubTime>2015-10-30T07:42:08.000Z</pubTime>
         
         <tag>Android基础之Activity</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
-    <lastmod>2016-09-22T09:09:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Broadcast</title>
-        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
-        
-        <tag>Android基础之Broadcast</tag>
          
          
            
