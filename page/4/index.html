@@ -246,6 +246,89 @@
 
 
   
+    <article id="post-Android-Service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/01/Android-Service/" class="article-date">
+      <time datetime="2015-11-01T07:43:42.000Z" itemprop="datePublished">2015-11-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/01/Android-Service/">Android基础之Service</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Service的理解"><a href="#Service的理解" class="headerlink" title="Service的理解"></a>Service的理解</h1><blockquote>
+<p>Service是什么？<br>Service是一种可以在后台运行相关任务的组件。没有界面。其存在的线程是主线程，一般会通过启动子线程来执行耗时操作。<br>Service有什么用？<br>可用于在后台执行下载任务。从而不影响用户界面操作。<br>绑定服务中的创建Binder的扩展类的目的是什么？<br>该类主要用于获取Service的实例，以及执行相关的方法。<br>额外知识<br>1.不绑定服务，直接点击取消绑定服务会报错。因此需要通过判断Binder对象是否为空来处理。<br>2.服务可以不定义Action，通过Intent指定要跳转的Service即可。<br>3.Service的有效范围是所有满足条件的Activity。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Service类型</th>
+<th>说明</th>
+<th>使用步骤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动型服务</td>
+<td>1.生命周期为onCreate-&gt;onStartCommand-&gt;onDestroy <br> 2.服务一旦启动后，需要调用stopService方法或stopSelf方法才能停止。 <br> 3.可常驻系统。</td>
+<td>1.通过调用startService启动服务 <br> 2.通过stopService停止服务</td>
+</tr>
+<tr>
+<td>绑定型服务</td>
+<td>1.生命周期为onCreate-&gt;onBind-&gt;onUnbind-&gt;onDestory <br> 2.需要返回Binder对象，即定义Binder的子类。<br> 3.通过Binder子类的方法来获取Service对象，用于与Activity交互。 <br> 4.在Activity中需要通过创建ServiceConnection对象来获取service实例。从而调用service里的方法。</td>
+<td>1.通过bindService绑定服务 <br> 2.通过unbindService取消绑定服务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h2><p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0JZMys0S3hEcFAzeEQvNXhoOVV5SHdteWlPditDWmYxcHJtd1hzRW5HemlBPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p><a href="https://developer.android.com/guide/components/services.html#CreatingBoundService" target="_blank" rel="external">Service官方文档</a><br><a href="http://blog.csdn.net/guolin_blog/article/details/9797169" target="_blank" rel="external">郭林大神ADIL服务</a><br><a href="https://developer.android.com/guide/components/bound-services.html" target="_blank" rel="external">绑定服务</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Service/">Android基础之Service</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -902,71 +985,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/30/Shape/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PopupWindow" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/22/PopupWindow/" class="article-date">
-      <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished">2015-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
-<p>　View加载、计算宽度、参考显示</p>
-<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
