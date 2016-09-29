@@ -4,14 +4,82 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/09/01/DialogFragment/</loc>
+    <lastmod>2016-09-29T17:58:58.273Z</lastmod>
+    <data>
+        <display>
+        <title>DialogFragment笔记</title>
+        <pubTime>2016-09-01T12:43:42.000Z</pubTime>
+        
+        <tag>DialogFragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/11/01/Android-ContentProvider/</loc>
+    <lastmod>2016-09-27T16:05:23.162Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之ContentProvider</title>
+        <pubTime>2015-11-01T12:43:42.000Z</pubTime>
+        
+        <tag>Android基础之ContentProvider</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
+    <lastmod>2016-09-27T15:49:59.375Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Intent</title>
+        <pubTime>2015-09-19T16:00:00.000Z</pubTime>
+        
+        <tag>Android基础之Intent</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2015/11/01/Android-Service/</loc>
-    <lastmod>2016-09-26T17:46:27.322Z</lastmod>
+    <lastmod>2016-09-27T14:59:04.288Z</lastmod>
     <data>
         <display>
         <title>Android基础之Service</title>
         <pubTime>2015-11-01T07:43:42.000Z</pubTime>
         
         <tag>Android基础之Service</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/11/01/Android-Permission/</loc>
+    <lastmod>2016-09-27T09:18:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android6.0权限</title>
+        <pubTime>2016-11-01T12:43:42.000Z</pubTime>
+        
+        <tag>Android6.0权限</tag>
          
          
            
@@ -63,23 +131,6 @@
         <pubTime>2016-08-18T07:01:20.000Z</pubTime>
         
         <tag>自定义View笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/20/Intent/</loc>
-    <lastmod>2016-09-25T01:39:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Intent</title>
-        <pubTime>2015-09-19T16:00:00.000Z</pubTime>
-        
-        <tag>Android基础之Intent</tag>
          
          
            

@@ -176,6 +176,139 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Skills" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/Skills/" class="article-date">
+      <time datetime="2016-07-08T07:40:29.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Skills/">开发中常用的技巧</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h2><blockquote>
+<p>如何实现一个启动界面，例如微信、网易新闻。<br>1.创建一个布局文件，里面放一张图。<br>2.在主Activity里,通过handler 的postDelayed方法 进行跳转界面</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Intent intent = <span class="keyword">new</span> Intent(Appstart.<span class="keyword">this</span>, Welcome.class);</span><br><span class="line">  startActivity(intent);</span><br><span class="line">  Appstart.<span class="keyword">this</span>.finish();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><blockquote>
+<p>解决启动界面瞬间白屏的问题<br>Mainfest的主题使用@android:style/Theme.Translucent”<br>StartActivity继承Activity</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name="EntranceStyle" parent="@android:style/Theme.Translucent"&gt;</span><br><span class="line">	&lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;</span><br><span class="line">	&lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沉浸式状态栏/">沉浸式状态栏</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/08/Skills/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Timestamp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/Timestamp/" class="article-date">
+      <time datetime="2016-07-08T07:10:32.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/Timestamp/">时间戳</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="时间戳的基本知识"><a href="#时间戳的基本知识" class="headerlink" title="时间戳的基本知识"></a>时间戳的基本知识</h1><blockquote>
+<p>理解<br>时间戳是指当天的总秒数到1970年1月1日08时 0分0秒之间的秒数差。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间工具类/">时间工具类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间戳/">时间戳</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/08/Timestamp/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Share" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -374,10 +507,10 @@
 
 
   
-    <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/31/Model/" class="article-date">
+      <a href="/2016/05/31/GsonTool/" class="article-date">
       <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
@@ -391,7 +524,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a>
+      <a class="article-title" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a>
     </h1>
   
 
@@ -401,10 +534,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="BaseModel基础知识"><a href="#BaseModel基础知识" class="headerlink" title="BaseModel基础知识"></a>BaseModel基础知识</h1><blockquote>
-<p>Model包主要用于缓存数据,将数据保存在内部存储中,用户卸载后清空数据。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
+        <h1 id="Gson的Gradle代码"><a href="#Gson的Gradle代码" class="headerlink" title="Gson的Gradle代码"></a>Gson的Gradle代码</h1><blockquote>
+<p>Gradle导包<br>compile ‘com.google.code.gson:gson:2.3.1’</p>
 </blockquote>
-          
+<h1 id="Gson封装实例"><a href="#Gson封装实例" class="headerlink" title="Gson封装实例"></a>Gson封装实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// @param json</span></span><br><span class="line">    <span class="comment">// @param cls</span></span><br><span class="line">    <span class="comment">// @param &lt;T&gt;  表示通用类型 后面接一个字母表示对象</span></span><br><span class="line">    <span class="comment">// @return将String类型转成对象</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getServerBean</span><span class="params">(String json, Class&lt;?&gt; cls)</span> </span>&#123;</span><br><span class="line">        T object = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        object = (T) gson.fromJson(json, cls);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">    <span class="comment">// @param obj</span></span><br><span class="line">    <span class="comment">// @return</span></span><br><span class="line">    <span class="comment">// 将对象转成json（String）</span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObjectToJson</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        String json = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        json = gson.toJson(obj);</span><br><span class="line">        <span class="keyword">return</span> json;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -414,13 +547,9 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构-BaseModel编写/">Android项目架构-BaseModel编写</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -502,10 +631,10 @@
 
 
   
-    <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/31/GsonTool/" class="article-date">
+      <a href="/2016/05/31/Model/" class="article-date">
       <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
@@ -519,7 +648,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a>
+      <a class="article-title" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a>
     </h1>
   
 
@@ -529,10 +658,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Gson的Gradle代码"><a href="#Gson的Gradle代码" class="headerlink" title="Gson的Gradle代码"></a>Gson的Gradle代码</h1><blockquote>
-<p>Gradle导包<br>compile ‘com.google.code.gson:gson:2.3.1’</p>
+              <h1 id="BaseModel基础知识"><a href="#BaseModel基础知识" class="headerlink" title="BaseModel基础知识"></a>BaseModel基础知识</h1><blockquote>
+<p>Model包主要用于缓存数据,将数据保存在内部存储中,用户卸载后清空数据。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
 </blockquote>
-<h1 id="Gson封装实例"><a href="#Gson封装实例" class="headerlink" title="Gson封装实例"></a>Gson封装实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// @param json</span></span><br><span class="line">    <span class="comment">// @param cls</span></span><br><span class="line">    <span class="comment">// @param &lt;T&gt;  表示通用类型 后面接一个字母表示对象</span></span><br><span class="line">    <span class="comment">// @return将String类型转成对象</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getServerBean</span><span class="params">(String json, Class&lt;?&gt; cls)</span> </span>&#123;</span><br><span class="line">        T object = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        object = (T) gson.fromJson(json, cls);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">    <span class="comment">// @param obj</span></span><br><span class="line">    <span class="comment">// @return</span></span><br><span class="line">    <span class="comment">// 将对象转成json（String）</span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObjectToJson</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        String json = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        json = gson.toJson(obj);</span><br><span class="line">        <span class="keyword">return</span> json;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
       
     </div>
     
@@ -542,9 +671,13 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构-BaseModel编写/">Android项目架构-BaseModel编写</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -697,140 +830,9 @@
 
 
   
-    <article id="post-Handler" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/11/Handler/" class="article-date">
-      <time datetime="2016-04-11T01:58:30.000Z" itemprop="datePublished">2016-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/11/Handler/">Handler机制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h1><blockquote>
-<p>多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。</p>
-</blockquote>
-<h2 id="Handler的作用"><a href="#Handler的作用" class="headerlink" title="Handler的作用"></a>Handler的作用</h2><blockquote>
-<p>Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Handler机制/">Handler机制</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/11/Handler/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CodeOptimize" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/06/CodeOptimize/" class="article-date">
-      <time datetime="2016-04-06T10:13:44.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
-<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
-</ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/06/CodeOptimize/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
