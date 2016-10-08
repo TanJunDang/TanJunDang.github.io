@@ -588,9 +588,43 @@
       
           
               <h1 id="自定义View的知识-基础"><a href="#自定义View的知识-基础" class="headerlink" title="自定义View的知识(基础)"></a>自定义View的知识<font color="#66D9EF">(基础)</font></h1><blockquote>
-<p>getWidth()、getHeight()指的是xml文件中该View指定的width，height。<br>重写onMeasure、onLayout、onDraw先后执行顺序。<br>获取屏幕宽高</p>
+<p>理解<br>~自定义View是在画布上面画的，所以要区分清楚画布的大小跟View的大小。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">height = wm.getDefaultDisplay().getHeight();</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>常见问题</th>
+<th>理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自定义View的方式有哪些？</td>
+<td>继承View、继承ViewGroup、继承ViewGroup的组合View</td>
+</tr>
+<tr>
+<td>自定义View的方法的执行顺序是什么？</td>
+<td>onMeasure-&gt;onSizeChange-&gt;onLayout-&gt;onDraw</td>
+</tr>
+<tr>
+<td>什么是测量值？</td>
+<td>即在xml文件设定的宽高值。当宽高为wrap时，默认大小为屏幕大小。</td>
+</tr>
+<tr>
+<td>如何理解onMeasure方法？</td>
+<td>决定画布的大小</td>
+</tr>
+<tr>
+<td>自定义View，默认宽高为warp_content跟match_parent效果一致，如何解决？</td>
+<td>重写onMeasure、处理Mode为AT_MOST的情况</td>
+</tr>
+<tr>
+<td>如何获取滑动最小距离？</td>
+<td>ViewConfiguration.get(this).getScaledDoubleTapSlop()</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取屏幕宽高</span></span><br><span class="line">WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">height = wm.getDefaultDisplay().getHeight();</span><br></pre></td></tr></table></figure>
           
       
     </div>

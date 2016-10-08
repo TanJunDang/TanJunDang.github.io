@@ -5,7 +5,7 @@
   
   <title>事件分发机制onTouchEvent笔记 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分发事件基本认识
+  <meta name="description" content="分发事件基础知识
 跟Touch相关的三个方法
 
 
@@ -31,7 +31,7 @@ onTouchEvent
 <meta property="og:title" content="事件分发机制onTouchEvent笔记">
 <meta property="og:url" content="TanJunDang.github.io/2016/03/31/OnTouchEvent/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="分发事件基本认识
+<meta property="og:description" content="分发事件基础知识
 跟Touch相关的三个方法
 
 
@@ -53,10 +53,10 @@ onInterceptTouchEvent
 
 onTouchEvent
 用来处理触摸event。">
-<meta property="og:updated_time" content="2016-08-19T10:34:34.000Z">
+<meta property="og:updated_time" content="2016-10-08T09:08:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件分发机制onTouchEvent笔记">
-<meta name="twitter:description" content="分发事件基本认识
+<meta name="twitter:description" content="分发事件基础知识
 跟Touch相关的三个方法
 
 
@@ -273,7 +273,7 @@ onTouchEvent
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="分发事件基本认识"><a href="#分发事件基本认识" class="headerlink" title="分发事件基本认识"></a>分发事件基本认识</h1><blockquote>
+        <h1 id="分发事件基础知识"><a href="#分发事件基础知识" class="headerlink" title="分发事件基础知识"></a>分发事件基础知识</h1><blockquote>
 <p>跟Touch相关的三个方法</p>
 </blockquote>
 <table>
@@ -299,23 +299,26 @@ onTouchEvent
 </tbody>
 </table>
 <a id="more"></a>
+<blockquote>
+<p>理解<br>1.事件传递的过程：一层层判断是否拦截Event，直到被拦截或者到底层View时，再判断能否处理Event。<br>2.View没有onInterceptTouchEvent，View收到事件只能通过onTouchEvent方法处理。<br>3.View没有处理成功一个Event（onTouchEvent返回false），则同一事件序列（Action_Down、Action_Up）的Event不会再交给该View处理。<br>即View没处理成功DOWN事件，则Up事件不会再给该View处理。<br>4.clickable影响onTouchEvent方法。<br>5.requestDisallowInterceptTouchEvent(boolean disallowIntercept)该方法决定是否允许拦截TouchEvent。如果为true，则View不允许拦截Event，则父View一直向下传递Event.即该View自己处理这个事件。</p>
+</blockquote>
 <h2 id="dispatchTouchEvent"><a href="#dispatchTouchEvent" class="headerlink" title="dispatchTouchEvent"></a>dispatchTouchEvent</h2><blockquote>
 <p>dispatchTouchEvent用于传递触摸事件。<br>返回true表示向子视图(View、ViewGroup)传递触摸事件。<br>返回false表示不向下传递触摸事件，并且调用自身的onTouchEvent方法进行处理。</p>
 </blockquote>
 <h2 id="onInterceptTouchEvent"><a href="#onInterceptTouchEvent" class="headerlink" title="onInterceptTouchEvent"></a>onInterceptTouchEvent</h2><blockquote>
-<p>onInterceptTouchEvent用于拦截触摸事件。<br>返回false表示不拦截该事件，事件将向下传递（传递给其子View）。<br>返回true则表示拦截该事件，事件将终止向下传递。事件由当前ViewGroup类来处理，就是调用该类的onTouchEvent方法。</p>
+<p>ViewGroup特有方法，View没有该方法。<br>onInterceptTouchEvent用于拦截触摸事件。<br>返回false表示不拦截该事件，事件将向下传递（传递给其子View）。<br>返回true则表示拦截该事件，事件将终止向下传递。事件由当前ViewGroup类来处理，就是调用该类的onTouchEvent方法。</p>
 </blockquote>
 <h2 id="onTouchEvent"><a href="#onTouchEvent" class="headerlink" title="onTouchEvent"></a>onTouchEvent</h2><blockquote>
 <p>onTouchEvent用于消费触摸事件。<br>返回true表示该View能处理该事件，事件将终止向上传递（传递给其父View）。<br>返回false表示不能处理，则把事件传递给其父View的onTouchEvent方法来处理。</p>
 </blockquote>
-<h1 id="事件分发过程"><a href="#事件分发过程" class="headerlink" title="事件分发过程"></a>事件分发过程</h1><h1 id="实例-滑动冲突"><a href="#实例-滑动冲突" class="headerlink" title="实例 - 滑动冲突"></a>实例 - 滑动冲突</h1><blockquote>
+<h1 id="事件分发过程"><a href="#事件分发过程" class="headerlink" title="事件分发过程"></a>事件分发过程</h1><h1 id="示例-滑动冲突"><a href="#示例-滑动冲突" class="headerlink" title="示例 - 滑动冲突"></a>示例 - 滑动冲突</h1><blockquote>
 <p>在BNJ项目中遇到的是ScrollView里面嵌套GridView，因此两者是有滑动冲突的。</p>
 <p>项目要求：保留两者的滑动效果</p>
 <p>思路<br>1.自定义ScrollView，使其可以重写onInterceptTouchEvent方法。<br>2.在onInterceptTouchEvent方法中返回false即可。<br>3.提供修改onInterceptTouchEvent返回值的方法。</p>
 </blockquote>
 <hr>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<p>优先度onTouch &gt; onTouchEvent </p>
+<p>优先度onTouch &gt; onTouchEvent &gt; onClick</p>
 </blockquote>
 <p><a href="http://blog.csdn.net/morgan_xww/article/details/9372285" target="_blank" rel="external">Android TouchEvent事件传递机制</a></p>
 <p><a href="http://blog.csdn.net/guolin_blog/article/details/9153747" target="_blank" rel="external">OnTouch参考二</a></p>
@@ -330,7 +333,7 @@ onTouchEvent
         <p><span>本文标题:</span><a href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2016年03月31日 - 10时44分</p>
-        <p><span>最后更新:</span>2016年08月19日 - 18时34分</p>
+        <p><span>最后更新:</span>2016年10月08日 - 17时08分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/31/OnTouchEvent/" title="事件分发机制onTouchEvent笔记">http://TanJunDang.github.io/2016/03/31/OnTouchEvent/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/03/31/OnTouchEvent/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -365,7 +368,7 @@ onTouchEvent
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分发事件基本认识"><span class="toc-number">1.</span> <span class="toc-text">分发事件基本认识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dispatchTouchEvent"><span class="toc-number">1.1.</span> <span class="toc-text">dispatchTouchEvent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onInterceptTouchEvent"><span class="toc-number">1.2.</span> <span class="toc-text">onInterceptTouchEvent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onTouchEvent"><span class="toc-number">1.3.</span> <span class="toc-text">onTouchEvent</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件分发过程"><span class="toc-number">2.</span> <span class="toc-text">事件分发过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实例-滑动冲突"><span class="toc-number">3.</span> <span class="toc-text">实例 - 滑动冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分发事件基础知识"><span class="toc-number">1.</span> <span class="toc-text">分发事件基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dispatchTouchEvent"><span class="toc-number">1.1.</span> <span class="toc-text">dispatchTouchEvent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onInterceptTouchEvent"><span class="toc-number">1.2.</span> <span class="toc-text">onInterceptTouchEvent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onTouchEvent"><span class="toc-number">1.3.</span> <span class="toc-text">onTouchEvent</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件分发过程"><span class="toc-number">2.</span> <span class="toc-text">事件分发过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-滑动冲突"><span class="toc-number">3.</span> <span class="toc-text">示例 - 滑动冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -451,7 +454,7 @@ onTouchEvent
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxBus/">RxBus</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
