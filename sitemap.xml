@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
+    
+    <lastmod>2016-10-13T16:57:36.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
+    
+    <lastmod>2016-10-13T03:41:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/07/13/RegEx/</loc>
+    
+    <lastmod>2016-10-09T07:14:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
     
-    <lastmod>2016-10-08T12:45:01.424Z</lastmod>
+    <lastmod>2016-10-09T06:47:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
+    
+    <lastmod>2016-10-09T06:40:04.000Z</lastmod>
     
   </url>
   
@@ -149,13 +177,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
-    
-    <lastmod>2016-09-01T17:09:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
     
     <lastmod>2016-09-01T17:01:44.000Z</lastmod>
@@ -201,20 +222,6 @@
     <loc>TanJunDang.github.io/2016/07/08/Timestamp/</loc>
     
     <lastmod>2016-08-26T00:59:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/06/13/RxBus/</loc>
-    
-    <lastmod>2016-08-25T10:31:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/07/13/RegEx/</loc>
-    
-    <lastmod>2016-08-25T10:29:20.000Z</lastmod>
     
   </url>
   
@@ -334,13 +341,6 @@
     <loc>TanJunDang.github.io/google052eb804308dfc09.html</loc>
     
     <lastmod>2016-08-25T01:11:30.231Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
-    
-    <lastmod>2016-08-24T01:56:50.000Z</lastmod>
     
   </url>
   
