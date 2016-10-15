@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WebView学习笔记 | TanJunDang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="WebView基础知识
+理解webView可以理解为一个加载url页面的控件。可与js交互。Android与JS的交互需要通过接口实例化的对象进行。webView调用loadUrl的方式1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数2.mWebView.loadUrl(“file:///android_asset/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebView学习笔记">
+<meta property="og:url" content="TanJunDang.github.io/2016/10/15/WebView/index.html">
+<meta property="og:site_name" content="TanJunDang">
+<meta property="og:description" content="WebView基础知识
+理解webView可以理解为一个加载url页面的控件。可与js交互。Android与JS的交互需要通过接口实例化的对象进行。webView调用loadUrl的方式1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数2.mWebView.loadUrl(“file:///android_asset/index.html">
+<meta property="og:updated_time" content="2016-10-15T17:15:03.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebView学习笔记">
+<meta name="twitter:description" content="WebView基础知识
+理解webView可以理解为一个加载url页面的控件。可与js交互。Android与JS的交互需要通过接口实例化的对象进行。webView调用loadUrl的方式1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数2.mWebView.loadUrl(“file:///android_asset/index.html">
+  
+    <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','LFp3mbq3aoaxwzxP9eby','2.0.0');
+</script>
+
+        <a href="/" class="profilepic">
+            
+            <img src="/img/lrving.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">TanJunDang</a></h1>
+        </hgroup>
+
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">HOME</a></li>
+                        
+                            <li><a href="/archives">ARCHIVES</a></li>
+                        
+                            <li><a href="/about">ABOUT</a></li>
+                        
+                            <li><a href="/tags">TAGs</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:TanJunDang324@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/TanJunDang" title="github">github</a>
+                            
+                                <a class="fl twitter" target="_blank" href="http: //twitter.com/TanJunDang" title="twitter">twitter</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://kevinsu917.github.io/posts/">kevinsu917</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">TanJunDang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/lrving.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">TanJunDang</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">HOME</a></li>
+                
+                    <li><a href="/archives">ARCHIVES</a></li>
+                
+                    <li><a href="/about">ABOUT</a></li>
+                
+                    <li><a href="/tags">TAGs</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:TanJunDang324@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/TanJunDang" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="http: //twitter.com/TanJunDang" title="twitter">twitter</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-WebView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/15/WebView/" class="article-date">
+      <time datetime="2016-10-15T14:05:41.000Z" itemprop="datePublished">2016-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WebView学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebView学习笔记/">WebView学习笔记</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="WebView基础知识"><a href="#WebView基础知识" class="headerlink" title="WebView基础知识"></a>WebView基础知识</h1><blockquote>
+<p>理解<br>webView可以理解为一个加载url页面的控件。可与js交互。<br>Android与JS的交互需要通过接口实例化的对象进行。<br>webView调用loadUrl的方式<br>1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数<br>2.mWebView.loadUrl(“file:///android_asset/index.html”);// 调用本地assets目录下的html文件，也可以直接调用网上的html文件。<br>重定向是什么？加载网页的时候，网页设置了重定向，即你要跳转的url被重新修改，使你跳转的新的URL。例如你要跳转www.baidu.com，百度会重定向使你跳转www.m.baidu.com<br>webView相关的API有WebChromeClient、WebViewClient、WebSetting三个。详细见下表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebChromeClient</td>
+<td>获取网页中的信息(标题、图标)、加载进度、处理js对话框等</td>
+<td>重写onReceivedTitle获取网页标题</td>
+</tr>
+<tr>
+<td>WebViewClient</td>
+<td>处理WebView的通知、请求事件 <br> <font color="#1abc9c"> 如果不创建该对象，则会调用系统自带的浏览器启动新的页面 </font></td>
+<td>重写shouldOverrideUrlLoading由WebView处理新的url</td>
+</tr>
+<tr>
+<td>WebSettings</td>
+<td>配置webView、设置自适应屏幕、支持缩放、支持js交互等</td>
+<td>setBuiltInZoomControls设置支持缩放</td>
+</tr>
+<tr>
+<td>WebView</td>
+<td>加载url、跳转页面顶部、设置是否显示滚动条</td>
+<td>setScrollY(0)回到页面顶部</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebChromeClient常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onReceivedTitle(WebView view, String title)</td>
+<td>获取网页中的标题</td>
+</tr>
+<tr>
+<td>onReceivedIcon(WebView view, Bitmap icon)</td>
+<td>获取网页中的图标</td>
+</tr>
+<tr>
+<td>onProgressChanged(WebView view,int newProgress)</td>
+<td>获取网页加载的进度</td>
+</tr>
+<tr>
+<td>onJsAlert(WebView view,String url,String message,JsResult result)</td>
+<td>处理js中的Alert对话框</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebViewClient常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shouldOverrideUrlLoading(WebView view,String url)</td>
+<td>加载新页面时的回调 <br> 返回true 页面任何点击无效，需要对WebView、url进行处理，通常是调用loadUrl加载页面，与返回false没什么不同，所以一般不重写 。或者需要通过浏览器来启动时，则需要返回true <br> 返回false(默认) 则调用webView处理新的页面</td>
+</tr>
+<tr>
+<td>onPageStared(WebView view,String url)</td>
+<td>页面开始加载时的回调</td>
+</tr>
+<tr>
+<td>onPageFinished(WebView view,String url,Bitmap favicon)</td>
+<td>页面加载结束的回调</td>
+</tr>
+<tr>
+<td>onScaleChanged(WebView view,float oldScale,float newScale)</td>
+<td>缩放页面时的回调</td>
+</tr>
+<tr>
+<td>onReceivedError(WebView view,int errorCode,String description,String failingUrl)</td>
+<td>网页错误的时候回调，可获取错误信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebSettings常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setUseWideViewPort(true)  <br> setLoadWithOverviewMode(true)</td>
+<td>将图片调整到适合webview的大小 <br> 缩放至屏幕的大小 <br> 两句结合使用使页面自适应屏幕</td>
+</tr>
+<tr>
+<td>setBuiltInZoomControls(boolean)</td>
+<td>设置是否支持缩放</td>
+</tr>
+<tr>
+<td><font color="#3498db">setSupportZoom(boolean) </font></td>
+<td>这方法好像没什么用，但是如果设置了false，setBuiltInZoomControls变无效</td>
+</tr>
+<tr>
+<td>webSettings.setJavaScriptEnabled(true) <br> webSettings.setDefaultTextEncodingName(“UTF-8”)</td>
+<td>设置webview允许调用js</td>
+</tr>
+</tbody>
+</table>
+<h1 id="示例-简单实用WebView"><a href="#示例-简单实用WebView" class="headerlink" title="示例 - 简单实用WebView"></a>示例 - 简单实用WebView</h1><blockquote>
+<p>设置默认加载方式</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">webView.loadUrl(<span class="string">"https://zhidao.baidu.com/"</span>);</span><br><span class="line">  webView.setWebChromeClient(<span class="keyword">new</span> WebChromeClient() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgressChanged</span><span class="params">(WebView view, <span class="keyword">int</span> newProgress)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">          tvProgress.setText(String.format(<span class="string">"加载进度：%d"</span>, newProgress));</span><br><span class="line">          LogTool.e(<span class="string">"TAG"</span>, newProgress + <span class="string">""</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceivedTitle</span><span class="params">(WebView view, String title)</span> </span>&#123;</span><br><span class="line">          getSupportActionBar().setTitle(title);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">//若设置了webViewClient，则从webView启动新的页面，没设置则启动浏览器来加载url</span></span><br><span class="line">  webView.setWebViewClient(<span class="keyword">new</span> WebViewClient() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageStarted</span><span class="params">(WebView view, String url, Bitmap favicon)</span> </span>&#123;</span><br><span class="line">          tvProgress.setVisibility(View.VISIBLE);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">          tvProgress.setVisibility(View.GONE);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  WebSettings settings = webView.getSettings();</span><br><span class="line">  settings.setUseWideViewPort(<span class="keyword">true</span>);<span class="comment">//设定支持viewport</span></span><br><span class="line">  settings.setLoadWithOverviewMode(<span class="keyword">true</span>);   <span class="comment">//两句结合使用使页面自适应屏幕</span></span><br><span class="line"></span><br><span class="line">  settings.setBuiltInZoomControls(<span class="keyword">true</span>);<span class="comment">//设定支持缩放</span></span><br><span class="line">  settings.setDisplayZoomControls(<span class="keyword">true</span>);<span class="comment">//是否显示缩放按钮 true为显示</span></span><br><span class="line"><span class="comment">//settings.setSupportZoom(true);//这方法没什么用，但是如果设置为false 则上述setBuiltInZoomControls无效</span></span><br></pre></td></tr></table></figure>
+<h1 id="示例-WebView与JS交互"><a href="#示例-WebView与JS交互" class="headerlink" title="示例 - WebView与JS交互"></a>示例 - WebView与JS交互</h1><blockquote>
+<p>实现效果<br>JS中点击按钮调用Android中的方法<br>使用步骤<br>1.定义交互接口。被JS调用的方法需要添加JavascriptInterface注解。<br>2.在Activity中，设置允许加载js文件。设置解码方式，然后webView添加接口。<br>3.js文件需要利用交互接口的对象调用其方法即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Android中定义的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TJDInfo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Context context;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TJDInfo</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.context = context;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加JavascriptInterface注解，否则JS无法调用</span></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showTJDMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DialogTool.getInstance().showDialog((AppCompatActivity) context, <span class="string">"JS与Android交互"</span>, <span class="string">""</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                Functions.toast(<span class="string">"JS调用Android方法成功"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中的代码</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String LOCAL_URL = <span class="string">"file:///android_asset/jsweb.html"</span>;</span><br><span class="line"><span class="keyword">private</span> WebView webView;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    setContentView(R.layout.activity_jsweb_view);</span><br><span class="line">    webView = (WebView) findViewById(R.id.webView);</span><br><span class="line">    WebSettings webSettings = webView.getSettings();</span><br><span class="line">    webSettings.setJavaScriptEnabled(<span class="keyword">true</span>);<span class="comment">//允许WebView加载JS</span></span><br><span class="line">    webSettings.setDomStorageEnabled(<span class="keyword">true</span>);</span><br><span class="line">    webSettings.setDefaultTextEncodingName(<span class="string">"UTF-8"</span>);<span class="comment">//设置编码</span></span><br><span class="line">    webView.addJavascriptInterface(<span class="keyword">new</span> TJDInfo(<span class="keyword">this</span>), <span class="string">"tjd"</span>);<span class="comment">//添加接口及实例化接口。第二个参数为对象的引用，JS中需要通过该引用来调用方法</span></span><br><span class="line">    webView.loadUrl(LOCAL_URL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 本地Html中的代码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS与Android交互<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"启动对话框"</span> <span class="attr">onclick</span>=<span class="string">"tjd.showTJDMsg();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>过程中遇到的问题<br>加载本地Html，assets目录不是在res下，而是在main中。放错位置会导致net::FINE_ERR_NOT_FOUND错误。<br>格式：”file:///android_asset/xxx.html”</p>
+</blockquote>
+<h1 id="示例-Android与JS相互传递数据"><a href="#示例-Android与JS相互传递数据" class="headerlink" title="示例 - Android与JS相互传递数据"></a>示例 - Android与JS相互传递数据</h1><blockquote>
+<p>JS传递数据给Android还是调用Android中的方法<br>实现效果<br>Android传递数据给JS,JS调用Android中的方法并显示该数据。<br>JS通过window.接口对象.方法的方式来调用Android中的方法。<br>Android通过webView.loadUrl(“javascript:方法(‘“参数”‘)”)来传递数据给JS。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TJDInfo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getMessageFromJS</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 用于接收JS传来的数据</span></span><br><span class="line">        Functions.toast(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中的代码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callJS</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    String msg = <span class="string">"Android传递数据给JS"</span>;</span><br><span class="line">    <span class="comment">//调用js中的函数：showInfoFromJava(msg)</span></span><br><span class="line">    webView.loadUrl(<span class="string">"javascript:showInfoFromJava('"</span> + msg + <span class="string">"')"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS与Android交互<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><br><span class="line">//在android代码中调用此方法</span><br><span class="line">function showInfoFromJava(msg)&#123;</span><br><span class="line">// 接收到android传来的数据，返回给Android并其方法显示数据</span><br><span class="line">// 各种代码XXXXX处理后，调用android方法返回数据</span><br><span class="line">window.tjd.getMessageFromJS(msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/10/15/WebView/">WebView学习笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
+        <p><span>发布时间:</span>2016年10月15日 - 22时05分</p>
+        <p><span>最后更新:</span>2016年10月16日 - 01时15分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/15/WebView/" title="WebView学习笔记">http://TanJunDang.github.io/2016/10/15/WebView/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/10/15/WebView/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/10/09/TabLayout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          TabLayout笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/01/Android-Permission/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android6.0权限</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WebView基础知识"><span class="toc-number">1.</span> <span class="toc-text">WebView基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-简单实用WebView"><span class="toc-number">2.</span> <span class="toc-text">示例 - 简单实用WebView</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-WebView与JS交互"><span class="toc-number">3.</span> <span class="toc-text">示例 - WebView与JS交互</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-Android与JS相互传递数据"><span class="toc-number">4.</span> <span class="toc-text">示例 - Android与JS相互传递数据</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/10/15/WebView/" data-title="WebView学习笔记" data-url="TanJunDang.github.io/2016/10/15/WebView/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TanJunDang"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+		ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/09/TabLayout/" title="上一篇: TabLayout笔记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/11/01/Android-Permission/" title="下一篇: Android6.0权限">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/TabLayout/">TabLayout笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 TanJunDang
+            </div>
+		<!--
+      <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+      </div>
+		-->
+
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 5;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  </div>
+</body>
+</html>

@@ -176,6 +176,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Notification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/03/Notification/" class="article-date">
+      <time datetime="2015-10-03T09:34:10.000Z" itemprop="datePublished">2015-10-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/03/Notification/">Notification笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Notification基本知识"><a href="#Notification基本知识" class="headerlink" title="Notification基本知识"></a>Notification基本知识</h1><blockquote>
+<p>Notification.Builder类 用于设置消息的标题、内容、图标等信息。<br>NotificationManager类 用于发送、取消通知。</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNVBGcXdIb1RYRVlPQ01QTklRWFVLbWNSR01HNW56ZFJIbmxSVExnZ3YySTV3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="示例-Notification基本使用"><a href="#示例-Notification基本使用" class="headerlink" title="示例 - Notification基本使用"></a>示例 - Notification基本使用</h1><blockquote>
+<p>由于getNotificatoin()方法已经过时，因此要实现Notification就用Notification.Builder()的build方法。<br>示例代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">Notification notification = <span class="keyword">new</span> Notification.Builder(SettingActivity.<span class="keyword">this</span>)</span><br><span class="line">       .setContentTitle(<span class="string">"版本更新"</span>)<span class="comment">//设置标题</span></span><br><span class="line">       .setSmallIcon(R.mipmap.ic_launcher)<span class="comment">//图标</span></span><br><span class="line">       .setContentInfo(<span class="string">"GDPC"</span>)<span class="comment">//设置右边的小提示</span></span><br><span class="line">       .setAutoCancel(<span class="keyword">false</span>) <span class="comment">// 设置点击取消（貌似无效）</span></span><br><span class="line">       .setTicker(<span class="string">"有新版本了"</span>) <span class="comment">//状态栏显示收到的消息</span></span><br><span class="line">       .setDefaults(Notification.DEFAULT_VIBRATE)<span class="comment">//设置震动</span></span><br><span class="line">       .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)) <span class="comment">//设置声音</span></span><br><span class="line">       .build();</span><br><span class="line">manager.notify(<span class="number">0</span>,notification); <span class="comment">// 发送通知</span></span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notification笔记/">Notification笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/03/Notification/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-VersionUpdate" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -775,74 +844,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/08/Git/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ListView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/01/ListView/" class="article-date">
-      <time datetime="2015-09-01T00:48:29.000Z" itemprop="datePublished">2015-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/01/ListView/">ListView的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ListView的基本使用"><a href="#ListView的基本使用" class="headerlink" title="ListView的基本使用"></a>ListView的基本使用</h1><h2 id="ListView-分割线"><a href="#ListView-分割线" class="headerlink" title="ListView 分割线"></a>ListView 分割线</h2><ul>
-<li>在divider 为颜色 时 需设置dividerHeight</li>
-</ul>
-<h2 id="如何取消分割线"><a href="#如何取消分割线" class="headerlink" title="如何取消分割线"></a>如何取消分割线</h2><ul>
-<li>在java中取消  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listView.setDividerHeight(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">listView.setDivider(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ListView/">ListView</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/01/ListView/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

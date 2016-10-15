@@ -302,6 +302,198 @@
 
 
   
+    <article id="post-WebView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/15/WebView/" class="article-date">
+      <time datetime="2016-10-15T14:05:41.000Z" itemprop="datePublished">2016-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/15/WebView/">WebView学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="WebView基础知识"><a href="#WebView基础知识" class="headerlink" title="WebView基础知识"></a>WebView基础知识</h1><blockquote>
+<p>理解<br>webView可以理解为一个加载url页面的控件。可与js交互。<br>Android与JS的交互需要通过接口实例化的对象进行。<br>webView调用loadUrl的方式<br>1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数<br>2.mWebView.loadUrl(“file:///android_asset/index.html”);// 调用本地assets目录下的html文件，也可以直接调用网上的html文件。<br>重定向是什么？加载网页的时候，网页设置了重定向，即你要跳转的url被重新修改，使你跳转的新的URL。例如你要跳转www.baidu.com，百度会重定向使你跳转www.m.baidu.com<br>webView相关的API有WebChromeClient、WebViewClient、WebSetting三个。详细见下表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebChromeClient</td>
+<td>获取网页中的信息(标题、图标)、加载进度、处理js对话框等</td>
+<td>重写onReceivedTitle获取网页标题</td>
+</tr>
+<tr>
+<td>WebViewClient</td>
+<td>处理WebView的通知、请求事件 <br> <font color="#1abc9c"> 如果不创建该对象，则会调用系统自带的浏览器启动新的页面 </font></td>
+<td>重写shouldOverrideUrlLoading由WebView处理新的url</td>
+</tr>
+<tr>
+<td>WebSettings</td>
+<td>配置webView、设置自适应屏幕、支持缩放、支持js交互等</td>
+<td>setBuiltInZoomControls设置支持缩放</td>
+</tr>
+<tr>
+<td>WebView</td>
+<td>加载url、跳转页面顶部、设置是否显示滚动条</td>
+<td>setScrollY(0)回到页面顶部</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebChromeClient常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onReceivedTitle(WebView view, String title)</td>
+<td>获取网页中的标题</td>
+</tr>
+<tr>
+<td>onReceivedIcon(WebView view, Bitmap icon)</td>
+<td>获取网页中的图标</td>
+</tr>
+<tr>
+<td>onProgressChanged(WebView view,int newProgress)</td>
+<td>获取网页加载的进度</td>
+</tr>
+<tr>
+<td>onJsAlert(WebView view,String url,String message,JsResult result)</td>
+<td>处理js中的Alert对话框</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebViewClient常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shouldOverrideUrlLoading(WebView view,String url)</td>
+<td>加载新页面时的回调 <br> 返回true 页面任何点击无效，需要对WebView、url进行处理，通常是调用loadUrl加载页面，与返回false没什么不同，所以一般不重写 。或者需要通过浏览器来启动时，则需要返回true <br> 返回false(默认) 则调用webView处理新的页面</td>
+</tr>
+<tr>
+<td>onPageStared(WebView view,String url)</td>
+<td>页面开始加载时的回调</td>
+</tr>
+<tr>
+<td>onPageFinished(WebView view,String url,Bitmap favicon)</td>
+<td>页面加载结束的回调</td>
+</tr>
+<tr>
+<td>onScaleChanged(WebView view,float oldScale,float newScale)</td>
+<td>缩放页面时的回调</td>
+</tr>
+<tr>
+<td>onReceivedError(WebView view,int errorCode,String description,String failingUrl)</td>
+<td>网页错误的时候回调，可获取错误信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>WebSettings常用方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setUseWideViewPort(true)  <br> setLoadWithOverviewMode(true)</td>
+<td>将图片调整到适合webview的大小 <br> 缩放至屏幕的大小 <br> 两句结合使用使页面自适应屏幕</td>
+</tr>
+<tr>
+<td>setBuiltInZoomControls(boolean)</td>
+<td>设置是否支持缩放</td>
+</tr>
+<tr>
+<td><font color="#3498db">setSupportZoom(boolean) </font></td>
+<td>这方法好像没什么用，但是如果设置了false，setBuiltInZoomControls变无效</td>
+</tr>
+<tr>
+<td>webSettings.setJavaScriptEnabled(true) <br> webSettings.setDefaultTextEncodingName(“UTF-8”)</td>
+<td>设置webview允许调用js</td>
+</tr>
+</tbody>
+</table>
+<h1 id="示例-简单实用WebView"><a href="#示例-简单实用WebView" class="headerlink" title="示例 - 简单实用WebView"></a>示例 - 简单实用WebView</h1><blockquote>
+<p>设置默认加载方式</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">webView.loadUrl(<span class="string">"https://zhidao.baidu.com/"</span>);</span><br><span class="line">  webView.setWebChromeClient(<span class="keyword">new</span> WebChromeClient() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgressChanged</span><span class="params">(WebView view, <span class="keyword">int</span> newProgress)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">          tvProgress.setText(String.format(<span class="string">"加载进度：%d"</span>, newProgress));</span><br><span class="line">          LogTool.e(<span class="string">"TAG"</span>, newProgress + <span class="string">""</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceivedTitle</span><span class="params">(WebView view, String title)</span> </span>&#123;</span><br><span class="line">          getSupportActionBar().setTitle(title);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="comment">//若设置了webViewClient，则从webView启动新的页面，没设置则启动浏览器来加载url</span></span><br><span class="line">  webView.setWebViewClient(<span class="keyword">new</span> WebViewClient() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageStarted</span><span class="params">(WebView view, String url, Bitmap favicon)</span> </span>&#123;</span><br><span class="line">          tvProgress.setVisibility(View.VISIBLE);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">          tvProgress.setVisibility(View.GONE);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  WebSettings settings = webView.getSettings();</span><br><span class="line">  settings.setUseWideViewPort(<span class="keyword">true</span>);<span class="comment">//设定支持viewport</span></span><br><span class="line">  settings.setLoadWithOverviewMode(<span class="keyword">true</span>);   <span class="comment">//两句结合使用使页面自适应屏幕</span></span><br><span class="line"></span><br><span class="line">  settings.setBuiltInZoomControls(<span class="keyword">true</span>);<span class="comment">//设定支持缩放</span></span><br><span class="line">  settings.setDisplayZoomControls(<span class="keyword">true</span>);<span class="comment">//是否显示缩放按钮 true为显示</span></span><br><span class="line"><span class="comment">//settings.setSupportZoom(true);//这方法没什么用，但是如果设置为false 则上述setBuiltInZoomControls无效</span></span><br></pre></td></tr></table></figure>
+<h1 id="示例-WebView与JS交互"><a href="#示例-WebView与JS交互" class="headerlink" title="示例 - WebView与JS交互"></a>示例 - WebView与JS交互</h1><blockquote>
+<p>实现效果<br>JS中点击按钮调用Android中的方法<br>使用步骤<br>1.定义交互接口。被JS调用的方法需要添加JavascriptInterface注解。<br>2.在Activity中，设置允许加载js文件。设置解码方式，然后webView添加接口。<br>3.js文件需要利用交互接口的对象调用其方法即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Android中定义的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TJDInfo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Context context;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TJDInfo</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.context = context;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加JavascriptInterface注解，否则JS无法调用</span></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showTJDMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DialogTool.getInstance().showDialog((AppCompatActivity) context, <span class="string">"JS与Android交互"</span>, <span class="string">""</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                Functions.toast(<span class="string">"JS调用Android方法成功"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中的代码</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String LOCAL_URL = <span class="string">"file:///android_asset/jsweb.html"</span>;</span><br><span class="line"><span class="keyword">private</span> WebView webView;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    setContentView(R.layout.activity_jsweb_view);</span><br><span class="line">    webView = (WebView) findViewById(R.id.webView);</span><br><span class="line">    WebSettings webSettings = webView.getSettings();</span><br><span class="line">    webSettings.setJavaScriptEnabled(<span class="keyword">true</span>);<span class="comment">//允许WebView加载JS</span></span><br><span class="line">    webSettings.setDomStorageEnabled(<span class="keyword">true</span>);</span><br><span class="line">    webSettings.setDefaultTextEncodingName(<span class="string">"UTF-8"</span>);<span class="comment">//设置编码</span></span><br><span class="line">    webView.addJavascriptInterface(<span class="keyword">new</span> TJDInfo(<span class="keyword">this</span>), <span class="string">"tjd"</span>);<span class="comment">//添加接口及实例化接口。第二个参数为对象的引用，JS中需要通过该引用来调用方法</span></span><br><span class="line">    webView.loadUrl(LOCAL_URL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 本地Html中的代码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS与Android交互<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"启动对话框"</span> <span class="attr">onclick</span>=<span class="string">"tjd.showTJDMsg();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>过程中遇到的问题<br>加载本地Html，assets目录不是在res下，而是在main中。放错位置会导致net::FINE_ERR_NOT_FOUND错误。<br>格式：”file:///android_asset/xxx.html”</p>
+</blockquote>
+<h1 id="示例-Android与JS相互传递数据"><a href="#示例-Android与JS相互传递数据" class="headerlink" title="示例 - Android与JS相互传递数据"></a>示例 - Android与JS相互传递数据</h1><blockquote>
+<p>JS传递数据给Android还是调用Android中的方法<br>实现效果<br>Android传递数据给JS,JS调用Android中的方法并显示该数据。<br>JS通过window.接口对象.方法的方式来调用Android中的方法。<br>Android通过webView.loadUrl(“javascript:方法(‘“参数”‘)”)来传递数据给JS。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TJDInfo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getMessageFromJS</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 用于接收JS传来的数据</span></span><br><span class="line">        Functions.toast(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中的代码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">callJS</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    String msg = <span class="string">"Android传递数据给JS"</span>;</span><br><span class="line">    <span class="comment">//调用js中的函数：showInfoFromJava(msg)</span></span><br><span class="line">    webView.loadUrl(<span class="string">"javascript:showInfoFromJava('"</span> + msg + <span class="string">"')"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS与Android交互<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><br><span class="line">//在android代码中调用此方法</span><br><span class="line">function showInfoFromJava(msg)&#123;</span><br><span class="line">// 接收到android传来的数据，返回给Android并其方法显示数据</span><br><span class="line">// 各种代码XXXXX处理后，调用android方法返回数据</span><br><span class="line">window.tjd.getMessageFromJS(msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebView学习笔记/">WebView学习笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-TabLayout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -784,68 +976,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/17/RecyclerView/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ItemBean" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/16/ItemBean/" class="article-date">
-      <time datetime="2016-08-16T03:09:28.000Z" itemprop="datePublished">2016-08-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0NXTko3QXc0VjEwR25GTTd6eWZMOGlST1JFQ05nTXBrdXQ0emNrQ1krWmlnPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg%7Cwatermark&amp;type=2&amp;text=wqkgVGFuSnVuRGFuZyAvIHRhbmp1bmRhbmcubG9mdGVyLmNvbQ==&amp;font=bXN5aA==&amp;gravity=southwest&amp;dissolve=30&amp;fontsize=240&amp;dx=8&amp;dy=10&amp;stripmeta=0" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码分析-ItemBean/">代码分析 - ItemBean</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工厂模式/">工厂模式</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/16/ItemBean/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
