@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LayoutInflater的理解 | TanJunDang</title>
+  <title>Android6.0权限 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
+  <meta name="description" content="Android6.0 权限">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LayoutInflater的理解">
-<meta property="og:url" content="TanJunDang.github.io/2016/01/13/LayoutInflater/index.html">
+<meta property="og:title" content="Android6.0权限">
+<meta property="og:url" content="TanJunDang.github.io/2016/10/09/Android-Permission/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
-<meta property="og:updated_time" content="2016-08-25T10:12:24.000Z">
+<meta property="og:description" content="Android6.0 权限">
+<meta property="og:updated_time" content="2016-10-16T07:35:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LayoutInflater的理解">
-<meta name="twitter:description" content="LayoutInflater的inflate方法分析12345678910111213inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);View view = inflater.inflate(R.layout.button_layout, main_layout);View view = inflater.inflate(R.layout.button_l">
+<meta name="twitter:title" content="Android6.0权限">
+<meta name="twitter:description" content="Android6.0 权限">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -172,11 +172,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-Permission" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/13/LayoutInflater/" class="article-date">
-      <time datetime="2016-01-13T08:19:33.000Z" itemprop="datePublished">2016-01-13</time>
+      <a href="/2016/10/09/Android-Permission/" class="article-date">
+      <time datetime="2016-10-09T12:43:42.000Z" itemprop="datePublished">2016-10-09</time>
 </a>
     </div>
   
@@ -189,7 +189,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LayoutInflater的理解
+      Android6.0权限
     </h1>
   
 
@@ -200,7 +200,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LayoutInflater/">LayoutInflater</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android6-0权限/">Android6.0权限</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -210,13 +210,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="LayoutInflater的inflate方法分析"><a href="#LayoutInflater的inflate方法分析" class="headerlink" title="LayoutInflater的inflate方法分析"></a>LayoutInflater的inflate方法分析</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inflater.inflate(待加载布局,给该布局嵌套一个父布局,是否加载到父布局);</span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout);</span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//加载一个布局到父布局,不填写参数、默认为true 上面两句代码效果一样</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, main_layout,<span class="keyword">false</span>);</span><br><span class="line"><span class="comment">//不加载到父布局，但是使用父布局的属性。若要加载需要通过父布局addView的方法加载</span></span><br><span class="line"></span><br><span class="line">View view = inflater.inflate(R.layout.button_layout, <span class="keyword">null</span>,<span class="keyword">true</span>);</span><br><span class="line">父布局调用addView后，view的宽高不会显示自己的属性，而是用父布局的属性。</span><br><span class="line"></span><br><span class="line"><span class="comment">//父布局为null,后面的参数无效</span></span><br></pre></td></tr></table></figure>
-<p>自定义View</p>
-<p>分析Adatper里的一句代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i , View view , ViewGroup parent)</span></span>&#123;</span><br><span class="line">	view = inflater.inflate(R.layout.list_item, parent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>1.view 是指list_item里面的根标签<br>2.parent 是指外部使用该Item的控件，即ListView<br>3.由于adapter默认就是要将View加入到ViewGroup里，所以设置第三个参数是无效的。</p>
-</blockquote>
+        <h1 id="Android6-0-权限"><a href="#Android6-0-权限" class="headerlink" title="Android6.0 权限"></a>Android6.0 权限</h1><a id="more"></a>
+<h1 id="Permission工具类封装"><a href="#Permission工具类封装" class="headerlink" title="Permission工具类封装"></a>Permission工具类封装</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Developer: TanJunDang</span><br><span class="line"> * Email: TanJunDang324@gmail.com</span><br><span class="line"> * Date: 2016/9/28</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PermissionTool</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Context appContext;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> REQ_CODE = <span class="number">0xff</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> View.OnClickListener dealSuccess;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//静态内部类内部类里面实例化</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> PermissionTool INSTANCE = <span class="keyword">new</span> PermissionTool();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PermissionTool <span class="title">getInstance</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        appContext = context;</span><br><span class="line">        <span class="keyword">return</span> Holder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> permissionList 权限集合</span><br><span class="line">     * <span class="doctag">@param</span> dealSuccess    成功获取所有权限后的处理</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestPermissions</span><span class="params">(ArrayList&lt;String&gt; permissionList, View.OnClickListener dealSuccess)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dealSuccess = dealSuccess;</span><br><span class="line">        <span class="keyword">if</span> (checkPermissions(permissionList).isEmpty()) &#123;</span><br><span class="line">            dealSuccess.onClick(<span class="keyword">new</span> View(appContext));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ActivityCompat.requestPermissions((Activity) appContext, (String[]) permissionList.toArray(<span class="keyword">new</span> String[permissionList.size()]), REQ_CODE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 检测需要请求的权限</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> permissionList</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title">checkPermissions</span><span class="params">(ArrayList&lt;String&gt; permissionList)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; requestPermissions = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissionList.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ActivityCompat.checkSelfPermission(appContext, permissionList.get(i)) == PackageManager.PERMISSION_DENIED) &#123;</span><br><span class="line">                requestPermissions.add(permissionList.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> requestPermissions;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 返回拒绝的权限</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> permissions</span><br><span class="line">     * <span class="doctag">@param</span> grantResults</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ArrayList <span class="title">permissionDenyList</span><span class="params">(String[] permissions, <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">        ArrayList permissionDeny = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissions.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (grantResults[i] == PackageManager.PERMISSION_DENIED) &#123;</span><br><span class="line">                permissionDeny.add(permissions[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> permissionDeny;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 处理多个权限</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> permissionList</span><br><span class="line">     * <span class="doctag">@param</span> requestCode</span><br><span class="line">     * <span class="doctag">@param</span> permissions</span><br><span class="line">     * <span class="doctag">@param</span> grantResults</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">final</span> ArrayList&lt;String&gt; permissionList, <span class="keyword">final</span> <span class="keyword">int</span> requestCode, <span class="keyword">final</span> String[] permissions, <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">        permissionList.clear();</span><br><span class="line">        <span class="keyword">if</span> (requestCode == PermissionTool.REQ_CODE) &#123;</span><br><span class="line">            <span class="keyword">if</span> (permissionDenyList(permissions, grantResults).isEmpty()) &#123;</span><br><span class="line">                dealSuccess.onClick(<span class="keyword">new</span> View(appContext));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                permissionList.addAll(permissionDenyList(permissions, grantResults));</span><br><span class="line">                <span class="keyword">if</span> (isAllPermissionNoLongerDisplay(permissionList)) &#123;</span><br><span class="line">                    DialogTool.getInstance().showDialog((AppCompatActivity) appContext, <span class="string">""</span>, <span class="string">"需要给予相关的权限才能使用该功能"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                        <span class="meta">@Override</span></span><br><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                            Functions.SkipToAppDetail();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (permissions.length == <span class="number">1</span> &amp;&amp; !permissionList.isEmpty()) &#123;</span><br><span class="line">                    DialogTool.getInstance().showDialog((AppCompatActivity) appContext, <span class="string">"必须设置权限才能正常使用该功能"</span>, <span class="keyword">null</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                        <span class="meta">@Override</span></span><br><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                            ActivityCompat.requestPermissions((Activity) appContext, <span class="keyword">new</span> String[]&#123;permissions[<span class="number">0</span>]&#125;, requestCode);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, <span class="keyword">null</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Functions.toast(<span class="string">"必须给予相关的权限才能使用该功能"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 通过判断不再显示权限集合长度跟被拒绝集合长度是否一致来决定是否执行跳去设置页面</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> permissions</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAllPermissionNoLongerDisplay</span><span class="params">(ArrayList&lt;String&gt; permissions)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取所有点击了不再显示的权限</span></span><br><span class="line">        ArrayList&lt;String&gt; noLongerDisplayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissions.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!ActivityCompat.shouldShowRequestPermissionRationale((Activity) appContext, permissions.get(i))) &#123;</span><br><span class="line">                noLongerDisplayList.add(permissions.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//判断是否所有权限都不再显示</span></span><br><span class="line">        <span class="keyword">if</span> (noLongerDisplayList.size() == permissions.size()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/mengdd/p/4892856.html" target="_blank" rel="external">Android M Permission</a><br><a href="http://gold.xitu.io/post/57d5de3e2e958a00546a7465" target="_blank" rel="external">掘金</a></p>
 
       
     </div>
@@ -225,13 +221,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/09/Android-Permission/">Android6.0权限</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年01月13日 - 16时19分</p>
-        <p><span>最后更新:</span>2016年08月25日 - 18时12分</p>
+        <p><span>发布时间:</span>2016年10月09日 - 20时43分</p>
+        <p><span>最后更新:</span>2016年10月16日 - 15时35分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/13/LayoutInflater/" title="LayoutInflater的理解">http://TanJunDang.github.io/2016/01/13/LayoutInflater/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/01/13/LayoutInflater/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/09/Android-Permission/" title="Android6.0权限">http://TanJunDang.github.io/2016/10/09/Android-Permission/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/10/09/Android-Permission/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -241,18 +237,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/01/01/Style/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/09/TabLayout/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android - Theme(Style)
+          TabLayout笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/01/29/ImageUpload/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图片增加、删除</div>
+    <a href="/2016/10/15/WebView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebView学习笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -263,7 +259,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LayoutInflater的inflate方法分析"><span class="toc-number">1.</span> <span class="toc-text">LayoutInflater的inflate方法分析</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android6-0-权限"><span class="toc-number">1.</span> <span class="toc-text">Android6.0 权限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Permission工具类封装"><span class="toc-number">2.</span> <span class="toc-text">Permission工具类封装</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -314,7 +310,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/13/LayoutInflater/" data-title="LayoutInflater的理解" data-url="TanJunDang.github.io/2016/01/13/LayoutInflater/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/09/Android-Permission/" data-title="Android6.0权限" data-url="TanJunDang.github.io/2016/10/09/Android-Permission/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -338,13 +334,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/01/Style/" title="上一篇: Android - Theme(Style)">
+            <a href="/2016/10/09/TabLayout/" title="上一篇: TabLayout笔记">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/01/29/ImageUpload/" title="下一篇: 图片增加、删除">
+            <a href="/2016/10/15/WebView/" title="下一篇: WebView学习笔记">
                 <i class="fa fa-angle-right"></i>
             </a>
         
