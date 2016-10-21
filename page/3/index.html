@@ -558,11 +558,11 @@
 <tbody>
 <tr>
 <td>dispatchTouchEvent</td>
-<td>用来传递触摸event，一般不重写。</td>
+<td>用来传递触摸event，一般不重写。表示是否消费该事件，其返回值由onInterceptTouchEvent、onTouchEvent决定</td>
 </tr>
 <tr>
 <td>onInterceptTouchEvent</td>
-<td>用来拦截触摸event，在ViewGroup才有。</td>
+<td>用来拦截触摸event，只有ViewGroup才有。默认返回false</td>
 </tr>
 <tr>
 <td>onTouchEvent</td>
@@ -570,6 +570,8 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>onInterceptTouchEvent跟onTouchEvent都在dispatchTouchEvent的内部。<br>
           
       
     </div>
