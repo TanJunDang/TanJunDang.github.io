@@ -3,23 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android-代码优化技巧 | TanJunDang</title>
+  <title>Socket学习笔记 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
+  <meta name="description" content="Socket基础知识
+Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。
+
+Socket通信步骤
+1.连接服务器 - 连接方式分构造函数、connect方法两种。2.发送和接收数据 - 涉及Out(In)putStream、BufferWriter(Reader)读取流的方式。3.关闭连接 - 调用各种流的close方法。
+
+Socket的连接方式
+S">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android-代码优化技巧">
-<meta property="og:url" content="TanJunDang.github.io/2016/04/06/CodeOptimize/index.html">
+<meta property="og:title" content="Socket学习笔记">
+<meta property="og:url" content="TanJunDang.github.io/2016/10/24/Socket/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
-<meta property="og:image" content="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-06-08T03:54:34.000Z">
+<meta property="og:description" content="Socket基础知识
+Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。
+
+Socket通信步骤
+1.连接服务器 - 连接方式分构造函数、connect方法两种。2.发送和接收数据 - 涉及Out(In)putStream、BufferWriter(Reader)读取流的方式。3.关闭连接 - 调用各种流的close方法。
+
+Socket的连接方式
+S">
+<meta property="og:updated_time" content="2016-10-24T17:19:23.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android-代码优化技巧">
-<meta name="twitter:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
-<meta name="twitter:image" content="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="Socket学习笔记">
+<meta name="twitter:description" content="Socket基础知识
+Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。
+
+Socket通信步骤
+1.连接服务器 - 连接方式分构造函数、connect方法两种。2.发送和接收数据 - 涉及Out(In)putStream、BufferWriter(Reader)读取流的方式。3.关闭连接 - 调用各种流的close方法。
+
+Socket的连接方式
+S">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -177,11 +193,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-CodeOptimize" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/06/CodeOptimize/" class="article-date">
-      <time datetime="2016-04-06T10:13:44.000Z" itemprop="datePublished">2016-04-06</time>
+      <a href="/2016/10/24/Socket/" class="article-date">
+      <time datetime="2016-10-24T02:44:19.000Z" itemprop="datePublished">2016-10-24</time>
 </a>
     </div>
   
@@ -194,7 +210,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android-代码优化技巧
+      Socket学习笔记
     </h1>
   
 
@@ -205,7 +221,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket学习笔记/">Socket学习笔记</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -215,56 +231,73 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
-<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
-</ul>
-<a id="more"></a>
-<h3 id="ListView-选中优化"><a href="#ListView-选中优化" class="headerlink" title="ListView 选中优化"></a>ListView 选中优化</h3><ul>
-<li><p>点击选中代码优化</p>
-<ul>
-<li>原代码：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">convertView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            User user = (User) v.getTag(dataTag);</span><br><span class="line">            selectedUser = user;</span><br><span class="line">            selectItem.clear();</span><br><span class="line">            selectItem.add(selectedUser); <span class="comment">//保存到集合中</span></span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (selectItem.contains(user)) &#123; <span class="comment">//通过集合判断是否包含该选项从而做相应的处理</span></span><br><span class="line">    holder.ivCheck.setVisibility(View.VISIBLE);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    holder.ivCheck.setVisibility(View.GONE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>* 优化后：
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">convertView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            User user = (User) v.getTag(dataTag);</span><br><span class="line">            selectedUser = user; <span class="comment">//直接用实体保存</span></span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：集合方式比较适用于多选模式或者混合模式，实体模式适用于单选模式。</li>
-</ul>
-<h3 id="相同样式使用共同布局"><a href="#相同样式使用共同布局" class="headerlink" title="相同样式使用共同布局"></a>相同样式使用共同布局</h3><ul>
-<li><p>目的要求</p>
-<p>  <img src="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-<li><p>思路</p>
-<ul>
-<li>数据跟布局结合组成可见的ItemView。</li>
-<li>数据：每个Item都由Title、Value、Arrow组成,所以新建一个类MsgItemBean，用于统一初始化数据。</li>
-<li>布局：每个Item都共用同一布局，所以可采用Holder的方式来FindId。</li>
-</ul>
-</li>
-</ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><ul>
-<li><p>布局文件都是通过inclucde的方式加载同一布局,这里就不贴出布局代码了。</p>
-</li>
-<li><p>Bean类</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MsgItemBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> ARROW_DISABLE = <span class="number">0</span>; <span class="comment">//不显示箭头</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> ARROW_ENABLE = R.drawable.common_right_light_gray_arrow; <span class="comment">//默认箭头</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> titleResId; <span class="comment">//标题的资源id</span></span><br><span class="line">    <span class="keyword">private</span> String value;<span class="comment">//值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> arrowResId; <span class="comment">//箭头</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hintResId; <span class="comment">//值空的时候的提示</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgItemBean</span><span class="params">(<span class="keyword">int</span> titleResId, <span class="keyword">int</span> hintResId, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(titleResId, hintResId, value, ARROW_ENABLE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgItemBean</span><span class="params">(<span class="keyword">int</span> titleResId, <span class="keyword">int</span> hintResId, String value, <span class="keyword">int</span> arrowResId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.titleResId = titleResId;</span><br><span class="line">        <span class="keyword">this</span>.hintResId = hintResId;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>.arrowResId = arrowResId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">........<span class="comment">//get、set方法</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Holder类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MsgHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> View rootview;</span><br><span class="line">    <span class="keyword">public</span> TextView tvTitle;</span><br><span class="line">    <span class="keyword">public</span> TextView tvValue;</span><br><span class="line">    <span class="keyword">public</span> ImageView ivArrow;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootview = itemView;</span><br><span class="line">        tvTitle = (TextView) rootview.findViewById(R.id.tvTitle);</span><br><span class="line">        tvValue = (TextView) rootview.findViewById(R.id.tvValue);</span><br><span class="line">        ivArrow = (ImageView) rootview.findViewById(R.id.ivArrow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建共用初始化方法</li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//传入一个layout跟数据即可显示View</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initItemView</span><span class="params">(ViewGroup layout, MsgItemBean data)</span> </span>&#123;</span><br><span class="line">    MsgHolder holder = <span class="keyword">new</span> ProfileHolder(layout);</span><br><span class="line">    holder.tvTitle.setText(data.getTitleResId());</span><br><span class="line">    holder.tvValue.setHint(data.getHintResId());</span><br><span class="line">    holder.tvValue.setText(data.getValue());</span><br><span class="line">    <span class="keyword">if</span> (data.getArrowResId() != <span class="number">0</span>) &#123;</span><br><span class="line">        holder.ivArrow.setVisibility(View.VISIBLE);</span><br><span class="line">        holder.ivArrow.setImageResource(R.drawable.common_right_light_gray_arrow);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        holder.ivArrow.setVisibility(View.GONE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实际使用</p>
-</li>
-</ul>
-<pre><code class="java">
-initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.common_text_phone, R.string.common_text_phone, “<span class="number">13631450006</span>”, ProfileItemBean.ARROW_DISABLE));
-</code></pre>
+        <h1 id="Socket基础知识"><a href="#Socket基础知识" class="headerlink" title="Socket基础知识"></a>Socket基础知识</h1><blockquote>
+<p>Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。</p>
+</blockquote>
+<h2 id="Socket通信步骤"><a href="#Socket通信步骤" class="headerlink" title="Socket通信步骤"></a>Socket通信步骤</h2><blockquote>
+<p>1.连接服务器 - 连接方式分构造函数、connect方法两种。<br>2.发送和接收数据 - 涉及Out(In)putStream、BufferWriter(Reader)读取流的方式。<br>3.关闭连接 - 调用各种流的close方法。</p>
+</blockquote>
+<h2 id="Socket的连接方式"><a href="#Socket的连接方式" class="headerlink" title="Socket的连接方式"></a>Socket的连接方式</h2><blockquote>
+<p>Socket连接服务端的方式分为构造函数、connect方法两种。</p>
+</blockquote>
+<h3 id="示例-构造函数方式"><a href="#示例-构造函数方式" class="headerlink" title="示例 - 构造函数方式"></a>示例 - 构造函数方式</h3><blockquote>
+<p>Socket(String host , int port)//参数分别服务端主机地址、端口</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送数据到www.baidu.com的1993端口</span></span><br><span class="line">Socket socket = <span class="keyword">new</span> Socket(<span class="string">"www.baidu.com"</span>,<span class="number">1993</span>);</span><br><span class="line">OutputStream os = socket.getOutputStream();</span><br><span class="line">OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(os);</span><br><span class="line">BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line"></span><br><span class="line">bw.write(<span class="string">"hello world \r\n\r\n"</span>);<span class="comment">//"\r\n\r\n是结束标识"</span></span><br><span class="line">bw.flush();<span class="comment">//发送数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收返回的数据</span></span><br><span class="line">InputStream is = socket.getInputStream();</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">String msg = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">while</span>((msg=br.readLine())!=<span class="keyword">null</span>)&#123;</span><br><span class="line">  Log.d(<span class="string">"TJD"</span>,msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+<h3 id="示例-connect方法"><a href="#示例-connect方法" class="headerlink" title="示例 - connect方法"></a>示例 - connect方法</h3><blockquote>
+<p>使用connect方法必须通过Socket的无参构造函数来创建对象。<br>connect(SocketAddress add)//参数为SocketAddress,该类封装了主机地址以及端口<br>connect(SocketAddress add ,int timeout)//第二个参数是超时参数、默认为0</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket socket = <span class="keyword">new</span> Socket();</span><br><span class="line">socket.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"www.baidu.com"</span>,<span class="number">1993</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="Socket常用的方法"><a href="#Socket常用的方法" class="headerlink" title="Socket常用的方法"></a>Socket常用的方法</h2><table>
+<thead>
+<tr>
+<th>Socket常用方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isClosed()</td>
+<td>判断Socket对象是否处于关闭状态 <br> true - 关闭 false - 连接</td>
+</tr>
+<tr>
+<td>isConnected()</td>
+<td>判断Socket对象是否成功连接过 <br></td>
+</tr>
+<tr>
+<td>(!isClosed() &amp;&amp; isConnected())</td>
+<td>判断socket对象是否处于连接状态</td>
+</tr>
+<tr>
+<td>getInetAddress()</td>
+<td>返回一个InetAddress对象，通过该对象可获取服务器IP，Port等信息</td>
+</tr>
+<tr>
+<td>getLocalAddress()</td>
+<td>返回一个InetAddress对象，通过该对象可获取本机的IP，port等信息</td>
+</tr>
+<tr>
+<td>getInputStream()、getOutputStream()</td>
+<td>输入输出流，用于接收和发送数据</td>
+</tr>
+<tr>
+<td>setReuseAddress(boolean on)</td>
+<td>当多个socket绑定一个端口时，需要调用setReuseAddress(true),否则会出Bind异常</td>
+</tr>
+<tr>
+<td>setSoLinger(boolean on,int linger)</td>
+<td>当socket关闭时，若还没有发送完数据，则阻塞linger秒，从而尽量把数据发完</td>
+</tr>
+<tr>
+<td>setTimeOut(int timeout)</td>
+<td>设置读取数据超时，单位毫秒</td>
+</tr>
+<tr>
+<td>setKeepAlive(boolean on)</td>
+<td>该方法用于检测Socket是否处于活动状态，客户端Socket每隔一段时间利用空闲的时间向服务器发送一个检测数据包，如果服务器未响应该数据包，在几分钟后，客户端socket再发一个数据包，若服务器还没响应，则客户端Socket关闭。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -273,13 +306,13 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/24/Socket/">Socket学习笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年04月06日 - 18时13分</p>
-        <p><span>最后更新:</span>2016年06月08日 - 11时54分</p>
+        <p><span>发布时间:</span>2016年10月24日 - 10时44分</p>
+        <p><span>最后更新:</span>2016年10月25日 - 01时19分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/06/CodeOptimize/" title="Android-代码优化技巧">http://TanJunDang.github.io/2016/04/06/CodeOptimize/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/04/06/CodeOptimize/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/24/Socket/" title="Socket学习笔记">http://TanJunDang.github.io/2016/10/24/Socket/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/10/24/Socket/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -289,20 +322,15 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
 <nav id="article-nav">
   
-    <a href="/2016/04/05/EventBus/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/22/ScrollView/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          EventBus学习笔记
+          ScrollView学习笔记
         
       </div>
     </a>
   
-  
-    <a href="/2016/04/11/Handler/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Handler机制</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -311,7 +339,7 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView-textColor优化"><span class="toc-number">1.</span> <span class="toc-text">TextView textColor优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView-选中优化"><span class="toc-number">2.</span> <span class="toc-text">ListView 选中优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相同样式使用共同布局"><span class="toc-number">3.</span> <span class="toc-text">相同样式使用共同布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实例"><span class="toc-number">3.1.</span> <span class="toc-text">实例</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Socket基础知识"><span class="toc-number">1.</span> <span class="toc-text">Socket基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket通信步骤"><span class="toc-number">1.1.</span> <span class="toc-text">Socket通信步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket的连接方式"><span class="toc-number">1.2.</span> <span class="toc-text">Socket的连接方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#示例-构造函数方式"><span class="toc-number">1.2.1.</span> <span class="toc-text">示例 - 构造函数方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例-connect方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">示例 - connect方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket常用的方法"><span class="toc-number">1.3.</span> <span class="toc-text">Socket常用的方法</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -362,7 +390,7 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/06/CodeOptimize/" data-title="Android-代码优化技巧" data-url="TanJunDang.github.io/2016/04/06/CodeOptimize/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/24/Socket/" data-title="Socket学习笔记" data-url="TanJunDang.github.io/2016/10/24/Socket/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -386,15 +414,13 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/05/EventBus/" title="上一篇: EventBus学习笔记">
+            <a href="/2016/10/22/ScrollView/" title="上一篇: ScrollView学习笔记">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/04/11/Handler/" title="下一篇: Handler机制">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/TabLayout/">TabLayout笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Widgets学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/InterView/">天工面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>

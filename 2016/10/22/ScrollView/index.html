@@ -3,23 +3,63 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android-代码优化技巧 | TanJunDang</title>
+  <title>ScrollView学习笔记 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
+  <meta name="description" content="ScrollView基础知识
+理解该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。作用使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。
+
+
+
+
+ScrollView常用属性
+作用
+值
+示例
+
+
+
+
+android:overScrollMode=”never”
+设置滑动到边缘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android-代码优化技巧">
-<meta property="og:url" content="TanJunDang.github.io/2016/04/06/CodeOptimize/index.html">
+<meta property="og:title" content="ScrollView学习笔记">
+<meta property="og:url" content="TanJunDang.github.io/2016/10/22/ScrollView/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
-<meta property="og:image" content="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2016-06-08T03:54:34.000Z">
+<meta property="og:description" content="ScrollView基础知识
+理解该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。作用使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。
+
+
+
+
+ScrollView常用属性
+作用
+值
+示例
+
+
+
+
+android:overScrollMode=”never”
+设置滑动到边缘">
+<meta property="og:updated_time" content="2016-10-22T08:10:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android-代码优化技巧">
-<meta name="twitter:description" content="TextView textColor优化
-利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。">
-<meta name="twitter:image" content="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&thumbnail=250x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="ScrollView学习笔记">
+<meta name="twitter:description" content="ScrollView基础知识
+理解该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。作用使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。
+
+
+
+
+ScrollView常用属性
+作用
+值
+示例
+
+
+
+
+android:overScrollMode=”never”
+设置滑动到边缘">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -177,11 +217,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-CodeOptimize" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ScrollView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/06/CodeOptimize/" class="article-date">
-      <time datetime="2016-04-06T10:13:44.000Z" itemprop="datePublished">2016-04-06</time>
+      <a href="/2016/10/22/ScrollView/" class="article-date">
+      <time datetime="2016-10-22T02:44:19.000Z" itemprop="datePublished">2016-10-22</time>
 </a>
     </div>
   
@@ -194,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android-代码优化技巧
+      ScrollView学习笔记
     </h1>
   
 
@@ -205,7 +245,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-代码优化技巧/">Android-代码优化技巧</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScrollView学习笔记/">ScrollView学习笔记</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -215,56 +255,47 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="TextView-textColor优化"><a href="#TextView-textColor优化" class="headerlink" title="TextView textColor优化"></a>TextView textColor优化</h3><ul>
-<li>利用selector代替setBackgroundColor,在XM文件中通过@color/selector的方法来优化。</li>
-</ul>
-<a id="more"></a>
-<h3 id="ListView-选中优化"><a href="#ListView-选中优化" class="headerlink" title="ListView 选中优化"></a>ListView 选中优化</h3><ul>
-<li><p>点击选中代码优化</p>
-<ul>
-<li>原代码：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">convertView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            User user = (User) v.getTag(dataTag);</span><br><span class="line">            selectedUser = user;</span><br><span class="line">            selectItem.clear();</span><br><span class="line">            selectItem.add(selectedUser); <span class="comment">//保存到集合中</span></span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (selectItem.contains(user)) &#123; <span class="comment">//通过集合判断是否包含该选项从而做相应的处理</span></span><br><span class="line">    holder.ivCheck.setVisibility(View.VISIBLE);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    holder.ivCheck.setVisibility(View.GONE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>* 优化后：
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">convertView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            User user = (User) v.getTag(dataTag);</span><br><span class="line">            selectedUser = user; <span class="comment">//直接用实体保存</span></span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">holder.ivCheck.setVisibility(user.equals(selectedUser) ? View.VISIBLE : View.GONE);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：集合方式比较适用于多选模式或者混合模式，实体模式适用于单选模式。</li>
-</ul>
-<h3 id="相同样式使用共同布局"><a href="#相同样式使用共同布局" class="headerlink" title="相同样式使用共同布局"></a>相同样式使用共同布局</h3><ul>
-<li><p>目的要求</p>
-<p>  <img src="http://imglf0.nosdn0.126.net/img/U05xRllGZk4zNU9FdXJvUUM5QUNTSy9ha2RaSzg2UHROMFpUanRHWk1rYVpHN0QyT1A1YUV3PT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-</li>
-<li><p>思路</p>
-<ul>
-<li>数据跟布局结合组成可见的ItemView。</li>
-<li>数据：每个Item都由Title、Value、Arrow组成,所以新建一个类MsgItemBean，用于统一初始化数据。</li>
-<li>布局：每个Item都共用同一布局，所以可采用Holder的方式来FindId。</li>
-</ul>
-</li>
-</ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><ul>
-<li><p>布局文件都是通过inclucde的方式加载同一布局,这里就不贴出布局代码了。</p>
-</li>
-<li><p>Bean类</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MsgItemBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> ARROW_DISABLE = <span class="number">0</span>; <span class="comment">//不显示箭头</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> ARROW_ENABLE = R.drawable.common_right_light_gray_arrow; <span class="comment">//默认箭头</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> titleResId; <span class="comment">//标题的资源id</span></span><br><span class="line">    <span class="keyword">private</span> String value;<span class="comment">//值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> arrowResId; <span class="comment">//箭头</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hintResId; <span class="comment">//值空的时候的提示</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgItemBean</span><span class="params">(<span class="keyword">int</span> titleResId, <span class="keyword">int</span> hintResId, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(titleResId, hintResId, value, ARROW_ENABLE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgItemBean</span><span class="params">(<span class="keyword">int</span> titleResId, <span class="keyword">int</span> hintResId, String value, <span class="keyword">int</span> arrowResId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.titleResId = titleResId;</span><br><span class="line">        <span class="keyword">this</span>.hintResId = hintResId;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>.arrowResId = arrowResId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">........<span class="comment">//get、set方法</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Holder类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MsgHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> View rootview;</span><br><span class="line">    <span class="keyword">public</span> TextView tvTitle;</span><br><span class="line">    <span class="keyword">public</span> TextView tvValue;</span><br><span class="line">    <span class="keyword">public</span> ImageView ivArrow;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MsgHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(itemView);</span><br><span class="line">        rootview = itemView;</span><br><span class="line">        tvTitle = (TextView) rootview.findViewById(R.id.tvTitle);</span><br><span class="line">        tvValue = (TextView) rootview.findViewById(R.id.tvValue);</span><br><span class="line">        ivArrow = (ImageView) rootview.findViewById(R.id.ivArrow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建共用初始化方法</li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//传入一个layout跟数据即可显示View</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initItemView</span><span class="params">(ViewGroup layout, MsgItemBean data)</span> </span>&#123;</span><br><span class="line">    MsgHolder holder = <span class="keyword">new</span> ProfileHolder(layout);</span><br><span class="line">    holder.tvTitle.setText(data.getTitleResId());</span><br><span class="line">    holder.tvValue.setHint(data.getHintResId());</span><br><span class="line">    holder.tvValue.setText(data.getValue());</span><br><span class="line">    <span class="keyword">if</span> (data.getArrowResId() != <span class="number">0</span>) &#123;</span><br><span class="line">        holder.ivArrow.setVisibility(View.VISIBLE);</span><br><span class="line">        holder.ivArrow.setImageResource(R.drawable.common_right_light_gray_arrow);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        holder.ivArrow.setVisibility(View.GONE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实际使用</p>
-</li>
-</ul>
-<pre><code class="java">
-initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.common_text_phone, R.string.common_text_phone, “<span class="number">13631450006</span>”, ProfileItemBean.ARROW_DISABLE));
-</code></pre>
+        <h1 id="ScrollView基础知识"><a href="#ScrollView基础知识" class="headerlink" title="ScrollView基础知识"></a>ScrollView基础知识</h1><blockquote>
+<p>理解<br>该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。<br>作用<br>使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>ScrollView常用属性</th>
+<th>作用</th>
+<th>值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>android:overScrollMode=”never”</td>
+<td>设置滑动到边缘时，是否显示阴影</td>
+<td>always - 显示阴影(默认) <br> never - 不显示阴影 <br> ifContentScrolls - 仅当视图内容大于容器时，允许滚动</td>
+</tr>
+<tr>
+<td>android:fillViewport=”true”</td>
+<td>设置子内容是否可填满ScrollView</td>
+<td>true - 可填满ScrollView <br> false - 不可填满</td>
+<td>不添加该属性时，子ViewLinearLayout设置width、height为match_patent时，是无效的。</td>
+</tr>
+<tr>
+<td>android:scrollbars=”none”</td>
+<td>设置滚动条方向</td>
+<td>none - 不显示 <br> vertical - 垂直滚动条 <br> horizontal - 水平滚动条</td>
+</tr>
+<tr>
+<td>android:nestedScrollingEnabled=”false”</td>
+<td>设置是否启用嵌套滑动</td>
+<td>false - 不启动嵌套滑动(无法滑动，交给父View滑动) <br> true - 启动嵌套滑动</td>
+</tr>
+</tbody>
+</table>
+<h1 id="示例-垂直方向冲突"><a href="#示例-垂直方向冲突" class="headerlink" title="示例 - 垂直方向冲突"></a>示例 - 垂直方向冲突</h1><blockquote>
+<p>使用NestScrollView可完全显示RecyclerView并且滑动流畅<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//垂直方向的recyclerview，完全显示完，滑动流畅</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_scroll_conflict"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.tanjundang.study.knowledge.scrollconflict.ScrollConflictActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span></span><br><span class="line">            <span class="attr">android:nestedScrollingEnabled</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="示例-水平滑动与垂直滑动无冲突"><a href="#示例-水平滑动与垂直滑动无冲突" class="headerlink" title="示例 - 水平滑动与垂直滑动无冲突"></a>示例 - 水平滑动与垂直滑动无冲突</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_scroll_conflict"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span></span><br><span class="line">    <span class="attr">android:overScrollMode</span>=<span class="string">"ifContentScrolls"</span></span><br><span class="line">    <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.tanjundang.study.knowledge.scrollconflict.ScrollConflictActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"44dp"</span></span><br><span class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"15dp"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@color/action_bar_color"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"Test"</span></span><br><span class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/white"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview2"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     <span class="comment">&lt;!-- .....有N个BUTTON --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://bbs.anzhuo.cn/thread-982250-1-1.html" target="_blank" rel="external">4种解决嵌套的办法</a><br><a href="http://www.jianshu.com/p/84a8b64fb522" target="_blank" rel="external">WebView与ScrollView嵌套冲突</a><br><a href="http://www.jianshu.com/p/c138055af5d2" target="_blank" rel="external">RecyclerView到底底部的方法</a></p>
 
       
     </div>
@@ -273,13 +304,13 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年04月06日 - 18时13分</p>
-        <p><span>最后更新:</span>2016年06月08日 - 11时54分</p>
+        <p><span>发布时间:</span>2016年10月22日 - 10时44分</p>
+        <p><span>最后更新:</span>2016年10月22日 - 16时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/06/CodeOptimize/" title="Android-代码优化技巧">http://TanJunDang.github.io/2016/04/06/CodeOptimize/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/04/06/CodeOptimize/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/22/ScrollView/" title="ScrollView学习笔记">http://TanJunDang.github.io/2016/10/22/ScrollView/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/10/22/ScrollView/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -289,18 +320,18 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
 <nav id="article-nav">
   
-    <a href="/2016/04/05/EventBus/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/10/15/WebView/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          EventBus学习笔记
+          WebView学习笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/04/11/Handler/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Handler机制</div>
+    <a href="/2016/10/24/Socket/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Socket学习笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -311,7 +342,7 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TextView-textColor优化"><span class="toc-number">1.</span> <span class="toc-text">TextView textColor优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ListView-选中优化"><span class="toc-number">2.</span> <span class="toc-text">ListView 选中优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相同样式使用共同布局"><span class="toc-number">3.</span> <span class="toc-text">相同样式使用共同布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实例"><span class="toc-number">3.1.</span> <span class="toc-text">实例</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ScrollView基础知识"><span class="toc-number">1.</span> <span class="toc-text">ScrollView基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-垂直方向冲突"><span class="toc-number">2.</span> <span class="toc-text">示例 - 垂直方向冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-水平滑动与垂直滑动无冲突"><span class="toc-number">3.</span> <span class="toc-text">示例 - 水平滑动与垂直滑动无冲突</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -362,7 +393,7 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/06/CodeOptimize/" data-title="Android-代码优化技巧" data-url="TanJunDang.github.io/2016/04/06/CodeOptimize/"></div>
+    <div class="ds-thread" data-thread-key="2016/10/22/ScrollView/" data-title="ScrollView学习笔记" data-url="TanJunDang.github.io/2016/10/22/ScrollView/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -386,13 +417,13 @@ initItemView(rlPhone, <span class="keyword">new</span> ProfileItemBean(R.string.
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/05/EventBus/" title="上一篇: EventBus学习笔记">
+            <a href="/2016/10/15/WebView/" title="上一篇: WebView学习笔记">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/04/11/Handler/" title="下一篇: Handler机制">
+            <a href="/2016/10/24/Socket/" title="下一篇: Socket学习笔记">
                 <i class="fa fa-angle-right"></i>
             </a>
         

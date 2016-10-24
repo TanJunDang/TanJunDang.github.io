@@ -176,6 +176,173 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-CustomView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/CustomView/" class="article-date">
+      <time datetime="2016-08-18T07:01:20.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/CustomView/">自定义View笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="自定义View的知识-基础"><a href="#自定义View的知识-基础" class="headerlink" title="自定义View的知识(基础)"></a>自定义View的知识<font color="#66D9EF">(基础)</font></h1><blockquote>
+<p>理解<br>~自定义View是在画布上面画的，所以要区分清楚画布的大小跟View的大小。</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FCTmEzNDk0VnBCNm56QWZWZ0VQR0ovS1FabTJVcXdxQmozSWwwb1ZhOUFnPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>常见问题</th>
+<th>理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自定义View的方式有哪些？</td>
+<td>继承View、继承ViewGroup、继承ViewGroup的组合View</td>
+</tr>
+<tr>
+<td>自定义View的方法的执行顺序是什么？</td>
+<td>onMeasure-&gt;onSizeChange-&gt;onLayout-&gt;onDraw</td>
+</tr>
+<tr>
+<td>什么是测量值？</td>
+<td>即在xml文件设定的宽高值。当宽高为wrap时，默认大小为屏幕大小。</td>
+</tr>
+<tr>
+<td>如何理解onMeasure方法？</td>
+<td>决定画布的大小</td>
+</tr>
+<tr>
+<td>自定义View，默认宽高为warp_content跟match_parent效果一致，如何解决？</td>
+<td>重写onMeasure、处理Mode为AT_MOST的情况</td>
+</tr>
+<tr>
+<td>如何获取滑动最小距离？</td>
+<td>ViewConfiguration.get(this).getScaledDoubleTapSlop()</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取屏幕宽高</span></span><br><span class="line">WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">height = wm.getDefaultDisplay().getHeight();</span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义View笔记/">自定义View笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/18/CustomView/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-RecyclerView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/17/RecyclerView/" class="article-date">
+      <time datetime="2016-08-17T02:25:25.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="RecycleView的用法"><a href="#RecycleView的用法" class="headerlink" title="RecycleView的用法"></a>RecycleView的用法</h1><h2 id="基本理解"><a href="#基本理解" class="headerlink" title="基本理解"></a>基本理解</h2><p>RecyclerView.ViewHolder：承载Item视图的子视图；<br>RecyclerView.LayoutManager：负责Item视图的布局；<br>RecyclerView.ItemDecoration：为每个Item视图添加子视图，在Demo中被用来绘制Divider；<br>RecyclerView.ItemAnimator：负责添加、删除数据时的动画效果；<br>RecyclerView.Adapter：数据集合，为每个Item创建视图；</p>
+<blockquote>
+<p>1.onCreateViewHolder<br>设置监听事件、加载布局、获取缓存数据</p>
+<p>2.onBindViewHolder<br>设置显示数据、设置缓存TAG</p>
+<p>3.RecyclerView.ViewHolder<br>Find相关的ID</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecyclerView的个人理解/">RecyclerView的个人理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/17/RecyclerView/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ItemBean" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -579,70 +746,6 @@
 
 
   
-    <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/Model/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="BaseModel基础知识"><a href="#BaseModel基础知识" class="headerlink" title="BaseModel基础知识"></a>BaseModel基础知识</h1><blockquote>
-<p>Model包主要用于缓存数据,将数据保存在内部存储中,用户卸载后清空数据。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构-BaseModel编写/">Android项目架构-BaseModel编写</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -750,75 +853,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CustomMenu" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/25/CustomMenu/" class="article-date">
-      <time datetime="2016-05-25T03:02:59.000Z" itemprop="datePublished">2016-05-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="自定义底部弹出菜单"><a href="#自定义底部弹出菜单" class="headerlink" title="自定义底部弹出菜单"></a>自定义底部弹出菜单</h1><ul>
-<li>效果如图</li>
-</ul>
-<p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU1TOU5RV2FPTlJYSHlaSUlkSldPaitKb2I4ZXh2cWcyaTY5R3RlNGkybG5BPT0.png?imageView&amp;thumbnail=250x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<blockquote>
-<p>思路：由于是底部弹出菜单，所以应该用PopupWindow来实现。PopupWindow显示的主View分为两部分,一部分为取消按钮，另一部分为LinearLayout。其余的就是编写动态布局的代码了。即主View包括取消按钮和主Menu两部分。</p>
-<p>实现：先创建一个类CustomMenu，重写其构造方法，参数为Context。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义底部弹出菜单/">自定义底部弹出菜单</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/25/CustomMenu/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
