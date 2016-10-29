@@ -4,8 +4,59 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
+    <lastmod>2016-10-28T10:20:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView的个人理解</title>
+        <pubTime>2016-08-17T02:25:25.000Z</pubTime>
+        
+        <tag>RecyclerView的个人理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
+    <lastmod>2016-10-28T06:48:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android动画</title>
+        <pubTime>2016-01-01T12:20:39.000Z</pubTime>
+        
+        <tag>Android动画</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/22/ScrollView/</loc>
+    <lastmod>2016-10-27T08:51:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>ScrollView学习笔记</title>
+        <pubTime>2016-10-22T02:44:19.000Z</pubTime>
+        
+        <tag>ScrollView学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/10/24/Socket/</loc>
-    <lastmod>2016-10-24T17:19:23.024Z</lastmod>
+    <lastmod>2016-10-27T06:55:14.000Z</lastmod>
     <data>
         <display>
         <title>Socket学习笔记</title>
@@ -21,14 +72,31 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/10/22/ScrollView/</loc>
-    <lastmod>2016-10-22T08:10:24.000Z</lastmod>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2016-10-26T09:11:32.000Z</lastmod>
     <data>
         <display>
-        <title>ScrollView学习笔记</title>
-        <pubTime>2016-10-22T02:44:19.000Z</pubTime>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
         
-        <tag>ScrollView学习笔记</tag>
+        <tag>开发中常见的Error、Bug</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
+    <lastmod>2016-10-26T08:04:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>Widgets学习</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
+        
+        <tag>Widgets学习</tag>
          
          
            
@@ -131,40 +199,6 @@
         <pubTime>2016-10-09T12:43:42.000Z</pubTime>
         
         <tag>Android6.0权限</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
-    <lastmod>2016-10-15T08:46:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Widgets学习</title>
-        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
-        
-        <tag>Widgets学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
-    <lastmod>2016-10-15T08:44:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android动画</title>
-        <pubTime>2016-01-01T12:20:39.000Z</pubTime>
-        
-        <tag>Android动画</tag>
          
          
            
@@ -318,23 +352,6 @@
         <pubTime>2015-08-31T16:00:00.000Z</pubTime>
         
         <tag>Canvas笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2016-09-24T01:17:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>开发中常见的Error、Bug</tag>
          
          
            
@@ -882,23 +899,6 @@
         <pubTime>2016-02-02T06:13:06.000Z</pubTime>
         
         <tag>Gradle打包基础</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
-    <lastmod>2016-08-17T10:00:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>RecyclerView的个人理解</title>
-        <pubTime>2016-08-17T02:25:25.000Z</pubTime>
-        
-        <tag>RecyclerView的个人理解</tag>
          
          
            

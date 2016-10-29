@@ -224,20 +224,19 @@
 <p>【F】stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
 <p>【G】adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
 <p>【H】adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间 (将底部的按钮往上顶)</p>
-<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分(整个页面往上顶)</p>
+<p>【I】adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分(整个页面往上顶-按钮不移动)</p>
 <h2 id="设置EditText默认不弹出小键盘"><a href="#设置EditText默认不弹出小键盘" class="headerlink" title="设置EditText默认不弹出小键盘"></a>设置EditText默认不弹出小键盘</h2><ul>
 <li>配置文件中配置下列代码  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustResize|stateAlwaysHidden"</span> <span class="comment">//默认不弹出键盘,以及将底部按钮显示在软键盘上方</span></span><br><span class="line">---或者</span><br><span class="line">android:windowSoftInputMode=<span class="string">"adjustNothing|stateHidden"</span></span><br></pre></td></tr></table></figure>
-<h2 id="软键盘顶走按钮"><a href="#软键盘顶走按钮" class="headerlink" title="软键盘顶走按钮"></a>软键盘顶走按钮</h2><p><img src="http://imglf.nosdn.127.net/img/U05xRllGZk4zNU5BVlpSd2JsdENCL1U5c0JhVmtNNFA1aXJXU1RqWGhLczNCbS9teHRGSTNRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h2 id="软键盘顶走按钮"><a href="#软键盘顶走按钮" class="headerlink" title="软键盘顶走按钮"></a>软键盘顶走按钮</h2><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0FRLzhBWWxvNUplUkpQMFZpVzFiRHhidlN2Sm1VUzMvR0V0U3Fvb2ZqSUFnPT0.gif" alt=""></p>
 <p>解决方法：</p>
 <blockquote>
 <p>在activity设置windowSoftInputMode属性为adjustPan/adjustResize</p>
 </blockquote>
 <p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU95K2NaQjlQd1JDbm5jUE5Jd0dyTDg5b2RrRVZIbnMwdkdyOGZGNGhBbVJRPT0.jpg?imageView&amp;thumbnail=200x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <p><a href="/2016/02/01/Widgets/">EditText</a></p>
-<p>标题栏被顶走</p>
-<p>解决方法：</p>
+<h2 id="标题栏被顶走"><a href="#标题栏被顶走" class="headerlink" title="标题栏被顶走"></a>标题栏被顶走</h2><p>解决方法：</p>
 <blockquote>
 <p>在activity设置windowSoftInputMode属性为adjustResize</p>
 </blockquote>

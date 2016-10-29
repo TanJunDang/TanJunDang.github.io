@@ -746,6 +746,70 @@
 
 
   
+    <article id="post-Model" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/Model/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="BaseModel基础知识"><a href="#BaseModel基础知识" class="headerlink" title="BaseModel基础知识"></a>BaseModel基础知识</h1><blockquote>
+<p>Model包主要用于缓存数据,将数据保存在内部存储中,用户卸载后清空数据。<br>涉及文件操作 <a href="/2016/05/05/Android-File/">File</a></p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构-BaseModel编写/">Android项目架构-BaseModel编写</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/Model/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -793,66 +857,6 @@
         <p class="article-more-link">
           <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/GsonTool/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Gson的Gradle代码"><a href="#Gson的Gradle代码" class="headerlink" title="Gson的Gradle代码"></a>Gson的Gradle代码</h1><blockquote>
-<p>Gradle导包<br>compile ‘com.google.code.gson:gson:2.3.1’</p>
-</blockquote>
-<h1 id="Gson封装实例"><a href="#Gson封装实例" class="headerlink" title="Gson封装实例"></a>Gson封装实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// @param json</span></span><br><span class="line">    <span class="comment">// @param cls</span></span><br><span class="line">    <span class="comment">// @param &lt;T&gt;  表示通用类型 后面接一个字母表示对象</span></span><br><span class="line">    <span class="comment">// @return将String类型转成对象</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getServerBean</span><span class="params">(String json, Class&lt;?&gt; cls)</span> </span>&#123;</span><br><span class="line">        T object = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        object = (T) gson.fromJson(json, cls);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">    <span class="comment">// @param obj</span></span><br><span class="line">    <span class="comment">// @return</span></span><br><span class="line">    <span class="comment">// 将对象转成json（String）</span></span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObjectToJson</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        String json = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">        json = gson.toJson(obj);</span><br><span class="line">        <span class="keyword">return</span> json;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Gson的封装/">工具类的编写 - Gson的封装</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>

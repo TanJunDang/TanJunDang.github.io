@@ -271,74 +271,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Socket基础知识"><a href="#Socket基础知识" class="headerlink" title="Socket基础知识"></a>Socket基础知识</h1><blockquote>
-<p>Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。</p>
-</blockquote>
-<h2 id="Socket通信步骤"><a href="#Socket通信步骤" class="headerlink" title="Socket通信步骤"></a>Socket通信步骤</h2><blockquote>
-<p>1.连接服务器 - 连接方式分构造函数、connect方法两种。<br>2.发送和接收数据 - 涉及Out(In)putStream、BufferWriter(Reader)读取流的方式。<br>3.关闭连接 - 调用各种流的close方法。</p>
-</blockquote>
-<h2 id="Socket的连接方式"><a href="#Socket的连接方式" class="headerlink" title="Socket的连接方式"></a>Socket的连接方式</h2><blockquote>
-<p>Socket连接服务端的方式分为构造函数、connect方法两种。</p>
-</blockquote>
-<h3 id="示例-构造函数方式"><a href="#示例-构造函数方式" class="headerlink" title="示例 - 构造函数方式"></a>示例 - 构造函数方式</h3><blockquote>
-<p>Socket(String host , int port)//参数分别服务端主机地址、端口</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送数据到www.baidu.com的1993端口</span></span><br><span class="line">Socket socket = <span class="keyword">new</span> Socket(<span class="string">"www.baidu.com"</span>,<span class="number">1993</span>);</span><br><span class="line">OutputStream os = socket.getOutputStream();</span><br><span class="line">OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(os);</span><br><span class="line">BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line"></span><br><span class="line">bw.write(<span class="string">"hello world \r\n\r\n"</span>);<span class="comment">//"\r\n\r\n是结束标识"</span></span><br><span class="line">bw.flush();<span class="comment">//发送数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//接收返回的数据</span></span><br><span class="line">InputStream is = socket.getInputStream();</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">String msg = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">while</span>((msg=br.readLine())!=<span class="keyword">null</span>)&#123;</span><br><span class="line">  Log.d(<span class="string">"TJD"</span>,msg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
-<h3 id="示例-connect方法"><a href="#示例-connect方法" class="headerlink" title="示例 - connect方法"></a>示例 - connect方法</h3><blockquote>
-<p>使用connect方法必须通过Socket的无参构造函数来创建对象。<br>connect(SocketAddress add)//参数为SocketAddress,该类封装了主机地址以及端口<br>connect(SocketAddress add ,int timeout)//第二个参数是超时参数、默认为0</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket socket = <span class="keyword">new</span> Socket();</span><br><span class="line">socket.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"www.baidu.com"</span>,<span class="number">1993</span>));</span><br></pre></td></tr></table></figure>
-<h2 id="Socket常用的方法"><a href="#Socket常用的方法" class="headerlink" title="Socket常用的方法"></a>Socket常用的方法</h2><table>
-<thead>
-<tr>
-<th>Socket常用方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>isClosed()</td>
-<td>判断Socket对象是否处于关闭状态 <br> true - 关闭 false - 连接</td>
-</tr>
-<tr>
-<td>isConnected()</td>
-<td>判断Socket对象是否成功连接过 <br></td>
-</tr>
-<tr>
-<td>(!isClosed() &amp;&amp; isConnected())</td>
-<td>判断socket对象是否处于连接状态</td>
-</tr>
-<tr>
-<td>getInetAddress()</td>
-<td>返回一个InetAddress对象，通过该对象可获取服务器IP，Port等信息</td>
-</tr>
-<tr>
-<td>getLocalAddress()</td>
-<td>返回一个InetAddress对象，通过该对象可获取本机的IP，port等信息</td>
-</tr>
-<tr>
-<td>getInputStream()、getOutputStream()</td>
-<td>输入输出流，用于接收和发送数据</td>
-</tr>
-<tr>
-<td>setReuseAddress(boolean on)</td>
-<td>当多个socket绑定一个端口时，需要调用setReuseAddress(true),否则会出Bind异常</td>
-</tr>
-<tr>
-<td>setSoLinger(boolean on,int linger)</td>
-<td>当socket关闭时，若还没有发送完数据，则阻塞linger秒，从而尽量把数据发完</td>
-</tr>
-<tr>
-<td>setTimeOut(int timeout)</td>
-<td>设置读取数据超时，单位毫秒</td>
-</tr>
-<tr>
-<td>setKeepAlive(boolean on)</td>
-<td>该方法用于检测Socket是否处于活动状态，客户端Socket每隔一段时间利用空闲的时间向服务器发送一个检测数据包，如果服务器未响应该数据包，在几分钟后，客户端socket再发一个数据包，若服务器还没响应，则客户端Socket关闭。</td>
-</tr>
-</tbody>
-</table>
-
+              <h1 id="Socket基础知识"><a href="#Socket基础知识" class="headerlink" title="Socket基础知识"></a>Socket基础知识</h1><blockquote>
+<p>Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。<br>Socket适用于长时间连接。<br>每个客户端Socket都必须要用新的线程进行处理。<br>在Android，可通过AsyncTask线程来处理Socket。<br>
+          
       
     </div>
     
@@ -351,6 +286,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket学习笔记/">Socket学习笔记</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/24/Socket/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -431,6 +370,9 @@
 </tr>
 </tbody>
 </table>
+<h1 id="滑动冲突"><a href="#滑动冲突" class="headerlink" title="滑动冲突"></a>滑动冲突</h1><blockquote>
+<p>产生原因<br>当可滑动ViewGroup嵌套可滑动View(ListView、RecyclerView等)时，由于两者都有滑动属性，因此会导致滑动冲突，从而导致滑动卡顿、显示不全等现象。<br>滑动冲突的情况</p>
+</blockquote>
 <h1 id="示例-垂直方向冲突"><a href="#示例-垂直方向冲突" class="headerlink" title="示例 - 垂直方向冲突"></a>示例 - 垂直方向冲突</h1><blockquote>
 <p>使用NestScrollView可完全显示RecyclerView并且滑动流畅<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//垂直方向的recyclerview，完全显示完，滑动流畅</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_scroll_conflict"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.tanjundang.study.knowledge.scrollconflict.ScrollConflictActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span></span><br><span class="line">            <span class="attr">android:nestedScrollingEnabled</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
