@@ -176,6 +176,256 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/31/Android-Broadcast/" class="article-date">
+      <time datetime="2015-10-31T07:43:42.000Z" itemprop="datePublished">2015-10-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h1><blockquote>
+<p>区分清楚需求是接收广播还是发送广播。<br>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。<br>利用Intent、Action、sendBroadcast发送广播。</p>
+</blockquote>
+<h1 id="示例-动态注册广播"><a href="#示例-动态注册广播" class="headerlink" title="示例 - 动态注册广播"></a>示例 - 动态注册广播</h1><blockquote>
+<p>背景<br>服务器下发新消息时，通知MainActivity更改UI<br>操作<br>1.继承BroadcastReceiver<br>2.定义过滤的Action<br>3.添加回调接口<br>5.构造函数初始化接口<br>6.重写onReceive方法(调用接口的方法)<br>7.实现接口、动态注册接口(LocalBroadcastManager类)<br>8.在获取到服务器数据的地方发送广播<br>9.在ondestory里取消广播</p>
+</blockquote>
+<h2 id="创建广播"><a href="#创建广播" class="headerlink" title="创建广播"></a>创建广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    CallBack callBack;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEST_ACTION = <span class="string">"io.movies.test.broadcaststudy.TestReceiver"</span>; <span class="comment">//定义过滤广播的Action</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestReceiver</span><span class="params">(CallBack callBack)</span> </span>&#123; <span class="comment">//提供注册绑定的方法</span></span><br><span class="line">        <span class="keyword">this</span>.callBack = callBack;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callBack != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callBack.doSomething(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(Intent intent)</span></span>; <span class="comment">//返回intent数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Activity注册广播"><a href="#Activity注册广播" class="headerlink" title="Activity注册广播"></a>Activity注册广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> TestReceiver msgReceiver</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	msgReceiver = <span class="keyword">new</span> TestReceiver(<span class="keyword">this</span>); <span class="comment">//实例化</span></span><br><span class="line">	IntentFilter filter = <span class="keyword">new</span> IntentFilter(TestReceiver.TEST_ACTION);<span class="comment">//设置过滤器</span></span><br><span class="line">	<span class="comment">//利用LocalBroadcastManager调用其注册广播(使用LocalBroadcastManager提高安全性)</span></span><br><span class="line">	LocalBroadcastManager.getInstance(getActivity()).registerReceiver(msgReceiver, filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDestroy();</span><br><span class="line">	LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).unregisterReceiver(receiver);<span class="comment">//关闭广播</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模拟服务器下发通知"><a href="#模拟服务器下发通知" class="headerlink" title="模拟服务器下发通知"></a>模拟服务器下发通知</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">studyBroadcase</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//Intent携带Action</span></span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent(TestReceiver.TEST_ACTION);</span><br><span class="line">	intent.putExtra(TAG, <span class="string">"TanJunDang"</span>);</span><br><span class="line">  <span class="comment">//由于上下文使用了LocalBroadCastManager，所以必须通过调用其sendBroadcast方法来发送广播。否则上述的callback返回null  </span></span><br><span class="line">  LocalBroadcastManager.getInstance(TestActivity.<span class="keyword">this</span>).sendBroadcast(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="示例-静态广播"><a href="#示例-静态广播" class="headerlink" title="示例 - 静态广播"></a>示例 - 静态广播</h1><blockquote>
+<p>背景<br>监听系统网络状态改变,从而做相应的处理。</p>
+</blockquote>
+<p>同上,注册的时候用registerReceiver、unregisterReceiver,用LocalBroadcastManager无效。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//定义Broadcast</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetworkChangeReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义过滤系统action</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String NETWORK_ACTION = ConnectivityManager.CONNECTIVITY_ACTION;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> NetworkChangeCallback callback;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NetworkChangeReceiver</span><span class="params">(NetworkChangeCallback callback)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.callback = callback;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (callback != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callback.refresh();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 网络状态变化的回调接口</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetworkChangeCallback</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//activity的onCreate方法里注册Receiver</span></span><br><span class="line"></span><br><span class="line">receiver = <span class="keyword">new</span> NetworkChangeReceiver(<span class="keyword">this</span>);</span><br><span class="line">registerReceiver(receiver, <span class="keyword">new</span> IntentFilter(NetworkChangeReceiver.NETWORK_ACTION));</span><br><span class="line"></span><br><span class="line"><span class="comment">//反注册</span></span><br><span class="line"></span><br><span class="line">unregisterReceiver(receiver);</span><br></pre></td></tr></table></figure>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><blockquote>
+<p>Fragment里注册广播<br>不能在OnCreateView里面注册,要在onCreate方法里面注册<br>记得在ondestory方法里注销广播</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Broadcast/">Android基础之Broadcast</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-Activity" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/30/Android-Activity/" class="article-date">
+      <time datetime="2015-10-30T07:42:08.000Z" itemprop="datePublished">2015-10-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/30/Android-Activity/">Android基础之Activity</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Activity的理解"><a href="#Activity的理解" class="headerlink" title="Activity的理解"></a>Activity的理解</h1><blockquote>
+<p>Activity是一种应用组件，用于创建与用户交互的界面。提供用户操作。</p>
+</blockquote>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><blockquote>
+<p>当Activity被加载时，首先执行onCreate、onStart、onResume这三个方法。<br>当前界面被遮挡但还能看见的时候，则会执行onPause方法。<br>当界面被遮挡完全看不见的时候，则会执行onStop方法。<br>当界面又重新显示时，便会执行onResume方法。<br>最后Activity将会执行onDestory方法。</p>
+</blockquote>
+<p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlFBTUhuTTY2K2J6OHB4WEo2ZCthRzFkcElsaUswdzBRPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="如何理解Task？"><a href="#如何理解Task？" class="headerlink" title="如何理解Task？"></a>如何理解Task？</h1><blockquote>
+<p><font color="#1abc9c">Task类似一个任务栈,他是跨应用的,即Task可以存放不同程序的Activity。</font>例如我们的程序中Activity A有发送短信的功能,点击按钮后，便会启动发短信的程序里的Activity B。发完短信后，按返回键，便回到原来的Activity A中。从而确保了用户体验.</p>
+</blockquote>
+<h1 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h1><blockquote>
+<p>理解<br>使用各种模式主要是为了判断是否需要创建Activity的实例。<br>不复用Activity实例时，跟普通跳转Activity无区别，都是创建新的Activity实例。所以需要讨论的何时复用Activity实例。<br>onNewIntent何时调用？有什么作用？<br>复用Activity实例的时候调用，接收跳转过来的Intent。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>启动模式</th>
+<th>文档</th>
+<th>理解</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td>每次启动Activity都在栈中创建一个实例。默认</td>
+<td>每次跳转页面都会创建Activity实例，需要一次次返回。</td>
+<td>常用跳转页面</td>
+</tr>
+<tr>
+<td>SingleTop</td>
+<td>启动的Activity若位于栈顶，则直接复用该Activity，并且会调用onNewIntent方法,然后将Intent传到实例中。)，否则创建Activity实例。</td>
+<td>当前Activity跳转到当前Activity不创建实例，其余情况都创建Activity实例。 <br> <font color="#1abc9c">只用于自己跳转自己的情况。</font></td>
+<td>头条APP推送多个消息</td>
+</tr>
+<tr>
+<td>SingleTask</td>
+<td>判断是否存在与taskAffinity属性的相符合的Activity <br> &lt; <br> 存在 - 将该Activity的栈作为待跳转Activity的栈。判断是否存在实例？ <br> 『 <br> 存在 - 调用onNewIntent并处理传入的Intent <br> 不存在 - 创建新的Activity实例 <br> 』 <br> 不存在 - 启动新的Task栈，并启动该Activity <br> &gt; <br> <font color="#1abc9c"> taskAffinity默认为当前包名 ，不设置该属性将会在同一Task中启动 </font></td>
+<td>当某个Activity设置launchMode为singleTask时，当Activity实例不存时，创建一个实例，其余情况都是复用该Activity的实例。 <br> <font color="#1abc9c"> 多次进入相同的界面，不想一次次返回的情况 </font></td>
+<td>BNJ联系人详情 <br> 见下图</td>
+</tr>
+<tr>
+<td>SingleInstance</td>
+<td><font color="#1abc9c">跟SingleTask一样。只是每个Task有且仅有一个Activity</font></td>
+<td>设置了SingleInstance的Activity在单独的栈中，从该Activity跳转的Activity也在单独的栈中 <br>  <font color="#1abc9c"> 被跳(B)和待跳转的Activity(C)都是在单独的栈中(A-&gt;B、B-&gt;C) </font></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Standard流程</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wQ2JsRjkzb2lGeGdOeHRhQldWc3ZzUEU1a2FIUWVmdGtnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>SingleTask流程</p>
+</blockquote>
+<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0NlTUgxdVV6WC9wUGkvbHgvY3dwTmRURllYd1Fwd2pNM0dPUTVPbTVhNUlRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
+<p>操作流程<br>点击学生(查看学生详情)-&gt;发送消息-&gt;点击右上角图标(查看学生详情)-&gt;一层层返回</p>
+</blockquote>
+<h3 id="Standard模式-默认"><a href="#Standard模式-默认" class="headerlink" title="Standard模式(默认)"></a>Standard模式(默认)</h3><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6L3E5a0gyUmZ3WUo3SE1zNGdsb3dkZXErODltNlppUnNRPT0.gif" alt=""></p>
+<h3 id="SingleTop模式"><a href="#SingleTop模式" class="headerlink" title="SingleTop模式"></a>SingleTop模式</h3><p>跟Standard模式一样，因为不是跳转当前Activity，所以会创建Activity实例。</p>
+<h3 id="SingleTask模式"><a href="#SingleTask模式" class="headerlink" title="SingleTask模式"></a>SingleTask模式</h3><p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0M5djVQL0crdzB6eE51ZXU3T0gzb1VZeEd3N0Iwb0JVN3JxU09DbWFMaC9nPT0.gif" alt=""></p>
+<h3 id="SingleInstance模式"><a href="#SingleInstance模式" class="headerlink" title="SingleInstance模式"></a>SingleInstance模式</h3><blockquote>
+<p>背景<br>BActivity设置了singleInstance<br>三个ActivityA、B、C。分别有一个按钮进行跳转，跳转顺序A-&gt;B-&gt;C。</p>
+<p>不设置taskAffinity时，A跳B开启新的TASK，B跳C，回到原来的栈中，即AC同栈，B单独一个栈。<br>设置taskAffinity时，A跳B开启新的TASK，B跳C，开启新的TASK,三个Activity都在独立栈中。</p>
+</blockquote>
+<p>参考文献</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/meizixiong/archive/2013/07/03/3170591.html" target="_blank" rel="external">Activity四种启动模式</a></p>
+<p><a href="http://blog.csdn.net/infsafe/article/details/5666964" target="_blank" rel="external">Android的Activity和Tasks详解</a></p>
+<p><a href="http://www.runoob.com/w3cnote/android-tutorial-activity-intro.html" target="_blank" rel="external">菜鸟教程-Activity登堂入室</a></p>
+<p><a href="http://blog.csdn.net/linmiansheng/article/details/24297375" target="_blank" rel="external">持剑博客</a></p>
+</blockquote>
+<h2 id="示例-实际开发"><a href="#示例-实际开发" class="headerlink" title="示例 - 实际开发"></a>示例 - 实际开发</h2><ul>
+<li>SingleTask</li>
+</ul>
+<blockquote>
+<p>背景：在BNJ项目1.0的时候，认证设置功能应该使用SingleTask模式。认证设置(A)-&gt;认证列表(B)-&gt;上传图片(C)-&gt;结果页面(D)-&gt;认证列表(B).<br>分析：这里的B应该设置成SingleTask模式。并且重写onNewIntent方法，从而获取设置后的值来更新页面。</p>
+<p>SingleInstance</p>
+<p>背景：当程序1要去另一个程序2获取数据时，其过程如下。程序1MainActivity-&gt;A-&gt;B-&gt;程序2中的C-&gt;返回数据给A<br>分析：A设置成SingleInstance模式。B跳C后finish。C跳A后Finish。</p>
+</blockquote>
+<h1 id="onSaveInstanceState的理解"><a href="#onSaveInstanceState的理解" class="headerlink" title="onSaveInstanceState的理解"></a>onSaveInstanceState的理解</h1><p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N4OTdhZ3JJNVpjUlpiVlA3bGJ2eTVYeE9NUk9GT0xHbHlveTVweVJ2blZnPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<blockquote>
+<p>onSaveInstanceState在将要销毁Activity时，进行数据保存。<br>onRestoreInstanceState在确定Activity被销毁后，进行数据恢复。</p>
+</blockquote>
+<h2 id="onSaveInstanceState的作用"><a href="#onSaveInstanceState的作用" class="headerlink" title="onSaveInstanceState的作用"></a>onSaveInstanceState的作用</h2><blockquote>
+<p>onSaveInstanceState作用是保存临时状态。(在onPause或onStop方法之前)<br>通常用putExtra方法来保存数据。<br>onRestoreInstanceState作用是恢复状态。<br>通常用getXXX方法来获取数据。</p>
+</blockquote>
+<h2 id="onSaveInstanceState何时调用"><a href="#onSaveInstanceState何时调用" class="headerlink" title="onSaveInstanceState何时调用"></a>onSaveInstanceState何时调用</h2><blockquote>
+<p>当某个Activity将要被销毁时，便会执行onSaveInstanceState。<br>示例<br>用户长按HOME键，选择运行其他程序时。<br>用户按下HOME键时。<br>用户按下电源键时。<br>屏幕切换时。<br>改变语言后。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>当Activity确定被销毁的时候，onRestoreInstanceState方法肯定执行。</p>
+</blockquote>
+<h2 id="示例-测试两个方法的执行"><a href="#示例-测试两个方法的执行" class="headerlink" title="示例 - 测试两个方法的执行"></a>示例 - 测试两个方法的执行</h2><blockquote>
+<p>操作 - 屏幕翻转<br>通过Edittext文本的值来判断方法的执行</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//必须要调用 onSaveInstanceState() 方法的父类实现，这样默认的父类实现才能保存视图状态的信息。</span></span><br><span class="line">		<span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">		<span class="comment">//Activity将要销毁时，保存Edittext的文本</span></span><br><span class="line">		outState.putString(<span class="string">"etText"</span>, etText.getText().toString());</span><br><span class="line">		LogTool.e(<span class="string">"save"</span>, <span class="string">"onSaveInstanceState"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//	//必须要调用 onRestoreInstanceState() 方法的父类实现，这样默认的父类实现才能保存视图状态的信息。</span></span><br><span class="line">		<span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</span><br><span class="line">		<span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="comment">//恢复数据时，Edittext添加new文本，表示执行了该方法。</span></span><br><span class="line">				String msg = savedInstanceState.getString(<span class="string">"etText"</span>);</span><br><span class="line">				etText.setText(msg + <span class="string">"new"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		LogTool.e(<span class="string">"save"</span>, <span class="string">"onRestoreInstanceState"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="默认状态"><a href="#默认状态" class="headerlink" title="默认状态"></a>默认状态</h2><p>调用父类的方法,默认保存一些UI状态,例如Edittext的值、CheckBox的勾选状态。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.onSaveInstanceState(outState)</span><br></pre></td></tr></table></figure>
+<h2 id="暂离状态保存数据的选择"><a href="#暂离状态保存数据的选择" class="headerlink" title="暂离状态保存数据的选择"></a>暂离状态保存数据的选择</h2><blockquote>
+<p>onSaveInstanceState用于保存瞬态数据。<br>onPause用于保存持久化数据(保存在文件、数据库),但不能保存耗时数据。</p>
+</blockquote>
+<h1 id="横竖屏相关知识"><a href="#横竖屏相关知识" class="headerlink" title="横竖屏相关知识"></a>横竖屏相关知识</h1><h2 id="配置文件里配置"><a href="#配置文件里配置" class="headerlink" title="配置文件里配置"></a>配置文件里配置</h2><blockquote>
+<p>AndroidMainfest文件里Activity的属性android:screenOrientation, 有下述可选值：</p>
+<p>unspecified:默认值 由系统来判断显示方向.判定的策略是和设备相关的，所以不同的设备会有不同的显示方向。<br>landscape:横屏显示（宽比高要长）<br>portrait:竖屏显示(高比宽要长)<br>user:用户当前首选的方向<br>behind:和该Activity下面的那个Activity的方向一致(在Activity堆栈中的)<br>sensor:有物理的感应器来决定。如果用户旋转设备这屏幕会横竖屏切换。<br>nosensor:忽略物理感应器，这样就不会随着用户旋转设备而更改了（”unspecified”设置除外）。</p>
+</blockquote>
+<h4 id="横竖屏加载不同布局"><a href="#横竖屏加载不同布局" class="headerlink" title="横竖屏加载不同布局"></a>横竖屏加载不同布局</h4><blockquote>
+<p>onCreate里调用下面代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)&#123;  </span><br><span class="line">     setContentView(R.layout.横屏);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.getResources().getConfiguration().orientation ==Configuration.ORIENTATION_PORTRAIT) &#123;  </span><br><span class="line">    setContentView(R.layout.竖屏);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设置全屏方法"><a href="#设置全屏方法" class="headerlink" title="设置全屏方法"></a>设置全屏方法</h3><blockquote>
+<p>getActionBar().hide();<br>在super之前调用requestWindowFeature(Window.FEATURE_NO_TITLE);<br>设置theme = @android:style/Theme.NoTitleBar.FullScreen</p>
+</blockquote>
+<p><a href="http://blog.sina.com.cn/s/blog_618199e60101g1k5.html" target="_blank" rel="external">onSave、onRestore</a></p>
+<p><a href="https://developer.android.com/guide/topics/resources/runtime-changes.html" target="_blank" rel="external">官方处理配置变更</a></p>
+<p><a href="https://developer.android.com/guide/components/activities.html" target="_blank" rel="external">官方文档Activity</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Activity/">Android基础之Activity</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Volley" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -227,83 +477,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/29/Volley/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-InterView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/03/InterView/" class="article-date">
-      <time datetime="2015-10-03T09:41:19.000Z" itemprop="datePublished">2015-10-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/03/InterView/">天工面试</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="PackageManager的基本理解"><a href="#PackageManager的基本理解" class="headerlink" title="PackageManager的基本理解"></a>PackageManager的基本理解</h1><blockquote>
-<p>1.如何检测手机内装了什么APP？<br>相关API<br>PackageManager</p>
-<ul>
-<li>PackageManager获取手机中所有应用的包的信息。通过getPackageManager()方法得到。<br>ApplicationInfo</li>
-<li>ApplicationInfo通过配置文件里</application>标签 得到应用的信息。<br>ResolveInfo</li>
-<li>ResolveInfo 通过配置文件里的</intent>标签 得到应用的信息。</li>
-</ul>
-</blockquote>
-<hr>
-<blockquote>
-<p>ApplicationInfo与ResolveInfo区别</p>
-<ul>
-<li>前者能够得到Icon、Label、meta-data、description。后者只能得到Icon、Label。  </li>
-<li>前者得到的Label 包括Server、provider等。</li>
-</ul>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/天工面试/">天工面试</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/03/InterView/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -799,70 +972,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Error-Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
-<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

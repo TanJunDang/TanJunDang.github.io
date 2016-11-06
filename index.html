@@ -244,6 +244,66 @@
 
 
   
+    <article id="post-Camera" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/03/Camera/" class="article-date">
+      <time datetime="2016-11-03T14:05:41.000Z" itemprop="datePublished">2016-11-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/03/Camera/">Camera学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Camera基础知识"><a href="#Camera基础知识" class="headerlink" title="Camera基础知识"></a>Camera基础知识</h1><blockquote>
+<p>Camera使用流程<br>1.调用系统相机拍照。<br>2.onActivityResult获取返回结果(Bitmap)。<br>3.对BitMap进行处理。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Camera学习笔记/">Camera学习笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -334,51 +394,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="ScrollView基础知识"><a href="#ScrollView基础知识" class="headerlink" title="ScrollView基础知识"></a>ScrollView基础知识</h1><blockquote>
+              <h1 id="ScrollView基础知识"><a href="#ScrollView基础知识" class="headerlink" title="ScrollView基础知识"></a>ScrollView基础知识</h1><blockquote>
 <p>理解<br>该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。<br>作用<br>使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>ScrollView常用属性</th>
-<th>作用</th>
-<th>值</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>android:overScrollMode=”never”</td>
-<td>设置滑动到边缘时，是否显示阴影</td>
-<td>always - 显示阴影(默认) <br> never - 不显示阴影 <br> ifContentScrolls - 仅当视图内容大于容器时，允许滚动</td>
-</tr>
-<tr>
-<td>android:fillViewport=”true”</td>
-<td>设置子内容是否可填满ScrollView</td>
-<td>true - 可填满ScrollView <br> false - 不可填满</td>
-<td>不添加该属性时，子ViewLinearLayout设置width、height为match_patent时，是无效的。</td>
-</tr>
-<tr>
-<td>android:scrollbars=”none”</td>
-<td>设置滚动条方向</td>
-<td>none - 不显示 <br> vertical - 垂直滚动条 <br> horizontal - 水平滚动条</td>
-</tr>
-<tr>
-<td>android:nestedScrollingEnabled=”false”</td>
-<td>设置是否启用嵌套滑动</td>
-<td>false - 不启动嵌套滑动(无法滑动，交给父View滑动) <br> true - 启动嵌套滑动</td>
-</tr>
-</tbody>
-</table>
-<h1 id="滑动冲突"><a href="#滑动冲突" class="headerlink" title="滑动冲突"></a>滑动冲突</h1><blockquote>
-<p>产生原因<br>当可滑动ViewGroup嵌套可滑动View(ListView、RecyclerView等)时，由于两者都有滑动属性，因此会导致滑动冲突，从而导致滑动卡顿、显示不全等现象。<br>滑动冲突的情况</p>
-</blockquote>
-<h1 id="示例-垂直方向冲突"><a href="#示例-垂直方向冲突" class="headerlink" title="示例 - 垂直方向冲突"></a>示例 - 垂直方向冲突</h1><blockquote>
-<p>使用NestScrollView可完全显示RecyclerView并且滑动流畅<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//垂直方向的recyclerview，完全显示完，滑动流畅</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_scroll_conflict"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.tanjundang.study.knowledge.scrollconflict.ScrollConflictActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span></span><br><span class="line">            <span class="attr">android:nestedScrollingEnabled</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="示例-水平滑动与垂直滑动无冲突"><a href="#示例-水平滑动与垂直滑动无冲突" class="headerlink" title="示例 - 水平滑动与垂直滑动无冲突"></a>示例 - 水平滑动与垂直滑动无冲突</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">ScrollView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_scroll_conflict"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:fillViewport</span>=<span class="string">"true"</span></span><br><span class="line">    <span class="attr">android:overScrollMode</span>=<span class="string">"ifContentScrolls"</span></span><br><span class="line">    <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span><br><span class="line">    <span class="attr">tools:context</span>=<span class="string">"io.tanjundang.study.knowledge.scrollconflict.ScrollConflictActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"44dp"</span></span><br><span class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"15dp"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@color/action_bar_color"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"Test"</span></span><br><span class="line">            <span class="attr">android:textColor</span>=<span class="string">"@color/white"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview2"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">            <span class="attr">android:layout_margin</span>=<span class="string">"15dp"</span>&gt;</span><span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     <span class="comment">&lt;!-- .....有N个BUTTON --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a href="http://bbs.anzhuo.cn/thread-982250-1-1.html" target="_blank" rel="external">4种解决嵌套的办法</a><br><a href="http://www.jianshu.com/p/84a8b64fb522" target="_blank" rel="external">WebView与ScrollView嵌套冲突</a><br><a href="http://www.jianshu.com/p/c138055af5d2" target="_blank" rel="external">RecyclerView到底底部的方法</a></p>
-
+          
       
     </div>
     
@@ -391,6 +410,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScrollView学习笔记/">ScrollView学习笔记</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/22/ScrollView/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -499,7 +522,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="Android6-0-权限"><a href="#Android6-0-权限" class="headerlink" title="Android6.0 权限"></a>Android6.0 权限</h1>
+              <h1 id="Android6-0-权限"><a href="#Android6-0-权限" class="headerlink" title="Android6.0 权限"></a>Android6.0 权限</h1><blockquote>
+<p>自定义Permission检测工具</p>
+</blockquote>
           
       
     </div>
@@ -574,7 +599,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TabLayout笔记/">TabLayout笔记</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TabLayout笔记/">TabLayout笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager预加载/">ViewPager预加载</a></li></ul>
     </div>
 
       
@@ -777,68 +802,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DialogFragment笔记/">DialogFragment笔记</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DemoOne" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/29/DemoOne/" class="article-date">
-      <time datetime="2016-08-29T10:05:10.000Z" itemprop="datePublished">2016-08-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/29/DemoOne/">项目源码分析(一)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>本文目的 1.分析学习优秀项目中的一些比较基础和开发中常见的技术 2.参考学习别人代码</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目源码分析-一/">项目源码分析(一)</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/29/DemoOne/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

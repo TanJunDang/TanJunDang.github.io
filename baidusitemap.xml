@@ -4,14 +4,158 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/11/03/Camera/</loc>
+    <lastmod>2016-11-03T08:15:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Camera学习笔记</title>
+        <pubTime>2016-11-03T14:05:41.000Z</pubTime>
+        
+        <tag>Camera学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
+    <lastmod>2016-11-03T04:23:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android控件的学习笔记</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
+        
+        <tag>Android控件的学习笔记</tag>
+         
+        <tag>开发中常用的技巧</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/01/DatePicker/</loc>
+    <lastmod>2016-11-03T04:22:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>DatePicker笔记</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
+        
+        <tag>DatePicker笔记</tag>
+         
+        <tag>Android控件的学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/22/ScrollView/</loc>
+    <lastmod>2016-11-02T09:56:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>ScrollView学习笔记</title>
+        <pubTime>2016-10-22T02:44:19.000Z</pubTime>
+        
+        <tag>ScrollView学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/Android-Permission/</loc>
+    <lastmod>2016-11-02T09:54:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android6.0权限</title>
+        <pubTime>2016-10-09T12:43:42.000Z</pubTime>
+        
+        <tag>Android6.0权限</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
-    <lastmod>2016-10-28T10:20:02.000Z</lastmod>
+    <lastmod>2016-11-02T07:39:54.000Z</lastmod>
     <data>
         <display>
         <title>RecyclerView的个人理解</title>
         <pubTime>2016-08-17T02:25:25.000Z</pubTime>
         
         <tag>RecyclerView的个人理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2016-11-02T06:32:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
+    <lastmod>2016-11-02T03:10:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>TabLayout笔记</title>
+        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
+        
+        <tag>TabLayout笔记</tag>
+         
+        <tag>ViewPager预加载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
+    <lastmod>2016-10-31T03:21:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用开发工具、框架、网站</title>
+        <pubTime>2016-07-05T09:00:41.000Z</pubTime>
+        
+        <tag>常用开发工具、框架、网站</tag>
          
          
            
@@ -29,23 +173,6 @@
         <pubTime>2016-01-01T12:20:39.000Z</pubTime>
         
         <tag>Android动画</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/10/22/ScrollView/</loc>
-    <lastmod>2016-10-27T08:51:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>ScrollView学习笔记</title>
-        <pubTime>2016-10-22T02:44:19.000Z</pubTime>
-        
-        <tag>ScrollView学习笔记</tag>
          
          
            
@@ -80,23 +207,6 @@
         <pubTime>2015-09-16T16:00:00.000Z</pubTime>
         
         <tag>开发中常见的Error、Bug</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
-    <lastmod>2016-10-26T08:04:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>Widgets学习</title>
-        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
-        
-        <tag>Widgets学习</tag>
          
          
            
@@ -165,40 +275,6 @@
         <pubTime>2015-10-01T08:52:53.000Z</pubTime>
         
         <tag>Fragment笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
-    <lastmod>2016-10-16T09:18:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>TabLayout笔记</title>
-        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
-        
-        <tag>TabLayout笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/10/09/Android-Permission/</loc>
-    <lastmod>2016-10-16T07:35:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android6.0权限</title>
-        <pubTime>2016-10-09T12:43:42.000Z</pubTime>
-        
-        <tag>Android6.0权限</tag>
          
          
            
@@ -378,25 +454,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2016-09-21T12:39:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
-        
-        <tag>开发中常用的技巧</tag>
-         
-        <tag>沉浸式状态栏</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
     <lastmod>2016-09-19T12:54:00.000Z</lastmod>
     <data>
@@ -462,23 +519,6 @@
         <pubTime>2016-09-07T08:52:53.000Z</pubTime>
         
         <tag>Preference的使用</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
-    <lastmod>2016-09-07T01:53:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>常用开发工具、框架、网站</title>
-        <pubTime>2016-07-05T09:00:41.000Z</pubTime>
-        
-        <tag>常用开发工具、框架、网站</tag>
          
          
            
@@ -708,23 +748,6 @@
         <tag>Callback接口</tag>
          
         <tag>JAVA基础知识</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/03/InterView/</loc>
-    <lastmod>2016-08-25T10:06:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>天工面试</title>
-        <pubTime>2015-10-03T09:41:19.000Z</pubTime>
-        
-        <tag>天工面试</tag>
          
          
            
