@@ -3,21 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Camera学习笔记 | TanJunDang</title>
+  <title>Offset偏移量的理解 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Camera基础知识
-Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结果(Bitmap)。3.对BitMap进行处理。">
+  <meta name="description" content="Offset偏移量的理解理解一
+offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（参考Android坐标系）
+RecyclerView的方法scrollToPositionWithOffset(in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Camera学习笔记">
-<meta property="og:url" content="TanJunDang.github.io/2016/11/03/Camera/index.html">
+<meta property="og:title" content="Offset偏移量的理解">
+<meta property="og:url" content="TanJunDang.github.io/2016/11/07/Offset/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="Camera基础知识
-Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结果(Bitmap)。3.对BitMap进行处理。">
-<meta property="og:updated_time" content="2016-11-03T08:15:24.000Z">
+<meta property="og:description" content="Offset偏移量的理解理解一
+offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（参考Android坐标系）
+RecyclerView的方法scrollToPositionWithOffset(in">
+<meta property="og:image" content="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2emJvMDU4ZnNKbTR6aUx1WWw2YkJLSy9LMm9BbHdFdzl3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2M0VzZ1pyQW9qRDhkTFJkVTc1L1JhUk5EOGtYUFo4WmJBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta property="og:updated_time" content="2016-11-07T10:35:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Camera学习笔记">
-<meta name="twitter:description" content="Camera基础知识
-Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结果(Bitmap)。3.对BitMap进行处理。">
+<meta name="twitter:title" content="Offset偏移量的理解">
+<meta name="twitter:description" content="Offset偏移量的理解理解一
+offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（参考Android坐标系）
+RecyclerView的方法scrollToPositionWithOffset(in">
+<meta name="twitter:image" content="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2emJvMDU4ZnNKbTR6aUx1WWw2YkJLSy9LMm9BbHdFdzl3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -175,11 +181,11 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Camera" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Offset" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/03/Camera/" class="article-date">
-      <time datetime="2016-11-03T14:05:41.000Z" itemprop="datePublished">2016-11-03</time>
+      <a href="/2016/11/07/Offset/" class="article-date">
+      <time datetime="2016-11-06T16:00:00.000Z" itemprop="datePublished">2016-11-07</time>
 </a>
     </div>
   
@@ -192,7 +198,7 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
         
   
     <h1 class="article-title" itemprop="name">
-      Camera学习笔记
+      Offset偏移量的理解
     </h1>
   
 
@@ -203,7 +209,7 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Camera学习笔记/">Camera学习笔记</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Offset偏移量的理解/">Offset偏移量的理解</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -213,10 +219,16 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Camera基础知识"><a href="#Camera基础知识" class="headerlink" title="Camera基础知识"></a>Camera基础知识</h1><blockquote>
-<p>Camera使用流程<br>1.调用系统相机拍照。<br>2.onActivityResult获取返回结果(Bitmap)。<br>3.对BitMap进行处理。</p>
+        <h1 id="Offset偏移量的理解"><a href="#Offset偏移量的理解" class="headerlink" title="Offset偏移量的理解"></a>Offset偏移量的理解</h1><h2 id="理解一"><a href="#理解一" class="headerlink" title="理解一"></a>理解一</h2><blockquote>
+<p>offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)<br>标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。<br>目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（<a href="/2016/08/18/CustomView/">参考Android坐标系</a>）</p>
+<p>RecyclerView的方法<br>scrollToPositionWithOffset(int position , int offset).第一个参数是滑到的Item，第二个参数是指该Item与屏幕开始边界的距离。</p>
 </blockquote>
-
+<p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2emJvMDU4ZnNKbTR6aUx1WWw2YkJLSy9LMm9BbHdFdzl3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h2 id="理解二"><a href="#理解二" class="headerlink" title="理解二"></a>理解二</h2><blockquote>
+<p>offset是目的ViewX坐标与原ViewX坐标之间的差值。</p>
+</blockquote>
+<p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2M0VzZ1pyQW9qRDhkTFJkVTc1L1JhUk5EOGtYUFo4WmJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="示例-自定义ScrollLayoutManager"><a href="#示例-自定义ScrollLayoutManager" class="headerlink" title="示例 - 自定义ScrollLayoutManager"></a>示例 - 自定义ScrollLayoutManager</h1>
       
     </div>
     
@@ -224,13 +236,13 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/03/Camera/">Camera学习笔记</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/07/Offset/">Offset偏移量的理解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年11月03日 - 22时05分</p>
-        <p><span>最后更新:</span>2016年11月03日 - 16时15分</p>
+        <p><span>发布时间:</span>2016年11月07日 - 00时00分</p>
+        <p><span>最后更新:</span>2016年11月07日 - 18时35分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/03/Camera/" title="Camera学习笔记">http://TanJunDang.github.io/2016/11/03/Camera/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/11/03/Camera/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/07/Offset/" title="Offset偏移量的理解">http://TanJunDang.github.io/2016/11/07/Offset/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/11/07/Offset/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -240,20 +252,15 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
 
 <nav id="article-nav">
   
-    <a href="/2016/10/24/Socket/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/03/Camera/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Socket学习笔记
+          Camera学习笔记
         
       </div>
     </a>
   
-  
-    <a href="/2016/11/07/Offset/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Offset偏移量的理解</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -262,7 +269,7 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Camera基础知识"><span class="toc-number">1.</span> <span class="toc-text">Camera基础知识</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Offset偏移量的理解"><span class="toc-number">1.</span> <span class="toc-text">Offset偏移量的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解一"><span class="toc-number">1.1.</span> <span class="toc-text">理解一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解二"><span class="toc-number">1.2.</span> <span class="toc-text">理解二</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-自定义ScrollLayoutManager"><span class="toc-number">2.</span> <span class="toc-text">示例 - 自定义ScrollLayoutManager</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -313,7 +320,7 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/11/03/Camera/" data-title="Camera学习笔记" data-url="TanJunDang.github.io/2016/11/03/Camera/"></div>
+    <div class="ds-thread" data-thread-key="2016/11/07/Offset/" data-title="Offset偏移量的理解" data-url="TanJunDang.github.io/2016/11/07/Offset/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -337,15 +344,13 @@ Camera使用流程1.调用系统相机拍照。2.onActivityResult获取返回结
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/24/Socket/" title="上一篇: Socket学习笔记">
+            <a href="/2016/11/03/Camera/" title="上一篇: Camera学习笔记">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/11/07/Offset/" title="下一篇: Offset偏移量的理解">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/07/Offset/">Offset偏移量的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/Camera/">Camera学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/TabLayout/">TabLayout笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Model/">Android项目架构-BaseModel编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/DatePicker/">DatePicker笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Android控件的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/16/ViewPager_One/">ViewPager笔记（一）</a></li></ul>

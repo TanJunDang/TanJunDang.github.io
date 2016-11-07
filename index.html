@@ -244,6 +244,72 @@
 
 
   
+    <article id="post-Offset" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/07/Offset/" class="article-date">
+      <time datetime="2016-11-06T16:00:00.000Z" itemprop="datePublished">2016-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/07/Offset/">Offset偏移量的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Offset偏移量的理解"><a href="#Offset偏移量的理解" class="headerlink" title="Offset偏移量的理解"></a>Offset偏移量的理解</h1><h2 id="理解一"><a href="#理解一" class="headerlink" title="理解一"></a>理解一</h2><blockquote>
+<p>offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)<br>标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。<br>目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（<a href="/2016/08/18/CustomView/">参考Android坐标系</a>）</p>
+<p>RecyclerView的方法<br>scrollToPositionWithOffset(int position , int offset).第一个参数是滑到的Item，第二个参数是指该Item与屏幕开始边界的距离。</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2emJvMDU4ZnNKbTR6aUx1WWw2YkJLSy9LMm9BbHdFdzl3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h2 id="理解二"><a href="#理解二" class="headerlink" title="理解二"></a>理解二</h2><blockquote>
+<p>offset是目的ViewX坐标与原ViewX坐标之间的差值。</p>
+</blockquote>
+<p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2M0VzZ1pyQW9qRDhkTFJkVTc1L1JhUk5EOGtYUFo4WmJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="示例-自定义ScrollLayoutManager"><a href="#示例-自定义ScrollLayoutManager" class="headerlink" title="示例 - 自定义ScrollLayoutManager"></a>示例 - 自定义ScrollLayoutManager</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Offset偏移量的理解/">Offset偏移量的理解</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Camera" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -736,72 +802,6 @@
         <p class="article-more-link">
           <a  href="/2016/09/07/Preference/#more">阅读全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DialogFragment" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/01/DialogFragment/" class="article-date">
-      <time datetime="2016-09-01T12:43:42.000Z" itemprop="datePublished">2016-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="DialogFragment笔记"><a href="#DialogFragment笔记" class="headerlink" title="DialogFragment笔记"></a>DialogFragment笔记</h1><blockquote>
-<p>理解<br>DialogFragment跟普通的AlertDialog没什么不同，只是添加了一个Fragment而已。<br>使用<br>1.定义DialogFragment。<br>创建DialogFragment的子类<br>重写onCreateDialog方法<br>在该方法内利用AlertDialog创建Dialog。<br>为DialogFragment添加相关的接口。<br>2.创建Fragment对象，调用show方法。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义Fragment</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DialogTest</span> <span class="title">extend</span> <span class="title">DialogFragment</span></span>&#123;</span><br><span class="line">  <span class="meta">@NonNull</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Dialog <span class="title">onCreateDialog</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">      Bundle bundle = getArguments();</span><br><span class="line">      title = bundle.getString(TITLE);</span><br><span class="line">      msg = bundle.getString(MSG);</span><br><span class="line">      AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(getActivity());</span><br><span class="line"><span class="comment">//            builder.setIcon(R.mipmap.ic_launcher);</span></span><br><span class="line">      builder.setTitle(title);</span><br><span class="line">      builder.setMessage(msg);</span><br><span class="line">      builder.setPositiveButton(<span class="string">"确定"</span>, positiveListener);</span><br><span class="line">      builder.setNegativeButton(<span class="string">"取消"</span>, negativeListener);</span><br><span class="line">      <span class="keyword">return</span> builder.create();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建对象，调用show方法展示dialog</span></span><br><span class="line">DialogTest dialog = <span class="keyword">new</span> DialogTest();</span><br><span class="line">dialog.show(getSupportFragmentManager,<span class="string">"tag"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="示例-DialogTool工具类的封装"><a href="#示例-DialogTool工具类的封装" class="headerlink" title="示例 - DialogTool工具类的封装"></a>示例 - DialogTool工具类的封装</h1><blockquote>
-<p>知识点<br>1.静态内部类单例模式的应用。<br>2.Fragment初始化的方式(利用set、getArguments方法)。<br>3.如何为Fragment添加接口。<br>4.当屏幕重构时，利用findFragmentByTag找回原来的引用。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DialogTool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String DIALOG_TAG = <span class="string">"DialogToolFragment"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 单例模式初始化工具</span><br><span class="line">     */</span></span><br><span class="line">    DialogToolFragment dialog;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> DialogTool INSTANCE = <span class="keyword">new</span> DialogTool();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DialogTool() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DialogTool <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">(AppCompatActivity context, String title, String msg, <span class="keyword">final</span> DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener)</span> </span>&#123;</span><br><span class="line">        dialog = DialogToolFragment.newInstance(title, msg).setPositiveListener(positiveListener).setNegativeListener(negativeListener);</span><br><span class="line">        dialog.setCancelable(<span class="keyword">false</span>); <span class="comment">//设置点击对话框外部不能取消对话框</span></span><br><span class="line">        dialog.setRetainInstance(<span class="keyword">false</span>);<span class="comment">//Fragment忽略屏幕重建，界面发生变化时，是否重新构建界面 true则构建。</span></span><br><span class="line">        dialog.show(context.getSupportFragmentManager(), DIALOG_TAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 当需要重新构建屏幕的时候调用该方法</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> context</span><br><span class="line">     * <span class="doctag">@param</span> title</span><br><span class="line">     * <span class="doctag">@param</span> msg</span><br><span class="line">     * <span class="doctag">@param</span> positiveListener</span><br><span class="line">     * <span class="doctag">@param</span> negativeListener</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRetainBundle</span><span class="params">(FragmentActivity context, String title, String msg, DialogInterface.OnClickListener positiveListener, DialogInterface.OnClickListener negativeListener)</span> </span>&#123;</span><br><span class="line">        dialog = (DialogToolFragment) context.getSupportFragmentManager().findFragmentByTag(DIALOG_TAG);<span class="comment">//找到重构前的fragment</span></span><br><span class="line">        dialog.setTitle(title);</span><br><span class="line">        dialog.setMsg(msg);</span><br><span class="line">        dialog.setNegativeListener(negativeListener);</span><br><span class="line">        dialog.setPositiveListener(positiveListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 必须设置为static类，否则报错</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DialogToolFragment</span> <span class="keyword">extends</span> <span class="title">DialogFragment</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> String TITLE = <span class="string">"TITLE"</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> String MSG = <span class="string">"MSG"</span>;</span><br><span class="line">        String title;</span><br><span class="line">        String msg;</span><br><span class="line">        DialogInterface.OnClickListener positiveListener;</span><br><span class="line">        DialogInterface.OnClickListener negativeListener;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DialogToolFragment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 官方建议Fragment使用newInstance的方式进行初始化</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DialogToolFragment <span class="title">newInstance</span><span class="params">(String title, String msg)</span> </span>&#123;</span><br><span class="line">            DialogToolFragment fragment = <span class="keyword">new</span> DialogToolFragment();</span><br><span class="line">            Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">            bundle.putString(TITLE, title);</span><br><span class="line">            bundle.putString(MSG, msg);</span><br><span class="line">            fragment.setArguments(bundle);</span><br><span class="line">            <span class="keyword">return</span> fragment;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//为Fragment定义接口，设置相关的监听器。</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> DialogToolFragment <span class="title">setPositiveListener</span><span class="params">(DialogInterface.OnClickListener positiveListener)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.positiveListener = positiveListener;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> DialogToolFragment <span class="title">setNegativeListener</span><span class="params">(DialogInterface.OnClickListener negativeListener)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.negativeListener = negativeListener;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@NonNull</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Dialog <span class="title">onCreateDialog</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">            Bundle bundle = getArguments();</span><br><span class="line">            title = bundle.getString(TITLE);</span><br><span class="line">            msg = bundle.getString(MSG);</span><br><span class="line">            AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(getActivity());</span><br><span class="line"><span class="comment">//            builder.setIcon(R.mipmap.ic_launcher);</span></span><br><span class="line">            builder.setTitle(title);</span><br><span class="line">            builder.setMessage(msg);</span><br><span class="line"></span><br><span class="line">            builder.setPositiveButton(<span class="string">"确定"</span>, positiveListener);</span><br><span class="line">            builder.setNegativeButton(<span class="string">"取消"</span>, negativeListener);</span><br><span class="line">            <span class="keyword">return</span> builder.create();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.title = title;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DialogFragment笔记/">DialogFragment笔记</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
