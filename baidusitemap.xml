@@ -4,6 +4,93 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
+    <lastmod>2016-11-13T05:18:15.790Z</lastmod>
+    <data>
+        <display>
+        <title>Git的学习</title>
+        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
+        
+        <tag>Git的学习</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
+    <lastmod>2016-11-13T05:16:17.949Z</lastmod>
+    <data>
+        <display>
+        <title>Android - File文件操作</title>
+        <pubTime>2016-05-05T02:21:17.000Z</pubTime>
+        
+        <tag>Android - File文件操作</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
+    <lastmod>2016-11-12T09:34:47.197Z</lastmod>
+    <data>
+        <display>
+        <title>PopupWindow</title>
+        <pubTime>2015-09-22T01:10:46.000Z</pubTime>
+        
+        <tag>PopupWindow</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
+    <lastmod>2016-11-09T08:12:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android控件的学习笔记</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
+        
+        <tag>Android控件的学习笔记</tag>
+         
+        <tag>开发中常用的技巧</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    <lastmod>2016-11-09T01:35:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义View笔记</title>
+        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
+        
+        <tag>自定义View笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/03/30/BNJSummarize/</loc>
     <lastmod>2016-11-08T02:46:24.000Z</lastmod>
     <data>
@@ -69,25 +156,6 @@
         <pubTime>2016-11-03T14:05:41.000Z</pubTime>
         
         <tag>Camera学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
-    <lastmod>2016-11-03T04:23:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android控件的学习笔记</title>
-        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
-        
-        <tag>Android控件的学习笔记</tag>
-         
-        <tag>开发中常用的技巧</tag>
          
          
            
@@ -281,23 +349,6 @@
         <pubTime>2016-03-31T02:44:19.000Z</pubTime>
         
         <tag>事件分发机制onTouchEvent笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2016-10-20T07:34:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义View笔记</title>
-        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
-        
-        <tag>自定义View笔记</tag>
          
          
            
@@ -825,23 +876,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
-    <lastmod>2016-08-25T09:41:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git的学习</title>
-        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
-        
-        <tag>Git的学习</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/04/05/EventBus/</loc>
     <lastmod>2016-08-25T09:31:34.000Z</lastmod>
     <data>
@@ -884,23 +918,6 @@
         <pubTime>2015-08-16T08:36:26.000Z</pubTime>
         
         <tag>ViewPager笔记（一）</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
-    <lastmod>2016-08-25T09:12:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>PopupWindow</title>
-        <pubTime>2015-09-22T01:10:46.000Z</pubTime>
-        
-        <tag>PopupWindow</tag>
          
          
            
@@ -954,23 +971,6 @@
         <pubTime>2015-11-02T10:09:52.000Z</pubTime>
         
         <tag>Android项目架构</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
-    <lastmod>2016-08-06T09:20:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android - File文件操作</title>
-        <pubTime>2016-05-05T02:21:17.000Z</pubTime>
-        
-        <tag>Android - File文件操作</tag>
          
          
            
