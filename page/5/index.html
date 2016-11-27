@@ -176,6 +176,91 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/01/Android-ContentProvider/" class="article-date">
+      <time datetime="2015-11-01T12:43:42.000Z" itemprop="datePublished">2015-11-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="ContentProvider的理解"><a href="#ContentProvider的理解" class="headerlink" title="ContentProvider的理解"></a>ContentProvider的理解</h1><blockquote>
+<p>ContentProvider的作用是什么？<br>1.共享数据给其他应用程序。<br>2.提供音频、视频、联系人等数据给自己的程序。<br>如何使用ContentProvider？<br>1.扩展ContentProvider类。<br>2.重写相关的增删改查方法<br>3.定义Action，暴露数据。<br>ContentResolver的作用是什么？<br>1.读取ContentProvider的数据。<br>2.可以通过ContentValue操作数据。对数据库表进行增删改查。</p>
+</blockquote>
+<h2 id="常用URI"><a href="#常用URI" class="headerlink" title="常用URI"></a>常用URI</h2><table>
+<thead>
+<tr>
+<th>作用</th>
+<th>通用标识符URI</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短信</td>
+<td>Uri.parse(“content://sms/“);</td>
+<td>android.permission.READ_SMS</td>
+</tr>
+<tr>
+<td>获取联系人</td>
+<td>ContactsContract.CommonDataKinds.Phone.CONTENT_URI;</td>
+<td>android.permission.READ_CONTACTS <br> android.permission.WRITE_CONTACTS</td>
+</tr>
+<tr>
+<td>查询指定电话的联系人</td>
+<td>Uri.parse(“content://com.android.contacts/data/phones/filter/“ + number);</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之ContentProvider/">Android基础之ContentProvider</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android-Service" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -919,9 +1004,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><p>&gt;</p>
-<blockquote>
-<p>步骤<br>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(new PopupWindow(View contentView, int width, int height,boolean outsideTouchAble))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失<br>7.setAnimationStyle设置动画。在style文件中添加animStyle。</p>
+              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>　View加载、计算宽度、参考显示</p>
+<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
 </blockquote>
           
       
@@ -939,91 +1024,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Intent" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/Intent/" class="article-date">
-      <time datetime="2015-09-19T16:00:00.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/Intent/">Android基础之Intent</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Intent的基础知识"><a href="#Intent的基础知识" class="headerlink" title="Intent的基础知识"></a>Intent的基础知识</h1><h2 id="Intent的作用"><a href="#Intent的作用" class="headerlink" title="Intent的作用"></a>Intent的作用</h2><table>
-<thead>
-<tr>
-<th>Intent的作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>启动Activity</td>
-</tr>
-<tr>
-<td>启动Service</td>
-</tr>
-<tr>
-<td>启动Broadcast</td>
-</tr>
-<tr>
-<td>启动满足条件的应用</td>
-</tr>
-<tr>
-<td>实现应用间数据交互</td>
-</tr>
-</tbody>
-</table>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Intent/">Android基础之Intent</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/20/Intent/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
