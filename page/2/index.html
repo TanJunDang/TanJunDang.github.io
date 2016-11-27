@@ -172,68 +172,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Preference" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/07/Preference/" class="article-date">
-      <time datetime="2016-09-07T08:52:53.000Z" itemprop="datePublished">2016-09-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/07/Preference/">Preference的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Preference的基础知识"><a href="#Preference的基础知识" class="headerlink" title="Preference的基础知识"></a>Preference的基础知识</h1><p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0M0WDB6Y2NDQ2xZbDl0YVkzTkE3bndsWWJTUjJuWjA3OEpORE1KWFNueFp3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Preference的使用/">Preference的使用</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/07/Preference/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-DialogFragment" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -690,7 +628,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="RelativeLayout常用布局"><a href="#RelativeLayout常用布局" class="headerlink" title="RelativeLayout常用布局"></a>RelativeLayout常用布局</h2><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0R6cENTdUU3ZjRLejZyTzYxekE1cnZwWTcxL3VxaGJaUkVDNEdrYnNLYWZBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h2><blockquote>
+<p>top: true</p>
+</blockquote>
+<h2 id="RelativeLayout常用布局"><a href="#RelativeLayout常用布局" class="headerlink" title="RelativeLayout常用布局"></a>RelativeLayout常用布局</h2><p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0R6cENTdUU3ZjRLejZyTzYxekE1cnZwWTcxL3VxaGJaUkVDNEdrYnNLYWZBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
 <blockquote>
 <p>需求<br>实现上述Tile Value Arrow的布局。<br>分析<br>1.先布局右边箭头Arrow - alignParentRight<br>2.再对Value进行布局 - 使用leftof - arrow. 将value布局在arrow左边。<br>3.如果value使用了alignParentRight，则上述leftOf无效，导致Arrow重叠。<br>4.当然如果执意要使用alignParentRight，则需要考虑Arrow的宽度以及其margin。<br>总结<br>右边第二个值需要使用leftof代替alignParentRight</p>
 </blockquote>
@@ -846,6 +787,73 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/05/Share/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-RxAndroid" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/RxAndroid/" class="article-date">
+      <time datetime="2016-06-13T00:52:28.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="RxJava是什么"><a href="#RxJava是什么" class="headerlink" title="RxJava是什么"></a>RxJava是什么</h1><blockquote>
+<p>1.可以理解为RxJava是一个异步操作的库。<br>2.RxJava使代码简洁、逻辑清晰。<br>3.用于处理观察者模式(事件总线)的需求。<br>4.可以取出集合元素逐个处理。</p>
+</blockquote>
+<h2 id="适用场合"><a href="#适用场合" class="headerlink" title="适用场合"></a>适用场合</h2><blockquote>
+<p>事件A（观察者）对事件B（被观察者）的某种变化高度敏感，需要在B变化的一瞬间做出反应。（高敏感度监听）</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RxJava、RxAndroid的理解/">RxJava、RxAndroid的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/13/RxAndroid/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
