@@ -276,6 +276,132 @@
 
 
   
+    <article id="post-EditText" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/EditText/" class="article-date">
+      <time datetime="2016-12-13T14:05:41.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/13/EditText/">EditText笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="EditText的使用"><a href="#EditText的使用" class="headerlink" title="EditText的使用"></a>EditText的使用</h1><h2 id="EditText禁止输入回车"><a href="#EditText禁止输入回车" class="headerlink" title="EditText禁止输入回车"></a>EditText禁止输入回车</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchKeyEvent</span><span class="params">(KeyEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (event.getKeyCode()) &#123;</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_DPAD_CENTER:</span><br><span class="line">    	<span class="keyword">case</span> KeyEvent.KEYCODE_ENTER:</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">super</span>.dispatchKeyEvent(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EditText笔记/">EditText笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/13/EditText/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-TextView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/TextView/" class="article-date">
+      <time datetime="2016-12-12T16:00:00.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/13/TextView/">TextView学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="TextView的常用属性"><a href="#TextView的常用属性" class="headerlink" title="TextView的常用属性"></a>TextView的常用属性</h1><blockquote>
+<p>maxWidth属性跟singleLine属性连用可设置文字超过一定字数自动加“。。。”<br>ems属性可以通过字数来设置TextView的宽度。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TextView学习笔记/">TextView学习笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/13/TextView/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-SearchView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -722,141 +848,9 @@
 
 
   
-    <article id="post-TabLayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/09/TabLayout/" class="article-date">
-      <time datetime="2016-10-09T07:01:20.000Z" itemprop="datePublished">2016-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/TabLayout/">TabLayout笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="TabLayout基础知识"><a href="#TabLayout基础知识" class="headerlink" title="TabLayout基础知识"></a>TabLayout基础知识</h1><blockquote>
-<p>理解<br>TabLayout通常与ViewPager联合使用。<br>TabLayout主要用于设置tab标题、关联ViewPager、设置自定义Tab、设置tab选中监听器。<br>ViewPager主要用于创建FragmentPagerAdapter、设置Adapter。（跟ListView用法类似）<br>使用<br>1.在XML里设置TabLayout跟ViewPager。通常纯文本的Tab在顶部，包含Icon的Tab在底部。<br>2.创建Tab标题数组以及Fragment的List集合。<br>3.创建FragmentPagerAdapter，重写getCount、getItem、getPageTitle等方法。<br>4.ViewPager创建Adapter并调用setAdapter方法。<br>5.TabLayout使用setupWithViewPager进行关联。(如果是自定义Tab，还需要调用setTabsFromPagerAdapter)</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TabLayout笔记/">TabLayout笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager预加载/">ViewPager预加载</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/09/TabLayout/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ActionBar" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/14/ActionBar/" class="article-date">
-      <time datetime="2016-09-13T16:00:00.000Z" itemprop="datePublished">2016-09-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/14/ActionBar/">ActionBar笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ActionBar基本知识"><a href="#ActionBar基本知识" class="headerlink" title="ActionBar基本知识"></a>ActionBar基本知识</h1><blockquote>
-<p>1.Android 3.0(API level 11)版本之后，所有使用默认主题的Activity都包含有Actionbar。<br>2.如果需要支持Android 2.0(API level 7)版本，需要修改mainfest中的minSdkVersion版本。<br>3.如果需要自定义ActionBar，则先设置Activity的Theme为NoActionBar(需要设置name/parent)，然后通过添加ToolBar来实现。<br>4.values、values-xx的理解。</p>
-<ul>
-<li>values表示所有API使用该文件。</li>
-<li>values-xx表示XXAPI起，使用该文件。</li>
-</ul>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ActionBar笔记/">ActionBar笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/09/14/ActionBar/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

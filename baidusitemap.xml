@@ -4,6 +4,129 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
+    <lastmod>2016-12-13T10:34:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android控件的学习笔记</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
+        
+        <tag>Android控件的学习笔记</tag>
+         
+        <tag>开发中常用的技巧</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/12/13/TextView/</loc>
+    <lastmod>2016-12-13T10:34:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>TextView学习笔记</title>
+        <pubTime>2016-12-12T16:00:00.000Z</pubTime>
+        
+        <tag>TextView学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
+    <lastmod>2016-12-13T10:34:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>TabLayout笔记</title>
+        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
+        
+        <tag>TabLayout笔记</tag>
+         
+        <tag>ViewPager预加载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/03/31/OnTouchEvent/</loc>
+    <lastmod>2016-12-13T10:34:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>事件分发机制onTouchEvent笔记</title>
+        <pubTime>2016-03-31T02:44:19.000Z</pubTime>
+        
+        <tag>事件分发机制onTouchEvent笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
+    <lastmod>2016-12-13T10:34:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>ListView的理解</title>
+        <pubTime>2015-09-01T00:48:29.000Z</pubTime>
+        
+        <tag>ListView</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
+    <lastmod>2016-12-13T10:34:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android-Fragment笔记</title>
+        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
+        
+        <tag>Android-Fragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
+    <lastmod>2016-12-13T10:34:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>EditText笔记</title>
+        <pubTime>2016-12-13T14:05:41.000Z</pubTime>
+        
+        <tag>EditText笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
     <lastmod>2016-12-08T15:43:26.927Z</lastmod>
     <data>
@@ -84,25 +207,6 @@
         <pubTime>2015-08-16T08:36:26.000Z</pubTime>
         
         <tag>ViewPager笔记（一）</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
-    <lastmod>2016-11-28T02:44:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android控件的学习笔记</title>
-        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
-        
-        <tag>Android控件的学习笔记</tag>
-         
-        <tag>开发中常用的技巧</tag>
          
          
            
@@ -341,25 +445,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
-    <lastmod>2016-11-02T03:10:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>TabLayout笔记</title>
-        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
-        
-        <tag>TabLayout笔记</tag>
-         
-        <tag>ViewPager预加载</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
     <lastmod>2016-10-31T03:21:08.000Z</lastmod>
     <data>
@@ -411,23 +496,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/03/31/OnTouchEvent/</loc>
-    <lastmod>2016-10-21T10:01:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>事件分发机制onTouchEvent笔记</title>
-        <pubTime>2016-03-31T02:44:19.000Z</pubTime>
-        
-        <tag>事件分发机制onTouchEvent笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
     <lastmod>2016-10-18T08:19:48.000Z</lastmod>
     <data>
@@ -436,23 +504,6 @@
         <pubTime>2016-10-15T14:05:41.000Z</pubTime>
         
         <tag>WebView学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
-    <lastmod>2016-10-17T03:16:46.000Z</lastmod>
-    <data>
-        <display>
-        <title>Fragment笔记</title>
-        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
-        
-        <tag>Fragment笔记</tag>
          
          
            
@@ -623,23 +674,6 @@
         <pubTime>2015-10-30T07:42:08.000Z</pubTime>
         
         <tag>Android基础之Activity</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
-    <lastmod>2016-09-19T12:54:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>ListView的理解</title>
-        <pubTime>2015-09-01T00:48:29.000Z</pubTime>
-        
-        <tag>ListView</tag>
          
          
            
