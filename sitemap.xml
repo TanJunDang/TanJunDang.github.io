@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
+    
+    <lastmod>2016-12-28T10:35:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
+    
+    <lastmod>2016-12-28T09:37:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    
+    <lastmod>2016-12-28T02:11:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
+    
+    <lastmod>2016-12-23T09:39:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
+    
+    <lastmod>2016-12-23T03:58:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    
+    <lastmod>2016-12-23T01:37:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/ViewPager/</loc>
+    
+    <lastmod>2016-12-15T10:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
+    
+    <lastmod>2016-12-15T09:45:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
+    
+    <lastmod>2016-12-15T09:45:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
     
     <lastmod>2016-12-13T10:34:20.000Z</lastmod>
@@ -16,13 +79,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/10/09/TabLayout/</loc>
-    
-    <lastmod>2016-12-13T10:34:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/03/31/OnTouchEvent/</loc>
     
     <lastmod>2016-12-13T10:34:12.000Z</lastmod>
@@ -30,44 +86,16 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
-    
-    <lastmod>2016-12-13T10:34:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
-    
-    <lastmod>2016-12-13T10:34:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
-    
-    <lastmod>2016-12-13T10:34:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
     
-    <lastmod>2016-12-08T15:43:26.927Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    
-    <lastmod>2016-12-08T15:43:19.927Z</lastmod>
+    <lastmod>2016-12-08T15:43:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
     
-    <lastmod>2016-12-08T15:42:05.181Z</lastmod>
+    <lastmod>2016-12-08T15:42:06.000Z</lastmod>
     
   </url>
   
@@ -75,13 +103,6 @@
     <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
     
     <lastmod>2016-11-30T02:06:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/08/16/ViewPager_One/</loc>
-    
-    <lastmod>2016-11-28T09:10:38.000Z</lastmod>
     
   </url>
   
@@ -110,13 +131,6 @@
     <loc>TanJunDang.github.io/2016/11/17/SearchView/</loc>
     
     <lastmod>2016-11-17T08:11:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    
-    <lastmod>2016-11-14T03:35:36.000Z</lastmod>
     
   </url>
   
@@ -180,13 +194,6 @@
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
     
     <lastmod>2016-10-31T03:21:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
-    
-    <lastmod>2016-10-28T06:48:32.000Z</lastmod>
     
   </url>
   
@@ -394,20 +401,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
-    
-    <lastmod>2016-08-25T09:12:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/08/16/ViewPager_Two/</loc>
-    
-    <lastmod>2016-08-25T08:36:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/baidu_verify_r16OqADGW2.html</loc>
     
     <lastmod>2016-08-25T02:59:02.735Z</lastmod>
@@ -418,13 +411,6 @@
     <loc>TanJunDang.github.io/google052eb804308dfc09.html</loc>
     
     <lastmod>2016-08-25T01:11:30.231Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
-    
-    <lastmod>2016-08-22T16:01:16.000Z</lastmod>
     
   </url>
   

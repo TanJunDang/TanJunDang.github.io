@@ -274,7 +274,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow</a>
+      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a>
     </h1>
   
 
@@ -285,8 +285,8 @@
       
           
               <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
-<p>　View加载、计算宽度、参考显示</p>
-<p>1.用一个View加载要显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+<p>总结<br>　PopupWindos的作用就是设置显示View的宽高、背景、动画以及显示的位置。</p>
+<p>步骤<br>1.用LayoutInflate加载待显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height，boolean focusable))<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);//设置popupwindow获取焦点<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
 </blockquote>
           
       
@@ -298,7 +298,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow/">PopupWindow</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow笔记/">PopupWindow笔记</a></li></ul>
     </div>
 
       
@@ -407,6 +407,70 @@
 
 
   
+    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
+<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Error-Bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -456,70 +520,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/Error-Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
-<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -797,71 +797,9 @@
 
 
   
-    <article id="post-ViewPager_Two" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/16/ViewPager_Two/" class="article-date">
-      <time datetime="2015-08-16T08:40:26.000Z" itemprop="datePublished">2015-08-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/16/ViewPager_Two/">ViewPager笔记（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ViewPager实现方法"><a href="#ViewPager实现方法" class="headerlink" title="ViewPager实现方法"></a>ViewPager实现方法</h1><h2 id="传统ViewPager实现"><a href="#传统ViewPager实现" class="headerlink" title="传统ViewPager实现"></a>传统ViewPager实现</h2><p><a href="/2015/08/15/ViewPager_One/">ViewPager（一）</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ViewPager笔记（二）/">ViewPager笔记（二）</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/16/ViewPager_Two/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
     </nav>
   
 
