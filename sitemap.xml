@@ -2,9 +2,170 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>TanJunDang.github.io/2017/02/04/DataBinding/</loc>
+    
+    <lastmod>2017-02-09T10:47:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/01/13/LayoutInflater/</loc>
+    
+    <lastmod>2017-02-09T07:34:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/02/09/BaseApplication/</loc>
+    
+    <lastmod>2017-02-09T03:00:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/05/31/Project-CacheModel/</loc>
+    
+    <lastmod>2017-02-09T02:06:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/02/06/Project-Network/</loc>
+    
+    <lastmod>2017-02-08T10:06:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
+    
+    <lastmod>2017-02-08T08:19:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
+    
+    <lastmod>2017-02-08T02:40:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/02/06/Project-Architecture/</loc>
+    
+    <lastmod>2017-02-07T02:12:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/01/20/Project-HttpProtocol/</loc>
+    
+    <lastmod>2017-02-06T10:30:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    
+    <lastmod>2017-02-06T09:23:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
+    
+    <lastmod>2017-02-06T09:20:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
+    
+    <lastmod>2017-02-05T10:04:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
+    
+    <lastmod>2017-01-19T10:37:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    
+    <lastmod>2017-01-17T10:34:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>TanJunDang.github.io/2015/09/01/ListView/</loc>
     
-    <lastmod>2016-12-28T10:35:04.000Z</lastmod>
+    <lastmod>2017-01-17T08:52:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
+    
+    <lastmod>2017-01-17T08:26:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/05/25/CustomMenu/</loc>
+    
+    <lastmod>2017-01-11T08:06:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
+    
+    <lastmod>2017-01-11T07:53:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/03/31/OnTouchEvent/</loc>
+    
+    <lastmod>2017-01-05T09:54:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    
+    <lastmod>2017-01-05T03:55:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/04/11/Handler/</loc>
+    
+    <lastmod>2017-01-05T02:35:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2017/01/05/ApkTool/</loc>
+    
+    <lastmod>2017-01-05T02:26:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
+    
+    <lastmod>2016-12-30T10:20:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
+    
+    <lastmod>2016-12-29T10:08:38.000Z</lastmod>
     
   </url>
   
@@ -12,27 +173,6 @@
     <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
     
     <lastmod>2016-12-28T09:37:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    
-    <lastmod>2016-12-28T02:11:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/09/22/PopupWindow/</loc>
-    
-    <lastmod>2016-12-23T09:39:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
-    
-    <lastmod>2016-12-23T03:58:44.000Z</lastmod>
     
   </url>
   
@@ -79,44 +219,9 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/03/31/OnTouchEvent/</loc>
-    
-    <lastmod>2016-12-13T10:34:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    
-    <lastmod>2016-12-08T15:43:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    
-    <lastmod>2016-12-08T15:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
-    
-    <lastmod>2016-11-30T02:06:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
     
     <lastmod>2016-11-27T09:12:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
-    
-    <lastmod>2016-11-27T09:08:12.000Z</lastmod>
     
   </url>
   
@@ -184,20 +289,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
-    
-    <lastmod>2016-11-02T07:39:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
-    
-    <lastmod>2016-10-31T03:21:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/10/24/Socket/</loc>
     
     <lastmod>2016-10-27T06:55:14.000Z</lastmod>
@@ -205,23 +296,9 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
-    
-    <lastmod>2016-10-18T08:19:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/01/01/Style/</loc>
     
     <lastmod>2016-10-15T05:55:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
-    
-    <lastmod>2016-10-13T03:41:54.000Z</lastmod>
     
   </url>
   
@@ -366,20 +443,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/01/13/LayoutInflater/</loc>
-    
-    <lastmod>2016-08-25T10:12:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/04/11/Handler/</loc>
-    
-    <lastmod>2016-08-25T09:44:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/05/31/GsonTool/</loc>
     
     <lastmod>2016-08-25T09:42:32.000Z</lastmod>
@@ -394,13 +457,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/05/25/CustomMenu/</loc>
-    
-    <lastmod>2016-08-25T09:22:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/baidu_verify_r16OqADGW2.html</loc>
     
     <lastmod>2016-08-25T02:59:02.735Z</lastmod>
@@ -411,20 +467,6 @@
     <loc>TanJunDang.github.io/google052eb804308dfc09.html</loc>
     
     <lastmod>2016-08-25T01:11:30.231Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
-    
-    <lastmod>2016-08-06T09:20:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/05/31/Model/</loc>
-    
-    <lastmod>2016-08-06T08:29:12.000Z</lastmod>
     
   </url>
   

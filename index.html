@@ -172,11 +172,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-CustomView" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-BaseApplication" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/18/CustomView/" class="article-date">
-      <time datetime="2016-08-18T07:01:20.000Z" itemprop="datePublished">2016-08-18</time>
+      <a href="/2017/02/09/BaseApplication/" class="article-date">
+      <time datetime="2017-02-08T16:00:00.000Z" itemprop="datePublished">2017-02-09</time>
 </a>
     </div>
   
@@ -189,7 +189,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/CustomView/">自定义View笔记</a>
+      <a class="article-title" href="/2017/02/09/BaseApplication/">Android架构 - BaseApplication笔记</a>
     </h1>
   
 
@@ -199,66 +199,408 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="自定义View的知识-基础"><a href="#自定义View的知识-基础" class="headerlink" title="自定义View的知识(基础)"></a>自定义View的知识<font color="#66D9EF">(基础)</font></h1><blockquote>
-<p>理解<br>~自定义View是在画布上面画的，所以要区分清楚画布的大小跟View的大小。</p>
+        <h1 id="BaseApplication"><a href="#BaseApplication" class="headerlink" title="BaseApplication"></a>BaseApplication</h1><blockquote>
+<p>理解<br>App启动时，首先会执行BaseApplication的onCreate方法。所以在onCreate执行一些全局初始化操作是必要的。通常是工具类、SDK的初始化。<br>当APP切换至后台时,闲置一段时间(Application可能由于内存不足被系统杀掉)，再重启app(若已被系统杀掉，则重新执行onCreate方法)。如果Application里保存了一些全局变量,则其他页面调用了该变量则会导致崩溃的异常。<br>因此，不应该在BaseApplication里保存全局变量。而是定义一个新的Global类来保存。<br>此外APP应该打破64k函数的限制 <a href="http://www.jianshu.com/p/245022d136e1" target="_blank" rel="external">具体参考</a></p>
+<p>打破方法限制需要的库<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:multidex:1.0.0'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.google.android.gms:play-services-maps:9.2.0'</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p><img src="http://imglf2.nosdn.127.net/img/ZFRpZXBrMUVQR0FCTmEzNDk0VnBCNm56QWZWZ0VQR0ovS1FabTJVcXdxQmozSWwwb1ZhOUFnPT0.jpg?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<table>
-<thead>
-<tr>
-<th>常见问题</th>
-<th>理解</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>自定义View的方式有哪些？</td>
-<td>继承View、继承ViewGroup、继承ViewGroup的组合View</td>
-</tr>
-<tr>
-<td>自定义View的方法的执行顺序是什么？</td>
-<td>onMeasure-&gt;onSizeChange-&gt;onLayout-&gt;onDraw</td>
-</tr>
-<tr>
-<td>什么是测量值？</td>
-<td>即在xml文件设定的宽高值。当宽高为wrap时，默认大小为屏幕大小。</td>
-</tr>
-<tr>
-<td>如何理解onMeasure方法？</td>
-<td>决定画布的大小</td>
-</tr>
-<tr>
-<td>自定义View，默认宽高为warp_content跟match_parent效果一致，如何解决？</td>
-<td>重写onMeasure、处理Mode为AT_MOST的情况</td>
-</tr>
-<tr>
-<td>如何获取滑动最小距离？</td>
-<td>ViewConfiguration.get(this).getScaledDoubleTapSlop()</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取屏幕宽高</span></span><br><span class="line">WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">width = wm.getDefaultDisplay().getWidth();</span><br><span class="line">height = wm.getDefaultDisplay().getHeight();</span><br></pre></td></tr></table></figure>
+<h1 id="登录成功所需做的处理"><a href="#登录成功所需做的处理" class="headerlink" title="登录成功所需做的处理"></a>登录成功所需做的处理</h1><blockquote>
+<p>用户登录成功后的处理<br>1.保存账户信息(User)到内存(全局变量)、文件(Model)供其他模块使用。<br>2.将账户信息进行MD5编码，保存到本地。用于判断是否自动登录。<br>3.根据服务器下发的时间进行校准。防止用户修改系统日期导致时间不正常。(计算时间在下文)<br>4.可能会有的功能:跳转页面时,未登录，则需要跳去登录页面。成功后回调到原有界面继续处理。</p>
+</blockquote>
+<h2 id="示例-校准时间"><a href="#示例-校准时间" class="headerlink" title="示例 - 校准时间"></a>示例 - 校准时间</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算服务器与本地时间差值</span></span><br><span class="line"><span class="keyword">long</span> timeOffset = sysAvailResp.getServertime() - Calendar.getInstance().getTimeInMillis();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在其他地方调用时,使用该方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getFixCurrentTime</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">long</span> fixTime = Calendar.getInstance().getTimeInMillis() + timeOffset;</span><br><span class="line"><span class="keyword">return</span> fixTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android架构-BaseApplication笔记/">Android架构 - BaseApplication笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Project-Network" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/06/Project-Network/" class="article-date">
+      <time datetime="2017-02-05T16:00:00.000Z" itemprop="datePublished">2017-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/Project-Network/">Android框架设计 - 网络层</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>#　Android网络层框架设计</p>
+<blockquote>
+<p>理解<br>网络层框架设计分以下部分<br>定义请求实体基类、定义请求协议基类、封装请求管理类、定义业务回调接口</p>
+</blockquote>
           
       
     </div>
     
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <a class="">置顶</a>
-        </div>
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android框架设计-网络层/">Android框架设计 - 网络层</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/02/06/Project-Network/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Project-Architecture" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/06/Project-Architecture/" class="article-date">
+      <time datetime="2017-02-05T16:00:00.000Z" itemprop="datePublished">2017-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/Project-Architecture/">Android项目架构模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h1><blockquote>
+<p>理解<br>1.MVC分别指的的模型、视图、控制器。<br>2.在Android中，Model可以理解为业务逻辑处理(一些实体类、一些请求封装等)，View就是控件，控制器可以理解为控制Data如何在View上显示。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义View笔记/">自定义View笔记</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构模式/">Android项目架构模式</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2016/08/18/CustomView/#more">阅读全文 >></a>
+          <a  href="/2017/02/06/Project-Architecture/#more">阅读全文 >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-DataBinding" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/04/DataBinding/" class="article-date">
+      <time datetime="2017-02-03T16:00:00.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/DataBinding/">DataBinding的学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="DataBinding的理解"><a href="#DataBinding的理解" class="headerlink" title="DataBinding的理解"></a>DataBinding的理解</h1><blockquote>
+<p>DataBinding是什么，有什么用处？<br>DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataBinding的学习/">DataBinding的学习</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/02/04/DataBinding/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Project-HttpProtocol" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/20/Project-HttpProtocol/" class="article-date">
+      <time datetime="2017-01-19T16:00:00.000Z" itemprop="datePublished">2017-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Http协议基类"><a href="#Http协议基类" class="headerlink" title="Http协议基类"></a>Http协议基类</h1><blockquote>
+<p>理解<br>该类主要作用是封装请求参数，拼接、加密URL等。</p>
+<p>具体作用<br>1.提供创建LinkedHashMap的方法。<br>2.拼接URL，对其中的参数进行编码(URLEncoder)。<br>3.对URL进行压缩,SHA1、MD5、AES加密等。<br>4.在本地打印URL的具体信息(请求参数)。<br>5.返回URL。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http业务基类的编写/">Http业务基类的编写</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/20/Project-HttpProtocol/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/13/LayoutInflater/" class="article-date">
+      <time datetime="2017-01-13T08:19:33.000Z" itemprop="datePublished">2017-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="LayoutInflater的理解"><a href="#LayoutInflater的理解" class="headerlink" title="LayoutInflater的理解"></a>LayoutInflater的理解</h1><blockquote>
+<p>理解<br>LayoutInflater主要用于加载布局，setContentView内部实现也是通过该方法。<br>LayoutInflater.from()方法是context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)的封装。<br>LayoutInflater常用在自定义View里面加载布局。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LayoutInflater的理解/">LayoutInflater的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/13/LayoutInflater/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ApkTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/05/ApkTool/" class="article-date">
+      <time datetime="2017-01-05T00:48:29.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/ApkTool/">反编译</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="反编译工具"><a href="#反编译工具" class="headerlink" title="反编译工具"></a>反编译工具</h1><p><a href="https://pan.baidu.com/s/1geCp1xL" target="_blank" rel="external">ApkTool下载</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NDM2MjAwNw==&amp;mid=401957462&amp;idx=1&amp;sn=3ef96190d9b3d7ba94250ddee59689e2&amp;scene=0#rd" target="_blank" rel="external">郭神反编译</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反编译/">反编译</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -467,390 +809,9 @@
 
 
   
-    <article id="post-Offset" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/07/Offset/" class="article-date">
-      <time datetime="2016-11-06T16:00:00.000Z" itemprop="datePublished">2016-11-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/07/Offset/">Offset偏移量的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Offset偏移量的理解"><a href="#Offset偏移量的理解" class="headerlink" title="Offset偏移量的理解"></a>Offset偏移量的理解</h1><h2 id="理解一"><a href="#理解一" class="headerlink" title="理解一"></a>理解一</h2><blockquote>
-<p>offset是指目标中心线的X坐标与标准中心线的X坐标之间的差值。(目标可以是ListView中的一个Item)<br>标准中心线的X坐标一般是屏幕的宽的一半或者是View宽的一半。<br>目标中心线的X坐标一般通过getRight()-getLeft的方式来求出。（<a href="/2016/08/18/CustomView/">参考Android坐标系</a>）</p>
-<p>RecyclerView的方法<br>scrollToPositionWithOffset(int position , int offset).第一个参数是滑到的Item，第二个参数是指该Item与屏幕开始边界的距离。</p>
-</blockquote>
-<p><img src="http://imglf1.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2emJvMDU4ZnNKbTR6aUx1WWw2YkJLSy9LMm9BbHdFdzl3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h2 id="理解二"><a href="#理解二" class="headerlink" title="理解二"></a>理解二</h2><blockquote>
-<p>offset是目的ViewX坐标与原ViewX坐标之间的差值。</p>
-</blockquote>
-<p><img src="http://imglf0.nosdn.127.net/img/ZFRpZXBrMUVQR0N2YUV3cGJJWjU2M0VzZ1pyQW9qRDhkTFJkVTc1L1JhUk5EOGtYUFo4WmJBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h1 id="示例-自定义ScrollLayoutManager"><a href="#示例-自定义ScrollLayoutManager" class="headerlink" title="示例 - 自定义ScrollLayoutManager"></a>示例 - 自定义ScrollLayoutManager</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Offset偏移量的理解/">Offset偏移量的理解</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Camera" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/03/Camera/" class="article-date">
-      <time datetime="2016-11-03T14:05:41.000Z" itemprop="datePublished">2016-11-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/03/Camera/">Camera学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Camera基础知识"><a href="#Camera基础知识" class="headerlink" title="Camera基础知识"></a>Camera基础知识</h1><blockquote>
-<p>Camera使用流程<br>1.调用系统相机拍照。<br>2.onActivityResult获取返回结果(Bitmap)。<br>3.对BitMap进行处理。</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Camera学习笔记/">Camera学习笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/24/Socket/" class="article-date">
-      <time datetime="2016-10-24T02:44:19.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/24/Socket/">Socket学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Socket基础知识"><a href="#Socket基础知识" class="headerlink" title="Socket基础知识"></a>Socket基础知识</h1><blockquote>
-<p>Socket用于客户端与服务端间进行网络通信。包括连接服务器、发送接收数据、关闭网络连接的功能。<br>Socket适用于长时间连接。<br>每个客户端Socket都必须要用新的线程进行处理。<br>在Android，可通过AsyncTask线程来处理Socket。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket学习笔记/">Socket学习笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/24/Socket/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ScrollView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/22/ScrollView/" class="article-date">
-      <time datetime="2016-10-22T02:44:19.000Z" itemprop="datePublished">2016-10-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ScrollView基础知识"><a href="#ScrollView基础知识" class="headerlink" title="ScrollView基础知识"></a>ScrollView基础知识</h1><blockquote>
-<p>理解<br>该View是一个ViewGroup，其子类只能有一个。通常用RelativeLayout或者LinearLayout做其子类。<br>作用<br>使子类可以滚动。当一个页面内容过多的时候，手机屏幕不能显示完全，就需要通过该View来实现滚动。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScrollView学习笔记/">ScrollView学习笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/22/ScrollView/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-WebView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/15/WebView/" class="article-date">
-      <time datetime="2016-10-15T14:05:41.000Z" itemprop="datePublished">2016-10-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/WebView/">WebView学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="WebView基础知识"><a href="#WebView基础知识" class="headerlink" title="WebView基础知识"></a>WebView基础知识</h1><blockquote>
-<p>理解<br>webView可以理解为一个加载url页面的控件。可与js交互。<br>Android与JS的交互需要通过接口实例化的对象进行。<br>webView调用loadUrl的方式<br>1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数<br>2.mWebView.loadUrl(“file:///android_asset/index.html”);// 调用本地assets目录下的html文件，也可以直接调用网上的html文件。<br>重定向是什么？加载网页的时候，网页设置了重定向，即你要跳转的url被重新修改，使你跳转的新的URL。例如你要跳转www.baidu.com，百度会重定向使你跳转www.m.baidu.com<br>webView相关的API有WebChromeClient、WebViewClient、WebSetting三个。详细见下表</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebView学习笔记/">WebView学习笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/15/WebView/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-Permission" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/09/Android-Permission/" class="article-date">
-      <time datetime="2016-10-09T12:43:42.000Z" itemprop="datePublished">2016-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/09/Android-Permission/">Android6.0权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Android6-0-权限"><a href="#Android6-0-权限" class="headerlink" title="Android6.0 权限"></a>Android6.0 权限</h1><blockquote>
-<p>自定义Permission检测工具</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android6-0权限/">Android6.0权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/09/Android-Permission/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -859,7 +820,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2016 TanJunDang
+                &copy; 2017 TanJunDang
             </div>
 		<!--
       <div class="footer-right">

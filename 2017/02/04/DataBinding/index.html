@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DataBinding的学习 | TanJunDang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DataBinding的理解
+DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DataBinding的学习">
+<meta property="og:url" content="TanJunDang.github.io/2017/02/04/DataBinding/index.html">
+<meta property="og:site_name" content="TanJunDang">
+<meta property="og:description" content="DataBinding的理解
+DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
+<meta property="og:updated_time" content="2017-02-09T10:47:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DataBinding的学习">
+<meta name="twitter:description" content="DataBinding的理解
+DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
+  
+    <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','LFp3mbq3aoaxwzxP9eby','2.0.0');
+</script>
+
+        <a href="/" class="profilepic">
+            
+            <img src="/img/lrving.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">TanJunDang</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">HOME</a></li>
+                        
+                            <li><a href="/archives">ARCHIVES</a></li>
+                        
+                            <li><a href="/about">ABOUT</a></li>
+                        
+                            <li><a href="/tags">TAGs</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:TanJunDang324@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/TanJunDang" title="github">github</a>
+                            
+                                <a class="fl twitter" target="_blank" href="http: //twitter.com/TanJunDang" title="twitter">twitter</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://kevinsu917.github.io/posts/">kevinsu917</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">TanJunDang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/lrving.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">TanJunDang</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">HOME</a></li>
+                
+                    <li><a href="/archives">ARCHIVES</a></li>
+                
+                    <li><a href="/about">ABOUT</a></li>
+                
+                    <li><a href="/tags">TAGs</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:TanJunDang324@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/TanJunDang" title="github">github</a>
+                    
+                        <a class="twitter" target="_blank" href="http: //twitter.com/TanJunDang" title="twitter">twitter</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-DataBinding" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/04/DataBinding/" class="article-date">
+      <time datetime="2017-02-03T16:00:00.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DataBinding的学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataBinding的学习/">DataBinding的学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="DataBinding的理解"><a href="#DataBinding的理解" class="headerlink" title="DataBinding的理解"></a>DataBinding的理解</h1><blockquote>
+<p>DataBinding是什么，有什么用处？<br>DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><blockquote>
+<p>理解<br>就是将Data跟View进行绑定，当Data变化时自动更新UI，View不需要像以前那样重新SetData。</p>
+</blockquote>
+<h3 id="Observable绑定方式"><a href="#Observable绑定方式" class="headerlink" title="Observable绑定方式"></a>Observable绑定方式</h3><blockquote>
+<p>步骤<br>1.实体继承BaseObservable。<br>2.set方法添加notifyPropertyChanged通知方法。<br>3.get方法添加Bindable注解。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestResp</span> <span class="keyword">extends</span> <span class="title">HttpBaseResponseBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String codeurl;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bindable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCodeurl</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> codeurl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCodeurl</span><span class="params">(String codeurl)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.codeurl = codeurl;</span><br><span class="line">        notifyPropertyChanged(BR.codeurl);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ObservableField绑定方式"><a href="#ObservableField绑定方式" class="headerlink" title="ObservableField绑定方式"></a>ObservableField绑定方式</h3><blockquote>
+<p>Google为了简化Observable绑定方式而推出的新的方法。</p>
+<p>步骤<br>创建ObservableField对象即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestResp</span> <span class="keyword">extends</span> <span class="title">HttpBaseResponseBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ObservableField&lt;String&gt; codeurl = <span class="keyword">new</span> ObservableField&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>经测试，Gson转不过来。待定</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/u010687392/article/details/47314431" target="_blank" rel="external">数据双向绑定方式</a></p>
+<h1 id="DataBinding遇到的坑"><a href="#DataBinding遇到的坑" class="headerlink" title="DataBinding遇到的坑"></a>DataBinding遇到的坑</h1><h2 id="不应该使用app命名空间"><a href="#不应该使用app命名空间" class="headerlink" title="不应该使用app命名空间"></a>不应该使用app命名空间</h2><blockquote>
+<p>出错代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomBinder</span> </span>&#123;</span><br><span class="line">    <span class="meta">@BindingAdapter</span>(&#123;<span class="string">"app:imageUrl"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadeImage</span><span class="params">(ImageView imageView, String url)</span> </span>&#123;</span><br><span class="line">        ImageLoadTool.getInstance().loadSmallImageRightAngle(imageView, url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>错误信息</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:(<span class="number">16</span>, <span class="number">24</span>) 警告: Application namespace <span class="keyword">for</span> attribute app:imageUrl will be ignored.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方法<br>把BindingAdapter里定义的属性命名空间去掉即可。</p>
+</blockquote>
+<h2 id="BindingAdapter声明的方法第一个参数必须是View"><a href="#BindingAdapter声明的方法第一个参数必须是View" class="headerlink" title="BindingAdapter声明的方法第一个参数必须是View"></a>BindingAdapter声明的方法第一个参数必须是View</h2><blockquote>
+<p>出错代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BindingAdapter</span>(&#123;<span class="string">"imageUrl"</span>&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadeImage</span><span class="params">(String url, ImageView imageView)</span> </span>&#123;</span><br><span class="line">    ImageLoadTool.getInstance().loadSmallImageRightAngle(imageView, url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>错误信息</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileHomepageDebugJavaWithJavac'</span>.</span><br><span class="line">&gt; java.lang.RuntimeException: failure, see logs <span class="keyword">for</span> details.</span><br><span class="line"><span class="meta">@BindingAdapter</span> loadeImage(java.lang.String,android.widget.ImageView) is applied to a method that has two parameters, the first must be a View type</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方法<br>将参数url和IMageView的位置互换一下即可。</p>
+</blockquote>
+<h2 id="XML引用资源和属性时需要导包"><a href="#XML引用资源和属性时需要导包" class="headerlink" title="XML引用资源和属性时需要导包"></a>XML引用资源和属性时需要导包</h2><blockquote>
+<p>错误信息</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Identifiers must have user defined types from the XML file. View is missing it file</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方法<br>在XML里导包即可.</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span> <span class="attr">class</span>=<span class="string">"TestBinding"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.view.View"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>若要使用工具类，直接import工具类的完整路径即可，而不是定义variable。</p>
+</blockquote>
+<h2 id="XML里定义的变量名不能重复-BR文件不能有相同字段"><a href="#XML里定义的变量名不能重复-BR文件不能有相同字段" class="headerlink" title="XML里定义的变量名不能重复(BR文件不能有相同字段)"></a>XML里定义的变量名不能重复(BR文件不能有相同字段)</h2><blockquote>
+<p>若有相同字段，则编译不成功。</p>
+</blockquote>
+<p><a href="https://www.aswifter.com/2015/07/11/android-data-binding-example/" target="_blank" rel="external">DataBinding资料</a><br><a href="https://realm.io/cn/news/data-binding-android-boyar-mount/" target="_blank" rel="external">超级详细的DataBinding</a><br><a href="http://www.tuicool.com/articles/ErYb6fI" target="_blank" rel="external">DataBinding出错</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/04/DataBinding/">DataBinding的学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
+        <p><span>发布时间:</span>2017年02月04日 - 00时00分</p>
+        <p><span>最后更新:</span>2017年02月09日 - 18时47分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/04/DataBinding/" title="DataBinding的学习">http://TanJunDang.github.io/2017/02/04/DataBinding/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2017/02/04/DataBinding/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/01/20/Project-HttpProtocol/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Http业务基类的编写
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/06/Project-Architecture/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android项目架构模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DataBinding的理解"><span class="toc-number">1.</span> <span class="toc-text">DataBinding的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据绑定"><span class="toc-number">1.1.</span> <span class="toc-text">数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observable绑定方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">Observable绑定方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ObservableField绑定方式"><span class="toc-number">1.1.2.</span> <span class="toc-text">ObservableField绑定方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DataBinding遇到的坑"><span class="toc-number">2.</span> <span class="toc-text">DataBinding遇到的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不应该使用app命名空间"><span class="toc-number">2.1.</span> <span class="toc-text">不应该使用app命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BindingAdapter声明的方法第一个参数必须是View"><span class="toc-number">2.2.</span> <span class="toc-text">BindingAdapter声明的方法第一个参数必须是View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML引用资源和属性时需要导包"><span class="toc-number">2.3.</span> <span class="toc-text">XML引用资源和属性时需要导包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML里定义的变量名不能重复-BR文件不能有相同字段"><span class="toc-number">2.4.</span> <span class="toc-text">XML里定义的变量名不能重复(BR文件不能有相同字段)</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/02/04/DataBinding/" data-title="DataBinding的学习" data-url="TanJunDang.github.io/2017/02/04/DataBinding/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"TanJunDang"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+		ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/01/20/Project-HttpProtocol/" title="上一篇: Http业务基类的编写">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/02/06/Project-Architecture/" title="下一篇: Android项目架构模式">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/BaseApplication/">Android架构 - BaseApplication笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Network/">Android框架设计 - 网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Architecture/">Android项目架构模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/DataBinding/">DataBinding的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/ApkTool/">反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/EditText/">EditText笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/TextView/">TextView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/SearchView/">SearchView的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/07/Offset/">Offset偏移量的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/Camera/">Camera学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/ViewPager/">ViewPager笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Android控件的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/DatePicker/">DatePicker笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Android-Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 TanJunDang
+            </div>
+		<!--
+      <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+      </div>
+		-->
+
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 5;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  </div>
+</body>
+</html>
