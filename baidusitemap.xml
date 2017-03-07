@@ -4,6 +4,59 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
+    <lastmod>2017-03-07T04:19:50.542Z</lastmod>
+    <data>
+        <display>
+        <title>代码分析 - ItemBean</title>
+        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
+        
+        <tag>代码分析 - ItemBean</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    <lastmod>2017-03-07T04:19:30.160Z</lastmod>
+    <data>
+        <display>
+        <title>Android-代码优化技巧</title>
+        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        
+        <tag>Android-代码优化技巧</tag>
+         
+        <tag>JAVA设计模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
+    <lastmod>2017-03-07T04:18:02.883Z</lastmod>
+    <data>
+        <display>
+        <title>Android项目目录设计</title>
+        <pubTime>2015-11-02T10:09:52.000Z</pubTime>
+        
+        <tag>Android项目目录设计</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
     <lastmod>2017-03-03T01:06:34.801Z</lastmod>
     <data>
@@ -314,23 +367,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
-    <lastmod>2017-02-06T09:20:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android项目架构</title>
-        <pubTime>2015-11-02T10:09:52.000Z</pubTime>
-        
-        <tag>Android项目架构</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
     <lastmod>2017-02-05T10:04:50.000Z</lastmod>
     <data>
@@ -356,23 +392,6 @@
         <pubTime>2016-06-13T00:52:28.000Z</pubTime>
         
         <tag>RxJava、RxAndroid的理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2017-01-17T10:34:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android-代码优化技巧</title>
-        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
-        
-        <tag>Android-代码优化技巧</tag>
          
          
            
@@ -976,25 +995,6 @@
         <pubTime>2015-09-10T16:00:00.000Z</pubTime>
         
         <tag>DrawerLayout的使用</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
-    <lastmod>2016-08-26T09:37:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>代码分析 - ItemBean</title>
-        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
-        
-        <tag>代码分析 - ItemBean</tag>
-         
-        <tag>工厂模式</tag>
          
          
            
