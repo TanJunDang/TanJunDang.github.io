@@ -172,6 +172,125 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android-Service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/01/Android-Service/" class="article-date">
+      <time datetime="2015-11-01T07:43:42.000Z" itemprop="datePublished">2015-11-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/01/Android-Service/">Android基础之Service</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Service的理解"><a href="#Service的理解" class="headerlink" title="Service的理解"></a>Service的理解</h1><blockquote>
+<p>Service是什么？<br>Service是一种可以在后台运行相关任务的组件。没有界面。其存在的线程是主线程，一般会通过启动子线程来执行耗时操作。<br>Service有什么用？<br>可用于在后台执行下载任务。从而不影响用户界面操作。<br>Service分启动型服务、绑定型服务两种。<br>绑定服务中的创建Binder的扩展类的目的是什么？<br>该类主要用于获取Service的实例，以及执行相关的方法。<br>额外知识<br>1.不绑定服务，直接点击取消绑定服务会报错。因此需要通过判断Binder对象是否为空来处理。<br>2.服务可以不定义Action，通过Intent指定要跳转的Service即可。<br>3.Service的有效范围是所有满足条件的Activity。<br>4.在Service里执行耗时操作会导致ANR，启动新的线程执行耗时操作可有效避免。</p>
+</blockquote>
+<h2 id="两种服务的区别"><a href="#两种服务的区别" class="headerlink" title="两种服务的区别"></a>两种服务的区别</h2><table>
+<thead>
+<tr>
+<th>Service类型</th>
+<th>说明</th>
+<th>使用步骤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动型服务</td>
+<td>1.生命周期为onCreate-&gt;onStartCommand-&gt;onDestroy <br> 2.服务一旦启动后，需要调用stopService方法或stopSelf方法才能停止。 <br> 3.可常驻系统。</td>
+<td>1.通过调用startService启动服务 <br> 2.通过stopService停止服务</td>
+</tr>
+<tr>
+<td>绑定型服务</td>
+<td>1.生命周期为onCreate-&gt;onBind-&gt;onUnbind-&gt;onDestory <br> 2.需要返回Binder对象，即定义Binder的子类。<br> 3.通过Binder子类的方法来获取Service对象，用于与Activity交互。 <br> 4.在Activity中需要通过创建ServiceConnection对象来获取service实例。从而调用service里的方法。</td>
+<td>1.通过bindService绑定服务 <br> 2.通过unbindService取消绑定服务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h2><p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0JZMys0S3hEcFAzeEQvNXhoOVV5SHdteWlPditDWmYxcHJtd1hzRW5HemlBPT0.png?imageView&amp;thumbnail=300x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<h1 id="Service的类型及其示例"><a href="#Service的类型及其示例" class="headerlink" title="Service的类型及其示例"></a>Service的类型及其示例</h1><h2 id="启动型服务-StartService"><a href="#启动型服务-StartService" class="headerlink" title="启动型服务 - StartService"></a>启动型服务 - StartService</h2><blockquote>
+<p>使用<br>1.创建java类继承Service<br>2.重写onStart、onCreate等方法。<br>3.在onCreate中新开子线程，用于执行任务。</p>
+</blockquote>
+<h3 id="示例-启动型服务"><a href="#示例-启动型服务" class="headerlink" title="示例 - 启动型服务"></a>示例 - 启动型服务</h3><blockquote>
+<p>Service作用<br>打印0-2000的数字，完毕后停止服务</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalcService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> total;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> openService; <span class="comment">//结束服务时的标识</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CalcService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span> Return the communication channel to the service.</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"Not yet implemented"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        LogTool.e(<span class="string">"CalcService"</span>, <span class="string">"onCreate"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(<span class="keyword">final</span> Intent intent, <span class="keyword">int</span> flags, <span class="keyword">final</span> <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        LogTool.e(<span class="string">"CalcService"</span>, <span class="string">"onStartCommand"</span>);</span><br><span class="line">        Functions.toast(<span class="string">"Service已启动，请查看LOG"</span>);</span><br><span class="line">        <span class="comment">//启动线程执行耗时操作。通常是下载之类的任务</span></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (!openService) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    LogTool.e(<span class="string">"CalcService"</span>, total);</span><br><span class="line">                    total++;</span><br><span class="line">                    builder.setSubText(<span class="string">"total:"</span> + total);</span><br><span class="line">                    <span class="keyword">if</span> (total == <span class="number">2000</span>) &#123;</span><br><span class="line">                        stopSelf();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        LogTool.e(<span class="string">"CalcService"</span>, <span class="string">"onDestroy"</span>);</span><br><span class="line">        Functions.toast(<span class="string">"CalcService已停止，请查看LOG"</span>);</span><br><span class="line">        openService = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中的代码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startService</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">  Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,CalcService.class);</span><br><span class="line">  startService(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="绑定型服务-BindService"><a href="#绑定型服务-BindService" class="headerlink" title="绑定型服务 - BindService"></a>绑定型服务 - BindService</h2><blockquote>
+<p>BindService(Intent，ServiceConnection，Context.BIND_AUTO_CREATE)<br>参数分别为Intent，ServiceConnection，标识号。通常为BIND_AUTO_CREATE。<br>使用<br>1.创建java类继承Service<br>2.创建Java类继承Binder类。用于返回Service实例。<br>3.重写onBind、onUnBind等方法。<br>4.在Activity中创建ServiceConnection对象，并获取Binder实例。<br>ps:为防止未绑定服务，用户点击取消绑定而导致的崩溃。需要对unbindService进行边缘性处理。</p>
+</blockquote>
+<h3 id="示例-普通绑定型服务"><a href="#示例-普通绑定型服务" class="headerlink" title="示例 - 普通绑定型服务"></a>示例 - 普通绑定型服务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BindService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> BindService service;</span><br><span class="line">    <span class="keyword">private</span> TestBinder binder = <span class="keyword">new</span> TestBinder();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestBinder</span> <span class="keyword">extends</span> <span class="title">Binder</span> </span>&#123;</span><br><span class="line">        <span class="comment">//通过Binder对象来获取服务对象，从而调用服务里的方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> BindService <span class="title">getService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (service == <span class="keyword">null</span>) &#123;</span><br><span class="line">                service = <span class="keyword">new</span> BindService();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> service;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> closeThread;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BindService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span> (!closeThread) &#123;</span><br><span class="line">                    LogTool.e(<span class="string">"BindService"</span>, <span class="string">"count:"</span> + count);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TestBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        LogTool.e(<span class="string">"BindService"</span>, <span class="string">"onBind"</span>);</span><br><span class="line">        <span class="keyword">return</span> binder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">this</span>.closeThread = <span class="keyword">true</span>;</span><br><span class="line">        LogTool.e(<span class="string">"BindService"</span>, <span class="string">"onDestroy"</span>);</span><br><span class="line">        Functions.toast(<span class="string">"BindService已停止"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onUnbind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        LogTool.e(<span class="string">"BindService"</span>, <span class="string">"onUnbind"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startDownload</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Functions.toast(<span class="string">"开始执行耗时任务，点击UnbindService按钮或返回按钮可取消任务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Activity中的代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private ServiceConnection connection = new ServiceConnection() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onServiceConnected(ComponentName name, IBinder service) &#123;</span><br><span class="line">        binder = (BindService.TestBinder) service;</span><br><span class="line">        binder.getService().startDownload();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onServiceDisconnected(ComponentName name) &#123;</span><br><span class="line">        Functions.toast(&quot;断开连接&quot;);</span><br><span class="line">        LogTool.e(&quot;BindService&quot;, &quot;serviceDisconnected&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//启动服务</span><br><span class="line">public void BindService(View v) &#123;</span><br><span class="line">    Intent intent = new Intent(this, BindService.class);</span><br><span class="line">    bindService(intent, connection, Service.BIND_AUTO_CREATE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 取消绑定服务，边缘性处理</span><br><span class="line">public void UnbindService(View v) &#123;</span><br><span class="line">    if (binder != null) &#123;</span><br><span class="line">        unbindService(connection);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例-绑定型远程服务"><a href="#示例-绑定型远程服务" class="headerlink" title="示例 - 绑定型远程服务"></a>示例 - 绑定型远程服务</h3><blockquote>
+<p>理解<br>如何定义远程服务？<br>在配置文件中添加代码android:progress=”:remote”即可<br>为什么设置了Service为远程Service就不会导致ANR了？<br>远程服务是指将服务放到另一个进程中执行，所以就不会导致程序的ANR现象。<br>如何跨进程与Activity进行通信？ 见示例<br>如何实现跨程序通信？</p>
+</blockquote>
+<h3 id="示例-实现跨进程与Activity交互"><a href="#示例-实现跨进程与Activity交互" class="headerlink" title="示例 - 实现跨进程与Activity交互"></a>示例 - 实现跨进程与Activity交互</h3><blockquote>
+<p>步骤<br>1.创建aidl文件，定义接口(TestInterface)及相关方法。点击make project，自动生成Stub相关的接口。<br>2.创建Service类，并在ManiFest文件设置远程属性。android:process=”:remote”<br>3.在Service中创建接口TestInterface.Stub 对象，重写接口方法。<br>4.在Activity中通过AIDL接口的asInterface方法来获取AIDL对象。<br>5.利用接口对象调用相关方法。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建aidl文件，定义接口。</span></span><br><span class="line"><span class="keyword">package</span> io.tanjundang.study.test.service;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">RemoteAidlInterface</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">calcMsg</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 配置服务远程属性</span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span><br><span class="line">        <span class="attr">android:name</span>=<span class="string">".test.service.RemoteService"</span></span><br><span class="line">        <span class="attr">android:process</span>=<span class="string">":remote"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Service中创建远程接口的Stub对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    RemoteAidlInterface.Stub mBinder = <span class="keyword">new</span> RemoteAidlInterface.Stub() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calcMsg</span><span class="params">()</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">            LogTool.e(<span class="string">"RemoteService"</span>, <span class="string">"66666"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Binder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mBinder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Activity中调用远程接口的方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RemoteAidlInterface mBinder;</span><br><span class="line">    <span class="keyword">private</span> ServiceConnection connection = <span class="keyword">new</span> ServiceConnection() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName componentName, IBinder iBinder)</span> </span>&#123;</span><br><span class="line">            mBinder = RemoteAidlInterface.Stub.asInterface(iBinder);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                mBinder.calcMsg();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName componentName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_remote);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StartRemoteService</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, RemoteService.class);</span><br><span class="line">        bindService(intent, connection, BIND_AUTO_CREATE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UnbindRemoteService</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mBinder != <span class="keyword">null</span>) &#123;</span><br><span class="line">            unbindService(connection);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例-实现跨程序与Activity交互"><a href="#示例-实现跨程序与Activity交互" class="headerlink" title="示例 - 实现跨程序与Activity交互"></a>示例 - 实现跨程序与Activity交互</h3><blockquote>
+<p>步骤<br>实现步骤跟上面类似。只是需要为Service定义Action，以及将AIDL接口及其包名复制到另一程序中。即可实现跨程序交互。</p>
+</blockquote>
+<h2 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h2><blockquote>
+<p>理解<br>为什么有这个类？<br>该类是Service的子类，主要是简化了异步操作繁琐复杂的代码。<br>有什么特点？<br>1.不需要自己创建子线程。<br>2.不需要考虑何时关闭服务。<br>使用情景是什么？<br>多次调用startService。<br>使用<br>1.Service继承IntentService。<br>2.以类名为参数调用父类构造方法。<br>3.重写onHandleIntent核心方法以及其他方法。</p>
+</blockquote>
+<h2 id="前台服务"><a href="#前台服务" class="headerlink" title="前台服务"></a>前台服务</h2><blockquote>
+<p>什么是前台服务？<br>普通服务在内存不足的情况下会被系统杀掉，而前台服务不会因为内存不足而被杀掉。<br>前台服务有什么特点？<br>前台服务有通知栏提示，可设定相关的标题、提示灯。例如天气、播放器等。<br>前台服务的使用<br>1.构建Notification对象。<br>2.通过startForeground方法启动通知栏。<br>3.通过stopForeground方法关闭通知栏。<br>注意<br>Notification的构建中，若不调用setSmallIcon方法设置Icon，其他相关设置(标题、提示)均无效。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(<span class="keyword">final</span> Intent intent, <span class="keyword">int</span> flags, <span class="keyword">final</span> <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(getApplicationContext());</span><br><span class="line">       builder.setContentIntent(PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, <span class="keyword">new</span> Intent(getApplicationContext(), MainActivity.class), <span class="number">0</span>));</span><br><span class="line">       builder.setContentTitle(<span class="string">"前台服务"</span>);</span><br><span class="line">       <span class="comment">//不知道什么鬼，不设置Icon，其他信息都不显示</span></span><br><span class="line">       builder.setSmallIcon(R.drawable.ic_menu_camera);</span><br><span class="line">       builder.setContentText(<span class="string">"二级子标题"</span>);</span><br><span class="line">       builder.setSubText(<span class="string">"三级子标题"</span>);</span><br><span class="line">       Notification notification = builder.build();</span><br><span class="line">       <span class="comment">//开启通知栏提示</span></span><br><span class="line">       startForeground(startId, notification);</span><br><span class="line">       LogTool.e(<span class="string">"CalcService"</span>, <span class="string">"onStartCommand"</span>);</span><br><span class="line">       Functions.toast(<span class="string">"Service已启动，请查看LOG"</span>);</span><br><span class="line">       total = intent.getIntExtra(<span class="string">"msg"</span>, <span class="number">100</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent, flags, startId);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.android.com/guide/components/services.html#CreatingBoundService" target="_blank" rel="external">Service官方文档</a><br><a href="http://blog.csdn.net/guolin_blog/article/details/9797169" target="_blank" rel="external">郭林大神ADIL服务</a><br><a href="https://developer.android.com/guide/components/bound-services.html" target="_blank" rel="external">绑定服务</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Service/">Android基础之Service</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android-Broadcast" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -901,70 +1020,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/20/Intent/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/ImageLoaderTool/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="ImageLoader作用"><a href="#ImageLoader作用" class="headerlink" title="ImageLoader作用"></a>ImageLoader作用</h1><blockquote>
-<p>1.多线程下载图片，图片可以来源于网络，文件系统，项目文件夹assets中以及drawable中<br>2.支持图片的内存缓存，文件系统缓存或者SD卡缓存<br>3.支持图片下载过程的监听<br>4.根据控件(ImageView)的大小对Bitmap进行裁剪，减少Bitmap占用过多的内存</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ImageLoader的理解/">ImageLoader的理解</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
