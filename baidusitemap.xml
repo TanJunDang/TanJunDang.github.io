@@ -4,16 +4,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2017-03-07T07:31:07.913Z</lastmod>
+    <loc>TanJunDang.github.io/2017/01/18/SQLite/</loc>
+    <lastmod>2017-04-16T15:57:18.562Z</lastmod>
     <data>
         <display>
-        <title>Android-代码优化技巧</title>
-        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        <title>SQLite数据库</title>
+        <pubTime>2017-01-18T07:03:37.000Z</pubTime>
         
-        <tag>Android-代码优化技巧</tag>
-         
-        <tag>JAVA设计模式</tag>
+        <tag>SQLite数据库</tag>
          
          
            
@@ -23,14 +21,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
-    <lastmod>2017-03-07T04:19:50.542Z</lastmod>
+    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
+    <lastmod>2017-03-28T09:21:52.347Z</lastmod>
     <data>
         <display>
-        <title>代码分析 - ItemBean</title>
-        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
+        <title>Git的学习</title>
+        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
         
-        <tag>代码分析 - ItemBean</tag>
+        <tag>Git的学习</tag>
          
          
            
@@ -40,14 +38,16 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
-    <lastmod>2017-03-07T04:18:02.883Z</lastmod>
+    <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
+    <lastmod>2017-03-14T13:11:01.108Z</lastmod>
     <data>
         <display>
-        <title>Android项目目录设计</title>
-        <pubTime>2015-11-02T10:09:52.000Z</pubTime>
+        <title>JAVASE基础</title>
+        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
         
-        <tag>Android项目目录设计</tag>
+        <tag>Callback接口</tag>
+         
+        <tag>JAVA基础知识</tag>
          
          
            
@@ -95,12 +95,12 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/03/07/RadioButton/</loc>
+    <loc>TanJunDang.github.io/2017/03/14/RadioButton/</loc>
     <lastmod>2017-02-28T04:47:53.153Z</lastmod>
     <data>
         <display>
         <title></title>
-        <pubTime>2017-03-07T03:49:15.788Z</pubTime>
+        <pubTime>2017-03-14T12:59:33.205Z</pubTime>
         
          
            
@@ -297,25 +297,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
-    <lastmod>2017-02-08T02:40:22.611Z</lastmod>
-    <data>
-        <display>
-        <title>JAVASE基础</title>
-        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
-        
-        <tag>Callback接口</tag>
-         
-        <tag>JAVA基础知识</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2017/02/06/Project-Architecture/</loc>
     <lastmod>2017-02-07T02:12:48.856Z</lastmod>
     <data>
@@ -367,6 +348,23 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
+    <lastmod>2017-02-06T09:20:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android项目架构</title>
+        <pubTime>2015-11-02T10:09:52.000Z</pubTime>
+        
+        <tag>Android项目架构</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
     <lastmod>2017-02-05T10:04:50.000Z</lastmod>
     <data>
@@ -392,6 +390,23 @@
         <pubTime>2016-06-13T00:52:28.000Z</pubTime>
         
         <tag>RxJava、RxAndroid的理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    <lastmod>2017-01-17T10:34:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android-代码优化技巧</title>
+        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        
+        <tag>Android-代码优化技巧</tag>
          
          
            
@@ -596,23 +611,6 @@
         <pubTime>2016-12-12T16:00:00.000Z</pubTime>
         
         <tag>TextView学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
-    <lastmod>2016-11-27T09:12:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git的学习</title>
-        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
-        
-        <tag>Git的学习</tag>
          
          
            
@@ -995,6 +993,25 @@
         <pubTime>2015-09-10T16:00:00.000Z</pubTime>
         
         <tag>DrawerLayout的使用</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
+    <lastmod>2016-08-26T09:37:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>代码分析 - ItemBean</title>
+        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
+        
+        <tag>代码分析 - ItemBean</tag>
+         
+        <tag>工厂模式</tag>
          
          
            

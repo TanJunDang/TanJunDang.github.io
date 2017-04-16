@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DataBinding的学习 | TanJunDang</title>
+  <title>SQLite数据库 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DataBinding的理解
-DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
+  <meta name="description" content="SQLiteOpenHelper
+理解SQLiteOpenHelper是一个数据库操作辅助类。SQL操作涉及的API有SQLiteDatabase，通过其getWritableDatabase、getReadableDatabase方法来获取对象。
+使用1.创建一个辅助类DBHelper，继承SQLiteOpenHelper，重写onCreate、onUPdate方法。定义其构造函数。2.在onC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataBinding的学习">
-<meta property="og:url" content="TanJunDang.github.io/2017/02/04/DataBinding/index.html">
+<meta property="og:title" content="SQLite数据库">
+<meta property="og:url" content="TanJunDang.github.io/2017/01/18/SQLite/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="DataBinding的理解
-DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
-<meta property="og:updated_time" content="2017-02-09T10:47:23.675Z">
+<meta property="og:description" content="SQLiteOpenHelper
+理解SQLiteOpenHelper是一个数据库操作辅助类。SQL操作涉及的API有SQLiteDatabase，通过其getWritableDatabase、getReadableDatabase方法来获取对象。
+使用1.创建一个辅助类DBHelper，继承SQLiteOpenHelper，重写onCreate、onUPdate方法。定义其构造函数。2.在onC">
+<meta property="og:updated_time" content="2017-04-16T15:57:18.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataBinding的学习">
-<meta name="twitter:description" content="DataBinding的理解
-DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。">
+<meta name="twitter:title" content="SQLite数据库">
+<meta name="twitter:description" content="SQLiteOpenHelper
+理解SQLiteOpenHelper是一个数据库操作辅助类。SQL操作涉及的API有SQLiteDatabase，通过其getWritableDatabase、getReadableDatabase方法来获取对象。
+使用1.创建一个辅助类DBHelper，继承SQLiteOpenHelper，重写onCreate、onUPdate方法。定义其构造函数。2.在onC">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -171,11 +174,11 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-DataBinding" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SQLite" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/04/DataBinding/" class="article-date">
-      <time datetime="2017-02-03T16:00:00.000Z" itemprop="datePublished">2017-02-04</time>
+      <a href="/2017/01/18/SQLite/" class="article-date">
+      <time datetime="2017-01-18T07:03:37.000Z" itemprop="datePublished">2017-01-18</time>
 </a>
     </div>
   
@@ -188,7 +191,7 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
         
   
     <h1 class="article-title" itemprop="name">
-      DataBinding的学习
+      SQLite数据库
     </h1>
   
 
@@ -199,7 +202,7 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataBinding的学习/">DataBinding的学习</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLite数据库/">SQLite数据库</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -209,63 +212,19 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="DataBinding的理解"><a href="#DataBinding的理解" class="headerlink" title="DataBinding的理解"></a>DataBinding的理解</h1><blockquote>
-<p>DataBinding是什么，有什么用处？<br>DataBinding是15年I/O大会推出的新技术，主要作用是减少FindId，setListener代码的出现、数据双向绑定(数据变化自动更新UI)、提高性能等。</p>
+        <h1 id="SQLiteOpenHelper"><a href="#SQLiteOpenHelper" class="headerlink" title="SQLiteOpenHelper"></a>SQLiteOpenHelper</h1><blockquote>
+<p>理解<br>SQLiteOpenHelper是一个数据库操作辅助类。<br>SQL操作涉及的API有SQLiteDatabase，通过其getWritableDatabase、getReadableDatabase方法来获取对象。</p>
+<p>使用<br>1.创建一个辅助类DBHelper，继承SQLiteOpenHelper，重写onCreate、onUPdate方法。定义其构造函数。<br>2.在onCreate方法里创建table。<br>3.在Activity里创建DBHelper对象。然后执行相关sql语句。</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><blockquote>
-<p>理解<br>就是将Data跟View进行绑定，当Data变化时自动更新UI，View不需要像以前那样重新SetData。</p>
+<h2 id="示例-DBHelper的定义"><a href="#示例-DBHelper的定义" class="headerlink" title="示例 - DBHelper的定义"></a>示例 - DBHelper的定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DBHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DBHelper</span><span class="params">(Context context, String name, SQLiteDatabase.CursorFactory factory, <span class="keyword">int</span> version)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, name, factory, version);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase sqLiteDatabase)</span> </span>&#123;</span><br><span class="line">        sqLiteDatabase.execSQL(<span class="string">"create table if not exists person(id integer primary key,name varchar)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase sqLiteDatabase, <span class="keyword">int</span> i, <span class="keyword">int</span> i1)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在Activity里使用</span></span><br><span class="line">DBHelper db = <span class="keyword">new</span> DBHelper(<span class="keyword">this</span>, <span class="string">"tjd.db"</span>, <span class="keyword">null</span>, <span class="number">1</span>);</span><br><span class="line">sql = db.getWritableDatabase();</span><br><span class="line">sql.execSql(<span class="string">"insert into person values(1,'tanjundang')"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="操作sql的两种方式"><a href="#操作sql的两种方式" class="headerlink" title="操作sql的两种方式"></a>操作sql的两种方式</h2><blockquote>
+<p>sql的增删改查有两种方式，一种是sql语句，一直是使用Android的apiContentValues。</p>
 </blockquote>
-<h3 id="Observable绑定方式"><a href="#Observable绑定方式" class="headerlink" title="Observable绑定方式"></a>Observable绑定方式</h3><blockquote>
-<p>步骤<br>1.实体继承BaseObservable。<br>2.set方法添加notifyPropertyChanged通知方法。<br>3.get方法添加Bindable注解。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestResp</span> <span class="keyword">extends</span> <span class="title">HttpBaseResponseBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String codeurl;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bindable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCodeurl</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> codeurl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCodeurl</span><span class="params">(String codeurl)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.codeurl = codeurl;</span><br><span class="line">        notifyPropertyChanged(BR.codeurl);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="ObservableField绑定方式"><a href="#ObservableField绑定方式" class="headerlink" title="ObservableField绑定方式"></a>ObservableField绑定方式</h3><blockquote>
-<p>Google为了简化Observable绑定方式而推出的新的方法。</p>
-<p>步骤<br>创建ObservableField对象即可。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestResp</span> <span class="keyword">extends</span> <span class="title">HttpBaseResponseBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ObservableField&lt;String&gt; codeurl = <span class="keyword">new</span> ObservableField&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>经测试，Gson转不过来。待定</p>
-</blockquote>
-<p><a href="http://blog.csdn.net/u010687392/article/details/47314431" target="_blank" rel="external">数据双向绑定方式</a></p>
-<h1 id="DataBinding遇到的坑"><a href="#DataBinding遇到的坑" class="headerlink" title="DataBinding遇到的坑"></a>DataBinding遇到的坑</h1><h2 id="不应该使用app命名空间"><a href="#不应该使用app命名空间" class="headerlink" title="不应该使用app命名空间"></a>不应该使用app命名空间</h2><blockquote>
-<p>出错代码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomBinder</span> </span>&#123;</span><br><span class="line">    <span class="meta">@BindingAdapter</span>(&#123;<span class="string">"app:imageUrl"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadeImage</span><span class="params">(ImageView imageView, String url)</span> </span>&#123;</span><br><span class="line">        ImageLoadTool.getInstance().loadSmallImageRightAngle(imageView, url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>错误信息</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:(<span class="number">16</span>, <span class="number">24</span>) 警告: Application namespace <span class="keyword">for</span> attribute app:imageUrl will be ignored.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>解决方法<br>把BindingAdapter里定义的属性命名空间去掉即可。</p>
-</blockquote>
-<h2 id="BindingAdapter声明的方法第一个参数必须是View"><a href="#BindingAdapter声明的方法第一个参数必须是View" class="headerlink" title="BindingAdapter声明的方法第一个参数必须是View"></a>BindingAdapter声明的方法第一个参数必须是View</h2><blockquote>
-<p>出错代码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@BindingAdapter</span>(&#123;<span class="string">"imageUrl"</span>&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadeImage</span><span class="params">(String url, ImageView imageView)</span> </span>&#123;</span><br><span class="line">    ImageLoadTool.getInstance().loadSmallImageRightAngle(imageView, url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>错误信息</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileHomepageDebugJavaWithJavac'</span>.</span><br><span class="line">&gt; java.lang.RuntimeException: failure, see logs <span class="keyword">for</span> details.</span><br><span class="line"><span class="meta">@BindingAdapter</span> loadeImage(java.lang.String,android.widget.ImageView) is applied to a method that has two parameters, the first must be a View type</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>解决方法<br>将参数url和IMageView的位置互换一下即可。</p>
-</blockquote>
-<h2 id="XML引用资源和属性时需要导包"><a href="#XML引用资源和属性时需要导包" class="headerlink" title="XML引用资源和属性时需要导包"></a>XML引用资源和属性时需要导包</h2><blockquote>
-<p>错误信息</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Identifiers must have user defined types from the XML file. View is missing it file</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>解决方法<br>在XML里导包即可.</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">data</span> <span class="attr">class</span>=<span class="string">"TestBinding"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">import</span> <span class="attr">type</span>=<span class="string">"android.view.View"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>若要使用工具类，直接import工具类的完整路径即可，而不是定义variable。</p>
-</blockquote>
-<h2 id="XML里定义的变量名不能重复-BR文件不能有相同字段"><a href="#XML里定义的变量名不能重复-BR文件不能有相同字段" class="headerlink" title="XML里定义的变量名不能重复(BR文件不能有相同字段)"></a>XML里定义的变量名不能重复(BR文件不能有相同字段)</h2><blockquote>
-<p>若有相同字段，则编译不成功。</p>
-</blockquote>
-<p><a href="https://www.aswifter.com/2015/07/11/android-data-binding-example/" target="_blank" rel="external">DataBinding资料</a><br><a href="https://realm.io/cn/news/data-binding-android-boyar-mount/" target="_blank" rel="external">超级详细的DataBinding</a><br><a href="http://www.tuicool.com/articles/ErYb6fI" target="_blank" rel="external">DataBinding出错</a></p>
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="comment">// 参数分别是表名、null、ContentValues对象</span></span><br><span class="line">ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">values.put(<span class="string">"name"</span>,name);</span><br><span class="line">values.put(<span class="string">"id"</span>,id);</span><br><span class="line">db.insert(<span class="string">"person"</span>,<span class="keyword">null</span>,values);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数分别是sql，sql种代替问号的值</span></span><br><span class="line">String sql = <span class="string">"insert into person values(?,?)"</span></span><br><span class="line">db.execSql(sql,<span class="keyword">new</span> Object[]&#123;name,id&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除</span></span><br><span class="line"><span class="comment">// 参数分别是表名、条件、条件的值</span></span><br><span class="line">db.delete(<span class="string">"person"</span>,<span class="string">"name=?"</span>,<span class="keyword">new</span> String[]&#123;name&#125;);</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"delete from person where name=?"</span>;</span><br><span class="line">db.execSql(sql,<span class="keyword">new</span> Object[]&#123;name&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新</span></span><br><span class="line"><span class="comment">// 参数分别是表名、ContentValues对象、条件、条件值</span></span><br><span class="line">ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">values.put(<span class="string">"name"</span>,newName);</span><br><span class="line">db.update(<span class="string">"person"</span>,cv,<span class="string">"name=?"</span>,<span class="keyword">new</span> String[]&#123;oldName&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数分别是sql语句、sql中问号的值</span></span><br><span class="line">String sql = <span class="string">"update person set name='"</span>+newName+<span class="string">"'where name=?"</span>;</span><br><span class="line">db.execSql(sql,<span class="keyword">new</span> String[]&#123;oldName&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询</span></span><br><span class="line"><span class="comment">// 参数分别是String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy</span></span><br><span class="line"><span class="comment">// 表名、待返回的字段、条件、条件值、组排序....等</span></span><br><span class="line">Cursor cursor = db.query(<span class="string">"person"</span>,<span class="keyword">null</span>,<span class="string">"age&gt;=?"</span>,<span class="keyword">new</span> String[]&#123;age&#125;,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">String sql = <span class="string">"select name where age &gt;= ?"</span>;</span><br><span class="line">Cursor cursor = db.rawQuery(sql,<span class="keyword">new</span> String[]&#123;age&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -274,13 +233,13 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/02/04/DataBinding/">DataBinding的学习</a></p>
+        <p><span>本文标题:</span><a href="/2017/01/18/SQLite/">SQLite数据库</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2017年02月04日 - 00时00分</p>
-        <p><span>最后更新:</span>2017年02月09日 - 18时47分</p>
+        <p><span>发布时间:</span>2017年01月18日 - 15时03分</p>
+        <p><span>最后更新:</span>2017年04月16日 - 23时57分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/02/04/DataBinding/" title="DataBinding的学习">http://TanJunDang.github.io/2017/02/04/DataBinding/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2017/02/04/DataBinding/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/18/SQLite/" title="SQLite数据库">http://TanJunDang.github.io/2017/01/18/SQLite/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2017/01/18/SQLite/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -290,18 +249,18 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
 
 <nav id="article-nav">
   
-    <a href="/2017/01/20/Project-HttpProtocol/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/13/LayoutInflater/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Http业务基类的编写
+          LayoutInflater的理解
         
       </div>
     </a>
   
   
-    <a href="/2017/02/06/Project-Network/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android框架设计 - 网络层</div>
+    <a href="/2017/01/20/Project-HttpProtocol/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Http业务基类的编写</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -312,7 +271,7 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DataBinding的理解"><span class="toc-number">1.</span> <span class="toc-text">DataBinding的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据绑定"><span class="toc-number">1.1.</span> <span class="toc-text">数据绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Observable绑定方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">Observable绑定方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ObservableField绑定方式"><span class="toc-number">1.1.2.</span> <span class="toc-text">ObservableField绑定方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DataBinding遇到的坑"><span class="toc-number">2.</span> <span class="toc-text">DataBinding遇到的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不应该使用app命名空间"><span class="toc-number">2.1.</span> <span class="toc-text">不应该使用app命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BindingAdapter声明的方法第一个参数必须是View"><span class="toc-number">2.2.</span> <span class="toc-text">BindingAdapter声明的方法第一个参数必须是View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML引用资源和属性时需要导包"><span class="toc-number">2.3.</span> <span class="toc-text">XML引用资源和属性时需要导包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML里定义的变量名不能重复-BR文件不能有相同字段"><span class="toc-number">2.4.</span> <span class="toc-text">XML里定义的变量名不能重复(BR文件不能有相同字段)</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLiteOpenHelper"><span class="toc-number">1.</span> <span class="toc-text">SQLiteOpenHelper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例-DBHelper的定义"><span class="toc-number">1.1.</span> <span class="toc-text">示例 - DBHelper的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作sql的两种方式"><span class="toc-number">1.2.</span> <span class="toc-text">操作sql的两种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新增"><span class="toc-number">1.2.1.</span> <span class="toc-text">新增</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">1.2.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新"><span class="toc-number">1.2.3.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-number">1.2.4.</span> <span class="toc-text">查询</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -363,7 +322,7 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/02/04/DataBinding/" data-title="DataBinding的学习" data-url="TanJunDang.github.io/2017/02/04/DataBinding/"></div>
+    <div class="ds-thread" data-thread-key="2017/01/18/SQLite/" data-title="SQLite数据库" data-url="TanJunDang.github.io/2017/01/18/SQLite/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -387,13 +346,13 @@ DataBinding是什么，有什么用处？DataBinding是15年I/O大会推出的�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/01/20/Project-HttpProtocol/" title="上一篇: Http业务基类的编写">
+            <a href="/2017/01/13/LayoutInflater/" title="上一篇: LayoutInflater的理解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/02/06/Project-Network/" title="下一篇: Android框架设计 - 网络层">
+            <a href="/2017/01/20/Project-HttpProtocol/" title="下一篇: Http业务基类的编写">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -172,6 +172,95 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-OnTouchEvent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/31/OnTouchEvent/" class="article-date">
+      <time datetime="2016-03-31T02:44:19.000Z" itemprop="datePublished">2016-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="分发事件基础知识"><a href="#分发事件基础知识" class="headerlink" title="分发事件基础知识"></a>分发事件基础知识</h1><blockquote>
+<p>跟Touch相关的三个方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatchTouchEvent</td>
+<td>用来传递触摸event，一般不重写。表示是否消费该事件，其返回值由onInterceptTouchEvent、onTouchEvent决定</td>
+</tr>
+<tr>
+<td>onInterceptTouchEvent</td>
+<td>用来拦截触摸event，只有ViewGroup才有。默认返回false</td>
+</tr>
+<tr>
+<td>onTouchEvent</td>
+<td>用来处理触摸event。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>onInterceptTouchEvent跟onTouchEvent都在dispatchTouchEvent的内部。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件分发机制onTouchEvent笔记/">事件分发机制onTouchEvent笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/31/OnTouchEvent/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -300,69 +389,6 @@
 
 
   
-    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/01/Widgets/" class="article-date">
-      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/Widgets/">Android控件的学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="TextView的使用"><a href="#TextView的使用" class="headerlink" title="TextView的使用"></a>TextView的使用</h1><p><a href="/2016/12/13/TextView/">TextView笔记</a></p>
-<h1 id="EditText笔记"><a href="#EditText笔记" class="headerlink" title="EditText笔记"></a>EditText笔记</h1><p><a href="/2016/12/13/EditText/">EditText笔记</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android控件的学习笔记/">Android控件的学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-DatePicker" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -409,6 +435,69 @@
       
         <p class="article-more-link">
           <a  href="/2016/02/01/DatePicker/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/Widgets/" class="article-date">
+      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/01/Widgets/">Android控件的学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="TextView的使用"><a href="#TextView的使用" class="headerlink" title="TextView的使用"></a>TextView的使用</h1><p><a href="/2016/12/13/TextView/">TextView笔记</a></p>
+<h1 id="EditText笔记"><a href="#EditText笔记" class="headerlink" title="EditText笔记"></a>EditText笔记</h1><p><a href="/2016/12/13/EditText/">EditText笔记</a></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android控件的学习笔记/">Android控件的学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -813,7 +902,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/Project-Build/">Android项目目录设计</a>
+      <a class="article-title" href="/2015/11/02/Project-Build/">Android项目架构</a>
     </h1>
   
 
@@ -836,98 +925,13 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目目录设计/">Android项目目录设计</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
           <a  href="/2015/11/02/Project-Build/#more">阅读全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/01/Android-ContentProvider/" class="article-date">
-      <time datetime="2015-11-01T12:43:42.000Z" itemprop="datePublished">2015-11-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="ContentProvider的理解"><a href="#ContentProvider的理解" class="headerlink" title="ContentProvider的理解"></a>ContentProvider的理解</h1><blockquote>
-<p>ContentProvider的作用是什么？<br>1.共享数据给其他应用程序。<br>2.提供音频、视频、联系人等数据给自己的程序。<br>如何使用ContentProvider？<br>1.扩展ContentProvider类。<br>2.重写相关的增删改查方法<br>3.定义Action，暴露数据。<br>ContentResolver的作用是什么？<br>1.读取ContentProvider的数据。<br>2.可以通过ContentValue操作数据。对数据库表进行增删改查。</p>
-</blockquote>
-<h2 id="常用URI"><a href="#常用URI" class="headerlink" title="常用URI"></a>常用URI</h2><table>
-<thead>
-<tr>
-<th>作用</th>
-<th>通用标识符URI</th>
-<th>权限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>短信</td>
-<td>Uri.parse(“content://sms/“);</td>
-<td>android.permission.READ_SMS</td>
-</tr>
-<tr>
-<td>获取联系人</td>
-<td>ContactsContract.CommonDataKinds.Phone.CONTENT_URI;</td>
-<td>android.permission.READ_CONTACTS <br> android.permission.WRITE_CONTACTS</td>
-</tr>
-<tr>
-<td>查询指定电话的联系人</td>
-<td>Uri.parse(“content://com.android.contacts/data/phones/filter/“ + number);</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之ContentProvider/">Android基础之ContentProvider</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
