@@ -308,7 +308,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a>
+      <a class="article-title" href="/2015/10/31/Android-Broadcast/">Android基础之BroadcastReceiver</a>
     </h1>
   
 
@@ -318,8 +318,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h1><blockquote>
-<p>区分清楚需求是接收广播还是发送广播。<br>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。<br>利用Intent、Action、sendBroadcast发送广播。</p>
+        <h1 id="BroadcastReceiver的理解"><a href="#BroadcastReceiver的理解" class="headerlink" title="BroadcastReceiver的理解"></a>BroadcastReceiver的理解</h1><blockquote>
+<p>作用<br>用于接收广播、组件间相互通信。<br>区分清楚需求是接收广播还是发送广播。<br>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。<br>利用Intent、Action、sendBroadcast发送广播。</p>
 </blockquote>
 <h1 id="示例-动态注册广播"><a href="#示例-动态注册广播" class="headerlink" title="示例 - 动态注册广播"></a>示例 - 动态注册广播</h1><blockquote>
 <p>背景<br>服务器下发新消息时，通知MainActivity更改UI<br>操作<br>1.继承BroadcastReceiver<br>2.定义过滤的Action<br>3.添加回调接口<br>5.构造函数初始化接口<br>6.重写onReceive方法(调用接口的方法)<br>7.实现接口、动态注册接口(LocalBroadcastManager类)<br>8.在获取到服务器数据的地方发送广播<br>9.在ondestory里取消广播</p>
@@ -346,7 +346,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Broadcast/">Android基础之Broadcast</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之BroadcastReceiver/">Android基础之BroadcastReceiver</a></li></ul>
     </div>
 
       

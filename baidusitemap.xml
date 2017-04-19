@@ -4,6 +4,57 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2017/02/16/Project-Network/</loc>
+    <lastmod>2017-04-19T15:53:54.202Z</lastmod>
+    <data>
+        <display>
+        <title>Android框架设计 - 网络层</title>
+        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        
+        <tag>Android框架设计 - 网络层</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    <lastmod>2017-04-19T15:53:43.603Z</lastmod>
+    <data>
+        <display>
+        <title>Android - 代码优化技巧</title>
+        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        
+        <tag>Android - 代码优化技巧</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
+    <lastmod>2017-04-19T13:17:21.747Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之BroadcastReceiver</title>
+        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
+        
+        <tag>Android基础之BroadcastReceiver</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2017/01/18/SQLite/</loc>
     <lastmod>2017-04-16T17:23:07.347Z</lastmod>
     <data>
@@ -248,23 +299,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/02/06/Project-Network/</loc>
-    <lastmod>2017-02-08T10:05:59.750Z</lastmod>
-    <data>
-        <display>
-        <title>Android框架设计 - 网络层</title>
-        <pubTime>2017-02-05T16:00:00.000Z</pubTime>
-        
-        <tag>Android框架设计 - 网络层</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
     <lastmod>2017-02-08T08:19:51.415Z</lastmod>
     <data>
@@ -375,23 +409,6 @@
         <pubTime>2016-06-13T00:52:28.000Z</pubTime>
         
         <tag>RxJava、RxAndroid的理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2017-01-17T10:34:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android-代码优化技巧</title>
-        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
-        
-        <tag>Android-代码优化技巧</tag>
          
          
            
@@ -842,23 +859,6 @@
         <pubTime>2015-11-01T07:43:42.000Z</pubTime>
         
         <tag>Android基础之Service</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
-    <lastmod>2016-09-25T16:37:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Broadcast</title>
-        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
-        
-        <tag>Android基础之Broadcast</tag>
          
          
            

@@ -3,30 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android基础之Broadcast | TanJunDang</title>
+  <title>Android基础之BroadcastReceiver | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Broadcast的理解
-区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
+  <meta name="description" content="BroadcastReceiver的理解
+作用用于接收广播、组件间相互通信。区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
 
-示例 - 动态注册广播
-背景服务器下发新消息时，通知">
+示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android基础之Broadcast">
+<meta property="og:title" content="Android基础之BroadcastReceiver">
 <meta property="og:url" content="TanJunDang.github.io/2015/10/31/Android-Broadcast/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="Broadcast的理解
-区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
+<meta property="og:description" content="BroadcastReceiver的理解
+作用用于接收广播、组件间相互通信。区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
 
-示例 - 动态注册广播
-背景服务器下发新消息时，通知">
-<meta property="og:updated_time" content="2016-09-25T16:37:26.000Z">
+示">
+<meta property="og:updated_time" content="2017-04-19T13:17:21.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android基础之Broadcast">
-<meta name="twitter:description" content="Broadcast的理解
-区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
+<meta name="twitter:title" content="Android基础之BroadcastReceiver">
+<meta name="twitter:description" content="BroadcastReceiver的理解
+作用用于接收广播、组件间相互通信。区分清楚需求是接收广播还是发送广播。当系统收到广播消息时，程序可以做相关的处理。动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。利用Intent、Action、sendBroadcast发送广播。
 
-示例 - 动态注册广播
-背景服务器下发新消息时，通知">
+示">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -197,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android基础之Broadcast
+      Android基础之BroadcastReceiver
     </h1>
   
 
@@ -208,7 +205,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Broadcast/">Android基础之Broadcast</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之BroadcastReceiver/">Android基础之BroadcastReceiver</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -218,8 +215,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Broadcast的理解"><a href="#Broadcast的理解" class="headerlink" title="Broadcast的理解"></a>Broadcast的理解</h1><blockquote>
-<p>区分清楚需求是接收广播还是发送广播。<br>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。<br>利用Intent、Action、sendBroadcast发送广播。</p>
+        <h1 id="BroadcastReceiver的理解"><a href="#BroadcastReceiver的理解" class="headerlink" title="BroadcastReceiver的理解"></a>BroadcastReceiver的理解</h1><blockquote>
+<p>作用<br>用于接收广播、组件间相互通信。<br>区分清楚需求是接收广播还是发送广播。<br>当系统收到广播消息时，程序可以做相关的处理。<br>动态广播：广播跟随Activity的生命周期.程序启动后才有效。比静态广播快。需要自定义Action<br>静态广播：常驻型广播，当广播触发时，会启动应用。不需要启动程序就有效。<br>利用Intent、Action、sendBroadcast发送广播。</p>
 </blockquote>
 <h1 id="示例-动态注册广播"><a href="#示例-动态注册广播" class="headerlink" title="示例 - 动态注册广播"></a>示例 - 动态注册广播</h1><blockquote>
 <p>背景<br>服务器下发新消息时，通知MainActivity更改UI<br>操作<br>1.继承BroadcastReceiver<br>2.定义过滤的Action<br>3.添加回调接口<br>5.构造函数初始化接口<br>6.重写onReceive方法(调用接口的方法)<br>7.实现接口、动态注册接口(LocalBroadcastManager类)<br>8.在获取到服务器数据的地方发送广播<br>9.在ondestory里取消广播</p>
@@ -244,12 +241,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></p>
+        <p><span>本文标题:</span><a href="/2015/10/31/Android-Broadcast/">Android基础之BroadcastReceiver</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
         <p><span>发布时间:</span>2015年10月31日 - 15时43分</p>
-        <p><span>最后更新:</span>2016年09月26日 - 00时37分</p>
+        <p><span>最后更新:</span>2017年04月19日 - 21时17分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/10/31/Android-Broadcast/" title="Android基础之Broadcast">http://TanJunDang.github.io/2015/10/31/Android-Broadcast/</a>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/31/Android-Broadcast/" title="Android基础之BroadcastReceiver">http://TanJunDang.github.io/2015/10/31/Android-Broadcast/</a>
             <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2015/10/31/Android-Broadcast/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -282,7 +279,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Broadcast的理解"><span class="toc-number">1.</span> <span class="toc-text">Broadcast的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-动态注册广播"><span class="toc-number">2.</span> <span class="toc-text">示例 - 动态注册广播</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-静态广播"><span class="toc-number">3.</span> <span class="toc-text">示例 - 静态广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BroadcastReceiver的理解"><span class="toc-number">1.</span> <span class="toc-text">BroadcastReceiver的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-动态注册广播"><span class="toc-number">2.</span> <span class="toc-text">示例 - 动态注册广播</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建广播"><span class="toc-number">2.1.</span> <span class="toc-text">创建广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity注册广播"><span class="toc-number">2.2.</span> <span class="toc-text">Activity注册广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟服务器下发通知"><span class="toc-number">2.3.</span> <span class="toc-text">模拟服务器下发通知</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例-静态广播"><span class="toc-number">3.</span> <span class="toc-text">示例 - 静态广播</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -333,7 +330,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/10/31/Android-Broadcast/" data-title="Android基础之Broadcast" data-url="TanJunDang.github.io/2015/10/31/Android-Broadcast/"></div>
+    <div class="ds-thread" data-thread-key="2015/10/31/Android-Broadcast/" data-title="Android基础之BroadcastReceiver" data-url="TanJunDang.github.io/2015/10/31/Android-Broadcast/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -368,7 +365,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/Project-BaseApplication/">Android架构 - BaseApplication笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Architecture/">Android项目架构模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Network/">Android框架设计 - 网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/DataBinding/">DataBinding的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/SQLite/">SQLite数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/ApkTool/">反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/EditText/">EditText笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/TextView/">TextView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/SearchView/">SearchView的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/07/Offset/">Offset偏移量的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/Camera/">Camera学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/ViewPager/">ViewPager笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android-代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Android控件的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/DatePicker/">DatePicker笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之Broadcast</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Android-Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Project-Network/">Android框架设计 - 网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/Project-BaseApplication/">Android架构 - BaseApplication笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Architecture/">Android项目架构模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/DataBinding/">DataBinding的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/SQLite/">SQLite数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/ApkTool/">反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/EditText/">EditText笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/TextView/">TextView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/SearchView/">SearchView的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/07/Offset/">Offset偏移量的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/Camera/">Camera学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/ViewPager/">ViewPager笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android - 代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Android控件的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/DatePicker/">DatePicker笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JAVASE/">JAVASE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之BroadcastReceiver</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Android-Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
