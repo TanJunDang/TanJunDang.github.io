@@ -172,6 +172,156 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-PopupWindow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/22/PopupWindow/" class="article-date">
+      <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished">2015-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>总结<br>　PopupWindos的作用就是设置显示View的宽高、背景、动画以及显示的位置。</p>
+<p>步骤<br>1.用LayoutInflate加载待显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height，boolean focusable))//focusable表示点击外部是否可以关闭<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);//设置popupwindow获取焦点<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow笔记/">PopupWindow笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Intent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/20/Intent/" class="article-date">
+      <time datetime="2015-09-19T16:00:00.000Z" itemprop="datePublished">2015-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/Intent/">Android基础之Intent</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Intent的基础知识"><a href="#Intent的基础知识" class="headerlink" title="Intent的基础知识"></a>Intent的基础知识</h1><h2 id="Intent的作用"><a href="#Intent的作用" class="headerlink" title="Intent的作用"></a>Intent的作用</h2><table>
+<thead>
+<tr>
+<th>Intent的作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动Activity</td>
+</tr>
+<tr>
+<td>启动Service</td>
+</tr>
+<tr>
+<td>启动Broadcast</td>
+</tr>
+<tr>
+<td>启动满足条件的应用</td>
+</tr>
+<tr>
+<td>实现应用间数据交互</td>
+</tr>
+</tbody>
+</table>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之Intent/">Android基础之Intent</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/20/Intent/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -263,9 +413,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><p>1.复制布局文件时，有自定义view，要注意改其包名。</p>
-<p>2.String类型方法传非String类型的值</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
+              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><h2 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h2><h2 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>错误原因： 不能把int的值传给String类型的方法.<br>解决办法：加一个空字符””  </p>
 </blockquote>

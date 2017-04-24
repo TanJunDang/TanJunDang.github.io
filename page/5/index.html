@@ -172,6 +172,171 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ProGuard" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/04/ProGuard/" class="article-date">
+      <time datetime="2016-04-04T01:33:30.000Z" itemprop="datePublished">2016-04-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/04/ProGuard/">混淆</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="混淆目录"><a href="#混淆目录" class="headerlink" title="混淆目录"></a>混淆目录</h1><ul>
+<li>Mapping（/project/app/build/outputs/mapping/）</li>
+</ul>
+<blockquote>
+<p>dump.txt 描述apk文件中所有类文件间的内部结构。<br>mapping.txt 列出了原始的类，方法，和字段名与混淆后代码之间的映射。<br>seeds.txt 列出了未被混淆的类和成员<br>usage.txt 列出了从apk中删除的代码</p>
+</blockquote>
+<h1 id="ProGuard配置"><a href="#ProGuard配置" class="headerlink" title="ProGuard配置"></a>ProGuard配置</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">生成mapping文件</span><br><span class="line">不能混淆的代码</span><br><span class="line">系统接口</span><br><span class="line">Jni接口</span><br><span class="line">其他如四大组件、View等</span><br><span class="line">第三方类库如android-support</span><br><span class="line"></span><br><span class="line">保留选项（配置不进行处理的内容）</span><br><span class="line"></span><br><span class="line">-keep &#123;Modifier&#125; &#123;class_specification&#125; 保护指定的类文件和类的成员 </span><br><span class="line">-keepclassmembers &#123;modifier&#125; &#123;class_specification&#125; 保护指定类的成员，如果此类受到保护他们会保护的更好 </span><br><span class="line">-keepclasseswithmembers &#123;class_specification&#125; 保护指定的类和类的成员，但条件是所有指定的类和类成员是要存在。 </span><br><span class="line">-keepnames &#123;class_specification&#125; 保护指定的类和类的成员的名称（如果他们不会压缩步骤中删除） </span><br><span class="line">-keepclassmembernames &#123;class_specification&#125; 保护指定的类的成员的名称（如果他们不会压缩步骤中删除） </span><br><span class="line">-keepclasseswithmembernames &#123;class_specification&#125; 保护指定的类和类的成员的名称，如果所有指定的类成员出席（在压缩步骤之后） </span><br><span class="line">-printseeds &#123;filename&#125; 列出类和类的成员-keep选项的清单，标准输出到给定的文件</span><br><span class="line"></span><br><span class="line">压缩</span><br><span class="line"></span><br><span class="line">-dontshrink 不压缩输入的类文件 </span><br><span class="line">-printusage &#123;filename&#125; </span><br><span class="line">-whyareyoukeeping &#123;class_specification&#125;</span><br><span class="line"></span><br><span class="line">优化</span><br><span class="line"></span><br><span class="line">-dontoptimize 不优化输入的类文件 </span><br><span class="line">-assumenosideeffects &#123;class_specification&#125; 优化时假设指定的方法，没有任何副作用 </span><br><span class="line">-allowaccessmodification 优化时允许访问并修改有修饰符的类和类的成员</span><br><span class="line"></span><br><span class="line">混淆</span><br><span class="line"></span><br><span class="line">-dontobfuscate 不混淆输入的类文件 </span><br><span class="line">-obfuscationdictionary &#123;filename&#125; 使用给定文件中的关键字作为要混淆方法的名称 </span><br><span class="line">-overloadaggressively 混淆时应用侵入式重载 </span><br><span class="line">-useuniqueclassmembernames 确定统一的混淆类的成员名称来增加混淆 </span><br><span class="line">-flattenpackagehierarchy &#123;package_name&#125; 重新包装所有重命名的包并放在给定的单一包中 </span><br><span class="line">-repackageclass &#123;package_name&#125; 重新包装所有重命名的类文件中放在给定的单一包中 </span><br><span class="line">-dontusemixedcaseclassnames 混淆时不会产生形形色色的类名 </span><br><span class="line">-keepattributes &#123;attribute_name,…&#125; 保护给定的可选属性，例如LineNumberTable, LocalVariableTable,SourceFile, Deprecated, Synthetic, Signature, and InnerClasses. </span><br><span class="line">-renamesourcefileattribute &#123;string&#125; 设置源文件中给定的字符串常量</span><br><span class="line"></span><br><span class="line">后面的文件名，类名，或者包名等可以使用占位符代替 </span><br><span class="line">？表示一个字符</span><br><span class="line"></span><br><span class="line">可以匹配多个字符，但是如果是一个类，不会匹配其前面的包名 </span><br><span class="line">可以匹配多个字符，会匹配前面的包名。  </span><br><span class="line">在android中在android Manifest文件中的activity，service，provider， receviter，等都不能进行混淆。一些在xml中配置的view也不能进行混淆，android提供的默认配置中都有</span><br></pre></td></tr></table></figure>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//实际开发中 开启混淆,打正式包后,可能会出现崩溃错误。这时需要通过mapping来查找错误。</span></span><br><span class="line"></span><br><span class="line">-optimizationpasses <span class="number">5</span>          # 指定代码的压缩级别</span><br><span class="line">-dontusemixedcaseclassnames   # 是否使用大小写混合</span><br><span class="line">-dontpreverify           # 混淆时是否做预校验</span><br><span class="line">-verbose                # 混淆时是否记录日志</span><br><span class="line"></span><br><span class="line">-dontwarn com.umeng.**</span><br><span class="line">#保持com.umeng.**这个包里面的所有类和所有方法不被混淆。(没有友盟的集成时删除此句)</span><br><span class="line"></span><br><span class="line"># 混淆时所采用的算法</span><br><span class="line">-optimizations !code<span class="regexp">/simplification/</span>arithmetic,!field<span class="comment">/*,!class/merging/*</span><br><span class="line"></span><br><span class="line"> # 保持哪些类不被混淆</span><br><span class="line">-keep public class * extends android.app.Application</span><br><span class="line">-keep public class * extends android.app.Service</span><br><span class="line">-keep public class * extends android.content.BroadcastReceiver</span><br><span class="line">-keep public class * extends android.content.ContentProvider</span><br><span class="line">-keep public class * extends android.app.backup.BackupAgentHelper</span><br><span class="line">-keep public class * extends android.preference.Preference</span><br><span class="line">-keep public class com.android.vending.licensing.ILicensingService</span><br><span class="line"></span><br><span class="line"> # 保持 native 方法不被混淆</span><br><span class="line">-keepclasseswithmembernames class * &#123;</span><br><span class="line">    native &lt;methods&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> # 保持自定义控件类不被混淆</span><br><span class="line">-keepclasseswithmembers class * &#123;</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet);</span><br><span class="line">&#125;</span><br><span class="line">-keepclasseswithmembers class * &#123;# 保持自定义控件类不被混淆</span><br><span class="line">    public &lt;init&gt;(android.content.Context, android.util.AttributeSet, int);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers class * extends android.app.Activity &#123;  # 保持自定义控件类不被混淆</span><br><span class="line">    public void *(android.view.View);</span><br><span class="line">&#125;</span><br><span class="line">-keepclassmembers enum * &#123;     # 保持枚举 enum 类不被混淆</span><br><span class="line"> public static **[] values();</span><br><span class="line"> public static ** valueOf(java.lang.String);</span><br><span class="line">&#125;</span><br><span class="line">-keep class * implements android.os.Parcelable &#123; # 保持 Parcelable 不被混淆</span><br><span class="line"> public static final android.os.Parcelable$Creator *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-keep class io.movies.common.entity.** &#123; *; &#125;  #实体类不参与混淆 </span><br><span class="line"></span><br><span class="line">#gson混淆代码</span><br><span class="line">#-libraryjars libs/gson-2.3.1.jar</span><br><span class="line">-keepattributes Signature</span><br><span class="line"># Gson specific classes</span><br><span class="line">-keep class sun.misc.Unsafe &#123; *; &#125;</span><br><span class="line"># Application classes that will be serialized/deserialized over Gson</span><br><span class="line">-keep class com.google.gson.examples.android.model.** &#123; *; &#125;</span><br><span class="line"></span><br><span class="line">#-printmapping mapping.txt //激活这句代码会导致不生成mapping文件</span></span><br></pre></td></tr></table></figure>
+<h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><blockquote>
+<p>错误 - Unable to compute hash of /../AndroidStudioProjects/../classes.jar错误<br>说明在打包混淆的时候需要keep一些文件，让他们不要被混淆。</p>
+<p>解决办法：<br>加上-dontskipnonpubliclibraryclasses #不混淆第三方库</p>
+<p>错误 - 没生成mapping</p>
+<p>原因<br>minifyEnable true 开启混淆模式</p>
+<p>解决方法<br>配置-ignorewarnings #生成mapping文件</p>
+<h2 id="printmapping-mapping-txt-混淆文件没有删除这句代码"><a href="#printmapping-mapping-txt-混淆文件没有删除这句代码" class="headerlink" title="-printmapping mapping.txt 混淆文件没有删除这句代码"></a>-printmapping mapping.txt 混淆文件没有删除这句代码</h2></blockquote>
+<h1 id="混淆后出问题"><a href="#混淆后出问题" class="headerlink" title="混淆后出问题"></a>混淆后出问题</h1><blockquote>
+<p>解决方法：找到相关位置,对未混淆的类进行混淆。</p>
+<p><a href="http://www.bkjia.com/Androidjc/995232.html" target="_blank" rel="external">混淆参考</a><br><a href="http://my.oschina.net/sammy1990/blog/271306?fromerr=Ww2DepNa#OSC_h4_2" target="_blank" rel="external">混淆参考</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/混淆/">混淆</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-OnTouchEvent" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/31/OnTouchEvent/" class="article-date">
+      <time datetime="2016-03-31T02:44:19.000Z" itemprop="datePublished">2016-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="分发事件基础知识"><a href="#分发事件基础知识" class="headerlink" title="分发事件基础知识"></a>分发事件基础知识</h1><blockquote>
+<p>跟Touch相关的三个方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatchTouchEvent</td>
+<td>用来传递触摸event，一般不重写。表示是否消费该事件，其返回值由onInterceptTouchEvent、onTouchEvent决定</td>
+</tr>
+<tr>
+<td>onInterceptTouchEvent</td>
+<td>用来拦截触摸event，只有ViewGroup才有。默认返回false</td>
+</tr>
+<tr>
+<td>onTouchEvent</td>
+<td>用来处理触摸event。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>onInterceptTouchEvent跟onTouchEvent都在dispatchTouchEvent的内部。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件分发机制onTouchEvent笔记/">事件分发机制onTouchEvent笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/31/OnTouchEvent/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BNJSummarize" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -300,6 +465,69 @@
 
 
   
+    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/Widgets/" class="article-date">
+      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/01/Widgets/">Android控件的学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="TextView的使用"><a href="#TextView的使用" class="headerlink" title="TextView的使用"></a>TextView的使用</h1><p><a href="/2016/12/13/TextView/">TextView笔记</a></p>
+<h1 id="EditText笔记"><a href="#EditText笔记" class="headerlink" title="EditText笔记"></a>EditText笔记</h1><p><a href="/2016/12/13/EditText/">EditText笔记</a></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android控件的学习笔记/">Android控件的学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-DatePicker" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -364,69 +592,6 @@
 
 
   
-    <article id="post-Widgets" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/01/Widgets/" class="article-date">
-      <time datetime="2016-02-01T14:05:41.000Z" itemprop="datePublished">2016-02-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/Widgets/">Android控件的学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="TextView的使用"><a href="#TextView的使用" class="headerlink" title="TextView的使用"></a>TextView的使用</h1><p><a href="/2016/12/13/TextView/">TextView笔记</a></p>
-<h1 id="EditText笔记"><a href="#EditText笔记" class="headerlink" title="EditText笔记"></a>EditText笔记</h1><p><a href="/2016/12/13/EditText/">EditText笔记</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android控件的学习笔记/">Android控件的学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/01/Widgets/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-ImageUpload" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -471,6 +636,100 @@
       
         <p class="article-more-link">
           <a  href="/2016/01/29/ImageUpload/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Animation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/01/Animation/" class="article-date">
+      <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished">2016-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/01/Animation/">Android动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
+<p>动画分帧动画(Frame)、补间动画(Tween)、属性动画(property)三大类。<br>使用<br>使用方式分java、xml两种。java只需创建相应的XXXAnimatino然后调用start方法即可。这里讲xml使用方式。<br>1.在res创建相应的目录.<br>2.创建相应的根标签的xml文件.<br>3.调用AnimationUtils(AnimatorInflater)加载xml文件。然后调用start方法即可。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>动画类型</th>
+<th>在res创建的目录</th>
+<th>对应的标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帧动画</td>
+<td>drawable(不需创建)</td>
+<td>animation-list</td>
+</tr>
+<tr>
+<td>补间动画</td>
+<td>anim</td>
+<td>translate、alpha、rotate、scale</td>
+</tr>
+<tr>
+<td>属性动画</td>
+<td>animator</td>
+<td>animator、objectanimator、set</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>动画坐标图</p>
+</blockquote>
+<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画/">Android动画</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/01/Animation/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -632,100 +891,6 @@
 
 
   
-    <article id="post-Animation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/Animation/" class="article-date">
-      <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/Animation/">Android动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
-<p>动画分帧动画(Frame)、补间动画(Tween)、属性动画(property)三大类。<br>使用<br>使用方式分java、xml两种。java只需创建相应的XXXAnimatino然后调用start方法即可。这里讲xml使用方式。<br>1.在res创建相应的目录.<br>2.创建相应的根标签的xml文件.<br>3.调用AnimationUtils(AnimatorInflater)加载xml文件。然后调用start方法即可。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>动画类型</th>
-<th>在res创建的目录</th>
-<th>对应的标签</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>帧动画</td>
-<td>drawable(不需创建)</td>
-<td>animation-list</td>
-</tr>
-<tr>
-<td>补间动画</td>
-<td>anim</td>
-<td>translate、alpha、rotate、scale</td>
-</tr>
-<tr>
-<td>属性动画</td>
-<td>animator</td>
-<td>animator、objectanimator、set</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>动画坐标图</p>
-</blockquote>
-<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画/">Android动画</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/01/Animation/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-JAVASE" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -779,155 +944,6 @@
         <p class="article-more-link">
           <a  href="/2015/11/18/JAVASE/#more">阅读全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Project-Build" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/02/Project-Build/" class="article-date">
-      <time datetime="2015-11-02T10:09:52.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/Project-Build/">Android项目架构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="将工程Push到Coding"><a href="#将工程Push到Coding" class="headerlink" title="将工程Push到Coding"></a>将工程Push到Coding</h1><blockquote>
-<p>步骤<br>1.配置ssh,在Coding的个人设置里配置SSH公钥。而不是在某个项目里配置公钥。<br>2.打开AS,利用ssh从Coding把项目check下来。打开工程后,只有一个readme文件。然后再创建新的工程,名称跟Coding项目名一致。<br>3.先修改gitignore文件,再Add。提交推送即可。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/02/Project-Build/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/01/Android-ContentProvider/" class="article-date">
-      <time datetime="2015-11-01T12:43:42.000Z" itemprop="datePublished">2015-11-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="ContentProvider的理解"><a href="#ContentProvider的理解" class="headerlink" title="ContentProvider的理解"></a>ContentProvider的理解</h1><blockquote>
-<p>ContentProvider的作用是什么？<br>1.共享数据给其他应用程序。<br>2.提供音频、视频、联系人等数据给自己的程序。<br>如何使用ContentProvider？<br>1.扩展ContentProvider类。<br>2.重写相关的增删改查方法<br>3.定义Action，暴露数据。<br>ContentResolver的作用是什么？<br>1.读取ContentProvider的数据。<br>2.可以通过ContentValue操作数据。对数据库表进行增删改查。</p>
-</blockquote>
-<h2 id="常用URI"><a href="#常用URI" class="headerlink" title="常用URI"></a>常用URI</h2><table>
-<thead>
-<tr>
-<th>作用</th>
-<th>通用标识符URI</th>
-<th>权限</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>短信</td>
-<td>Uri.parse(“content://sms/“);</td>
-<td>android.permission.READ_SMS</td>
-</tr>
-<tr>
-<td>获取联系人</td>
-<td>ContactsContract.CommonDataKinds.Phone.CONTENT_URI;</td>
-<td>android.permission.READ_CONTACTS <br> android.permission.WRITE_CONTACTS</td>
-</tr>
-<tr>
-<td>查询指定电话的联系人</td>
-<td>Uri.parse(“content://com.android.contacts/data/phones/filter/“ + number);</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android基础之ContentProvider/">Android基础之ContentProvider</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
