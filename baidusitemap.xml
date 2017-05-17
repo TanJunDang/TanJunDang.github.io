@@ -4,16 +4,84 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/11/18/JAVASE/</loc>
-    <lastmod>2017-05-15T16:27:35.167Z</lastmod>
+    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
+    <lastmod>2017-05-17T16:50:34.730Z</lastmod>
     <data>
         <display>
         <title>JAVASE基础</title>
         <pubTime>2015-11-18T07:03:37.000Z</pubTime>
         
-        <tag>Callback接口</tag>
+        <tag>JAVA基础</tag>
          
-        <tag>JAVA基础知识</tag>
+        <tag>多线程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2017/01/01/Resume/</loc>
+    <lastmod>2017-05-17T16:48:14.902Z</lastmod>
+    <data>
+        <display>
+        <title>面试、笔试题目</title>
+        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
+        
+        <tag>面试、笔试题目</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
+    <lastmod>2017-05-17T16:32:14.477Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava、RxAndroid的理解</title>
+        <pubTime>2016-06-13T00:52:28.000Z</pubTime>
+        
+        <tag>RxJava、RxAndroid的理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2017-05-17T15:27:57.602Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>开发中常见的Error、Bug</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/04/11/Handler/</loc>
+    <lastmod>2017-05-16T16:09:28.770Z</lastmod>
+    <data>
+        <display>
+        <title>Handler机制</title>
+        <pubTime>2016-04-11T01:58:30.000Z</pubTime>
+        
+        <tag>Handler机制</tag>
          
          
            
@@ -31,40 +99,6 @@
         <pubTime>2017-01-18T07:03:37.000Z</pubTime>
         
         <tag>SQLite数据库</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2017/01/01/Resume/</loc>
-    <lastmod>2017-05-05T14:41:26.938Z</lastmod>
-    <data>
-        <display>
-        <title>面试、笔试题目</title>
-        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
-        
-        <tag>面试、笔试题目</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2017-04-29T18:56:57.786Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>开发中常见的Error、Bug</tag>
          
          
            
@@ -435,23 +469,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
-    <lastmod>2017-01-19T10:37:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>RxJava、RxAndroid的理解</title>
-        <pubTime>2016-06-13T00:52:28.000Z</pubTime>
-        
-        <tag>RxJava、RxAndroid的理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
     <lastmod>2017-01-17T08:26:10.000Z</lastmod>
     <data>
@@ -511,23 +528,6 @@
         <pubTime>2016-03-31T02:44:19.000Z</pubTime>
         
         <tag>事件分发机制onTouchEvent笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/04/11/Handler/</loc>
-    <lastmod>2017-01-05T02:35:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Handler机制</title>
-        <pubTime>2016-04-11T01:58:30.000Z</pubTime>
-        
-        <tag>Handler机制</tag>
          
          
            
