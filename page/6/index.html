@@ -172,70 +172,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Project-Build" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/02/Project-Build/" class="article-date">
-      <time datetime="2015-11-02T10:09:52.000Z" itemprop="datePublished">2015-11-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/Project-Build/">Android项目架构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="将工程Push到Coding"><a href="#将工程Push到Coding" class="headerlink" title="将工程Push到Coding"></a>将工程Push到Coding</h1><blockquote>
-<p>步骤<br>1.配置ssh,在Coding的个人设置里配置SSH公钥。而不是在某个项目里配置公钥。<br>2.打开AS,利用ssh从Coding把项目check下来。打开工程后,只有一个readme文件。然后再创建新的工程,名称跟Coding项目名一致。<br>3.先修改gitignore文件,再Add。提交推送即可。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android项目架构/">Android项目架构</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/02/Project-Build/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Android-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1019,6 +955,71 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/30/Shape/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-PopupWindow" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/22/PopupWindow/" class="article-date">
+      <time datetime="2015-09-22T01:10:46.000Z" itemprop="datePublished">2015-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="PopupWindow-基本用法"><a href="#PopupWindow-基本用法" class="headerlink" title="PopupWindow 基本用法"></a>PopupWindow 基本用法</h1><blockquote>
+<p>总结<br>　PopupWindos的作用就是设置显示View的宽高、背景、动画以及显示的位置。</p>
+<p>步骤<br>1.用LayoutInflate加载待显示的布局。<br>2.创建PopupWindow对象，传入上述view以及宽高作为参数。(PopupWindow(View contentView, int width, int height，boolean focusable))//focusable表示点击外部是否可以关闭<br>3.设置PopupWindow的背景。(setBackgroundDrawable)<br>4.设置PopupWindow的显示位置，并且将其显示。(两种方法)<br>5.popupWindow.setFocusable(true);//设置popupwindow获取焦点<br>6.popupWindow.setOutsideTouchable(true); // 设置允许在外点击消失</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PopupWindow笔记/">PopupWindow笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/22/PopupWindow/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
