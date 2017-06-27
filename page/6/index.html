@@ -172,6 +172,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaSE" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/JavaSE/" class="article-date">
+      <time datetime="2015-11-18T07:03:37.000Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/18/JavaSE/">JavaSE基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h1><blockquote>
+<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。</p>
+</blockquote>
+<h2 id="回调接口-——-数据提供者编写"><a href="#回调接口-——-数据提供者编写" class="headerlink" title="回调接口 —— 数据提供者编写"></a>回调接口 —— 数据提供者编写</h2><h3 id="数据提供者"><a href="#数据提供者" class="headerlink" title="数据提供者"></a>数据提供者</h3><blockquote>
+<p>1.预留接口给他人实现(定义接口) OnItemListener<br>2.创建接口引用 onItemListener listener<br>3.提供注册接口的方法(注册接口) setonlistener<br>4.在给数据的地方注册并调用接口的方法(通过接口引用调用方法) listener.giveMsg();</p>
+</blockquote>
+<h3 id="数据获取者"><a href="#数据获取者" class="headerlink" title="数据获取者"></a>数据获取者</h3><blockquote>
+<p>1.实现回调接口 implements Callback<br>2.注册回调函数</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaSE基础/">JavaSE基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Token/">Token</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/18/JavaSE/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Project-Build" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -934,91 +1004,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/10/01/Fragment/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Shape" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/30/Shape/" class="article-date">
-      <time datetime="2015-09-30T09:44:56.000Z" itemprop="datePublished">2015-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/30/Shape/">Shape、Selector、Inset</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <blockquote>
-<p>Drawable分为两种，一种是普通的图片资源，另外一种是XML形式的Drawable资源。<br>这里讲的是如何编写XML形式的drawable。</p>
-</blockquote>
-<h1 id="知识点-Shape"><a href="#知识点-Shape" class="headerlink" title="知识点 - Shape"></a>知识点 - Shape</h1><blockquote>
-<p>理解<br>用于设置ViewGroup的形状</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th>意义</th>
-<th>属性</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Shape</td>
-<td>设置Shape的基础形状</td>
-<td>Android:Shape</td>
-<td>“rectangle”(矩形 - 默认) <br> “oval”(椭圆)<br>“line”(直线)<br>“ring”(环形)</td>
-</tr>
-</tbody>
-</table>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shape、Selector、Inset/">Shape、Selector、Inset</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/30/Shape/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

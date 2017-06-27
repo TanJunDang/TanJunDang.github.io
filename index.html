@@ -172,6 +172,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Login" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/17/Login/" class="article-date">
+      <time datetime="2017-06-16T16:00:00.000Z" itemprop="datePublished">2017-06-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/17/Login/">LoginActivity登录流程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Token的理解"><a href="#Token的理解" class="headerlink" title="Token的理解"></a>Token的理解</h1><h1 id="Token的使用"><a href="#Token的使用" class="headerlink" title="Token的使用"></a>Token的使用</h1><blockquote>
+<p>登录流程<br>Token的使用，客户端登陆-服务端返回token-客户端保存账户信息、token于本地-在之后的请求中都要携带该token来请求</p>
+<p>自动登录<br>登录-在splashActivity判断本地是否有token，有则 直接跳到main,否则跳登录页面</p>
+<p>第一次进入客户端后，跳转登陆页面，发起登陆请求，登录成功后，服务端返回一个 token，客户端保存这个 token到本地，下次请求接口时，带上这个 token ，服务端判断这个 token，是否有效或过期，返回对应的错误码<br>下次进入客户端，先判断本地是否存在 token，存在就直接请求接口，带上这个 token参数，由服务端来判断这个 token，是否登陆超时，本地不存在 token，就是没有登录过，跳转登陆<br>不建议在客户端存储用户名和密码，也不建议在客户端做是否登陆判断，逻辑应该由服务端来控制</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LoginActivity登录流程/">LoginActivity登录流程</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -729,70 +791,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反编译/">反编译</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Resume" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/01/Resume/" class="article-date">
-      <time datetime="2017-01-01T10:13:44.000Z" itemprop="datePublished">2017-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/Resume/">面试、笔试题目</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="面试题目"><a href="#面试题目" class="headerlink" title="面试题目"></a>面试题目</h1><h2 id="什么是线程不安全？"><a href="#什么是线程不安全？" class="headerlink" title="什么是线程不安全？"></a>什么是线程不安全？</h2><blockquote>
-<p>线程不安全指 多线程访问同一段代码，导致产生不确定的结果。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试、笔试题目/">面试、笔试题目</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/01/01/Resume/#more">阅读全文 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
