@@ -3,24 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Handler机制 | TanJunDang</title>
+  <title>RichEditText实现富文本 | TanJunDang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Handler的理解
-Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无反应。多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。类似还有事件总线。">
+  <meta name="description" content="RichEditText的使用XRichText
+
+RichTextEditor用于编辑Html，生成Html
+RichTextView用于显示Html
+
+RichTextEditor的使用
+步骤1.插入图片2.获取html3.再次进入显示html
+
+123456789101112131415161718192021222324252627282930313233//插入图片richEditor.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Handler机制">
-<meta property="og:url" content="TanJunDang.github.io/2016/04/11/Handler/index.html">
+<meta property="og:title" content="RichEditText实现富文本">
+<meta property="og:url" content="TanJunDang.github.io/2017/07/31/RichText/index.html">
 <meta property="og:site_name" content="TanJunDang">
-<meta property="og:description" content="Handler的理解
-Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无反应。多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。类似还有事件总线。">
-<meta property="og:image" content="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:image" content="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGM1cvc043YXM3bUsxUlgrNXhwYnZPMzY1L1NMcldXUG5nPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
-<meta property="og:updated_time" content="2017-05-16T16:09:28.770Z">
+<meta property="og:description" content="RichEditText的使用XRichText
+
+RichTextEditor用于编辑Html，生成Html
+RichTextView用于显示Html
+
+RichTextEditor的使用
+步骤1.插入图片2.获取html3.再次进入显示html
+
+123456789101112131415161718192021222324252627282930313233//插入图片richEditor.">
+<meta property="og:updated_time" content="2017-08-03T15:36:34.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Handler机制">
-<meta name="twitter:description" content="Handler的理解
-Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无反应。多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。类似还有事件总线。">
-<meta name="twitter:image" content="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg">
+<meta name="twitter:title" content="RichEditText实现富文本">
+<meta name="twitter:description" content="RichEditText的使用XRichText
+
+RichTextEditor用于编辑Html，生成Html
+RichTextView用于显示Html
+
+RichTextEditor的使用
+步骤1.插入图片2.获取html3.再次进入显示html
+
+123456789101112131415161718192021222324252627282930313233//插入图片richEditor.">
   
     <link rel="alternative" href="/atom.xml" title="TanJunDang" type="application/atom+xml">
   
@@ -174,11 +192,11 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Handler" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-RichText" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/11/Handler/" class="article-date">
-      <time datetime="2016-04-11T01:58:30.000Z" itemprop="datePublished">2016-04-11</time>
+      <a href="/2017/07/31/RichText/" class="article-date">
+      <time datetime="2017-07-30T16:00:00.000Z" itemprop="datePublished">2017-07-31</time>
 </a>
     </div>
   
@@ -191,7 +209,7 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
         
   
     <h1 class="article-title" itemprop="name">
-      Handler机制
+      RichEditText实现富文本
     </h1>
   
 
@@ -202,7 +220,7 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Handler机制/">Handler机制</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/富文本/">富文本</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -212,33 +230,16 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Handler的理解"><a href="#Handler的理解" class="headerlink" title="Handler的理解"></a>Handler的理解</h1><blockquote>
-<p>Handler引入背景<br>在子线程里操作UI导致崩溃、在子线程弹Toast无反应。<br>多线程并发操作UI可能会导致安全问题，Android提供一种解决方法，只能在UI线程里操作UI。Handler机制能实现周期性修改UI。<br>类似还有事件总线。</p>
+        <h1 id="RichEditText的使用"><a href="#RichEditText的使用" class="headerlink" title="RichEditText的使用"></a>RichEditText的使用</h1><p><a href="https://github.com/sendtion/XRichText" target="_blank" rel="external">XRichText</a></p>
+<blockquote>
+<p>RichTextEditor用于编辑Html，生成Html</p>
+<p>RichTextView用于显示Html</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="Handler的作用"><a href="#Handler的作用" class="headerlink" title="Handler的作用"></a>Handler的作用</h2><blockquote>
-<p>Handler机制主要用于解决多线程并发操作UI可能导致的安全问题。<br>用于在非UI线程更新UI。<br>线程间通信</p>
+<h2 id="RichTextEditor的使用"><a href="#RichTextEditor的使用" class="headerlink" title="RichTextEditor的使用"></a>RichTextEditor的使用</h2><blockquote>
+<p>步骤<br>1.插入图片<br>2.获取html<br>3.再次进入显示html</p>
 </blockquote>
-<h2 id="Handler内部原理"><a href="#Handler内部原理" class="headerlink" title="Handler内部原理"></a>Handler内部原理</h2><blockquote>
-<p>UI线程,UI线程初始化,提供消息传送的环境.(创建一个Looper对象和MessageQueue队列)</p>
-<p>Handler：主要用于发送消息和处理消息，在主线程中使用，隐式持有activity引用，所以可以操作UI。</p>
-<p>MessageQueue：消息队列，先进先出的方式管理Message。伴随Looper的初始化而创建。</p>
-<p>Message：消息的载体,Handler处理的对象。</p>
-<p>Looper：创建管理MessageQueue,<font color="red">循环从队列中取出Message分发给Handler。</font></p>
-</blockquote>
-<p><img src="http://imglf.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGK1lNa3FuSis1Tmd1WVY5RDR5UVloQkRmZ3VBNEdhaGRBPT0.jpg?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<h2 id="Handler执行流程"><a href="#Handler执行流程" class="headerlink" title="Handler执行流程"></a>Handler执行流程</h2><blockquote>
-<p>子线程修改UI-&gt;Handler发送消息(sendEmptyMessage等方法)-&gt;Message存入到MessageQueue队列-&gt;Looper取出Message分发给Handler-&gt;Handler处理消息(handleMessage方法)</p>
-</blockquote>
-<h2 id="在子线程使用Handler"><a href="#在子线程使用Handler" class="headerlink" title="在子线程使用Handler"></a>在子线程使用Handler</h2><blockquote>
-<p>主线程发送消息，子线程接收消息</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    Handler handler;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.run();</span><br><span class="line">        Looper.prepare();</span><br><span class="line">        handler = <span class="keyword">new</span> Handler() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">super</span>.handleMessage(msg);</span><br><span class="line">                <span class="comment">// 子线程接收消息</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Looper.loop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="在子线程使用handler之HandlerThread"><a href="#在子线程使用handler之HandlerThread" class="headerlink" title="在子线程使用handler之HandlerThread"></a>在子线程使用handler之HandlerThread</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HandlerThread handlerThread = <span class="keyword">new</span> HandlerThread(<span class="string">"666"</span>);</span><br><span class="line">handlerThread.start();</span><br><span class="line"></span><br><span class="line">Handler handler = <span class="keyword">new</span> Handler(handlerThread.getLooper()) &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.handleMessage(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">handler.sendEmptyMessage(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/zhaoyanjun/p/6062880.html" target="_blank" rel="external">HandlerThread的使用</a></p>
-<p><img src="http://imglf2.nosdn0.126.net/img/U05xRllGZk4zNU1vZXVvK1hIQUxGM1cvc043YXM3bUsxUlgrNXhwYnZPMzY1L1NMcldXUG5nPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-<p><a href="http://www.runoob.com/w3cnote/android-tutorial-handler-message.html" target="_blank" rel="external">菜鸟参考</a></p>
-<p><a href="http://www.tuicool.com/articles/EZ3AB3f" target="_blank" rel="external">Handler总结</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入图片</span></span><br><span class="line">richEditor.insertImage(path, richEditor.getMeasuredWidth());</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取Html</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getEditData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      List&lt;RichTextEditor.EditData&gt; editList = richEditor.buildEditData();</span><br><span class="line">      StringBuffer content = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">      <span class="keyword">for</span> (RichTextEditor.EditData itemData : editList) &#123;</span><br><span class="line">          <span class="keyword">if</span> (itemData.inputStr != <span class="keyword">null</span>) &#123;</span><br><span class="line">              content.append(itemData.inputStr);</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (itemData.imagePath != <span class="keyword">null</span>) &#123;</span><br><span class="line">              content.append(<span class="string">"&lt;img src=\""</span>).append(itemData.imagePath).append(<span class="string">"\"/&gt;"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> content.toString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//进入时显示数据</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">showEditData</span><span class="params">(String content)</span> </span>&#123;</span><br><span class="line">    richEditor.clearAllLayout();</span><br><span class="line">    List&lt;String&gt; textList = StringUtils.cutStringByImgTag(content);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; textList.size(); i++) &#123;</span><br><span class="line">        String text = textList.get(i);</span><br><span class="line">        <span class="keyword">if</span> (text.contains(<span class="string">"&lt;img"</span>)) &#123;</span><br><span class="line">            String imagePath = StringUtils.getImgSrc(text);</span><br><span class="line">            richEditor.measure(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            richEditor.addImageViewAtIndex(richEditor.getLastIndex(), imagePath);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            richEditor.addEditTextAtIndex(richEditor.getLastIndex(), text);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="RichTextView用于显示Html"><a href="#RichTextView用于显示Html" class="headerlink" title="RichTextView用于显示Html"></a>RichTextView用于显示Html</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接显示Html富文本</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">showEditData</span><span class="params">(String content)</span> </span>&#123;</span><br><span class="line">        richText.clearAllLayout();</span><br><span class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(content)) <span class="keyword">return</span>;</span><br><span class="line">        List&lt;String&gt; textList = StringUtils.cutStringByImgTag(content);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; textList.size(); i++) &#123;</span><br><span class="line">            String text = textList.get(i);</span><br><span class="line">            <span class="keyword">if</span> (text.contains(<span class="string">"&lt;img"</span>)) &#123;</span><br><span class="line"><span class="comment">//                获取src里的image地址</span></span><br><span class="line">                String imagePath = StringUtils.getImgSrc(text);</span><br><span class="line"><span class="comment">//                获取Url里的文件名</span></span><br><span class="line">                String fileName = Functions.getFileNameFromUrl(imagePath);</span><br><span class="line"><span class="comment">//                下载图片（必须要下载，否则不能显示）</span></span><br><span class="line">                HttpReqTool.getInstance().fileDownload(imagePath, Functions.getSDPath() + <span class="string">"/image"</span>, fileName, <span class="keyword">new</span> FileDownloadSampleListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">completed</span><span class="params">(BaseDownloadTask task)</span> </span>&#123;</span><br><span class="line">                        richText.measure(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">//                        显示Image（该方法只能显示本地的文件，所以需要下载文件来显示）</span></span><br><span class="line">                        richText.addImageViewAtIndex(richText.getLastIndex(), task.getPath());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                richText.addTextViewAtIndex(richText.getLastIndex(), text);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -247,13 +248,13 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/04/11/Handler/">Handler机制</a></p>
+        <p><span>本文标题:</span><a href="/2017/07/31/RichText/">RichEditText实现富文本</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 TanJunDang 的个人博客">TanJunDang</a></p>
-        <p><span>发布时间:</span>2016年04月11日 - 09时58分</p>
-        <p><span>最后更新:</span>2017年05月17日 - 00时09分</p>
+        <p><span>发布时间:</span>2017年07月31日 - 00时00分</p>
+        <p><span>最后更新:</span>2017年08月03日 - 23时36分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/04/11/Handler/" title="Handler机制">http://TanJunDang.github.io/2016/04/11/Handler/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2016/04/11/Handler/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/31/RichText/" title="RichEditText实现富文本">http://TanJunDang.github.io/2017/07/31/RichText/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://TanJunDang.github.io/2017/07/31/RichText/　　作者: TanJunDang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -263,20 +264,15 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
 
 <nav id="article-nav">
   
-    <a href="/2016/04/06/CodeOptimize/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/17/Login/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android - 代码优化技巧
+          LoginActivity登录流程
         
       </div>
     </a>
   
-  
-    <a href="/2016/05/05/Android-File/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android - File文件操作</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -285,7 +281,7 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Handler的理解"><span class="toc-number">1.</span> <span class="toc-text">Handler的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler的作用"><span class="toc-number">1.1.</span> <span class="toc-text">Handler的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler内部原理"><span class="toc-number">1.2.</span> <span class="toc-text">Handler内部原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler执行流程"><span class="toc-number">1.3.</span> <span class="toc-text">Handler执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在子线程使用Handler"><span class="toc-number">1.4.</span> <span class="toc-text">在子线程使用Handler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在子线程使用handler之HandlerThread"><span class="toc-number">1.5.</span> <span class="toc-text">在子线程使用handler之HandlerThread</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RichEditText的使用"><span class="toc-number">1.</span> <span class="toc-text">RichEditText的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RichTextEditor的使用"><span class="toc-number">1.1.</span> <span class="toc-text">RichTextEditor的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RichTextView用于显示Html"><span class="toc-number">1.2.</span> <span class="toc-text">RichTextView用于显示Html</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -336,7 +332,7 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/04/11/Handler/" data-title="Handler机制" data-url="TanJunDang.github.io/2016/04/11/Handler/"></div>
+    <div class="ds-thread" data-thread-key="2017/07/31/RichText/" data-title="RichEditText实现富文本" data-url="TanJunDang.github.io/2017/07/31/RichText/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -360,15 +356,13 @@ Handler引入背景在子线程里操作UI导致崩溃、在子线程弹Toast无
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/06/CodeOptimize/" title="上一篇: Android - 代码优化技巧">
+            <a href="/2017/06/17/Login/" title="上一篇: LoginActivity登录流程">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/05/05/Android-File/" title="下一篇: Android - File文件操作">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/31/RichText/">RichEditText实现富文本</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/17/Login/">LoginActivity登录流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Project-Network/">Android框架设计 - 网络层</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/16/Retrofit/">Retrofit笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/Project-BaseApplication/">Android架构 - BaseApplication笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/06/Project-Architecture/">Android项目架构模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/04/DataBinding/">DataBinding的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/18/SQLite/">SQLite数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/ApkTool/">反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/01/Resume/">面试、笔试题目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/EditText/">EditText笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/TextView/">TextView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/SearchView/">SearchView的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/07/Offset/">Offset偏移量的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/Camera/">Camera学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/Socket/">Socket学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/22/ScrollView/">ScrollView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/WebView/">WebView学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/Android-Permission/">Android6.0权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/ViewPager/">ViewPager笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/ActionBar/">ActionBar笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/Preference/">Preference的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/DialogFragment/">DialogFragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/DemoOne/">项目源码分析(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/CustomView/">自定义View笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/17/RecyclerView/">RecyclerView的个人理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/16/ItemBean/">代码分析 - ItemBean</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/13/RegEx/">正则表达式的总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Skills/">开发中常用的技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/Timestamp/">时间戳</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/05/Share/">常用开发工具、框架、网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/RxAndroid/">RxJava、RxAndroid的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/GsonTool/">工具类的编写 - Gson的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/CustomMenu/">自定义底部弹出菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Android-File/">Android - File文件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/11/Handler/">Handler机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/CodeOptimize/">Android - 代码优化技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/05/EventBus/">EventBus学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/ProGuard/">混淆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/OnTouchEvent/">事件分发机制onTouchEvent笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/BNJSummarize/">BNJ项目学到的知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/02/Gradle/">Gradle打包基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/DatePicker/">DatePicker笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/01/Widgets/">Android控件的学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/29/ImageUpload/">图片增加、删除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Style/">Android - Theme(Style)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/01/Animation/">Android动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/18/JavaSE/">JavaSE基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/02/Project-Build/">Android项目架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-ContentProvider/">Android基础之ContentProvider</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/01/Android-Service/">Android基础之Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/31/Android-Broadcast/">Android基础之BroadcastReceiver</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Android-Activity/">Android基础之Activity</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/29/Volley/">Volley跟Async-http的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/03/Notification/">Notification笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/02/VersionUpdate/">版本更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/01/Fragment/">Android-Fragment笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/30/Shape/">Shape、Selector、Inset</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/22/PopupWindow/">PopupWindow笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/Intent/">Android基础之Intent</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/ImageLoaderTool/">ImageLoader的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/11/DrawerLayout/">DrawerLayout的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/08/Git/">Git的学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/ListView/">ListView的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/01/Canvas/">Canvas笔记</a></li></ul>

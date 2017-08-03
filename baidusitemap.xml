@@ -4,16 +4,67 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2017-06-27T15:59:32.682Z</lastmod>
+    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
+    <lastmod>2017-08-03T15:37:50.286Z</lastmod>
     <data>
         <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        <title>Android控件的学习笔记</title>
+        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
         
+        <tag>Android控件的学习笔记</tag>
+         
         <tag>开发中常用的技巧</tag>
          
-        <tag>沉浸式状态栏</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2017/07/31/RichText/</loc>
+    <lastmod>2017-08-03T15:36:34.004Z</lastmod>
+    <data>
+        <display>
+        <title>RichEditText实现富文本</title>
+        <pubTime>2017-07-30T16:00:00.000Z</pubTime>
+        
+        <tag>富文本</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2017-08-03T15:36:30.411Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>开发中常见的Error、Bug</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
+    <lastmod>2017-08-03T15:36:00.949Z</lastmod>
+    <data>
+        <display>
+        <title>Gradle打包基础</title>
+        <pubTime>2016-02-02T06:13:06.000Z</pubTime>
+        
+        <tag>Gradle打包基础</tag>
          
          
            
@@ -24,13 +75,117 @@
     
   <url>
     <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    <lastmod>2017-06-27T15:46:32.137Z</lastmod>
+    <lastmod>2017-08-03T15:35:12.150Z</lastmod>
     <data>
         <display>
         <title>Retrofit笔记</title>
         <pubTime>2017-02-16T10:13:44.000Z</pubTime>
         
         <tag>Retrofit笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/11/17/SearchView/</loc>
+    <lastmod>2017-08-03T15:34:25.968Z</lastmod>
+    <data>
+        <display>
+        <title>SearchView的学习笔记</title>
+        <pubTime>2016-11-17T14:05:41.000Z</pubTime>
+        
+        <tag>SearchView的学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
+    <lastmod>2017-08-03T15:32:11.758Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView的个人理解</title>
+        <pubTime>2016-08-17T02:25:25.000Z</pubTime>
+        
+        <tag>RecyclerView的个人理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
+    <lastmod>2017-08-03T15:30:36.012Z</lastmod>
+    <data>
+        <display>
+        <title>Android-Fragment笔记</title>
+        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
+        
+        <tag>Android-Fragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
+    <lastmod>2017-07-09T06:42:44.684Z</lastmod>
+    <data>
+        <display>
+        <title>WebView学习笔记</title>
+        <pubTime>2016-10-15T14:05:41.000Z</pubTime>
+        
+        <tag>WebView学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/ViewPager/</loc>
+    <lastmod>2017-07-05T16:11:03.039Z</lastmod>
+    <data>
+        <display>
+        <title>ViewPager笔记</title>
+        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
+        
+        <tag>ViewPager预加载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2017-07-02T12:54:04.007Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
          
          
            
@@ -65,59 +220,6 @@
         <pubTime>2017-06-16T16:00:00.000Z</pubTime>
         
         <tag>LoginActivity登录流程</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/17/RecyclerView/</loc>
-    <lastmod>2017-06-20T14:14:41.129Z</lastmod>
-    <data>
-        <display>
-        <title>RecyclerView的个人理解</title>
-        <pubTime>2016-08-17T02:25:25.000Z</pubTime>
-        
-        <tag>RecyclerView的个人理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2017-06-15T15:23:08.802Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>开发中常见的Error、Bug</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/01/Widgets/</loc>
-    <lastmod>2017-06-15T15:08:48.417Z</lastmod>
-    <data>
-        <display>
-        <title>Android控件的学习笔记</title>
-        <pubTime>2016-02-01T14:05:41.000Z</pubTime>
-        
-        <tag>Android控件的学习笔记</tag>
-         
-        <tag>开发中常用的技巧</tag>
          
          
            
@@ -590,74 +692,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
-    <lastmod>2016-12-30T10:20:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>WebView学习笔记</title>
-        <pubTime>2016-10-15T14:05:41.000Z</pubTime>
-        
-        <tag>WebView学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
-    <lastmod>2016-12-29T10:08:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>Gradle打包基础</title>
-        <pubTime>2016-02-02T06:13:06.000Z</pubTime>
-        
-        <tag>Gradle打包基础</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/10/09/ViewPager/</loc>
-    <lastmod>2016-12-15T10:26:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>ViewPager笔记</title>
-        <pubTime>2016-10-09T07:01:20.000Z</pubTime>
-        
-        <tag>ViewPager预加载</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/01/Fragment/</loc>
-    <lastmod>2016-12-15T09:45:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android-Fragment笔记</title>
-        <pubTime>2015-10-01T08:52:53.000Z</pubTime>
-        
-        <tag>Android-Fragment笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/12/13/TextView/</loc>
     <lastmod>2016-12-13T10:34:18.000Z</lastmod>
     <data>
@@ -666,23 +700,6 @@
         <pubTime>2016-12-12T16:00:00.000Z</pubTime>
         
         <tag>TextView学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/11/17/SearchView/</loc>
-    <lastmod>2016-11-17T08:11:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>SearchView的学习笔记</title>
-        <pubTime>2016-11-17T14:05:41.000Z</pubTime>
-        
-        <tag>SearchView的学习笔记</tag>
          
          
            
