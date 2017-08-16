@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/07/31/RichText/</loc>
-    <lastmod>2017-08-09T00:48:14.834Z</lastmod>
+    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
+    <lastmod>2017-08-13T16:33:11.361Z</lastmod>
     <data>
         <display>
-        <title>RichEditText实现富文本</title>
-        <pubTime>2017-07-30T16:00:00.000Z</pubTime>
+        <title>Git的学习</title>
+        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
         
-        <tag>富文本</tag>
+        <tag>Git的学习</tag>
          
          
            
@@ -21,14 +21,31 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/08/Git/</loc>
-    <lastmod>2017-08-03T16:08:00.086Z</lastmod>
+    <loc>TanJunDang.github.io/2017/01/01/Resume/</loc>
+    <lastmod>2017-08-13T15:58:48.319Z</lastmod>
     <data>
         <display>
-        <title>Git的学习</title>
-        <pubTime>2015-09-07T16:00:00.000Z</pubTime>
+        <title>面试、笔试题目</title>
+        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
         
-        <tag>Git的学习</tag>
+        <tag>面试、笔试题目</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2017/07/31/RichText/</loc>
+    <lastmod>2017-08-09T00:48:14.834Z</lastmod>
+    <data>
+        <display>
+        <title>RichEditText实现富文本</title>
+        <pubTime>2017-07-30T16:00:00.000Z</pubTime>
+        
+        <tag>富文本</tag>
          
          
            
@@ -258,23 +275,6 @@
         <tag>多线程</tag>
          
         <tag>Token</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2017/01/01/Resume/</loc>
-    <lastmod>2017-05-31T15:27:07.891Z</lastmod>
-    <data>
-        <display>
-        <title>面试、笔试题目</title>
-        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
-        
-        <tag>面试、笔试题目</tag>
          
          
            
