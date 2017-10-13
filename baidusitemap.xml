@@ -4,14 +4,52 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2017-10-13T13:55:50.688Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2017-09-07T15:57:59.913Z</lastmod>
+    <lastmod>2017-09-13T13:56:13.537Z</lastmod>
     <data>
         <display>
         <title>Android - 代码优化技巧</title>
         <pubTime>2016-04-06T10:13:44.000Z</pubTime>
         
-        <tag>Android - 代码优化技巧</tag>
+        <tag>代码优化</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/11/01/Android-Service/</loc>
+    <lastmod>2017-09-13T13:53:44.314Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Service</title>
+        <pubTime>2015-11-01T07:43:42.000Z</pubTime>
+        
+        <tag>Android基础之Service</tag>
          
          
            
@@ -252,25 +290,6 @@
         <pubTime>2016-10-09T07:01:20.000Z</pubTime>
         
         <tag>ViewPager预加载</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2017-07-02T12:54:04.007Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
-        
-        <tag>开发中常用的技巧</tag>
-         
-        <tag>沉浸式状态栏</tag>
          
          
            
@@ -929,23 +948,6 @@
         <pubTime>2015-09-19T16:00:00.000Z</pubTime>
         
         <tag>Android基础之Intent</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/11/01/Android-Service/</loc>
-    <lastmod>2016-09-27T14:59:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Service</title>
-        <pubTime>2015-11-01T07:43:42.000Z</pubTime>
-        
-        <tag>Android基础之Service</tag>
          
          
            
