@@ -4,8 +4,59 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/02/29/AbnormalJson/</loc>
+    <lastmod>2017-10-19T14:18:05.714Z</lastmod>
+    <data>
+        <display>
+        <title>不固定的Json返回字段</title>
+        <pubTime>2016-02-28T16:00:00.000Z</pubTime>
+        
+        <tag>不固定的Json返回字段</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
+    <lastmod>2017-10-19T14:07:20.032Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava、RxAndroid的理解</title>
+        <pubTime>2016-06-13T00:52:28.000Z</pubTime>
+        
+        <tag>RxJava、RxAndroid的理解</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
+    <lastmod>2017-10-17T15:26:43.883Z</lastmod>
+    <data>
+        <display>
+        <title>Gradle打包基础</title>
+        <pubTime>2016-02-02T06:13:06.000Z</pubTime>
+        
+        <tag>Gradle打包基础</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2017-10-13T13:55:50.688Z</lastmod>
+    <lastmod>2017-10-17T15:22:30.332Z</lastmod>
     <data>
         <display>
         <title>开发中常用的技巧</title>
@@ -14,6 +65,23 @@
         <tag>开发中常用的技巧</tag>
          
         <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/10/09/Android-Permission/</loc>
+    <lastmod>2017-10-17T14:37:51.318Z</lastmod>
+    <data>
+        <display>
+        <title>Android6.0权限</title>
+        <pubTime>2016-10-09T12:43:42.000Z</pubTime>
+        
+        <tag>Android6.0权限</tag>
          
          
            
@@ -171,23 +239,6 @@
         <pubTime>2015-09-16T16:00:00.000Z</pubTime>
         
         <tag>开发中常见的Error、Bug</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/02/02/Gradle/</loc>
-    <lastmod>2017-08-03T15:36:00.949Z</lastmod>
-    <data>
-        <display>
-        <title>Gradle打包基础</title>
-        <pubTime>2016-02-02T06:13:06.000Z</pubTime>
-        
-        <tag>Gradle打包基础</tag>
          
          
            
@@ -362,23 +413,6 @@
         <pubTime>2016-01-01T12:20:39.000Z</pubTime>
         
         <tag>Android动画</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/06/13/RxAndroid/</loc>
-    <lastmod>2017-05-17T16:32:14.477Z</lastmod>
-    <data>
-        <display>
-        <title>RxJava、RxAndroid的理解</title>
-        <pubTime>2016-06-13T00:52:28.000Z</pubTime>
-        
-        <tag>RxJava、RxAndroid的理解</tag>
          
          
            
@@ -829,23 +863,6 @@
         <tag>DatePicker笔记</tag>
          
         <tag>Android控件的学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/10/09/Android-Permission/</loc>
-    <lastmod>2016-11-02T09:54:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android6.0权限</title>
-        <pubTime>2016-10-09T12:43:42.000Z</pubTime>
-        
-        <tag>Android6.0权限</tag>
          
          
            

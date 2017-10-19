@@ -535,6 +535,215 @@
 
 
   
+    <article id="post-AbnormalJson" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/29/AbnormalJson/" class="article-date">
+      <time datetime="2016-02-28T16:00:00.000Z" itemprop="datePublished">2016-02-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/29/AbnormalJson/">不固定的Json返回字段</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>特殊的Json实体,Content返回的值是变化的。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"status"</span>,<span class="number">200</span></span><br><span class="line">	 <span class="string">"type"</span>,<span class="number">1</span></span><br><span class="line">	<span class="string">"content"</span>,<span class="string">"不定值内容"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:right">说明</th>
+<th style="text-align:center">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Status</td>
+<td style="text-align:right">200</td>
+<td style="text-align:center">int</td>
+</tr>
+<tr>
+<td style="text-align:left">Content</td>
+<td style="text-align:right">“各种类型”</td>
+<td style="text-align:center">String</td>
+</tr>
+<tr>
+<td style="text-align:left">Type</td>
+<td style="text-align:right">11</td>
+<td style="text-align:center">int</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>content可以返回下列不同的值。</p>
+</blockquote>
+<ul>
+<li>当type为1 时，返回结果如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:right">类型</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:right">String</td>
+<td style="text-align:center">标题</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:right">String</td>
+<td style="text-align:center">内容</td>
+</tr>
+</tbody>
+</table>
+<p>即代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"type"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">"content"</span>: &#123;</span><br><span class="line">    <span class="string">"content"</span>: <span class="string">"收数"</span>,</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"收数"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"status"</span>: <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当type为2时，返回结果如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:right">类型</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">teacher</td>
+<td style="text-align:right">String</td>
+<td style="text-align:center">名称</td>
+</tr>
+<tr>
+<td style="text-align:left">datetime</td>
+<td style="text-align:right">long</td>
+<td style="text-align:center">请假时间</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:right">String</td>
+<td style="text-align:center">请假原因</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"type"</span>: <span class="number">16</span>,</span><br><span class="line">  <span class="string">"content"</span>: &#123;</span><br><span class="line">    <span class="string">"content"</span>: <span class="string">"春节放假"</span>,</span><br><span class="line">    <span class="string">"teacher"</span>: <span class="string">"系统管理员"</span>,</span><br><span class="line">    <span class="string">"datetime"</span>: <span class="number">1456815436000</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"status"</span>: <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当type为3时，返回结果如下：（该content为一个数组列表，以下为数组成员）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:right">类型</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">student</td>
+<td style="text-align:right">String</td>
+<td style="text-align:center">学生名称</td>
+</tr>
+<tr>
+<td style="text-align:left">paytime</td>
+<td style="text-align:right">long</td>
+<td style="text-align:center">支付时间</td>
+</tr>
+<tr>
+<td style="text-align:left">money</td>
+<td style="text-align:right">float</td>
+<td style="text-align:center">交费金额</td>
+</tr>
+<tr>
+<td style="text-align:left">refundmoney</td>
+<td style="text-align:right">float</td>
+<td style="text-align:center">退费金额</td>
+</tr>
+<tr>
+<td style="text-align:left">invoicemoney</td>
+<td style="text-align:right">float</td>
+<td style="text-align:center">发票金额</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"type"</span>: <span class="number">13</span>,</span><br><span class="line">  <span class="string">"content"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"student"</span>: <span class="string">"测试交费888"</span>,</span><br><span class="line">      <span class="string">"money"</span>: <span class="number">500</span>,</span><br><span class="line">      <span class="string">"paytime"</span>: <span class="number">1453620358000</span>,</span><br><span class="line">      <span class="string">"invoicemoney"</span>: <span class="number">500</span>,</span><br><span class="line">      <span class="string">"refundmoney"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="string">"invoicetitle"</span>: <span class="string">"2016年1月28日10:58:38"</span>,</span><br><span class="line">      <span class="string">"invoicetime"</span>: <span class="number">1453910400000</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"status"</span>: <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>根据代码，我们可以设计Json实体如下所示</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> type;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> status;</span><br><span class="line">    <span class="keyword">private</span> Object content;</span><br><span class="line">	<span class="comment">// ...get、set方法....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照上述Type为1、2的时候，可以创建一个JsonTest内部类如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line">        .</span><br><span class="line">        .</span><br><span class="line">        .</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  <span class="class"><span class="keyword">class</span> <span class="title">MsgInfo</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String content;</span><br><span class="line">        <span class="keyword">private</span> String title;</span><br><span class="line">        <span class="keyword">private</span> String teacher;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">long</span> datetime;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为content字段是变化的，我们需要根据实际情况(上述字段type)来判断返回的值是那种类型。因此我们需要对getContent()做处理。</p>
+<p>默认情况，当你声明content为Object类型的时候，其返回值是LinkedHashMap类型的。然而这种类型是不能转为MsgInfo的，所以我们要重新组装json字符串。更多情况如下表（Json与Java实体对照表）。</p>
+<p><img src="http://imglf2.nosdn.127.net/img/U05xRllGZk4zNU5kVS9JYUc5NTd4UDYzQVNWL1RJRDRXSUFqbjRRVDl2dkNtUGZXS1dkYUl3PT0.png?imageView&amp;thumbnail=800x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
+<p>重写getContent()方法的思路</p>
+<blockquote>
+<ol>
+<li>创建相关的JsonObject对象、JsonArray对象</li>
+<li>根据type的值，从而对JsonObject或者JsonArray处理。</li>
+<li>利用Set集合、JsonObject的addProperty方法、toString方法进行拼装。</li>
+<li>最后返回拼装json字符串。</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(type ==<span class="number">1</span> || type == <span class="number">2</span>)&#123;</span><br><span class="line">	 <span class="comment">//1.将字段名保存在Set集合中</span></span><br><span class="line">	 <span class="comment">//2.调用addProperty方法为对象添加属性。</span></span><br><span class="line">	  <span class="keyword">for</span> (String key : set) &#123;</span><br><span class="line">	    jsonObject.addProperty(key, String.valueOf(((LinkedTreeMap) content).get(key)));</span><br><span class="line">	    &#125;</span><br><span class="line">	  result = <span class="string">"&#123;\"infos\":"</span> + jsonObject.toString() + <span class="string">"&#125;"</span>;</span><br><span class="line">	  <span class="comment">//1.拼Json字符串，定义一个返回的字段名infos</span></span><br><span class="line">	  <span class="comment">//2.添加相应的括号、冒号</span></span><br><span class="line">	  <span class="comment">//3.在JsonTest实体类中创建一个MsgInfo对象 名为infos即可</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> 	Iterator iterator = ((ArrayList) content).iterator();</span><br><span class="line">            <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">                LinkedTreeMap map = (LinkedTreeMap) iterator.next();</span><br><span class="line">                Set&lt;String&gt; set = (map).keySet();</span><br><span class="line">                <span class="keyword">for</span> (String key : set) &#123;</span><br><span class="line">                    jsonObject.addProperty(key, String.valueOf(map.get(key)));</span><br><span class="line">                &#125;</span><br><span class="line">                jsonArray.add(jsonObject);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            result = <span class="string">"&#123;\"arrayInfo\":"</span> + jsonArray.toString() + <span class="string">"&#125;"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后JsonTest的代码如下</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  <span class="class"><span class="keyword">class</span> <span class="title">MsgInfo</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String content;</span><br><span class="line">        <span class="keyword">private</span> String title;</span><br><span class="line">        <span class="keyword">private</span> String teacher;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">long</span> datetime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> MsgInfo infos;</span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;****&gt; arrayinfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不固定的Json返回字段/">不固定的Json返回字段</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -787,76 +996,9 @@
 
 
   
-    <article id="post-Animation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/Animation/" class="article-date">
-      <time datetime="2016-01-01T12:20:39.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/Animation/">Android动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><blockquote>
-<p>动画分帧动画(Frame)、补间动画(Tween)、属性动画(property)三大类。<br>使用<br>使用方式分java、xml两种。java只需创建相应的XXXAnimatino然后调用start方法即可。这里讲xml使用方式。<br>1.在res创建相应的目录.<br>2.创建相应的根标签的xml文件.<br>3.调用AnimationUtils(AnimatorInflater)加载xml文件。然后调用start方法即可。</p>
-<p><font color="red">4.fillAfter属性用于保存动画后的状态</font><br>|动画类型|在res创建的目录|对应的标签|<br>|–|<br>|帧动画|drawable(不需创建)|animation-list|<br>|补间动画|anim|translate、alpha、rotate、scale|<br>|属性动画|animator|animator、objectanimator、set|</p>
-<p>动画坐标图</p>
-</blockquote>
-<p><img src="http://imglf1.nosdn.127.net/img/U05xRllGZk4zNU5iUnE3REJPcVJyRXpHVFdpSjkybFBPdC9rSUJJTEVrbEpsQzhGaXNld2tnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt=""></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画/">Android动画</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/01/Animation/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
