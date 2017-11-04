@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
+    
+    <lastmod>2017-11-04T14:25:23.410Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
+    
+    <lastmod>2017-11-04T14:15:54.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
+    
+    <lastmod>2017-11-04T14:08:39.224Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
+    
+    <lastmod>2017-10-19T14:42:38.470Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>TanJunDang.github.io/2016/02/29/AbnormalJson/</loc>
     
     <lastmod>2017-10-19T14:33:30.584Z</lastmod>
@@ -100,13 +128,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    
-    <lastmod>2017-08-03T15:35:12.150Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/11/17/SearchView/</loc>
     
     <lastmod>2017-08-03T15:34:25.968Z</lastmod>
@@ -128,13 +149,6 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/10/15/WebView/</loc>
-    
-    <lastmod>2017-07-09T06:42:44.684Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2016/10/09/ViewPager/</loc>
     
     <lastmod>2017-07-05T16:11:03.039Z</lastmod>
@@ -142,23 +156,9 @@
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
-    
-    <lastmod>2017-06-23T16:11:02.351Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>TanJunDang.github.io/2017/06/17/Login/</loc>
     
     <lastmod>2017-06-21T16:02:26.833Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
-    
-    <lastmod>2017-06-03T09:54:08.560Z</lastmod>
     
   </url>
   
