@@ -4,25 +4,8 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/01/Canvas/</loc>
-    <lastmod>2017-12-21T08:43:28.443Z</lastmod>
-    <data>
-        <display>
-        <title>Canvas笔记</title>
-        <pubTime>2015-08-31T16:00:00.000Z</pubTime>
-        
-        <tag>Canvas笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2017-12-20T07:40:02.417Z</lastmod>
+    <lastmod>2018-01-06T00:59:16.588Z</lastmod>
     <data>
         <display>
         <title>开发中常见的Error、Bug</title>
@@ -38,8 +21,25 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
+    <lastmod>2017-12-25T02:28:00.515Z</lastmod>
+    <data>
+        <display>
+        <title>Retrofit笔记</title>
+        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        
+        <tag>Retrofit笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2017/02/04/DataBinding/</loc>
-    <lastmod>2017-12-20T07:39:13.066Z</lastmod>
+    <lastmod>2017-12-22T01:36:44.311Z</lastmod>
     <data>
         <display>
         <title>DataBinding的学习</title>
@@ -55,14 +55,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    <lastmod>2017-11-04T14:25:23.410Z</lastmod>
+    <loc>TanJunDang.github.io/2015/09/01/Canvas/</loc>
+    <lastmod>2017-12-21T08:43:28.443Z</lastmod>
     <data>
         <display>
-        <title>Retrofit笔记</title>
-        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        <title>Canvas笔记</title>
+        <pubTime>2015-08-31T16:00:00.000Z</pubTime>
         
-        <tag>Retrofit笔记</tag>
+        <tag>Canvas笔记</tag>
          
          
            
