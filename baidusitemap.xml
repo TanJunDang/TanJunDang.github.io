@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2018-01-06T00:59:16.588Z</lastmod>
+    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
+    <lastmod>2018-01-10T07:45:56.270Z</lastmod>
     <data>
         <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        <title>Retrofit笔记</title>
+        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
         
-        <tag>开发中常见的Error、Bug</tag>
+        <tag>Retrofit笔记</tag>
          
          
            
@@ -21,14 +21,33 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    <lastmod>2017-12-25T02:28:00.515Z</lastmod>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2018-01-08T02:56:52.643Z</lastmod>
     <data>
         <display>
-        <title>Retrofit笔记</title>
-        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
         
-        <tag>Retrofit笔记</tag>
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2018-01-06T00:59:16.588Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>开发中常见的Error、Bug</tag>
          
          
            
@@ -169,25 +188,6 @@
         <pubTime>2016-02-02T06:13:06.000Z</pubTime>
         
         <tag>Gradle打包基础</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2017-10-17T15:22:30.332Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
-        
-        <tag>开发中常用的技巧</tag>
-         
-        <tag>沉浸式状态栏</tag>
          
          
            
