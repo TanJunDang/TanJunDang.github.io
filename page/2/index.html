@@ -172,6 +172,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-LayoutInflater" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/13/LayoutInflater/" class="article-date">
+      <time datetime="2017-01-13T08:19:33.000Z" itemprop="datePublished">2017-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/13/LayoutInflater/">LayoutInflater的理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="LayoutInflater的理解"><a href="#LayoutInflater的理解" class="headerlink" title="LayoutInflater的理解"></a>LayoutInflater的理解</h1><blockquote>
+<p>理解<br>LayoutInflater主要用于加载布局，setContentView内部实现也是通过该方法。<br>LayoutInflater.from()方法是context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)的封装。<br>LayoutInflater常用在自定义View里面加载布局。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LayoutInflater的理解/">LayoutInflater的理解</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/13/LayoutInflater/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ApkTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -721,70 +785,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/10/22/ScrollView/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-WebView" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/15/WebView/" class="article-date">
-      <time datetime="2016-10-15T14:05:41.000Z" itemprop="datePublished">2016-10-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/WebView/">WebView学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="WebView基础知识"><a href="#WebView基础知识" class="headerlink" title="WebView基础知识"></a>WebView基础知识</h1><blockquote>
-<p>理解<br>webView可以理解为一个加载url页面的控件。可与js交互。<br>Android与JS的交互需要通过接口实例化的对象进行。<br>webView调用loadUrl的方式<br>1.mWebView.loadUrl(“javascript：test()”);// 调用js中的test函数<br>2.mWebView.loadUrl(“file:///android_asset/index.html”);// 加载本地html，在app/src/main下新建一个文件夹，取名assets（不能是res目录下新建，否则无法加载）<br>重定向是什么？加载网页的时候，网页设置了重定向，即你要跳转的url被重新修改，使你跳转的新的URL。例如你要跳转www.baidu.com，百度会重定向使你跳转www.m.baidu.com<br>webView相关的API有WebChromeClient、WebViewClient、WebSetting三个。详细见下表</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebView学习笔记/">WebView学习笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/10/15/WebView/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

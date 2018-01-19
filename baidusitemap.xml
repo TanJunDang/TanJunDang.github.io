@@ -4,14 +4,48 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    <lastmod>2018-01-10T07:45:56.270Z</lastmod>
+    <loc>TanJunDang.github.io/2016/12/13/TextView/</loc>
+    <lastmod>2018-01-19T01:23:32.292Z</lastmod>
     <data>
         <display>
-        <title>Retrofit笔记</title>
-        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        <title>TextView学习笔记</title>
+        <pubTime>2016-12-12T16:00:00.000Z</pubTime>
         
-        <tag>Retrofit笔记</tag>
+        <tag>TextView学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2018/01/17/HandleImage/</loc>
+    <lastmod>2018-01-17T08:31:46.911Z</lastmod>
+    <data>
+        <display>
+        <title>图片处理</title>
+        <pubTime>2018-01-17T02:21:17.000Z</pubTime>
+        
+        <tag>图片处理</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
+    <lastmod>2018-01-17T07:19:57.075Z</lastmod>
+    <data>
+        <display>
+        <title>Android - File文件操作</title>
+        <pubTime>2016-05-05T02:21:17.000Z</pubTime>
+        
+        <tag>Android - File文件操作</tag>
          
          
            
@@ -22,7 +56,7 @@
     
   <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2018-01-08T02:56:52.643Z</lastmod>
+    <lastmod>2018-01-17T07:16:12.227Z</lastmod>
     <data>
         <display>
         <title>开发中常用的技巧</title>
@@ -31,6 +65,23 @@
         <tag>开发中常用的技巧</tag>
          
         <tag>沉浸式状态栏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
+    <lastmod>2018-01-10T07:45:56.270Z</lastmod>
+    <data>
+        <display>
+        <title>Retrofit笔记</title>
+        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        
+        <tag>Retrofit笔记</tag>
          
          
            
@@ -626,23 +677,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
-    <lastmod>2017-02-08T08:19:51.415Z</lastmod>
-    <data>
-        <display>
-        <title>Android - File文件操作</title>
-        <pubTime>2016-05-05T02:21:17.000Z</pubTime>
-        
-        <tag>Android - File文件操作</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2017/02/06/Project-Architecture/</loc>
     <lastmod>2017-02-07T02:12:48.856Z</lastmod>
     <data>
@@ -779,23 +813,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/12/13/TextView/</loc>
-    <lastmod>2016-12-13T10:34:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>TextView学习笔记</title>
-        <pubTime>2016-12-12T16:00:00.000Z</pubTime>
-        
-        <tag>TextView学习笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/03/30/BNJSummarize/</loc>
     <lastmod>2016-11-08T02:46:24.000Z</lastmod>
     <data>
@@ -827,23 +844,6 @@
         <pubTime>2016-11-06T16:00:00.000Z</pubTime>
         
         <tag>Offset偏移量的理解</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/01/29/ImageUpload/</loc>
-    <lastmod>2016-11-07T03:51:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>图片增加、删除</title>
-        <pubTime>2016-01-29T02:23:27.000Z</pubTime>
-        
-        <tag>图片增加、删除</tag>
          
          
            
