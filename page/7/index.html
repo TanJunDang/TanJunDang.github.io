@@ -531,94 +531,6 @@
 
 
   
-    <article id="post-Error-Bug" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/17/Error-Bug/" class="article-date">
-      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><h2 id="自定义Button时-无法响应UP-MOVE事件"><a href="#自定义Button时-无法响应UP-MOVE事件" class="headerlink" title="自定义Button时,无法响应UP/MOVE事件"></a>自定义Button时,无法响应UP/MOVE事件</h2><blockquote>
-<p>需要重写isClickable方法，使其返回true。</p>
-</blockquote>
-<h2 id="Using-incompatible-plugins-for-the-annotation"><a href="#Using-incompatible-plugins-for-the-annotation" class="headerlink" title="Using incompatible plugins for the annotation"></a>Using incompatible plugins for the annotation</h2><blockquote>
-<p>Warning:Using incompatible plugins for the annotation processing: android-apt. This may result in an unexpected behavior.</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/epmouse/p/7063266.html">解决方法</a></p>
-<h2 id="Gradle-sync-failed-Connection-refused-connect"><a href="#Gradle-sync-failed-Connection-refused-connect" class="headerlink" title="Gradle sync failed: Connection refused: connect"></a>Gradle sync failed: Connection refused: connect</h2><blockquote>
-<p>打开gradle.properties,把下列代码注释掉</p>
-</blockquote>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemProp.https.proxyPort=<span class="number">8580</span></span><br><span class="line">systemProp.http.proxyHost=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp.https.proxyHost=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp.http.proxyPort=<span class="number">8580</span></span><br></pre></td></tr></table></figure>
-<h2 id="Build出错the-android-dexOptions-incremental"><a href="#Build出错the-android-dexOptions-incremental" class="headerlink" title="Build出错the android.dexOptions.incremental"></a>Build出错the android.dexOptions.incremental</h2><p><img src="http://imglf4.nosdn.127.net/img/ZFRpZXBrMUVQR0QvRGRuRll0aFJCMXBkMWF4N2dkQUptdXFwSXdKVmxxTE91K0ozOGlpR0hRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt=""></p>
-<blockquote>
-<p>下列代码中删除incremental true</p>
-</blockquote>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dexOptions &#123;</span><br><span class="line">    incremental <span class="keyword">true</span></span><br><span class="line">    javaMaxHeapSize <span class="string">"4g"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="找不到binding"><a href="#找不到binding" class="headerlink" title="找不到binding"></a>找不到binding</h2><blockquote>
-<p>重启AS</p>
-</blockquote>
-<h2 id="找不到R文件"><a href="#找不到R文件" class="headerlink" title="找不到R文件"></a>找不到R文件</h2><blockquote>
-<p>build之后突然找不到R文件<br>原因<br>最近改的布局文件里缺少了一些资源文件,例如缺少了drawable文件ic_load_image，布局里调用了@drawable/ic_load_image。</p>
-</blockquote>
-<p><img src="http://imglf4.nosdn.127.net/img/ZFRpZXBrMUVQR0JVR3JjUjExa3QyRGFxeFRMUFdQcUVSdHZUbkZNTVZKLzQ1MHFXS2dBZEJRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt=""></p>
-<h2 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h2><h2 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>错误原因： 不能把int的值传给String类型的方法.<br>解决办法：加一个空字符””  </p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/17/Error-Bug/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-ImageLoaderTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -665,6 +577,94 @@
       
         <p class="article-more-link">
           <a  href="/2015/09/17/ImageLoaderTool/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Error-Bug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/Error-Bug/" class="article-date">
+      <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/Error-Bug/">开发中常见的Error、Bug</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><h2 id="自定义Button时-无法响应UP-MOVE事件"><a href="#自定义Button时-无法响应UP-MOVE事件" class="headerlink" title="自定义Button时,无法响应UP/MOVE事件"></a>自定义Button时,无法响应UP/MOVE事件</h2><blockquote>
+<p>需要重写isClickable方法，使其返回true。</p>
+</blockquote>
+<h2 id="Using-incompatible-plugins-for-the-annotation"><a href="#Using-incompatible-plugins-for-the-annotation" class="headerlink" title="Using incompatible plugins for the annotation"></a>Using incompatible plugins for the annotation</h2><blockquote>
+<p>Warning:Using incompatible plugins for the annotation processing: android-apt. This may result in an unexpected behavior.</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/epmouse/p/7063266.html">解决方法</a></p>
+<h2 id="Gradle-sync-failed-Connection-refused-connect"><a href="#Gradle-sync-failed-Connection-refused-connect" class="headerlink" title="Gradle sync failed: Connection refused: connect"></a>Gradle sync failed: Connection refused: connect</h2><blockquote>
+<p>打开gradle.properties,把下列代码注释掉</p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemProp.https.proxyPort=<span class="number">8580</span></span><br><span class="line">systemProp.http.proxyHost=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp.https.proxyHost=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">systemProp.http.proxyPort=<span class="number">8580</span></span><br></pre></td></tr></table></figure>
+<h2 id="Build出错the-android-dexOptions-incremental"><a href="#Build出错the-android-dexOptions-incremental" class="headerlink" title="Build出错the android.dexOptions.incremental"></a>Build出错the android.dexOptions.incremental</h2><p><img src="http://imglf4.nosdn.127.net/img/ZFRpZXBrMUVQR0QvRGRuRll0aFJCMXBkMWF4N2dkQUptdXFwSXdKVmxxTE91K0ozOGlpR0hRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt=""></p>
+<blockquote>
+<p>下列代码中删除incremental true</p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dexOptions &#123;</span><br><span class="line">    incremental <span class="keyword">true</span></span><br><span class="line">    javaMaxHeapSize <span class="string">"4g"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="找不到binding"><a href="#找不到binding" class="headerlink" title="找不到binding"></a>找不到binding</h2><blockquote>
+<p>重启AS<br>可能是某个类删除了某个import</p>
+</blockquote>
+<h2 id="找不到R文件"><a href="#找不到R文件" class="headerlink" title="找不到R文件"></a>找不到R文件</h2><blockquote>
+<p>build之后突然找不到R文件<br>原因<br>最近改的布局文件里缺少了一些资源文件,例如缺少了drawable文件ic_load_image，布局里调用了@drawable/ic_load_image。</p>
+</blockquote>
+<p><img src="http://imglf4.nosdn.127.net/img/ZFRpZXBrMUVQR0JVR3JjUjExa3QyRGFxeFRMUFdQcUVSdHZUbkZNTVZKLzQ1MHFXS2dBZEJRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt=""></p>
+<h2 id="复制布局文件时，有自定义view，要注意改其包名。"><a href="#复制布局文件时，有自定义view，要注意改其包名。" class="headerlink" title="复制布局文件时，有自定义view，要注意改其包名。"></a>复制布局文件时，有自定义view，要注意改其包名。</h2><h2 id="String类型方法传非String类型的值"><a href="#String类型方法传非String类型的值" class="headerlink" title="String类型方法传非String类型的值"></a>String类型方法传非String类型的值</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.res.Resources$NotFoundException: String resource ID #0x1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>错误原因： 不能把int的值传给String类型的方法.<br>解决办法：加一个空字符””  </p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常见的Error、Bug/">开发中常见的Error、Bug</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/17/Error-Bug/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
