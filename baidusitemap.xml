@@ -4,14 +4,101 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2017/01/18/SQLite/</loc>
+    <lastmod>2018-03-23T06:38:22.951Z</lastmod>
+    <data>
+        <display>
+        <title>SQLite数据库</title>
+        <pubTime>2017-01-18T07:03:37.000Z</pubTime>
+        
+        <tag>SQLite数据库</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/30/Shape/</loc>
+    <lastmod>2018-03-22T03:04:49.837Z</lastmod>
+    <data>
+        <display>
+        <title>Shape、Selector、Inset</title>
+        <pubTime>2015-09-30T09:44:56.000Z</pubTime>
+        
+        <tag>Shape、Selector、Inset</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2016/01/01/Animation/</loc>
-    <lastmod>2018-03-19T06:40:50.461Z</lastmod>
+    <lastmod>2018-03-22T02:41:14.321Z</lastmod>
     <data>
         <display>
         <title>Android动画</title>
         <pubTime>2016-01-01T12:20:39.000Z</pubTime>
         
         <tag>Android动画</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/09/01/DialogFragment/</loc>
+    <lastmod>2018-03-21T09:00:00.621Z</lastmod>
+    <data>
+        <display>
+        <title>DialogFragment笔记</title>
+        <pubTime>2016-09-01T12:43:42.000Z</pubTime>
+        
+        <tag>DialogFragment笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
+    <lastmod>2018-03-21T01:57:18.439Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之BroadcastReceiver</title>
+        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
+        
+        <tag>Android基础之BroadcastReceiver</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <lastmod>2018-03-20T03:44:29.827Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常用的技巧</title>
+        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
+        
+        <tag>开发中常用的技巧</tag>
+         
+        <tag>沉浸式状态栏</tag>
          
          
            
@@ -149,25 +236,6 @@
         <pubTime>2016-05-05T02:21:17.000Z</pubTime>
         
         <tag>Android - File文件操作</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
-    <lastmod>2018-01-17T07:16:12.228Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常用的技巧</title>
-        <pubTime>2016-07-08T07:40:29.000Z</pubTime>
-        
-        <tag>开发中常用的技巧</tag>
-         
-        <tag>沉浸式状态栏</tag>
          
          
            
@@ -576,23 +644,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/01/18/SQLite/</loc>
-    <lastmod>2017-05-14T16:00:31.242Z</lastmod>
-    <data>
-        <display>
-        <title>SQLite数据库</title>
-        <pubTime>2017-01-18T07:03:37.000Z</pubTime>
-        
-        <tag>SQLite数据库</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2017/02/16/Project-Network/</loc>
     <lastmod>2017-04-19T15:53:54.203Z</lastmod>
     <data>
@@ -601,23 +652,6 @@
         <pubTime>2017-02-16T10:13:44.000Z</pubTime>
         
         <tag>Android框架设计 - 网络层</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
-    <lastmod>2017-04-19T13:17:21.747Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之BroadcastReceiver</title>
-        <pubTime>2015-10-31T07:43:42.000Z</pubTime>
-        
-        <tag>Android基础之BroadcastReceiver</tag>
          
          
            
@@ -941,23 +975,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/09/01/DialogFragment/</loc>
-    <lastmod>2016-09-29T17:59:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>DialogFragment笔记</title>
-        <pubTime>2016-09-01T12:43:42.000Z</pubTime>
-        
-        <tag>DialogFragment笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2015/11/01/Android-ContentProvider/</loc>
     <lastmod>2016-09-27T16:05:24.000Z</lastmod>
     <data>
@@ -1034,23 +1051,6 @@
         <pubTime>2016-09-07T08:52:53.000Z</pubTime>
         
         <tag>Preference的使用</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/30/Shape/</loc>
-    <lastmod>2016-09-06T08:59:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Shape、Selector、Inset</title>
-        <pubTime>2015-09-30T09:44:56.000Z</pubTime>
-        
-        <tag>Shape、Selector、Inset</tag>
          
          
            
