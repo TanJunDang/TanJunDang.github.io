@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="Build a better app.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="TanJunDang">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="面试、笔试题目"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="TanJunDang"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content="undefined"/>
+    
+
+    <!-- Title -->
+    
+    <title>面试、笔试题目 - TanJunDang</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!--Favicon-->
+    
+
+</head>
+
+<body>
+
+<!-- Menu -->
+<!-- Navigation -->
+<header>
+    <div class="logo">
+        <a href="/">TanJunDang</a>
+    </div><!-- end logo -->
+
+    <div id="menu_icon"></div>
+    <nav>
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+            
+        </ul>
+    </nav><!-- end navigation menu -->
+
+    <div class="footer clearfix">
+        <ul class="social clearfix">
+            
+            
+                <li><a href="https://www.facebook.com/" class="fb" target="_blank" data-title="Facebook"></a></li>
+            
+            
+                <li><a href="https://www.behance.net/" class="behance" target="_blank" data-title="Behance"></a></li>
+            
+            
+                <li><a href="https://plus.google.com/+Pixelhint/posts" class="google" target="_blank" data-title="Google+"></a></li>
+            
+            
+                <li><a href="https://dribbble.com/pixelhint" class="dribble" target="_blank" data-title="Dribble"></a></li>
+            
+            
+            
+            
+        </ul><!-- end social -->
+
+        <div class="rights">
+            <p>Copyright © 2014 magnetic.</p>
+            <p>Template by <a href="http://pixelhint.com/magnetic-free-html5-responsive-photography-website-template/">Pixelhint.com</a></p>
+            <p>Hexo Theme by <a href="http://www.codeblocq.com/">Jonathan K.</a></p>
+        </div><!-- end rights -->
+    </div ><!-- end footer -->
+</header><!-- end header -->
+
+
+<!-- Main Content -->
+<section class="main clearfix">
+
+    <section class="top" style="background: url('http://placehold.it/1300x500');">
+        <div class="wrapper content_header clearfix">
+            
+
+<div class="work_nav">
+
+    <ul class="btn clearfix">
+        
+        <li><a href="/2017/01/05/ApkTool/" class="previous" data-title="反编译"></a></li>
+        
+        <li><a href="/" class="grid" data-title="Portfolio"></a></li>
+        
+        <li><a href="/2016/12/13/EditText/" class="next" data-title="EditText笔记"></a></li>
+        
+    </ul>
+
+</div><!-- end work_nav -->
+            <h1 class="title">面试、笔试题目</h1>
+        </div>
+    </section><!-- end top -->
+
+    <section class="wrapper">
+        <div class="content">
+
+            <!-- Gallery -->
+            
+
+            <!-- Content -->
+            <h1 id="面试题目"><a href="#面试题目" class="headerlink" title="面试题目"></a>面试题目</h1><h2 id="什么是线程不安全？"><a href="#什么是线程不安全？" class="headerlink" title="什么是线程不安全？"></a>什么是线程不安全？</h2><blockquote>
+<p>线程不安全指 多线程访问同一段代码，导致产生不确定的结果。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="如何进行多屏幕适配？"><a href="#如何进行多屏幕适配？" class="headerlink" title="如何进行多屏幕适配？"></a>如何进行多屏幕适配？</h2><h3 id="GridView里的item如何屏幕适配"><a href="#GridView里的item如何屏幕适配" class="headerlink" title="GridView里的item如何屏幕适配"></a>GridView里的item如何屏幕适配</h3><blockquote>
+<p>效果<br>保证每种分辨率都只显示三行item。</p>
+</blockquote>
+<p><img src="http://imglf.nosdn.127.net/img/ZFRpZXBrMUVQR0FydXNJdE1iZTFpZklWNzZIbml0QThpYWdIMCs3ekNnUzdPOGZZbGNnaHJnPT0.gif" alt=""></p>
+<blockquote>
+<p>思路<br>计算出状态栏、标题栏的高度、以及底部Tab的高度。用屏幕高减去上述高度并除以3获得item的高度。然后动态设置Item里布局的高度即可。<br>item里的内容需要添加一层Layout。用于改变宽高。</p>
+<p>知识点<br>获取状态栏、标题栏高度。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取状态栏高度</span></span><br><span class="line"><span class="comment">// md设计默认是56dp</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStatusBarHeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> statusBarHeight1 = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> resourceId = getResources().getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">if</span> (resourceId &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//根据资源ID获取响应的尺寸值</span></span><br><span class="line">        statusBarHeight1 = getResources().getDimensionPixelSize(resourceId);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> statusBarHeight1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 标题栏高度</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getActionBarHeight</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">    TypedValue tv = <span class="keyword">new</span> TypedValue();</span><br><span class="line">    <span class="keyword">int</span> actionBarHeight = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, <span class="keyword">true</span>)) &#123;</span><br><span class="line">        actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());</span><br><span class="line">    &#125;</span><br><span class="line">    LogTool.e(<span class="string">"height"</span>, <span class="string">"actionBarHeight:"</span> + actionBarHeight);</span><br><span class="line">    <span class="keyword">return</span> actionBarHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在xml中科院这样调用</span></span><br><span class="line"><span class="comment">// ?attr/actionBarSize</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// item的代码，涉及weight相关知识</span><br><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/holo_red_light"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span><br><span class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/llRootview"</span></span><br><span class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span><br><span class="line">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></span><br><span class="line">        <span class="attr">android:background</span>=<span class="string">"@android:color/darker_gray"</span></span><br><span class="line">        <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span><br><span class="line">        <span class="attr">android:weightSum</span>=<span class="string">"4"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/ivImage"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_above</span>=<span class="string">"@+id/tvTitle"</span></span><br><span class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"#1abc9c"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span><br><span class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tvTitle"</span></span><br><span class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"3"</span></span><br><span class="line">            <span class="attr">android:background</span>=<span class="string">"@color/colorAccent"</span></span><br><span class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></span><br><span class="line">            <span class="attr">android:text</span>=<span class="string">"TITLE"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> itemHeight = (getScreenHeight() - getStatusBarHeight() - getActionBarHeight(getContext())) / <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> itemWidth = getScreenWidth() / <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(TianGouHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    TianGouResp.TianGouInfo info = list.get(position);</span><br><span class="line">    holder.tvTitle.setText(<span class="string">"666"</span>);</span><br><span class="line">    LogTool.e(<span class="string">"width"</span>, <span class="string">"width:"</span> + holder.llRootview.getMeasuredWidth() + <span class="string">"\nheight:"</span> + holder.llRootview.getMeasuredHeight());</span><br><span class="line">    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) holder.llRootview.getLayoutParams();</span><br><span class="line">    lp.height = itemHeight;</span><br><span class="line">    lp.width = itemWidth;</span><br><span class="line">    holder.llRootview.setLayoutParams(lp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.tuicool.com/articles/FzmMvm" target="_blank" rel="external">获取Android.R里的值</a><br><a href="http://blog.csdn.net/yanzi1225627/article/details/24667299" target="_blank" rel="external">weight设置</a></p>
+<h2 id="底部tablayout凸起按钮如何实现"><a href="#底部tablayout凸起按钮如何实现" class="headerlink" title="底部tablayout凸起按钮如何实现"></a>底部tablayout凸起按钮如何实现</h2><h2 id="实现多线程有哪些方法？"><a href="#实现多线程有哪些方法？" class="headerlink" title="实现多线程有哪些方法？"></a>实现多线程有哪些方法？</h2><blockquote>
+<p>1.runOnUIThread方法<br>2.使用Handler<br>3.AsyncTask<br>4.RXBUS</p>
+</blockquote>
+<h2 id="Force-Close出的原因"><a href="#Force-Close出的原因" class="headerlink" title="Force Close出的原因"></a>Force Close出的原因</h2><blockquote>
+<p>空指针异常 、下标越界、未捕获异常等</p>
+</blockquote>
+<h2 id="断点续传如何实现？"><a href="#断点续传如何实现？" class="headerlink" title="断点续传如何实现？"></a>断点续传如何实现？</h2><h2 id="APP发布前需要注意哪些问题？"><a href="#APP发布前需要注意哪些问题？" class="headerlink" title="APP发布前需要注意哪些问题？"></a>APP发布前需要注意哪些问题？</h2><blockquote>
+<p>0.配合测试人员进行多次测试。<br>1.最重要的就是防止反编译。使用360或百度加固，使用gradle混淆代码。<br>2.注意版本号、控制apk的大小（使用lint去除无效的string）<br>3.注意关闭log输出。</p>
+</blockquote>
+<h2 id="如何提高android-程序运行效率？"><a href="#如何提高android-程序运行效率？" class="headerlink" title="如何提高android 程序运行效率？"></a>如何提高android 程序运行效率？</h2><blockquote>
+<p>1.开发前统一命名规则，注意规范命名。<br>2.避免在ui线程执行耗时操作。<br>3.发布前禁用调试。<br>4.file、bitmap资源用完就要释放掉。</p>
+</blockquote>
+<h2 id="你们项目用的好的框架有？"><a href="#你们项目用的好的框架有？" class="headerlink" title="你们项目用的好的框架有？"></a>你们项目用的好的框架有？</h2><blockquote>
+<p>1.图片加载框架：imageloader<br>2.异步框架：Rxjava、EventBus<br>3.请求框架：Volley、Retrofit<br>4.数据库框架：GreenDao</p>
+</blockquote>
+<h2 id="请求缓存的问题？"><a href="#请求缓存的问题？" class="headerlink" title="请求缓存的问题？"></a>请求缓存的问题？</h2><blockquote>
+<p>在一个多用户的此用户的系统中，用户A第一次请求，得到json1，并加入了内存缓存。然后，用户B改动了数据的值，服务器现在应该返回json2，最后用户A刷新，命中缓存，得到json1，其实应该得到json2.请问，如何对缓存框架进行改写，让缓存框架在这种情况下得到正常的数据？</p>
+<p>服务器下发的json数据定义一个更新数据的时间updatetime（数据更新的时候才改变）， 声明一个本地时间localTime，初始为0，每次请求前判断两者的差。若大于0则请求数据，将updatetime赋值给localtime。否则，从缓存中取出数据。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取localtime(从sp、file中获取，没有则为0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(updatetime-localtime&gt;<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="comment">// 缓存数据到file</span></span><br><span class="line">  <span class="comment">// localtime=updatetime;</span></span><br><span class="line">  <span class="comment">// 保存localtime(可用sp、或者file)</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">// 从缓存中取出数据</span></span><br><span class="line">  <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="什么是内存泄漏、内存溢出？"><a href="#什么是内存泄漏、内存溢出？" class="headerlink" title="什么是内存泄漏、内存溢出？"></a>什么是内存泄漏、内存溢出？</h2><blockquote>
+<p>理解<br>内存泄漏指程序申请内存后，无法释放已申请的内存。从而导致内存泄漏。(申请的内存无法释放)<br>内存溢出指程序申请的内存超出系统可提供内存的范围。从而导致内存溢出。（自己申请的内存，系统无法满足）</p>
+</blockquote>
+<h3 id="Android中常见的内存泄漏"><a href="#Android中常见的内存泄漏" class="headerlink" title="Android中常见的内存泄漏"></a>Android中常见的内存泄漏</h3><blockquote>
+<p>1.File，Cursor，Stream，Bitmap等资源的使用后要及时置空、关闭。<br>2.单例模式使用Activity里的Context，在Activity销毁时，由于单例类持有Context的引用，导致无法及时释放资源。<br>3.static变量使用不正确。<br>4.Handler跟AsyncTask的内存泄漏，可以在构造方法中使用弱引用来获取context。</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/q178266871/article/details/50719144" target="_blank" rel="external">5个Android常见内存泄漏</a><br><a href="https://academy.realm.io/cn/posts/droidcon-farber-improving-android-app-performance/" target="_blank" rel="external">10条提升android性能建议</a></p>
+<h2 id="AsyncTask存在的问题？"><a href="#AsyncTask存在的问题？" class="headerlink" title="AsyncTask存在的问题？"></a>AsyncTask存在的问题？</h2><blockquote>
+<p>为什么AsyncTask会发生内存泄漏？<br>为什么AsyncTask要定义成static内部类？<br>如何实现进度更新？</p>
+<p>当AsyncTask声明为Activity的内部类时，会持有Activity的强引用。所以当activity已被销毁，AsyncTask里的耗时任务还没完成时，会导致内存泄漏。<br>非静态内部类会持有外部类的引用。因此两者间可用相互调用各自的变量。例如(在activity里定义Adapter)。当内部类声明为静态时，会失去外部类的引用。与外部类解耦，同时也防止内存泄漏。<br>在AsyncTask内部应该声明一个弱引用Context，使得acitvity在销毁时，AsyncTask也及时被回收。</p>
+<p>AsyncTask的使用<br>1.定义静态类继承AsyncTask。<br>2.构造方法获取Context，用若引用获取Activity上下文。<br>3.通过上述上下文来调用UI。<br>4.AsyncTask进度更新方法onProgressUpdate的回调需要通过调用publishProgress来实现。<br>5.<font color="red">默认通用进度方式：publishProgress((int) ((i / (float) size) * 100));</font></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IODealTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Integer</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> WeakReference&lt;Context&gt; weakReference;</span><br><span class="line">        <span class="keyword">private</span> MainActivity activity;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">IODealTask</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">            weakReference = <span class="keyword">new</span> WeakReference&lt;&gt;(context);</span><br><span class="line">            activity = (MainActivity) weakReference.get();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> Integer <span class="title">doInBackground</span><span class="params">(Void... voids)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> cacheGroup = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> cacheSmallGroup = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> size = ImageQueryTool.getInstance().getImageData().size();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                ImageInfo info = ImageQueryTool.getInstance().getImageData().get(i);</span><br><span class="line">                File file = <span class="keyword">new</span> File(info.getPath());</span><br><span class="line">                File smallFile = Compressor.getDefault(activity).compressToFile(file);</span><br><span class="line">                info.setPath(smallFile.getPath());</span><br><span class="line">                activity.list.add(info);</span><br><span class="line"><span class="comment">//                    控制是否显示大组View</span></span><br><span class="line">                <span class="keyword">if</span> (cacheSmallGroup != info.getGroup()) &#123;</span><br><span class="line">                    activity.smallGroupPos.add(i);</span><br><span class="line">                    cacheSmallGroup = info.getGroup();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (info.getBigGroup() != cacheGroup) &#123;</span><br><span class="line">                        activity.smallGroupPos.add(i);</span><br><span class="line">                        cacheSmallGroup = info.getGroup();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (info.getBigGroup() != cacheGroup) &#123;</span><br><span class="line">                    activity.bigGroupPos.add(i);</span><br><span class="line">                    cacheGroup = info.getBigGroup();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                  <span class="comment">// 通用传递进度方法</span></span><br><span class="line">                    publishProgress((<span class="keyword">int</span>) ((i / (<span class="keyword">float</span>) size) * <span class="number">100</span>));</span><br><span class="line">                    Thread.sleep(<span class="number">50</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onPreExecute();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Integer integer)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onPostExecute(integer);</span><br><span class="line">            activity.btnTest.setText(<span class="string">"获取数据完毕"</span>);</span><br><span class="line">            activity.myAdapter.notifyDataSetChanged();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... values)</span> </span>&#123;</span><br><span class="line">            activity.btnTest.setText(<span class="string">"数据获取中"</span> + values[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://hanhailong.com/2015/12/27/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B8%B8%E8%A7%81%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/" target="_blank" rel="external">内存泄漏</a></p>
+<h2 id="MVP模式中的内存泄漏如何解决？"><a href="#MVP模式中的内存泄漏如何解决？" class="headerlink" title="MVP模式中的内存泄漏如何解决？"></a>MVP模式中的内存泄漏如何解决？</h2><blockquote>
+<p>Presenter层经常做一些耗时操作。它持有Model、View的引用，当其完成耗时操作时，Activity可能已经被销毁了，出现内存泄漏，如何解决？</p>
+<p>1.Presenter在Activity的onDestroy方法回调时执行资源释放操作<br>2.在Presenter引用View对象时,使用更加容易回收的软引用，弱引用。</p>
+</blockquote>
+<h2 id="四种跨进程通信的方式"><a href="#四种跨进程通信的方式" class="headerlink" title="四种跨进程通信的方式"></a>四种跨进程通信的方式</h2><blockquote>
+<p>1.Intent指定包名跳转。<br>2.Broadcast设定Action进行过滤。<br>3.ContentProvider暴露数据。<br>4.AIDL Service提供接口供其它应用调用。</p>
+</blockquote>
+<h2 id="线程中sleep跟wait的区别"><a href="#线程中sleep跟wait的区别" class="headerlink" title="线程中sleep跟wait的区别"></a>线程中sleep跟wait的区别</h2><blockquote>
+<p>1.使用范围不同：sleep在任何地方使用，wait只能在同步代码块或同步方法中使用。<br>2.对锁的操作不同：sleep不会释放锁，wait会释放锁，需要调用notify/notifyAll方法才有机会获取到CPU，从而获取到锁。</p>
+</blockquote>
+<h2 id="String、StringBuffer、StringBuilder的区别"><a href="#String、StringBuffer、StringBuilder的区别" class="headerlink" title="String、StringBuffer、StringBuilder的区别"></a>String、StringBuffer、StringBuilder的区别</h2><blockquote>
+<p>1.String用于声明字符串常量，StringBuffer跟StringBuilder用于声明字符串变量。<br>2.String变量每次赋值,相当于创建一个新的对象。所以效率比StringBuilder、StringBuffer低。<br>3.StringBuilder效率高，但线程不安全。StringBuffer效率比StringBuilder低，但是线程安全。</p>
+</blockquote>
+<h2 id="ArrayList与LinkedList的区别"><a href="#ArrayList与LinkedList的区别" class="headerlink" title="ArrayList与LinkedList的区别"></a>ArrayList与LinkedList的区别</h2><blockquote>
+<p>1.ArrayList基于动态数组数据结构，LinkedList基于链表数据结构。<br>2.对于随机访问get、set方法，ArrayList有优势，因为LinkedList要移动数据。<br>3.对应add、remove方法，LinkedList有优势，因为ArrayList要移动数据。</p>
+</blockquote>
+<h2 id="简述Android中的binder机制"><a href="#简述Android中的binder机制" class="headerlink" title="简述Android中的binder机制"></a>简述Android中的binder机制</h2><h2 id="谈谈你对hashMap的理解"><a href="#谈谈你对hashMap的理解" class="headerlink" title="谈谈你对hashMap的理解"></a>谈谈你对hashMap的理解</h2>
+
+            <!-- Tags -->
+            
+
+
+<div class="tags">
+    <a href="/tags/面试、笔试题目/">面试、笔试题目</a> <a href="/tags/内存泄漏/">内存泄漏</a>
+</div>
+
+
+
+            <!-- Comments -->
+            <div>
+                
+
+
+
+
+            </div>
+        </div><!-- end content -->
+    </section>
+</section><!-- end main -->
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+
+</html>
