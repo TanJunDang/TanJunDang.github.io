@@ -691,7 +691,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><h2 id="自定义Button时-无法响应UP-MOVE事件"><a href="#自定义Button时-无法响应UP-MOVE事件" class="headerlink" title="自定义Button时,无法响应UP/MOVE事件"></a>自定义Button时,无法响应UP/MOVE事件</h2><blockquote>
+              <h1 id="常见的错误"><a href="#常见的错误" class="headerlink" title="常见的错误"></a>常见的错误</h1><h2 id="ToolBar设置透明色无效"><a href="#ToolBar设置透明色无效" class="headerlink" title="ToolBar设置透明色无效"></a>ToolBar设置透明色无效</h2><blockquote>
+<p>原因<br>ToolBar的父布局为AppBarLayout，AppBarLayout没有设置背景色，所以默认会调用style中的colorPrimary。因此透明色无效</p>
+<p>解决方法<br>1.设置AppBarLayout的背景色。<br>2.修改style里colorPrimary的颜色。</p>
+</blockquote>
+<h2 id="自定义Button时-无法响应UP-MOVE事件"><a href="#自定义Button时-无法响应UP-MOVE事件" class="headerlink" title="自定义Button时,无法响应UP/MOVE事件"></a>自定义Button时,无法响应UP/MOVE事件</h2><blockquote>
 <p>需要重写isClickable方法，使其返回true。</p>
 </blockquote>
 <h2 id="Using-incompatible-plugins-for-the-annotation"><a href="#Using-incompatible-plugins-for-the-annotation" class="headerlink" title="Using incompatible plugins for the annotation"></a>Using incompatible plugins for the annotation</h2><blockquote>

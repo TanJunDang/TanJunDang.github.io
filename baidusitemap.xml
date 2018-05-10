@@ -4,14 +4,120 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
+    <lastmod>2018-05-10T07:13:39.587Z</lastmod>
+    <data>
+        <display>
+        <title>Retrofit笔记</title>
+        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
+        
+        <tag>Retrofit笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    <lastmod>2018-05-07T03:43:39.732Z</lastmod>
+    <data>
+        <display>
+        <title>自定义View笔记</title>
+        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
+        
+        <tag>自定义View笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
+    <lastmod>2018-04-26T07:29:00.301Z</lastmod>
+    <data>
+        <display>
+        <title>JavaSE基础</title>
+        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
+        
+        <tag>JavaSE基础</tag>
+         
+        <tag>多线程</tag>
+         
+        <tag>Token</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    <lastmod>2018-04-26T02:50:23.229Z</lastmod>
+    <data>
+        <display>
+        <title>开发中常见的Error、Bug</title>
+        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
+        
+        <tag>开发中常见的Error、Bug</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/09/14/ToolBar/</loc>
+    <lastmod>2018-04-26T02:50:02.639Z</lastmod>
+    <data>
+        <display>
+        <title>Toolbar笔记</title>
+        <pubTime>2016-09-13T16:00:00.000Z</pubTime>
+        
+        <tag>Toolbar笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2018/04/18/GaoDeMap/</loc>
-    <lastmod>2018-04-18T12:08:33.921Z</lastmod>
+    <lastmod>2018-04-25T11:52:13.918Z</lastmod>
     <data>
         <display>
         <title>GaoDeMap</title>
         <pubTime>2018-04-18T14:05:41.000Z</pubTime>
         
         <tag>高德地图</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/05/25/CustomMenu/</loc>
+    <lastmod>2018-04-21T02:52:31.632Z</lastmod>
+    <data>
+        <display>
+        <title>自定义底部弹出菜单</title>
+        <pubTime>2016-05-25T03:02:59.000Z</pubTime>
+        
+        <tag>自定义底部弹出菜单</tag>
          
          
            
@@ -46,27 +152,6 @@
         <pubTime>2015-10-03T09:34:10.000Z</pubTime>
         
         <tag>Notification笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
-    <lastmod>2018-04-10T02:19:14.664Z</lastmod>
-    <data>
-        <display>
-        <title>JavaSE基础</title>
-        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
-        
-        <tag>JavaSE基础</tag>
-         
-        <tag>多线程</tag>
-         
-        <tag>Token</tag>
          
          
            
@@ -150,23 +235,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/09/14/ToolBar/</loc>
-    <lastmod>2018-03-28T09:38:01.419Z</lastmod>
-    <data>
-        <display>
-        <title>Toolbar笔记</title>
-        <pubTime>2016-09-13T16:00:00.000Z</pubTime>
-        
-        <tag>Toolbar笔记</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
     <lastmod>2018-03-28T09:22:11.762Z</lastmod>
     <data>
@@ -177,23 +245,6 @@
         <tag>开发中常用的技巧</tag>
          
         <tag>沉浸式状态栏</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
-    <lastmod>2018-03-27T09:14:16.501Z</lastmod>
-    <data>
-        <display>
-        <title>Retrofit笔记</title>
-        <pubTime>2017-02-16T10:13:44.000Z</pubTime>
-        
-        <tag>Retrofit笔记</tag>
          
          
            
@@ -296,40 +347,6 @@
         <pubTime>2015-10-31T07:43:42.000Z</pubTime>
         
         <tag>Android基础之BroadcastReceiver</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/05/25/CustomMenu/</loc>
-    <lastmod>2018-03-16T09:43:11.921Z</lastmod>
-    <data>
-        <display>
-        <title>自定义底部弹出菜单</title>
-        <pubTime>2016-05-25T03:02:59.000Z</pubTime>
-        
-        <tag>自定义底部弹出菜单</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    <lastmod>2018-03-15T09:08:30.192Z</lastmod>
-    <data>
-        <display>
-        <title>开发中常见的Error、Bug</title>
-        <pubTime>2015-09-16T16:00:00.000Z</pubTime>
-        
-        <tag>开发中常见的Error、Bug</tag>
          
          
            
@@ -552,23 +569,6 @@
         <pubTime>2016-08-29T10:05:10.000Z</pubTime>
         
         <tag>项目源码分析</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2017-08-25T15:55:52.066Z</lastmod>
-    <data>
-        <display>
-        <title>自定义View笔记</title>
-        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
-        
-        <tag>自定义View笔记</tag>
          
          
            
