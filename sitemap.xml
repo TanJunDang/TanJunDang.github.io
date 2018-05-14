@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>TanJunDang.github.io/about/index.html</loc>
+    
+    <lastmod>2018-05-14T07:03:40.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>TanJunDang.github.io/2017/02/16/Retrofit/</loc>
     
     <lastmod>2018-05-10T07:13:39.587Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>TanJunDang.github.io/2015/11/02/Project-Build/</loc>
     
     <lastmod>2018-02-07T02:35:39.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/about/index.html</loc>
-    
-    <lastmod>2018-01-26T07:15:08.248Z</lastmod>
     
   </url>
   
