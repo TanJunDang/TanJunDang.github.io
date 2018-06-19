@@ -172,86 +172,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-JavaSE" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/05/31/JavaSE/" class="article-date">
-      <time datetime="2018-05-31T02:25:18.000Z" itemprop="datePublished">2018-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>title: JavaSE基础<br>tags: [JavaSE基础,多线程,Token]<br>date: 2015/11/18 15:03:37</p>
-<h2 id="categories-Java基础"><a href="#categories-Java基础" class="headerlink" title="categories: Java基础"></a>categories: Java基础</h2><h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><h2 id="用枚举类型代替int枚举"><a href="#用枚举类型代替int枚举" class="headerlink" title="用枚举类型代替int枚举"></a>用枚举类型代替int枚举</h2><p>gyd923 李会洁 02034287519</p>
-<blockquote>
-<p>int枚举<br>public static final int APPLE=0;</p>
-<p>好处：<br>编译时类型安全，</p>
-</blockquote>
-<h2 id="将方法或者"><a href="#将方法或者" class="headerlink" title="将方法或者"></a>将方法或者</h2><h1 id="骨架类"><a href="#骨架类" class="headerlink" title="骨架类"></a>骨架类</h1><blockquote>
-<p>抽象类跟接口有什么区别？<br>抽象类是单继承，里面的方法可以有具体的实现。一个类则可以实现多个接口，但其没有具体的实现方法。而且所有方法必须重写。<br>抽象类里有具体实现的方法，其子类可以不用重写。<br>为了综合抽象类跟接口俩者的优点，于是有了骨架类。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseCls</span> <span class="keyword">implements</span> <span class="title">BaseImp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//        具体实现的方法，子类可不重写</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    该方法是接口后来添加的，只要该抽象类实现了该方法，其子类则不用再添加该方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">modifyTitle</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseImp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">initTitle</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    后期加入的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modifyTitle</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 骨架类的子类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubCls</span> <span class="keyword">extends</span> <span class="title">BaseCls</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initTitle</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可选择重写</span></span><br><span class="line">    <span class="comment">// @Override</span></span><br><span class="line">    <span class="comment">// public void modifyTitle() &#123;</span></span><br><span class="line">    <span class="comment">//   super.modifyTitle();</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="变量的初始化"><a href="#变量的初始化" class="headerlink" title="变量的初始化"></a>变量的初始化</h1><blockquote>
-<p>过程<br>1.加载类时，先为每个变量分配内存空间。<br>2.为变量进行初始化.(定义时或者在代码块中进行)<br>3.变量初始化的值跟程序中代码顺序一致.</p>
-</blockquote>
-<h2 id="实例变量初始化时机"><a href="#实例变量初始化时机" class="headerlink" title="实例变量初始化时机"></a>实例变量初始化时机</h2><blockquote>
-<p>代码执行顺序 静态代码块&gt;代码块&gt;构造方法<br>变量初始化的值跟程序中代码顺序一致（即最后面的赋值为该变量初始化的值）</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 该句代码分成两部执行：int count;分配内存 count=20；为变量赋值</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">			<span class="comment">// 最后赋值为12</span></span><br><span class="line">        count = <span class="number">12</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 程序输出12</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line"></span><br><span class="line">      count = <span class="number">12</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 最后赋值为20</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 程序输出20</span></span><br></pre></td></tr></table></figure>
-<h2 id="类变量初始化"><a href="#类变量初始化" class="headerlink" title="类变量初始化"></a>类变量初始化</h2><blockquote>
-<p>变量初始化的值跟程序中代码顺序一致（即后面的赋值为该变量初始化的值）<br>代码块要实例化对象才会执行</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        count = <span class="number">13</span>;</span><br><span class="line">        System.out.print(<span class="string">"代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        count = <span class="number">12</span>;</span><br><span class="line">        System.out.print(<span class="string">"静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(count);</span><br><span class="line">        System.out.print(<span class="string">"构造函数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        System.out.print(Cat.count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>代码分析<br>1.JVM对Cat类进行初始化时，为静态变量count分配了内存空间。<br>2.首先执行静态代码块。然后执行count=20.因为main方法中对cat进行了实例化。所以cat执行代码块。<br>3.因此最后输出的结果为13。</p>
-</blockquote>
-<h1 id="回调函数Callback的理解"><a href="#回调函数Callback的理解" class="headerlink" title="回调函数Callback的理解"></a>回调函数Callback的理解</h1><blockquote>
-<p>A做了一半任务，需要等待B完成任务并返回数据(预留接口引用,给别人调用)，然后再完成自己的接下来的任务。</p>
-</blockquote>
-<h2 id="回调接口-——-数据提供者编写"><a href="#回调接口-——-数据提供者编写" class="headerlink" title="回调接口 —— 数据提供者编写"></a>回调接口 —— 数据提供者编写</h2><h3 id="数据提供者"><a href="#数据提供者" class="headerlink" title="数据提供者"></a>数据提供者</h3><blockquote>
-<p>1.预留接口给他人实现(定义接口) OnItemListener<br>2.创建接口引用 onItemListener listener<br>3.提供注册接口的方法(注册接口) setonlistener<br>4.在给数据的地方注册并调用接口的方法(通过接口引用调用方法) listener.giveMsg();</p>
-</blockquote>
-<h3 id="数据获取者"><a href="#数据获取者" class="headerlink" title="数据获取者"></a>数据获取者</h3><blockquote>
-<p>1.实现回调接口 implements Callback<br>2.注册回调函数</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2018/05/31/JavaSE/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-GaoDeMap" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -512,74 +432,6 @@
 
 
   
-    <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/16/Retrofit/" class="article-date">
-      <time datetime="2017-02-16T10:13:44.000Z" itemprop="datePublished">2017-02-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/Retrofit/">Retrofit笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Retrofit2-0的理解"><a href="#Retrofit2-0的理解" class="headerlink" title="Retrofit2.0的理解"></a>Retrofit2.0的理解</h1><blockquote>
-<p>待添加的库<br>compile ‘com.squareup.retrofit2:retrofit:2.2.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a><a class="article-category-link" href="/categories/常用工具类/网络层封装/">网络层封装</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit笔记/">Retrofit笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/02/16/Retrofit/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Project-Network" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -630,6 +482,74 @@
       
         <p class="article-more-link">
           <a  href="/2017/02/16/Project-Network/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/16/Retrofit/" class="article-date">
+      <time datetime="2017-02-16T10:13:44.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/Retrofit/">Retrofit笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Retrofit2-0的理解"><a href="#Retrofit2-0的理解" class="headerlink" title="Retrofit2.0的理解"></a>Retrofit2.0的理解</h1><blockquote>
+<p>待添加的库<br>compile ‘com.squareup.retrofit2:retrofit:2.2.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a><a class="article-category-link" href="/categories/常用工具类/网络层封装/">网络层封装</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit笔记/">Retrofit笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/02/16/Retrofit/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -823,6 +743,75 @@
       
         <p class="article-more-link">
           <a  href="/2017/02/04/DataBinding/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Project-HttpProtocol" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/20/Project-HttpProtocol/" class="article-date">
+      <time datetime="2017-01-19T16:00:00.000Z" itemprop="datePublished">2017-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/20/Project-HttpProtocol/">Http业务基类的编写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Http协议基类"><a href="#Http协议基类" class="headerlink" title="Http协议基类"></a>Http协议基类</h1><blockquote>
+<p>理解<br>该类主要作用是封装请求参数，拼接、加密URL等。</p>
+<p>具体作用<br>1.提供创建LinkedHashMap的方法。<br>2.拼接URL，对其中的参数进行编码(URLEncoder)。<br>3.对URL进行压缩,SHA1、MD5、AES加密等。<br>4.在本地打印URL的具体信息(请求参数)。<br>5.返回URL。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/网络层封装/">网络层封装</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http业务基类的编写/">Http业务基类的编写</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/20/Project-HttpProtocol/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
