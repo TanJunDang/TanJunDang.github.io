@@ -333,7 +333,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="反射获取私有成员"><a href="#反射获取私有成员" class="headerlink" title="反射获取私有成员"></a>反射获取私有成员</h2><blockquote>
+              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="ScrollView导致的白屏"><a href="#ScrollView导致的白屏" class="headerlink" title="ScrollView导致的白屏"></a>ScrollView导致的白屏</h2><blockquote>
+<p>layout布局层次为LinearLayout-&gt;Scrollview-&gt;RelativeLayout<br>第一层的LinearLayout的高度必须为match_parent，否则出现进入activity白屏的问题。</p>
+</blockquote>
+<h2 id="反射获取私有成员"><a href="#反射获取私有成员" class="headerlink" title="反射获取私有成员"></a>反射获取私有成员</h2><blockquote>
 <p>示例<br>获取ToolBar里的返回按钮</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">        Class clazz = Class.forName(<span class="string">"android.support.v7.widget.Toolbar"</span>);</span><br><span class="line">        Field field = clazz.getDeclaredField(<span class="string">"mNavButtonView"</span>);</span><br><span class="line">        <span class="comment">// 设置允许获取私有变量</span></span><br><span class="line">        field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// get方法需要传入获取的数据源</span></span><br><span class="line">        ImageView imageView = (ImageView) field.get(titleBinding.toolbar);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -582,74 +585,6 @@
 
 
   
-    <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/LogTool/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="日志管理类LogTool"><a href="#日志管理类LogTool" class="headerlink" title="日志管理类LogTool"></a>日志管理类LogTool</h1><blockquote>
-<p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -761,6 +696,74 @@
       
         <p class="article-more-link">
           <a  href="/2016/05/31/Project-CacheModel/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-LogTool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/LogTool/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/LogTool/">工具类的编写 - Log的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="日志管理类LogTool"><a href="#日志管理类LogTool" class="headerlink" title="日志管理类LogTool"></a>日志管理类LogTool</h1><blockquote>
+<p>功能：打包时可以控制Log的开关,可以输出LOG,可以将Log输出到文件。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类的编写-Log的封装/">工具类的编写 - Log的封装</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
