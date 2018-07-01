@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>TanJunDang.github.io/about/index.html</loc>
+    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
     
-    <lastmod>2018-06-21T11:38:51.827Z</lastmod>
+    <lastmod>2018-07-01T15:36:06.292Z</lastmod>
     
   </url>
   
   <url>
-    <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
+    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
     
-    <lastmod>2018-06-20T15:15:35.115Z</lastmod>
+    <lastmod>2018-07-01T13:18:41.181Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
+    
+    <lastmod>2018-06-28T11:24:48.264Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>TanJunDang.github.io/about/index.html</loc>
+    
+    <lastmod>2018-06-21T11:38:51.827Z</lastmod>
     
   </url>
   
@@ -124,13 +138,6 @@
     <loc>TanJunDang.github.io/2016/02/01/DatePicker/</loc>
     
     <lastmod>2018-05-14T07:41:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2016/12/13/EditText/</loc>
-    
-    <lastmod>2018-05-14T07:40:56.000Z</lastmod>
     
   </url>
   
@@ -250,13 +257,6 @@
     <loc>TanJunDang.github.io/2015/10/31/Android-Broadcast/</loc>
     
     <lastmod>2018-05-14T07:34:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>TanJunDang.github.io/2015/09/17/Error-Bug/</loc>
-    
-    <lastmod>2018-04-26T02:50:22.000Z</lastmod>
     
   </url>
   
