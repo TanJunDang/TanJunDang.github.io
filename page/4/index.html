@@ -333,7 +333,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="onBindViewHolder-里不能写notify。因为正在计算view的相关信息。"><a href="#onBindViewHolder-里不能写notify。因为正在计算view的相关信息。" class="headerlink" title="onBindViewHolder 里不能写notify。因为正在计算view的相关信息。"></a>onBindViewHolder 里不能写notify。因为正在计算view的相关信息。</h2><h2 id="ScrollView导致的白屏"><a href="#ScrollView导致的白屏" class="headerlink" title="ScrollView导致的白屏"></a>ScrollView导致的白屏</h2><blockquote>
+              <h1 id="开发中常用的技巧"><a href="#开发中常用的技巧" class="headerlink" title="开发中常用的技巧"></a>开发中常用的技巧</h1><h2 id="友盟分享的毒"><a href="#友盟分享的毒" class="headerlink" title="友盟分享的毒"></a>友盟分享的毒</h2><blockquote>
+<p>在key secret正确的情况下，友盟分享报2003错误，应该是未配置正确key前分享过，导致微信缓存，所以应该清除微信缓存再试</p>
+</blockquote>
+<h2 id="edittext-requestFocus方法可以让其默认获取焦点"><a href="#edittext-requestFocus方法可以让其默认获取焦点" class="headerlink" title="edittext.requestFocus方法可以让其默认获取焦点"></a>edittext.requestFocus方法可以让其默认获取焦点</h2><h2 id="SVN-Gradle添加版本号"><a href="#SVN-Gradle添加版本号" class="headerlink" title="SVN Gradle添加版本号"></a>SVN Gradle添加版本号</h2><p><a href="https://www.cnblogs.com/csonezp/p/4903434.html?utm_source=tuicool&amp;utm_medium=referral">打包添加SVN版本号</a></p>
+<h2 id="手机厂商版本"><a href="#手机厂商版本" class="headerlink" title="手机厂商版本"></a>手机厂商版本</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sdk=android.os.Build.VERSION.SDK; <span class="comment">// SDK号</span></span><br><span class="line">String model=android.os.Build.MODEL; <span class="comment">// 手机型号</span></span><br><span class="line">String release=android.os.Build.VERSION.RELEASE; <span class="comment">// android系统版本号</span></span><br><span class="line">String manufacturer=android.os.Build.MANUFACTURER; <span class="comment">// 厂商</span></span><br></pre></td></tr></table></figure>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 目的：将花都分割出来</span></span><br><span class="line">String address=<span class="string">"2km | 花都"</span>;</span><br><span class="line"><span class="comment">// 两个左反斜杠进行字符转义</span></span><br><span class="line">String[] attr = address.split(<span class="string">"\\|"</span>);</span><br><span class="line">String regAddress = attr[<span class="number">1</span>].trim();</span><br></pre></td></tr></table></figure>
+<h2 id="onBindViewHolder-里不能写notify。因为正在计算view的相关信息。"><a href="#onBindViewHolder-里不能写notify。因为正在计算view的相关信息。" class="headerlink" title="onBindViewHolder 里不能写notify。因为正在计算view的相关信息。"></a>onBindViewHolder 里不能写notify。因为正在计算view的相关信息。</h2><h2 id="ScrollView导致的白屏"><a href="#ScrollView导致的白屏" class="headerlink" title="ScrollView导致的白屏"></a>ScrollView导致的白屏</h2><blockquote>
 <p>layout布局层次为LinearLayout-&gt;Scrollview-&gt;RelativeLayout<br>第一层的LinearLayout的高度必须为match_parent，否则出现进入activity白屏的问题。</p>
 </blockquote>
 <h2 id="反射获取私有成员"><a href="#反射获取私有成员" class="headerlink" title="反射获取私有成员"></a>反射获取私有成员</h2><blockquote>
@@ -364,7 +370,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沉浸式状态栏/">沉浸式状态栏</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串转义/">字符串转义</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发中常用的技巧/">开发中常用的技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沉浸式状态栏/">沉浸式状态栏</a></li></ul>
     </div>
 
       
@@ -585,6 +591,70 @@
 
 
   
+    <article id="post-Project-CacheModel" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/31/Project-CacheModel/" class="article-date">
+      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="APP缓存策略"><a href="#APP缓存策略" class="headerlink" title="APP缓存策略"></a>APP缓存策略</h1><blockquote>
+<p>理解<br>何时使用缓存？<br>无网络时、需要定时读取本地数据的时候。<br>缓存保存在哪？<br>缓存可以保存在内存、数据库、文件、SharePreference里。<br>什么数据适合缓存？<br>变化性较少的，即时性低的。例如广告图、用户名、个人信息等。<br>缓存什么时候清空？<br>用户卸载后清空。<br>注意这里的缓存跟里的缓存不一致.临时数据放在</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android框架设计-APP缓存策略/">Android框架设计-APP缓存策略</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/31/Project-CacheModel/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-GsonTool" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -700,70 +770,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/05/31/LogTool/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Project-CacheModel" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/31/Project-CacheModel/" class="article-date">
-      <time datetime="2016-05-31T02:20:07.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/Project-CacheModel/">Android框架设计-APP缓存策略</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="APP缓存策略"><a href="#APP缓存策略" class="headerlink" title="APP缓存策略"></a>APP缓存策略</h1><blockquote>
-<p>理解<br>何时使用缓存？<br>无网络时、需要定时读取本地数据的时候。<br>缓存保存在哪？<br>缓存可以保存在内存、数据库、文件、SharePreference里。<br>什么数据适合缓存？<br>变化性较少的，即时性低的。例如广告图、用户名、个人信息等。<br>缓存什么时候清空？<br>用户卸载后清空。<br>注意这里的缓存跟里的缓存不一致.临时数据放在</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android框架设计-APP缓存策略/">Android框架设计-APP缓存策略</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/31/Project-CacheModel/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

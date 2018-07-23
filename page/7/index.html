@@ -334,7 +334,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="Fragment的基本架构"><a href="#Fragment的基本架构" class="headerlink" title="Fragment的基本架构"></a>Fragment的基本架构</h1>
+              <h1 id="Fragment的基础"><a href="#Fragment的基础" class="headerlink" title="Fragment的基础"></a>Fragment的基础</h1><blockquote>
+<p>onHiddenChanged 可以处理fragment show hide时的回调<br>findFragmenyByTag 查找的fragment 必须是已添加的，否则返回null<br>判断是否要退出回退栈 处理同级Fragment与次级Fragment回退时出现的问题<br>fragment弹出回退栈会导致Fragment执行onDestory<br>Fragment重叠的原因是，同一个Fragmentshow了两次。</p>
+</blockquote>
+<h2 id="如何处理同级、层级Fragment回退时的问题？"><a href="#如何处理同级、层级Fragment回退时的问题？" class="headerlink" title="如何处理同级、层级Fragment回退时的问题？"></a>如何处理同级、层级Fragment回退时的问题？</h2><blockquote>
+<p>当同级、层级fragment共用一个layout时，不使用回退栈，使用一个map来进行显示与隐藏。<br>1.定义一个map，key为当前Fragment的tag，value为上一个Fragment的tag<br>2.每次关闭fragment时，通过当前fragment的tag来获取上一个Fragment。(调用findFragmentByTag方法获取Fragment)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 立即弹出回退栈栈顶的fragment</span></span><br><span class="line">manager.popBackStackImmediate();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过BackStackEntry来获取回退栈栈顶的Fragment</span></span><br><span class="line">FragmentManager.BackStackEntry backStack = manager.getBackStackEntryAt(manager.getBackStackEntryCount() - <span class="number">1</span>);</span><br><span class="line">String lastTag = backStack.getName();</span><br></pre></td></tr></table></figure>
           
       
     </div>
