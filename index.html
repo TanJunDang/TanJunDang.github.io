@@ -199,7 +199,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="基础定位"><a href="#基础定位" class="headerlink" title="基础定位"></a>基础定位</h1><blockquote>
+              <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><blockquote>
+<p>1.markerOption.setFlat(true);//设置是否平贴地图(即是否跟随地图旋转)<br>2.list相同问题containAll<br>3.marker重叠时，会有点击失效，例如收藏marker与poi marker冲突。<br>4.收藏以及取消收藏地图未及时更新marker。<br>5.同级、层级Fragment的回退出错，应该重新定义一个list来记录每个Fragment。<br>6.收藏marker应该使用list来保存。<br>7.onHiddenChanged 可以处理fragment show hide时的回调<br>8.findFragmenyByTag 查找的fragment 必须在回退栈中，否则返回null<br>9.搜索某个地点的周边，需要设置经纬度<br>search.setBound(new PoiSearch.SearchBound(new LatLonPoint(latLng.latitude, latLng.longitude), 50000));</p>
+<p>收藏marker的逻辑：<br>1.点击POI收藏时，收藏该地址，并在地图显示。<br>2.删除收藏地址时，单独删除某个marker。<br>3.回退时主fragment时，需要重新请求收藏列表，重新添加marker。</p>
+</blockquote>
+<h1 id="基础定位"><a href="#基础定位" class="headerlink" title="基础定位"></a>基础定位</h1><blockquote>
 <p>API<br>AMapLocationClientOption和AMapLocationClient</p>
 </blockquote>
           
@@ -432,74 +436,6 @@
 
 
   
-    <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/16/Retrofit/" class="article-date">
-      <time datetime="2017-02-16T10:13:44.000Z" itemprop="datePublished">2017-02-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/Retrofit/">Retrofit笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Retrofit2-0的理解"><a href="#Retrofit2-0的理解" class="headerlink" title="Retrofit2.0的理解"></a>Retrofit2.0的理解</h1><blockquote>
-<p>待添加的库<br>compile ‘com.squareup.retrofit2:retrofit:2.2.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’</p>
-</blockquote>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a><a class="article-category-link" href="/categories/常用工具类/网络层封装/">网络层封装</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit笔记/">Retrofit笔记</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/02/16/Retrofit/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Project-Network" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -550,6 +486,74 @@
       
         <p class="article-more-link">
           <a  href="/2017/02/16/Project-Network/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/16/Retrofit/" class="article-date">
+      <time datetime="2017-02-16T10:13:44.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/Retrofit/">Retrofit笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Retrofit2-0的理解"><a href="#Retrofit2-0的理解" class="headerlink" title="Retrofit2.0的理解"></a>Retrofit2.0的理解</h1><blockquote>
+<p>待添加的库<br>compile ‘com.squareup.retrofit2:retrofit:2.2.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/常用工具类/">常用工具类</a><a class="article-category-link" href="/categories/常用工具类/网络层封装/">网络层封装</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit笔记/">Retrofit笔记</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/02/16/Retrofit/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

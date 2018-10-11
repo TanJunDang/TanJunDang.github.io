@@ -3,10 +3,28 @@
 
 
     
+  <url>
+    <loc>TanJunDang.github.io/2017/01/01/Interview/</loc>
+    <lastmod>2018-10-11T03:22:35.994Z</lastmod>
+    <data>
+        <display>
+        <title>面试、笔试题目</title>
+        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
+        
+        <tag>面试、笔试题目</tag>
+         
+        <tag>内存泄漏</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>TanJunDang.github.io/2018/04/18/GaoDeMap/</loc>
-    <lastmod>2018-07-23T17:11:48.661Z</lastmod>
+    <lastmod>2018-10-11T03:17:00.663Z</lastmod>
     <data>
         <display>
         <title>高德地图开发总结</title>
@@ -20,6 +38,26 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    <lastmod>2018-10-08T10:17:42.217Z</lastmod>
+    <data>
+        <display>
+        <title>Android - 代码优化技巧</title>
+        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        
+        <tag>代码优化</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>TanJunDang.github.io/2016/07/08/Skills/</loc>
@@ -745,25 +783,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2018-04-09T16:54:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android - 代码优化技巧</title>
-        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
-        
-        <tag>代码优化</tag>
-         
-        <tag>设计模式</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2018/01/17/Bitmap/</loc>
     <lastmod>2018-04-02T09:33:44.000Z</lastmod>
     <data>
@@ -774,25 +793,6 @@
         <tag>图片处理</tag>
          
         <tag>Bitmap压缩</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2017/01/01/Interview/</loc>
-    <lastmod>2018-04-02T03:42:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>面试、笔试题目</title>
-        <pubTime>2017-01-01T10:13:44.000Z</pubTime>
-        
-        <tag>面试、笔试题目</tag>
-         
-        <tag>内存泄漏</tag>
          
          
            
