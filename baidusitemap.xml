@@ -4,6 +4,125 @@
 
     
   <url>
+    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
+    <lastmod>2018-10-16T15:54:59.359Z</lastmod>
+    <data>
+        <display>
+        <title>Android - 代码优化技巧</title>
+        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
+        
+        <tag>代码优化</tag>
+         
+        <tag>设计模式、工厂模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
+    <lastmod>2018-10-16T07:50:31.358Z</lastmod>
+    <data>
+        <display>
+        <title>代码分析 - ItemBean</title>
+        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
+        
+        <tag>代码分析 - ItemBean</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
+    <lastmod>2018-10-16T07:36:58.330Z</lastmod>
+    <data>
+        <display>
+        <title>自定义View笔记</title>
+        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
+        
+        <tag>自定义View笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="自定义View" url="TanJunDang.github.io/categories/%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
+    <lastmod>2018-10-13T03:25:40.523Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础之Activity</title>
+        <pubTime>2015-10-30T07:42:08.000Z</pubTime>
+        
+        <tag>Android基础之Activity</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android基础" url="TanJunDang.github.io/categories/Android%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2017/02/06/Project-Architecture/</loc>
+    <lastmod>2018-10-12T07:15:13.540Z</lastmod>
+    <data>
+        <display>
+        <title>Android项目架构模式</title>
+        <pubTime>2017-02-05T16:00:00.000Z</pubTime>
+        
+        <tag>Android项目架构模式</tag>
+         
+        <tag>MVC/MVP/MVVM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
+    <lastmod>2018-10-11T04:17:46.794Z</lastmod>
+    <data>
+        <display>
+        <title>JavaSE基础</title>
+        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
+        
+        <tag>JavaSE基础</tag>
+         
+        <tag>多线程</tag>
+         
+        <tag>Token</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java基础" url="TanJunDang.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>TanJunDang.github.io/2017/01/01/Interview/</loc>
     <lastmod>2018-10-11T03:22:35.994Z</lastmod>
     <data>
@@ -31,25 +150,6 @@
         <pubTime>2018-04-18T14:05:41.000Z</pubTime>
         
         <tag>高德地图</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/04/06/CodeOptimize/</loc>
-    <lastmod>2018-10-08T10:17:42.217Z</lastmod>
-    <data>
-        <display>
-        <title>Android - 代码优化技巧</title>
-        <pubTime>2016-04-06T10:13:44.000Z</pubTime>
-        
-        <tag>代码优化</tag>
-         
-        <tag>设计模式</tag>
          
          
            
@@ -205,30 +305,6 @@
            
              
               <breadCrumb title="自定义View" url="TanJunDang.github.io/categories/%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/11/18/JavaSE/</loc>
-    <lastmod>2018-06-19T16:53:55.931Z</lastmod>
-    <data>
-        <display>
-        <title>JavaSE基础</title>
-        <pubTime>2015-11-18T07:03:37.000Z</pubTime>
-        
-        <tag>JavaSE基础</tag>
-         
-        <tag>多线程</tag>
-         
-        <tag>Token</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java基础" url="TanJunDang.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
           
         </display>
     </data>
@@ -663,26 +739,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2016/08/18/CustomView/</loc>
-    <lastmod>2018-05-14T07:36:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义View笔记</title>
-        <pubTime>2016-08-18T07:01:20.000Z</pubTime>
-        
-        <tag>自定义View笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="自定义View" url="TanJunDang.github.io/categories/%E8%87%AA%E5%AE%9A%E4%B9%89View/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/05/05/Android-File/</loc>
     <lastmod>2018-05-14T07:36:38.000Z</lastmod>
     <data>
@@ -731,26 +787,6 @@
         <pubTime>2015-11-01T12:43:42.000Z</pubTime>
         
         <tag>Android基础之ContentProvider</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android基础" url="TanJunDang.github.io/categories/Android%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2015/10/30/Android-Activity/</loc>
-    <lastmod>2018-05-14T07:34:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础之Activity</title>
-        <pubTime>2015-10-30T07:42:08.000Z</pubTime>
-        
-        <tag>Android基础之Activity</tag>
          
          
            
@@ -1074,23 +1110,6 @@
 
     
   <url>
-    <loc>TanJunDang.github.io/2017/02/06/Project-Architecture/</loc>
-    <lastmod>2017-02-07T02:12:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android项目架构模式</title>
-        <pubTime>2017-02-05T16:00:00.000Z</pubTime>
-        
-        <tag>Android项目架构模式</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>TanJunDang.github.io/2016/07/05/Share/</loc>
     <lastmod>2017-02-05T10:04:50.000Z</lastmod>
     <data>
@@ -1241,25 +1260,6 @@
         <pubTime>2016-09-07T08:52:53.000Z</pubTime>
         
         <tag>Preference的使用</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>TanJunDang.github.io/2016/08/16/ItemBean/</loc>
-    <lastmod>2016-08-26T09:37:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>代码分析 - ItemBean</title>
-        <pubTime>2016-08-16T03:09:28.000Z</pubTime>
-        
-        <tag>代码分析 - ItemBean</tag>
-         
-        <tag>工厂模式</tag>
          
          
            
